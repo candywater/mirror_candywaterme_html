@@ -1,0 +1,144 @@
+<!--把下面的复制下来，粘贴到一个文件里。然后保存成9yin.html
+然后用随便一个浏览器打开-->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>水羽的计算器！//calculator!!</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="./lib/9yinCalc.js"></script>
+
+    <style media="screen">
+      form span{
+        display: inline-block;
+        width: auto;
+      }
+      button {
+        /*color: #00ff00;
+        background-color: #b0c4de;*/
+      }
+    </style>
+  </head>
+    <div class="container-fluid bg-info ">
+<h1>水羽的九阴技能伤害计算器</h1>
+    </div>
+  <body>
+    <br>
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+
+    <form class="col-md-5" action="index.html" method="" >
+      <span>技能<span class="bg-warning text-white">黄字</span>伤害</span>
+      <input type="text" id="a1_left" size="6" name="" value=""><!-- a1 is a1_left-->
+      ~
+      <input type="text" id="a1" size="7" name="" value="">
+      <br>
+      <span>技能<span class="bg-danger text-white">红字</span>伤害</span>
+      <input type="text" id="a2" name="" value=""><br>
+      技能<span class="bg-primary text-white">蓝色</span>伤害
+      <input type="text" id="a3" name="" value=""><br>
+      技能<span class="bg-success text-white">绿色</span>伤害
+      <input type="text" id="a4" name="" value=""><br>
+      内功属性加成
+      <input type="text" id="a5" name="" value="20">%<br>
+      装备技能加成
+      <input type="text" id="a6" name="" value="">%<br>
+      批注书加成
+      <input type="text" id="a7" name="" value="">%<br>
+      对方防御力
+      <input type="text" id="a8" name="" value=""><br>
+      你的防御忽视值
+      <input type="text" id="a9" name="" value="">
+    </form>
+    <form class="col-md-5" action="index.html" method="" >
+      <span>技能攻击次数</span>
+      <input type="text" id="b1" name="" value=""><br>
+      <span>宝物技能加成(每击)</span>
+      <input type="text" id="b2" name="" value=""><br>
+      宝物暴击伤害加成
+      <input type="text" id="b3" name="" value="">%<br>
+      经脉暴击伤害加成
+      <input type="text" id="b4" name="" value="">%<br>
+      内功暴击伤害加成
+      <input type="text" id="b5" name="" value="">%<br>
+      兵录加成
+      <input type="text" id="b6" name="" value=""><br>
+      娃娃伤害加成
+      <input type="text" id="b7" name="" value=""><br>
+      左边的是
+      <select id="b8" class="" name="">
+        <option value="0.0">内防</option>
+        <option value="1.0">外防</option>
+      </select>
+      <br>
+      你的宝物防御减免忽视%-对方宝物防御减免%
+      <input type="text" id="b9" name="" value="">%
+    </form>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 bg-success">
+        <ul></ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <form class="col-md-5" action="index.html" method="post" id="defence">
+        <button type="button" id="btn0" onclick="itest()" name="button">test</button>
+        <span>
+          &nbsp;&nbsp;
+          &dagger;
+          &nbsp;&nbsp;</span>
+        <button type="button" id="btn1" onclick="icontroller()" name="button">计算</button>
+        <span>
+          &nbsp;&nbsp;
+          &dagger;
+          &nbsp;&nbsp;</span>
+        <br>
+
+        技能不暴击总伤害
+        <input type="text" id="c1" name="" value=""><br>
+        技能暴击总伤害
+        <input type="text" id="c2" name="" value=""><br>
+
+        <button type="button"  name="button">对面现在减免伤害： <span id="btn_name">0</span>%</button>
+      </form>
+      <form class="col-md-5" action="index.html" method="post" id="form4">
+        <button type="button" id="btn2" onclick="ireset()" name="button">清除</button>
+        <span>
+          &nbsp;&nbsp;
+          &dagger;
+          &nbsp;&nbsp;</span>
+        <button type="button" id="btn3" name="button" onclick="button_color_reseter()" style="">click me</button>
+        <span>
+          &nbsp;&nbsp;
+          &dagger;
+          &nbsp;&nbsp;</span>
+        <button type="button" name="button" id="btn4">不给你点！</button>
+        <br>
+        技能不暴击每击伤害
+        <input type="text" id="d1" name="" value=""><br>
+        技能暴击每击伤害
+        <input type="text" id="d2" name="" value=""><br>
+      </form>
+
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 bg-info">
+        <ul></ul>
+      </div>
+    </div>
+
+    <br>
+  </body>
+</html>
