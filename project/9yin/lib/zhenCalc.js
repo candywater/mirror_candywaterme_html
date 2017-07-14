@@ -8,8 +8,6 @@ var zhen_list = [
   ["击杀后加爆免:","爆率:","爆伤"]
 ];
 
-
-
 var zhenFunc = [
   (l) => dilie_zhen(l),
   (l) => zhaixing_zhen(l),
