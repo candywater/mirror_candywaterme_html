@@ -6,13 +6,13 @@
     <meta charset="utf-8">
     <title>水羽的计算器！//calculator!!</title>
 
+    <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="./lib/9yinCalc.js"></script>
+    <script type="text/javascript" src="./lib/zhenCalc.js"></script>
 
     <style media="screen">
       form span{
@@ -23,6 +23,13 @@
         /*color: #00ff00;
         background-color: #b0c4de;*/
       }
+      #weaponDamage {
+        display: inline-block;
+        width: auto;
+      }
+      #zhenDamage {
+        background-color: #e0ebeb;
+      }
     </style>
   </head>
     <div class="container-fluid bg-info ">
@@ -31,10 +38,10 @@
   <body>
     <br>
     <div class="row">
-      <div class="col-md-1">
+      <div class="col-1">
       </div>
 
-    <form class="col-md-5" action="index.html" method="" >
+    <form class="col-5" action="index.html" method="" >
       <span>技能<span class="bg-warning text-white">黄字</span>伤害</span>
       <input type="text" id="a1_left" size="6" name="" value=""><!-- a1 is a1_left-->
       ~
@@ -57,7 +64,7 @@
       你的防御忽视值
       <input type="text" id="a9" name="" value="">
     </form>
-    <form class="col-md-5" action="index.html" method="" >
+    <form class="col-5" action="index.html" method="" >
       <span>技能攻击次数</span>
       <input type="text" id="b1" name="" value=""><br>
       <span>宝物技能加成(每击)</span>
@@ -84,7 +91,7 @@
     </div>
 
     <div class="row">
-      <div class="col-md-12 bg-success">
+      <div class="col-12 bg-success">
         <ul></ul>
       </div>
     </div>
@@ -131,6 +138,64 @@
         <input type="text" id="d2" name="" value=""><br>
       </form>
 
+    </div>
+
+    <div class="row">
+      <div class="col-md-12 bg-info">
+        <ul></ul>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-1">
+      </div>
+      <div class="col-md-5">
+        你的结拜阵法
+        <select id="jieBaiZhen" class="" name="">
+          <option value="0">地裂阵</option>
+          <option value="1">摘星阵</option>
+          <option value="2">三绝阵</option>
+          <option value="3">刀网阵</option>
+          <option value="4">搜杀阵</option>
+        </select>
+        <select id="jieBaiZhenLevel" name="">
+          <option value="0">1</option>
+          <option value="1">2</option>
+          <option value="2">3</option>
+          <option value="3">4</option>
+          <option value="4">5</option>
+          <option value="5">6</option>
+        </select>
+        层了
+        <br>
+        你的武器伤害
+        <input type="text" id="weaponDamage_left" size="6" name="" value="">
+        ~
+        <input type="text" id="weaponDamage_right" size="7" name="" value="">
+        <br>
+        <button type="button" name="button" onclick="calc_zhen()">点我进行计算</button>
+        <span>
+          &nbsp;&nbsp;
+          &dagger;
+          &nbsp;&nbsp;</span>
+        <button type="button" name="button" onclick="calc_zhen_test()">test</button>
+        <span>
+          &nbsp;&nbsp;
+          &dagger;
+          &nbsp;&nbsp;</span>
+        <button type="button" name="button" onclick="calc_zhen_reset()">clear</button>
+        <br>
+
+      </div>
+      <div class="col-md-5">
+        你的内功威力
+        <input type="text" id="magic_property" name="" value="">
+        <br>
+        你的近战威力
+        <input type="text" id="physics_property" name="" value="">
+        <br>
+        你的阵法:&nbsp;<span id=zhenDamage></span>
+      </div>
     </div>
 
     <div class="row">
