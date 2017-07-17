@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
@@ -15,21 +16,34 @@
         $("#jiuyin").click(function(){
           window.location = "./jiuyin.html";
         });
+        /*
+        //deleted the img
         $("#9yin").click(function(){
           window.location = "./jiuyin.html";
-        });
+        });*/
     })
     </script>
 
     <style media="screen">
-      div div img{
+      /*div div img{
         margin-left: 1rem;
         height: auto;
         width: auto;
-      }
+      }*/
       div div h1{
         margin-left: 1rem;
       }
+
+      .main_container{
+        background-color: rgba(245, 245, 245, 0.4);
+      }
+
+      body{
+        background-image: url("./assets/stills/vlc 2017-03-21 20-00-51-67.jpg");
+        background-repeat: repeat;
+        background-size: cover;
+      }
+
     </style>
 
   </head>
@@ -43,22 +57,24 @@
     </div>
 
     <br>
+    <br>
 
-    <div class="container-fluid">
-      <div class="row ">
-        <div class="col-auto">
-          <br><br>
+    <div class="container main_container">
+      <div class="row">
+        <div class="col-12">
+          <br>
           <ul>
             <li>
-              <button id="jiuyin">水羽的计算器！</button>
+              <button class="btn-lg btn-success" id="jiuyin">水羽的计算器！</button>
             </li>
           </ul>
+          <br>
         </div>
         <div class="col-9">
-          <img type="image" id="9yin"
+          <!--img type="image" id="9yin"
           class="img-fluid rounded"
           src=".\assets\stills\vlc 2017-03-21 20-00-51-67.jpg"
-          alt="循天和水羽">
+          alt="循天和水羽"-->
         </div>
       </div>
     </div>
