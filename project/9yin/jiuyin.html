@@ -31,6 +31,14 @@
             "class", "input-group col-5 col-sm-6 col-lg-5"
           );
         });
+        jQuery(".btn").each(function(){
+          jQuery(this).attr(
+            "class", "btn btn-secondary"
+          )
+        })
+        jQuery("#clickmeandlook").attr({
+          "class" : "btn btn-outline-primary"
+        })
       });
     </script>
 
@@ -393,7 +401,7 @@
             </div>
 
           </div>
-          <button class="btn btn-outline-primary" type="button" name="button" onclick="calc_zhen()">
+          <button id="clickmeandlook" class="btn-outline-primary" type="button" name="button" onclick="calc_zhen()">
             点我看阵法效果</button>
           <span>
             &nbsp;&nbsp;
