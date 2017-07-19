@@ -7,15 +7,8 @@ var damage = 0.0;
 var defence = 0.0;
 var times = 0.0;
 
-jq(function(){
-  jq("body").append(jq("<button>back to main page</button>").click(function(){
-    window.location = "./index.html"
-  }))
-  jq("body").append(jq("<br>"));
-  jq("body").append(jq("<p></p>").html("&copy;copyleft, by shuiyu,tang(唐水羽)"));
 
-});
-
+/*fun feature*/
 jq(function(){
   jq("#btn4").hover(
     function(){
@@ -46,6 +39,8 @@ function button_color_reseter(){
   console.log(bg_color);
   jq("#btn3").css("background-color" , bg_color);
 }
+
+/*---->fun feature*/
 
 function ireset(){
   a = [];
