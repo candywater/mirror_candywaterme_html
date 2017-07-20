@@ -6,7 +6,7 @@
     <title>maintaining</title>
 
 
-    <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./lib/bootstrap/bootstrap.css" describetion = "4.0.0-alpha.6">
@@ -18,43 +18,23 @@
       body{
         background: url("./assets/stills/main_page/iTunes_main_page.jpg") repeat;
         background-size: cover;
-        /*background: url("./assets/stills/main_page/iTunes 2017-07-15 05-39-41-71.jpg") repeat;*/
-        /*background: url("./assets/stills/main_page/iTunes 2017-07-15 05-40-03-46.jpg");*/
-        /*background: url("./assets/stills/main_page/iTunes 2017-07-15 05-39-50-95.jpg");*/
-        /*background: url("./assets/stills/main_page/iTunes 2017-07-15 05-40-13-78.jpg");*/
       }
       #main{
-        /*background-color: #ffffff;*/
         background-color: rgba(245, 245, 245, 0.4);
-        /*opacity: 0.5;
-        filter: alpha(opacity=50); /* For IE8 and earlier */
         margin-top: 10%;
-      }
-      button{
-        opacity: 1;
-        filter: alpha(opacity=100) ; /* For IE8 and earlier */
       }
 
       .card{
         background-color: rgba(245, 245, 245, 0.4);
         margin-left: 1em;
       }
-      .btn-group-vertical button{
-        margin: auto;
-        text-align: right;
+      .btn-group-block{
+        /*see bootstrap.css 4.0alpha .btn-block
+        */
+        display: block;
+        width: 100%;
       }
 
-
-      cw-button{
-        background-image: url("./assets/stills/main_page/btn_background-1.jpg");
-        opacity: 1;
-        filter: alpha(opacity=100); /* For IE8 and earlier */
-      }
-      cw-button:hover{
-        background-image: url("./assets/stills/main_page/btn_background-1.jpg");
-        opacity: 0.5;
-        filter: alpha(opacity=50); /* For IE8 and earlier */
-      }
       .real-rounded-circle{
         /*width: 10em;*/
         border-radius: 20em 20em 20em 20em;
@@ -70,60 +50,42 @@
       <div class="row">
         <div class="col-md-1 col-12">
         </div>
-        <div class="col-md-4 col-7">
+        <div class="col-md-7 col-7">
           <br>
-          <img src="./assets/stills/profile/03067632-s.jpg"
-              class=" real-rounded-circle figure-img img-thumbnail text-center " alt="profile photo" id="profile_photo">
-          <p class="text-center">Candy&nbsp;Water</p>
-
-        </div>
-        <div class="col-md-3 col-1">
-
-        </div>
-        <div class="col-md-1 col-3">
-          <br>
-          <br>
-          <div class="btn-group-vertical">
-            <button type="button" class="btn-lg btn-success" name="button" id="blog_btn"
-            onclick="jump_to_blog()">blog</button>
-            <br>
-            <button type="button" class="btn-lg btn-info" name="button" id="essay_btn"
-            onclick="jump_to_essay()">essay</button>
-            <br>
-            <button type="button" class="btn-lg btn-primary" name="button" id="about_btn"
-            onclick="jump_to_about()">about</button>
-            <br>
+          <div class="col-md-7 col-10">
+            <img src="./assets/stills/profile/03067632-s.jpg"
+                class=" real-rounded-circle figure-img img-thumbnail text-center " alt="profile photo" id="profile_photo">
+            <p class="text-center">Candy&nbsp;Water</p>
+          </div>
+          <p class="blockquote">this is a man who wants to be an artist, writer, full stack engineer...</p>
+          <div class="col-7 card card-outline-secondary " id="about_profile">
+            <span>hey, man</span>
+          </div>
+          <div class="col-7" id="below_about_profile">
+            <p></p>
           </div>
         </div>
-      </div>
-      <div class="row">
-        <div class="w-100"></div>
-        <div class="col-8">
-          <p class="blockquote">this is a man who wants to be an artist, writer, full stack engineer...</p>
-        </div>
 
-        <div class="w-100">
-        </div>
 
-        <div class="col-7 card card-outline-secondary " id="about_profile">
-          <p class="">hey, man</p>
+        <div class="col-lg-2 col-md-3 col-5">
+          <br>
+          <br>
+          <div class="btn-group-vertical btn-group-lg btn-group-block">
+            <button type="button" class="btn btn-success btn-block" name="button" id="blog_btn"
+            onclick="jump_to_blog()">blog</button>
+            <button type="button" class="btn btn-info" name="button" id="essay_btn"
+            onclick="jump_to_essay()">essay</button>
+            <button type="button" class="btn btn-primary" name="button" id="project_btn"
+            onclick="jump_to_project()">project</button>
+            <br>
+          </div>
+          <br>
+          <button type="button" class="btn btn-danger btn-block btn-lg" name="button" id="about_btn"
+          onclick="jump_to_about()">about</button>
         </div>
-        <div class="col-7" id="below_about_profile">
-          <p></p>
-        </div>
-      </div>
-
-      <div class="row">
-      </div>
-
-      <div class="row">
       </div>
 
     </div>
-
-
-
-
 
       <!--button type="button" onclick="window.location = './project/9yin/' " name="button">click me</button-->
   </body>
