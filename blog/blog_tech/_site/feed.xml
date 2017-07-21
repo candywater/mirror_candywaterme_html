@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2017-07-22T00:12:35+09:00</updated><id>http://localhost:4000/</id><title type="html">candy water’s tech blog</title><subtitle>this is candy water's technology blog
+</subtitle><entry><title type="html">关于JAVA同期的研究探讨(1)</title><link href="http://localhost:4000/2017/07/13/tech-java-sync.html" rel="alternate" type="text/html" title="关于JAVA同期的研究探讨(1)" /><published>2017-07-13T00:00:00+09:00</published><updated>2017-07-13T00:00:00+09:00</updated><id>http://localhost:4000/2017/07/13/tech-java-sync</id><content type="html" xml:base="http://localhost:4000/2017/07/13/tech-java-sync.html">&lt;p&gt;缘由是看知乎的一个&lt;a href=&quot;https://zhihu.com/question/29971746/answer/46320214&quot;&gt;答案&lt;/a&gt;,
+里面写到同期的部分愣是没看懂.
+由于我自己也没写过需要同期的东西.
+就参照几个东西边看边研究.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://www.techscore.com/tech/Java/JavaSE/Thread/index/&quot;&gt;techscore マルチスレッドプログラミング&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.ibm.com/developerworks/jp/java/library/j-jtp06197.html&quot;&gt;IBM doc Javaの理論と実践: volatile を扱う&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html&quot;&gt;oracle doc Synchronized Methods&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://d.hatena.ne.jp/Nagise/20111130/1322628285&quot;&gt;Threadの割り込みを活用する&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;关于sleep&quot;&gt;关于sleep()&lt;/h3&gt;
+
+&lt;p&gt;首先是关于sleep(),根本就没搞清楚他是什么意思.
+(完全没有搞懂它内部是如何实现的)
+自己动手丰衣足食,自己来尝试一下吧.&lt;/p&gt;
+
+&lt;p&gt;假设有A,B两个class.
+同时call(1 step的时间差忽略不计)
+因为sleep是static method.
+那么我想知道,&lt;/p&gt;
+
+&lt;p&gt;如果class A每2秒count一次,
+class B每3秒count一次.&lt;/p&gt;
+
+&lt;p&gt;那么是否会出现,&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;time(s)&lt;/th&gt;
+      &lt;th&gt;output A&lt;/th&gt;
+      &lt;th&gt;output B&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;1&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;6&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;7&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;的情况.( “-“ 代表不输出数值)&lt;/p&gt;
+
+&lt;h4 id=&quot;代码如下&quot;&gt;代码如下&lt;/h4&gt;
+
+&lt;p&gt;&lt;strong&gt;Main.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;public class Main{
+
+  public static void main(String args[]){
+  TestThread a = new TestThread(&quot;class a&quot;, 2000);
+  TestThread b = new TestThread(&quot;class b&quot;, 3000);
+
+  a.start();
+  b.start();
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;TestThread.java&lt;/strong&gt;&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;
+public class TestThread extends Thread {
+
+  private String name;
+  private long sleepTime;
+  private long time;
+
+  public TestThread (String name, long sleepTime){
+    this.name = name;
+    assert(sleepTime &amp;gt;= 0);
+    this.sleepTime = sleepTime;
+  }
+
+  public void run(){
+    this.time = System.currentTimeMillis();
+    for (int i = 0; i &amp;lt; 3; ++i){
+      try{
+        sleep(sleepTime);
+      }
+      catch (InterruptedException e){
+      }
+      System.out.println(name + &quot; : &quot; + i +
+        (System.currentTimeMillis() - time)/1000 + &quot;[s]&quot;);
+    }
+  }
+}
+
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h4 id=&quot;结果-测试环境wsl-win10-openjdk-8&quot;&gt;&lt;strong&gt;结果&lt;/strong&gt; (测试环境WSL, win10, openjdk-8)&lt;/h4&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%time java Main
+class a : 02[s]
+class b : 03[s]
+class a : 14[s]
+class b : 16[s]
+class a : 26[s]
+class b : 29[s]
+java Main 0.11s user 0.22s system 3% cpu 9.315 total
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;可以说是出现了匪夷所思的结果.
+因为只运行了9秒,但是currentTimeMillis()却显示运行了近30秒.&lt;/p&gt;
+
+&lt;p&gt;虽然显示的数值并不符合预期,
+但事实上在class A的第三次,class B的第二次输出,几乎是同步进行的.
+(对for文的数值更改为6,并进行的多次测试,获得同样结果)
+&lt;strong&gt;符合我的猜测&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;解决了sleep()的疑问,但是带来了&lt;strong&gt;新的问题&lt;/strong&gt;.
+这里的currentTimeMillis()到底是怎样的机制?
+如何才能正确的测量时间?&lt;/p&gt;
+
+&lt;p&gt;下个探索的阅读材料集锦&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://d.hatena.ne.jp/sardine/20091226/p1&quot;&gt;Java: currentTimeMillis() と nanoTime() は混ぜると危険&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;http://d.hatena.ne.jp/higher_tomorrow/20100407/1270639866&quot;&gt;Javaアプリケーションのログの時刻がずれている&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="JAVA," /><category term="sync" /><summary type="html">缘由是看知乎的一个答案, 里面写到同期的部分愣是没看懂. 由于我自己也没写过需要同期的东西. 就参照几个东西边看边研究. techscore マルチスレッドプログラミング IBM doc Javaの理論と実践: volatile を扱う oracle doc Synchronized Methods Threadの割り込みを活用する 关于sleep() 首先是关于sleep(),根本就没搞清楚他是什么意思. (完全没有搞懂它内部是如何实现的) 自己动手丰衣足食,自己来尝试一下吧. 假设有A,B两个class. 同时call(1 step的时间差忽略不计) 因为sleep是static method. 那么我想知道, 如果class A每2秒count一次, class B每3秒count一次. 那么是否会出现, time(s) output A output B 0 - - 1 - - 2 1 - 3 - 1 4 2 - 5 - - 6 3 3 7 - - 的情况.( “-“ 代表不输出数值) 代码如下 Main.java public class Main{ public static void main(String args[]){ TestThread a = new TestThread(&quot;class a&quot;, 2000); TestThread b = new TestThread(&quot;class b&quot;, 3000); a.start(); b.start(); } } TestThread.java public class TestThread extends Thread { private String name; private long sleepTime; private long time; public TestThread (String name, long sleepTime){ this.name = name; assert(sleepTime &amp;gt;= 0); this.sleepTime = sleepTime; } public void run(){ this.time = System.currentTimeMillis(); for (int i = 0; i &amp;lt; 3; ++i){ try{ sleep(sleepTime); } catch (InterruptedException e){ } System.out.println(name + &quot; : &quot; + i + (System.currentTimeMillis() - time)/1000 + &quot;[s]&quot;); } } } 结果 (测试环境WSL, win10, openjdk-8) %time java Main class a : 02[s] class b : 03[s] class a : 14[s] class b : 16[s] class a : 26[s] class b : 29[s] java Main 0.11s user 0.22s system 3% cpu 9.315 total 可以说是出现了匪夷所思的结果. 因为只运行了9秒,但是currentTimeMillis()却显示运行了近30秒. 虽然显示的数值并不符合预期, 但事实上在class A的第三次,class B的第二次输出,几乎是同步进行的. (对for文的数值更改为6,并进行的多次测试,获得同样结果) 符合我的猜测. 解决了sleep()的疑问,但是带来了新的问题. 这里的currentTimeMillis()到底是怎样的机制? 如何才能正确的测量时间? 下个探索的阅读材料集锦 Java: currentTimeMillis() と nanoTime() は混ぜると危険 Javaアプリケーションのログの時刻がずれている</summary></entry></feed>
