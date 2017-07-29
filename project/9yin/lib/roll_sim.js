@@ -18,10 +18,14 @@ function reset_sim(){
   jQuery("#input_names").val("");
 }
 
+function change(num){
+  return num < 10 ? "0" + num : "" + num;
+}
+
 function roll_sim(i){
   input_scores = [];
   for(let a = 0; a < i; ++a)
-    input_scores.push( (Math.random()*1000).toFixed()%100 );
+    input_scores.push( change( (Math.random()*1000).toFixed()%100 ) );
 
   input_map = new Map();
   for(let a = 0; a < i; ++a)
@@ -46,7 +50,7 @@ function output_sim(){
     front_score = array_same_score[0];
     array_same_score.forEach(function(ia){
       let index_of_names = ia;
-      str +=  (++count) + "[" + input_scores[i] + "]:" + input_names[index_of_names] + "\n";
+      str +=  (++count) + "[" + (parseInt(input_scores[i], 10) + 1) + "]:" + input_names[index_of_names] + "\n";
     })
   }
   jQuery("#output_names").val(str);
