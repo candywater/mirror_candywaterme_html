@@ -9,14 +9,14 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="./lib/bootstrap/bootstrap.css" describetion = "4.0.0-alpha.6">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 
-    <script type="text/javascript" src="./lib/index_js.js"></script>
-    <script type="text/javascript" src="./lib/copyleft.js"></script>
+    <script type="text/javascript" src="../lib/about_js.js"></script>
+    <script type="text/javascript" src="../lib/copyleft.js"></script>
 
     <style media="screen">
       body{
-        background: url("./assets/stills/main_page/iTunes_main_page.jpg") repeat;
+        background: url("../assets/stills/main_page/iTunes_about_page.jpg") repeat;
         background-size: cover;
       }
       #main{
@@ -29,8 +29,6 @@
         margin-left: 1em;
       }
       .btn-group-block{
-        /*see bootstrap.css 4.0alpha .btn-block
-        */
         display: block;
         width: 100%;
       }
@@ -52,21 +50,38 @@
         </div>
         <div class="col-md-7 col-7">
           <br>
-          <div class="col-md-7 col-10">
-            <img src="./assets/stills/profile/03067632-s.jpg"
+          <div class="col-md-7 col-lg-3 col-10">
+            <img src="../assets/stills/profile/03067632-s.jpg"
                 class=" real-rounded-circle figure-img img-thumbnail text-center " alt="profile photo" id="profile_photo">
             <p class="text-center">Candy&nbsp;Water</p>
           </div>
-          <p class="blockquote">this is a man who wants to be an artist, writer, full stack engineer...</p>
 
-          <div class="col-7 card card-outline-secondary " id="about_profile">
-            <span id="slide_down_words">happy a new day!</span>
+          <div class="col-12 card card-outline-secondary " id="about_profile">
+            <span id="slide_down_words">Hi!!! &nbsp; This is candy water!</span>
+
+            <div class="">
+              connect me at here
+              <a href="https://github.com/candywater"><img src="..\assets\logos\Octocats\Octocat\Octocat.png" width="34em" alt="">@candywater</a>
+              or
+              <a href="https://github.com/candywater1"><img src="..\assets\logos\Twitter_Logo_Blue\Twitter_Logo_Blue\Twitter_Logo_Blue.png" width="34em" alt="">@candywater1</a>
+            </div>
+
+
+            <!--a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about/" property="cc:attributionName" rel="cc:attributionURL">http://candy-water.com/about/</a> を著作者とするこの 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズの 表示 - 継承 4.0 国際 ライセンス</a>で提供されています。-->
+            <div class="inline">
+              <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">
+                <img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" />
+              </a>Most works of this site by <a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about" property="cc:attributionName" rel="cc:attributionURL">candy water</a>
+               is licensed under this <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>.
+           </div>
+
           </div>
           <div class="col-7" id="below_about_profile">
             <p></p>
           </div>
 
         </div>
+
 
 
         <div class="col-lg-2 col-md-3 col-5">
@@ -87,10 +102,10 @@
           <button type="button" class="btn btn-warning btn-block btn-lg" name="button" id="about_btn"
           onclick="jump_to_main()">main page</button>
           <br>
-        </div>
       </div>
-
     </div>
+
+  </div>
 
       <!--button type="button" onclick="window.location = './project/9yin/' " name="button">click me</button-->
   </body>
