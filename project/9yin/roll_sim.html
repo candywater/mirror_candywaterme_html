@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>水羽的roll点模拟器</title>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+    <script type="text/javascript" src="lib/roll_sim.js"></script>
+    <script type="text/javascript" src="./lib/menu.js"></script>
+    <script type="text/javascript" src="./lib/copyleft.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-12  bg-info">
+          <h1>水羽的roll点模拟器</h1>
+        </div>
+        <div class="col-12">
+          <p></p>
+        </div>
+        <div class="container">
+          <div class="row">
+
+            <div class="col-4 card">
+              <div class="card-block">
+                <div class="card-title">
+                  input
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                <button type="button" class="btn btn-outline-primary" name="button" onclick="calc()">calculate</button>
+                </div>
+                <textarea name="name" rows="8" id="input_names" cols=""></textarea>
+              </div>
+              <div class="card-block">
+                <div class="card-title">
+                  input example
+                </div>
+                <pre>张三,李四,王二麻子</pre>
+              </div>
+
+            </div>
+            <div class="col-1">
+
+            </div>
+            <div class="col-5 card">
+              <div class="card-block">
+                <div class="card-title">
+                  output
+                  &nbsp;
+                  &nbsp;
+                  &nbsp;
+                <button type="button" class="btn btn-outline-primary" name="button" onclick="reset_sim()">clear</button>
+                </div>
+
+                <textarea name="name" id="output_names" rows="8" cols=""></textarea>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="col-12 bg-success">
+          <p></p>
+        </div>
+
+
+        <div class="col-12 bg-success">
+          <p></p>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
