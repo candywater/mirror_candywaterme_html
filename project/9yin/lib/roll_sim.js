@@ -7,7 +7,7 @@ jQuery(function(){
 
 function calc(){
   input_names = jQuery("#input_names").val();
-  input_names = input_names.split(",");
+  input_names = input_names.split(/[,，\s]/);
   input_names.forEach(function(item, i){
     input_names[i] = item.replace(/\s/g, "");
   })
