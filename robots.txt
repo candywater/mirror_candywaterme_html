@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /assets/
 Disallow: /lib/
 Disallow: /about/
+Disallow: /project/9yin/
+Allow: /blog/
