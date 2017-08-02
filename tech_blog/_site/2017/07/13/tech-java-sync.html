@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>关于JAVA同期的初步学习(1)</title>
+  <meta name="description" content="缘由是看知乎的一个答案, 里面写到同期的部分愣是没看懂. 由于我自己也没写过需要同期的东西. 就参照几个东西边看边研究. techscore マルチスレッドプログラミング IBM doc Javaの理論と実践: volatile を扱う oracle doc Synchronized Methods Thread...">
+
+  <link rel="stylesheet" href="/tech_blog/_site/assets/main.css">
+  <link rel="canonical" href="http://localhost:4000/tech_blog/_site/tech/2017/07/13/tech-java-sync.html">
+  <link rel="alternate" type="application/rss+xml" title="candy water&#39;s tech blog" href="/tech_blog/_site/feed.xml">
+  
+  
+</head>
+
+
+  <body>
+
+    <header class="site-header" role="banner">
+
+  <div class="wrapper">
+    
+    
+    <a class="site-title" href="/tech_blog/_site/">candy water&#39;s tech blog</a>
+  
+    
+      <nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path fill="#424242" d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.031C17.335,0,18,0.665,18,1.484L18,1.484z"/>
+              <path fill="#424242" d="M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0c0-0.82,0.665-1.484,1.484-1.484 h15.031C17.335,6.031,18,6.696,18,7.516L18,7.516z"/>
+              <path fill="#424242" d="M18,13.516C18,14.335,17.335,15,16.516,15H1.484C0.665,15,0,14.335,0,13.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.031C17.335,12.031,18,12.696,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger">
+          
+            
+            
+          
+            
+            
+            <a class="page-link" href="/tech_blog/_site/about/">About</a>
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+            
+            
+          
+        </div>
+      </nav>
+    
+  </div>
+</header>
+
+
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">关于JAVA同期的初步学习(1)</h1>
+    <p class="post-meta">
+      <time datetime="2017-07-13T00:00:00+09:00" itemprop="datePublished">
+        
+        Jul 13, 2017
+      </time>
+      </p>
+  <hr>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    <p>缘由是看知乎的一个<a href="https://zhihu.com/question/29971746/answer/46320214">答案</a>,
+里面写到同期的部分愣是没看懂.
+由于我自己也没写过需要同期的东西.
+就参照几个东西边看边研究.</p>
+
+<p><a href="http://www.techscore.com/tech/Java/JavaSE/Thread/index/">techscore マルチスレッドプログラミング</a></p>
+
+<p><a href="https://www.ibm.com/developerworks/jp/java/library/j-jtp06197.html">IBM doc Javaの理論と実践: volatile を扱う</a></p>
+
+<p><a href="https://docs.oracle.com/javase/tutorial/essential/concurrency/syncmeth.html">oracle doc Synchronized Methods</a></p>
+
+<p><a href="http://d.hatena.ne.jp/Nagise/20111130/1322628285">Threadの割り込みを活用する</a></p>
+
+<h3 id="关于sleep">关于sleep()</h3>
+
+<p>首先是关于sleep(),根本就没搞清楚他是什么意思.
+(完全没有搞懂它内部是如何实现的)
+自己动手丰衣足食,自己来尝试一下吧.</p>
+
+<p>假设有A,B两个class.
+同时call(1 step的时间差忽略不计)
+因为sleep是static method.
+那么我想知道,</p>
+
+<p>如果class A每2秒count一次,
+class B每3秒count一次.</p>
+
+<p>那么是否会出现,</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>time(s)</th>
+      <th>output A</th>
+      <th>output B</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>-</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>2</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>3</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>-</td>
+      <td>-</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>的情况.( “-“ 代表不输出数值)</p>
+
+<h4 id="代码如下">代码如下</h4>
+
+<p><strong>Main.java</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>public class Main{
+
+  public static void main(String args[]){
+  TestThread a = new TestThread("class a", 2000);
+  TestThread b = new TestThread("class b", 3000);
+
+  a.start();
+  b.start();
+  }
+}
+</code></pre>
+</div>
+
+<p><strong>TestThread.java</strong></p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+public class TestThread extends Thread {
+
+  private String name;
+  private long sleepTime;
+  private long time;
+
+  public TestThread (String name, long sleepTime){
+    this.name = name;
+    assert(sleepTime &gt;= 0);
+    this.sleepTime = sleepTime;
+  }
+
+  public void run(){
+    this.time = System.currentTimeMillis();
+    for (int i = 0; i &lt; 3; ++i){
+      try{
+        sleep(sleepTime);
+      }
+      catch (InterruptedException e){
+      }
+      System.out.println(name + " : " + i +
+        (System.currentTimeMillis() - time)/1000 + "[s]");
+    }
+  }
+}
+
+
+</code></pre>
+</div>
+
+<h4 id="结果-测试环境wsl-win10-openjdk-8"><strong>结果</strong> (测试环境WSL, win10, openjdk-8)</h4>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>%time java Main
+class a : 02[s]
+class b : 03[s]
+class a : 14[s]
+class b : 16[s]
+class a : 26[s]
+class b : 29[s]
+java Main 0.11s user 0.22s system 3% cpu 9.315 total
+</code></pre>
+</div>
+
+<p>可以说是出现了匪夷所思的结果.
+因为只运行了9秒,但是currentTimeMillis()却显示运行了近30秒.</p>
+
+<p>虽然显示的数值并不符合预期,
+但事实上在class A的第三次,class B的第二次输出,几乎是同步进行的.
+(对for文的数值更改为6,并进行的多次测试,获得同样结果)
+<strong>符合我的猜测</strong>.</p>
+
+<p>解决了sleep()的疑问,但是带来了<strong>新的问题</strong>.
+这里的currentTimeMillis()到底是怎样的机制?
+如何才能正确的测量时间?</p>
+
+<p>下个探索的阅读材料集锦</p>
+
+<ul>
+  <li>
+    <p><a href="http://d.hatena.ne.jp/sardine/20091226/p1">Java: currentTimeMillis() と nanoTime() は混ぜると危険</a></p>
+  </li>
+  <li>
+    <p><a href="http://d.hatena.ne.jp/higher_tomorrow/20100407/1270639866">Javaアプリケーションのログの時刻がずれている</a></p>
+  </li>
+</ul>
+
+  </div>
+
+  
+</article>
+
+      </div>
+    </main>
+
+    <footer class="site-footer">
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">candy water&#39;s tech blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li>
+            
+              candy water&#39;s tech blog
+            
+            </li>
+            
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-2">
+        <ul class="social-media-list">
+          
+          <li>
+            <a href="https://github.com/candywater"><span class="icon icon--github"><svg viewBox="0 0 16 16" width="16px" height="16px"><path fill="#828282" d="M7.999,0.431c-4.285,0-7.76,3.474-7.76,7.761 c0,3.428,2.223,6.337,5.307,7.363c0.388,0.071,0.53-0.168,0.53-0.374c0-0.184-0.007-0.672-0.01-1.32 c-2.159,0.469-2.614-1.04-2.614-1.04c-0.353-0.896-0.862-1.135-0.862-1.135c-0.705-0.481,0.053-0.472,0.053-0.472 c0.779,0.055,1.189,0.8,1.189,0.8c0.692,1.186,1.816,0.843,2.258,0.645c0.071-0.502,0.271-0.843,0.493-1.037 C4.86,11.425,3.049,10.76,3.049,7.786c0-0.847,0.302-1.54,0.799-2.082C3.768,5.507,3.501,4.718,3.924,3.65 c0,0,0.652-0.209,2.134,0.796C6.677,4.273,7.34,4.187,8,4.184c0.659,0.003,1.323,0.089,1.943,0.261 c1.482-1.004,2.132-0.796,2.132-0.796c0.423,1.068,0.157,1.857,0.077,2.054c0.497,0.542,0.798,1.235,0.798,2.082 c0,2.981-1.814,3.637-3.543,3.829c0.279,0.24,0.527,0.713,0.527,1.437c0,1.037-0.01,1.874-0.01,2.129 c0,0.208,0.14,0.449,0.534,0.373c3.081-1.028,5.302-3.935,5.302-7.362C15.76,3.906,12.285,0.431,7.999,0.431z"/></svg>
+</span><span class="username">candywater</span></a>
+
+          </li>
+          
+
+          
+
+          <li>
+            ◆
+            <a href="www.candy-water.com">
+            candy-water's site
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer-col footer-col-3">
+        <p>this is candy water&#39;s technology blog
+</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+
+
+  </body>
+
+</html>
