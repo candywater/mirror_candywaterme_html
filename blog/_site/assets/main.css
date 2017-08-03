@@ -469,6 +469,27 @@ pre {
   .highlight .il {
     color: #099; }
 
+pre {
+  display: block;
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 90%;
+  color: #292b2c; }
+
+pre code {
+  padding: 0;
+  font-size: inherit;
+  color: inherit;
+  /*background-color: transparent;*/
+  /*---->*/
+  background-color: transparent;
+  display: block;
+  font-family: Consolas;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  /*<----*/
+  border-radius: 0; }
+
 .btn {
   display: inline-block;
   font-weight: normal;
