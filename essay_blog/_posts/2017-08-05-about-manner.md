@@ -7,7 +7,7 @@ category: essay
 
 这几天在twitter上偶然看到一个小视频。
 
-在平稳行驶的电车上。
+在平稳行驶的地铁电车上。
 一个妹子拧开一个300ml大小的塑料瓶盖，然后仰头喝水。
 看起来似乎是在站台的自动贩卖机随手买的一个瓶装水。
 这时候一个坐着的妹子紧紧地盯着喝水妹水中的瓶子。
@@ -32,9 +32,9 @@ category: essay
 作为一名积极向上的coder，我决定用状态图(State Transition Diagram)来制作一个简易的 **伪** 非确定有限状态自动机(Nondeterministic finite automaton)来对这一现象进行说明。
 
 ♩[[原工具]](http://automatonsimulator.com/)
-♩[[我改装之后的工具]](https://github.com/candywater/automatonSimulator)
-  - 对条件Σ的单个元素的修正 -> 可以放入超过1个字母
-  - 对状态Q的命名修正 -> 可以任意命名单个状态q
+♩[[我改装之后的工具]](https://candywater.github.io/automatonSimulator/)
+  - 改装1: 对条件Σ的单个元素的修正 -> 可以放入超过1个字母
+  - 改装2: 对状态Q的命名修正 -> 可以任意命名单个状态q
 
 你认为？
 
