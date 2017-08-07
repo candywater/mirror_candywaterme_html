@@ -36,6 +36,9 @@
             "class", "btn btn-secondary"
           )
         })
+        jQuery("#btn1").attr({
+          "class" : "btn btn-outline-primary"
+        })
         jQuery("#clickmeandlook").attr({
           "class" : "btn btn-outline-primary"
         })
@@ -279,7 +282,8 @@
             &nbsp;&nbsp;
             &dagger;
             &nbsp;&nbsp;</span>
-          <button type="button" class="btn" id="btn1" onclick="icontroller()" name="button">计算</button>
+          <button type="button" class="btn-outline-primary btn" id="btn1"
+          onclick="icontroller()" name="button">计算</button>
           <span>
             &nbsp;&nbsp;
             &dagger;
@@ -405,7 +409,8 @@
             &nbsp;&nbsp;
             &dagger;
             &nbsp;&nbsp;</span>
-          <button id="clickmeandlook" class="btn-outline-primary" type="button" name="button" onclick="calc_zhen()">
+          <button id="clickmeandlook" class="btn-outline-primary"
+          type="button" name="button" onclick="calc_zhen()">
             点我看阵法效果</button>
 
         </div>
