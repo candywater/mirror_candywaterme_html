@@ -2,9 +2,131 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>通知</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>welcome to candywater's new world!</title>
+
+    <!--for quick load-->
+    <script type="text/javascript" src="/lib/main_page_menu.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+
+    <!--script src="lib/jquery/jquery-3.2.1.min.js" ></script>
+    <script src="./lib/bootstrap/tether.min-1.4.0.js"></script>
+    <script src="./lib/bootstrap/bootstrap.min-v4.0.0-alpha.6.js" ></script>
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.css" describetion = "4.0.0-alpha.6"-->
+
+    <script type="text/javascript" src="/lib/about_js.js"></script>
+    <script type="text/javascript" src="/lib/copyleft.js"></script>
+
+    <link rel="stylesheet" href="/lib/main_page_common.css">
+
+    <style media="screen">
+      body{
+        background: url("/assets/stills/main_page/iTunes_about_page.jpg") repeat;
+        background-size: auto;
+      }
+
+      #meow{
+        height: 50%;
+      }
+    </style>
+
   </head>
+
   <body>
-    哥们这边的组件我还没搭完您稍安勿躁诶!
+    <br>
+    <div class="container" id="main">
+      <div class="row">
+        <div class="col-md-1 col-12">
+        </div>
+        <div class="col-md-7 col-7">
+          <br>
+          <div class="row">
+            <div class="col-md-7 col-lg-3 col-6">
+              <img src="/assets/stills/profile/03067632-s.jpg"
+                  class=" real-rounded-circle figure-img img-thumbnail text-center " alt="profile photo" id="profile_photo">
+              <p class="text-center">Candy&nbsp;Water</p>
+            </div>
+            <div class="card card-outline-secondary col-md-4 col-lg-2 col-5" id="meow">
+              <h5 class="card-title">
+                Meow!!!
+              </h5>
+            </div>
+
+          </div>
+          <br>
+          <div class="col-12 card card-outline-secondary " id="about_profile">
+            <h5 id="card-title"> Here are my works!</h5>
+
+            <ul class="list-group">
+              <!--a href="http://candywater.xyz" class="list-group-item list-group-item-action">secret work</a-->
+              <a href="" class="list-group-item list-group-item-action">Blank</a>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+              <li class="list-group-item"></li>
+            </ul>
+            <br>
+
+            <!--a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br /><a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about/" property="cc:attributionName" rel="cc:attributionURL">http://candy-water.com/about/</a> を著作者とするこの 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">クリエイティブ・コモンズの 表示 - 継承 4.0 国際 ライセンス</a>で提供されています。-->
+            <!--a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-nd/4.0/88x31.png" /></a><br />この 作品 は <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">クリエイティブ・コモンズ 表示 - 非営利 - 改変禁止 4.0 国際 ライセンス</a>の下に提供されています。-->
+            <!--
+          </div>
+          <div class="col-12" id="below_about_profile">
+            <p></p>
+            <br>
+            <div class="inline" id="credit">
+
+            <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/88x31.png" /></a>
+            for technique,
+            <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" /></a>
+            for arts. Click <a href="#">Here</a> For More.
+            </div>
+           <br>
+          </div>
+
+          <div class="inline" id="credit_info">
+          Most techinical works, like techinical articles, in this site by <a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about" property="cc:attributionName" rel="cc:attributionURL">candy water</a>
+           is under this <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>.
+           <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a>
+
+           <br>
+           and most artwork, like essays and some visual works, in this site by <a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about" property="cc:attributionName" rel="cc:attributionURL">candy water</a>
+            is under this <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">License</a>.
+              <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/80x15.png" /></a>
+      -->
+           </div>
+           <br>
+        </div>
+
+
+
+        <div class="col-lg-2 col-md-3 col-5">
+          <br>
+          <br>
+          <div class="btn-group-vertical btn-group-lg btn-group-block">
+            <button type="button" class="btn btn-success btn-block" name="button" id="blog_btn"
+            onclick="jump_to_blog()">Blog</button>
+            <button type="button" class="btn btn-info" name="button" id="essay_btn"
+            onclick="jump_to_essay()">Essay</button>
+            <button type="button" class="btn btn-primary" name="button" id="project_btn"
+            onclick="jump_to_project()">Project</button>
+            <br>
+          </div>
+          <br>
+          <button type="button" class="btn btn-danger btn-block btn-lg" name="button" id="about_btn"
+          onclick="jump_to_about()">About</button>
+          <button type="button" class="btn btn-warning btn-block btn-lg" name="button" id="about_btn"
+          onclick="jump_to_main()">Main</button>
+          <br>
+      </div>
+    </div>
+
+  </div>
+
+      <!--button type="button" onclick="window.location = './project/9yin/' " name="button">click me</button-->
   </body>
 </html>
