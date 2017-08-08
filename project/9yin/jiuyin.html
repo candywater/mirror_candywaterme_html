@@ -39,9 +39,7 @@
         jQuery("#btn1").attr({
           "class" : "btn btn-outline-primary"
         })
-        jQuery("#clickmeandlook").attr({
-          "class" : "btn btn-outline-primary"
-        })
+
       });
     </script>
 
@@ -355,101 +353,8 @@
       </div>
     </div>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-md-6 col-lg-5">
-          <div class="form-inline">
-              <label for="">
-            你的结拜阵法
-              </label>
-              <div class="input-group">
-                <select id="jieBaiZhen" class="selectpicker" name="">
-                  <option value="0">地裂阵</option>
-                  <option value="1">摘星阵</option>
-                  <option value="2">三绝阵</option>
-                  <option value="3">刀网阵</option>
-                  <option value="4">搜杀阵</option>
-                </select>
-                <select id="jieBaiZhenLevel" name="">
-                  <option value="0">1</option>
-                  <option value="1">2</option>
-                  <option value="2">3</option>
-                  <option value="3">4</option>
-                  <option value="4">5</option>
-                  <option value="5">6</option>
-                </select>
-
-                <div class="input-group-addon">
-                层了
-                </div>
-            </div>
-          </div>
-
-          <div class="form-inline">
-            <label for="">
-          你的武器伤害
-            </label>
-            <div class="input-group">
-          <input class="form-control" type="text" id="weaponDamage_left"  name="" value="">
-          <div class="input-group-addon">
-            ~
-          </div>
-          <input class="form-control" type="text" id="weaponDamage_right" name="" value="">
-
-            </div>
-          </div>
-
-          <button  class="btn" type="button" name="button" onclick="calc_zhen_test()">test</button>
-          <span>
-            &nbsp;&nbsp;
-            &dagger;
-            &nbsp;&nbsp;</span>
-          <button  class="btn" type="button" name="button" onclick="calc_zhen_reset()">clear</button>
-          <span>
-            &nbsp;&nbsp;
-            &dagger;
-            &nbsp;&nbsp;</span>
-          <button id="clickmeandlook" class="btn-outline-primary"
-          type="button" name="button" onclick="calc_zhen()">
-            点我看阵法效果</button>
-
-        </div>
-
-        <div class="col-12 col-md-6 col-lg-5">
-          <div class="form-inline">
-            <label for="">
-          你的内功威力
-            </label>
-            <div class="input-group">
-          <input class="form-control" type="text" id="magic_property" name="" value="">
-            </div>
-          </div>
-
-          <div class="form-inline">
-            <label for="">
-          你的近战威力
-            </label>
-            <div class="input-group">
-          <input class="form-control" type="text" id="physics_property" name="" value="">
-            </div>
-          </div>
-
-          <div class="form-inline">
-          你的阵法:&nbsp;<span id=zhenDamage></span>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-12 bg-info">
-          <ul></ul>
-        </div>
-      </div>
 
 
-    </div>
     <br>
   </body>
 </html>
