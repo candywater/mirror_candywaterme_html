@@ -1,9 +1,8 @@
 ---
 layout: post
-title: 关于JAVA同期的初步学习(1)
+title: 关于JAVA同期的初步学习笔记(1)
 date: 2017-07-13 +0900
 tags: JAVA, sync
-categorizes: java, sync
 category: tech
 
 ---
