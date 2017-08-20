@@ -4,16 +4,19 @@
     {% assign default_paths = site.pages | map: "path" %}
     {% assign page_paths = site.header_pages | default: default_paths %}
     <a class="site-title" href="{{ "/"  }}">Candy Water</a>
+
+<!--
+  {% comment %}
     {% if current_page?('/blog/_site/tech_blog') %}
       <a class="site-title" href="{{ "/tech_blog/" | relative_url }}">"candywater's tech blog"</a>
     {% endif %}
     {% if current_page?('/blog/_site/essay_blog') %}
       <a class="site-title" href="{{ "/essay_blog" | relative_url }}">"candywater's essay"</a>
     {% endif %}
-<!--
     {% unless current_page?('/tech_blog' | absolute_url) %}
       <a class="site-title" href="{{ "/" | relative_url }}">12test12</a>
     {% endunless %}
+  {% endcomment %}
 -->
 
     {% if page_paths %}
