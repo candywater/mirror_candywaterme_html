@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>关于ACCESS的null的一个小问题</title>
-  <meta name="description" content="近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要）， 坐着一个又一个小query还挺来瘾的——虽然...">
+  <meta name="description" content="近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要）， 做着一个又一个小query还挺来瘾的——虽然...">
 
   <link rel="stylesheet" href="/blog/_site/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html">
@@ -101,7 +101,7 @@
 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。
 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要），
-坐着一个又一个小query还挺来瘾的——虽然这么说吧，我更喜欢编程。</p>
+做着一个又一个小query还挺来瘾的——虽然这么说吧，我更喜欢编程。</p>
 
 <p>在传统的这种SQL式的database之中，关于null的设定就如同schema的设定一样，
 在不同的软件中有着不同的设定。譬如在这篇日文<a href="https://www.ashisuto.co.jp/corporate/column/technical-column/detail/1197236_2274.html">博文</a>中有总结，oracle的话会把NULL和长度为0的文字（也就是空文字）作为同等的东西去处理。
@@ -155,6 +155,33 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
 解决！</p>
 
 <p>厉害了我的大叔。我的天。</p>
+
+<h3 id="事后反思">事后反思：</h3>
+<p>当然仔细的想一想。is not null可以抽出空文字，不可以抽出null。
+&lt;&gt;”” （大概）可以抽出null，不可以抽出空文字。</p>
+
+<p>那么也就是说，我们假设2个数据库表格中，分别存在null和空文字。
+那么</p>
+
+<ul>
+  <li>
+    <p>抽出null的时候。
+是用&lt;&gt;”“抽出来的，然后和不可以抽出null的is not null的AND条件发生激烈碰撞。
+结果就是不符合条件抽不出来。</p>
+  </li>
+  <li>
+    <p>抽出空文字的时候，同样是两个条件互相搏击大家，结果就是导致无法抽出条件——弄巧成拙。</p>
+  </li>
+</ul>
+
+<p>大叔讲的话很简单。</p>
+<blockquote>
+  <p>涉及到null就很烦啊，我也不知道具体是啥意思，
+我就记得sql server的时候null的处理就很花心思。你用if文大概这么做一下吧。</p>
+</blockquote>
+
+<p>道理很简单，这东西可以用简单的方式绕开的话（而且不是很降低效率到不可以接受的程度的话），
+那就绕开它。专心做逻辑。</p>
 
 <p>参考资料：</p>
 <ul>

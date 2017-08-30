@@ -1,8 +1,8 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/blog/_site/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/_site/" rel="alternate" type="text/html" /><updated>2017-08-30T22:21:30+09:00</updated><id>http://localhost:4000/blog/_site/</id><title type="html">Candy Water’s Blog</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">关于ACCESS的null的一个小问题</title><link href="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html" rel="alternate" type="text/html" title="关于ACCESS的null的一个小问题" /><published>2017-08-30T00:00:00+09:00</published><updated>2017-08-30T00:00:00+09:00</updated><id>http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access</id><content type="html" xml:base="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html">&lt;p&gt;近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/blog/_site/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/_site/" rel="alternate" type="text/html" /><updated>2017-08-30T22:30:17+09:00</updated><id>http://localhost:4000/blog/_site/</id><title type="html">Candy Water’s Blog</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">关于ACCESS的null的一个小问题</title><link href="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html" rel="alternate" type="text/html" title="关于ACCESS的null的一个小问题" /><published>2017-08-30T00:00:00+09:00</published><updated>2017-08-30T00:00:00+09:00</updated><id>http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access</id><content type="html" xml:base="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html">&lt;p&gt;近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。
 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。
 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要），
-坐着一个又一个小query还挺来瘾的——虽然这么说吧，我更喜欢编程。&lt;/p&gt;
+做着一个又一个小query还挺来瘾的——虽然这么说吧，我更喜欢编程。&lt;/p&gt;
 
 &lt;p&gt;在传统的这种SQL式的database之中，关于null的设定就如同schema的设定一样，
 在不同的软件中有着不同的设定。譬如在这篇日文&lt;a href=&quot;https://www.ashisuto.co.jp/corporate/column/technical-column/detail/1197236_2274.html&quot;&gt;博文&lt;/a&gt;中有总结，oracle的话会把NULL和长度为0的文字（也就是空文字）作为同等的东西去处理。
@@ -57,13 +57,40 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
 
 &lt;p&gt;厉害了我的大叔。我的天。&lt;/p&gt;
 
+&lt;h3 id=&quot;事后反思&quot;&gt;事后反思：&lt;/h3&gt;
+&lt;p&gt;当然仔细的想一想。is not null可以抽出空文字，不可以抽出null。
+&amp;lt;&amp;gt;”” （大概）可以抽出null，不可以抽出空文字。&lt;/p&gt;
+
+&lt;p&gt;那么也就是说，我们假设2个数据库表格中，分别存在null和空文字。
+那么&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;抽出null的时候。
+是用&amp;lt;&amp;gt;”“抽出来的，然后和不可以抽出null的is not null的AND条件发生激烈碰撞。
+结果就是不符合条件抽不出来。&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;抽出空文字的时候，同样是两个条件互相搏击大家，结果就是导致无法抽出条件——弄巧成拙。&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;大叔讲的话很简单。&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;涉及到null就很烦啊，我也不知道具体是啥意思，
+我就记得sql server的时候null的处理就很花心思。你用if文大概这么做一下吧。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;道理很简单，这东西可以用简单的方式绕开的话（而且不是很降低效率到不可以接受的程度的话），
+那就绕开它。专心做逻辑。&lt;/p&gt;
+
 &lt;p&gt;参考资料：&lt;/p&gt;
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E_(%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9)&quot;&gt;スキーマ_(データベース)&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/cd/E12151_01/doc.150/e12155/oracle_mysql_compared.htm#i1026408&quot;&gt;Oracle and MySQL Compared:2.2.3.2 Column Default Value&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://www.ashisuto.co.jp/corporate/column/technical-column/detail/1197236_2274.html&quot;&gt;SQLの観点から「Oracle Database」「PostgreSQL」「MySQL」の特徴を整理しよう！&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;&lt;a href=&quot;https://support.microsoft.com/ja-jp/help/883247&quot;&gt;Access の Null 値と、長さ 0 の文字列の違いについて&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="access," /><category term="sql" /><summary type="html">近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要）， 坐着一个又一个小query还挺来瘾的——虽然这么说吧，我更喜欢编程。 在传统的这种SQL式的database之中，关于null的设定就如同schema的设定一样， 在不同的软件中有着不同的设定。譬如在这篇日文博文中有总结，oracle的话会把NULL和长度为0的文字（也就是空文字）作为同等的东西去处理。 但是mysql就会把他俩当成不一样的东西处理。 提到schema就不得不提一嘴，我到现在也没弄明白它的具体定义， 好吧，我觉得以后有时间有兴趣的话读一读oracle的文档。 那么在ACCESS中是如何处理的。这里有份微软的日文文档。 里面详细的讲到在ACCESS中，null和空文字是两个概念。不过用Is Null和Not Like “*“，抽出的结果是相同的。 也就是虽然是2个概念，但是可以用同样的statement来抽出。 这里总结一下定义的不同。 null属于空文字or数值不确定的数值。 空文字只是空文字而已。可以用这个来输入“”。有的table不支持输入“”。那你就改table的设定，强行输入空文字。 根据table的设定不同，你可以用enter等来输入空文字，也可以不支持输入空文字。 用Like “*“的话，可以抽出空文字 用Not Like “*“的话，不可以抽出空文字，只能抽出null 用is Null 的话，不可以抽出空文字，只能抽出null 好吧。这篇文章介绍怎么更改设定，然后输入空文字。有一个很详尽的表格介绍。 我来讲讲的我遇到的问题。 从外部的sql系列的数据库抽数据。 然后有一行的record，是空数据。 然而我们需要进行外部结合，把这个数据表格，和我们已有的数据表格比较。 然后把重复的去掉，把我们已有数据表格里面不重复的留下。 好吧，我想说，空白数据的很烦（在不更改两个数据表格的前提下）。劳资先把空白数据都用select先去掉再说。 神奇的事情发生了。 我使用 is not null and &amp;lt;&amp;gt; &quot;&quot; 结果愣是抽不出来。。。。 后来还是我的大叔给出了解决方案。他边把思路说给我听，我边写着代码。 先进行值的判断，看是不是null。 iif( IsNull(A), &quot;&quot;, A) 然后在条件那里 &amp;lt;&amp;gt; &quot;&quot; 先把null的都转换，然后再跟空文字比较。 解决！ 厉害了我的大叔。我的天。 参考资料： スキーマ_(データベース) Oracle and MySQL Compared:2.2.3.2 Column Default Value SQLの観点から「Oracle Database」「PostgreSQL」「MySQL」の特徴を整理しよう！ Access の Null 値と、長さ 0 の文字列の違いについて</summary></entry><entry><title type="html">记，升级到https的菜鸟旅程</title><link href="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/20/abouthttps.html" rel="alternate" type="text/html" title="记，升级到https的菜鸟旅程" /><published>2017-08-20T00:00:00+09:00</published><updated>2017-08-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/_site/tech_blog/tech/2017/08/20/abouthttps</id><content type="html" xml:base="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/20/abouthttps.html">&lt;p&gt;起因之一是看到月光博客的&lt;a href=&quot;https://weibo.com/1494759712/FizDQd6sQ&quot;&gt;微博&lt;/a&gt;，&lt;/p&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="access," /><category term="sql" /><summary type="html">近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要）， 做着一个又一个小query还挺来瘾的——虽然这么说吧，我更喜欢编程。 在传统的这种SQL式的database之中，关于null的设定就如同schema的设定一样， 在不同的软件中有着不同的设定。譬如在这篇日文博文中有总结，oracle的话会把NULL和长度为0的文字（也就是空文字）作为同等的东西去处理。 但是mysql就会把他俩当成不一样的东西处理。 提到schema就不得不提一嘴，我到现在也没弄明白它的具体定义， 好吧，我觉得以后有时间有兴趣的话读一读oracle的文档。 那么在ACCESS中是如何处理的。这里有份微软的日文文档。 里面详细的讲到在ACCESS中，null和空文字是两个概念。不过用Is Null和Not Like “*“，抽出的结果是相同的。 也就是虽然是2个概念，但是可以用同样的statement来抽出。 这里总结一下定义的不同。 null属于空文字or数值不确定的数值。 空文字只是空文字而已。可以用这个来输入“”。有的table不支持输入“”。那你就改table的设定，强行输入空文字。 根据table的设定不同，你可以用enter等来输入空文字，也可以不支持输入空文字。 用Like “*“的话，可以抽出空文字 用Not Like “*“的话，不可以抽出空文字，只能抽出null 用is Null 的话，不可以抽出空文字，只能抽出null 好吧。这篇文章介绍怎么更改设定，然后输入空文字。有一个很详尽的表格介绍。 我来讲讲的我遇到的问题。 从外部的sql系列的数据库抽数据。 然后有一行的record，是空数据。 然而我们需要进行外部结合，把这个数据表格，和我们已有的数据表格比较。 然后把重复的去掉，把我们已有数据表格里面不重复的留下。 好吧，我想说，空白数据的很烦（在不更改两个数据表格的前提下）。劳资先把空白数据都用select先去掉再说。 神奇的事情发生了。 我使用 is not null and &amp;lt;&amp;gt; &quot;&quot; 结果愣是抽不出来。。。。 后来还是我的大叔给出了解决方案。他边把思路说给我听，我边写着代码。 先进行值的判断，看是不是null。 iif( IsNull(A), &quot;&quot;, A) 然后在条件那里 &amp;lt;&amp;gt; &quot;&quot; 先把null的都转换，然后再跟空文字比较。 解决！ 厉害了我的大叔。我的天。 事后反思： 当然仔细的想一想。is not null可以抽出空文字，不可以抽出null。 &amp;lt;&amp;gt;”” （大概）可以抽出null，不可以抽出空文字。 那么也就是说，我们假设2个数据库表格中，分别存在null和空文字。 那么 抽出null的时候。 是用&amp;lt;&amp;gt;”“抽出来的，然后和不可以抽出null的is not null的AND条件发生激烈碰撞。 结果就是不符合条件抽不出来。 抽出空文字的时候，同样是两个条件互相搏击大家，结果就是导致无法抽出条件——弄巧成拙。 大叔讲的话很简单。 涉及到null就很烦啊，我也不知道具体是啥意思， 我就记得sql server的时候null的处理就很花心思。你用if文大概这么做一下吧。 道理很简单，这东西可以用简单的方式绕开的话（而且不是很降低效率到不可以接受的程度的话）， 那就绕开它。专心做逻辑。 参考资料： スキーマ_(データベース) Oracle and MySQL Compared:2.2.3.2 Column Default Value SQLの観点から「Oracle Database」「PostgreSQL」「MySQL」の特徴を整理しよう！ Access の Null 値と、長さ 0 の文字列の違いについて</summary></entry><entry><title type="html">记，升级到https的菜鸟旅程</title><link href="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/20/abouthttps.html" rel="alternate" type="text/html" title="记，升级到https的菜鸟旅程" /><published>2017-08-20T00:00:00+09:00</published><updated>2017-08-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/_site/tech_blog/tech/2017/08/20/abouthttps</id><content type="html" xml:base="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/20/abouthttps.html">&lt;p&gt;起因之一是看到月光博客的&lt;a href=&quot;https://weibo.com/1494759712/FizDQd6sQ&quot;&gt;微博&lt;/a&gt;，&lt;/p&gt;
 &lt;blockquote&gt;
   &lt;p&gt;据谷歌邮件通知，从2017年10月起，当用户在HTTP网页上的表单中输入文本时，Chrome（版本62）将显示一条“不安全”警告，并在所有无痕模式下的HTTP网页上显示这一警告，即使没有密码也会显示警告，解决方法是：迁移到https。&lt;/p&gt;
 &lt;/blockquote&gt;
