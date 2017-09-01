@@ -1,0 +1,33 @@
+
+    #first{
+      position: relative;
+      margin-top: 10px;
+    }
+    #first>.a{
+      width:60px;
+      height:70px;
+      background-color: black;
+    }
+    #first>.a .a{
+      position: relative;
+      left: 10px;
+      width: 40px;
+      height: 70px;
+      background-color: white;
+    }
+    #first>.b{
+      position: relative;
+      left: 50px;
+      width:10px;
+      height:10px;
+      background-color: black;
+    }
+    #first>.c{
+      position: relative;
+      left: 0px;
+      top: -25px;
+      /*top: 110px;*/
+      width:70px;
+      height:10px;
+      background-color: black;
+    }

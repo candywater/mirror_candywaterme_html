@@ -1,0 +1,19 @@
+#second{
+  position: relative;
+  top: -80px;
+  left: 90px;
+  border-radius :45px;
+  width: 70px;
+  height: 70px;
+  background-color: black ;
+}
+#second>.a{
+  position: relative;
+  /*top: 135px;*/
+  top: 5px;
+  left: 10px;
+  border-radius :65px;
+  width: 55px;
+  height: 55px;
+  background-color: white;
+}
