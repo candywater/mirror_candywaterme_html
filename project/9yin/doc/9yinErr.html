@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>迦南帮规</title>
+
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <script src="https://code.jquery.com/jquery-3.2.1.js"integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.4/showdown.min.js"></script>
+      <script type="text/javascript">
+        jQuery.get("./9yinErr.md", function(data){
+          var doc = data;
+          var converter = new showdown.Converter();
+          var dochtml = converter.makeHtml(doc);
+          jQuery("#doc").html(dochtml);
+        });
+      </script>
+
+      <script type="text/javascript" src="../lib/deep_menu.js"></script>
+      <script type="text/javascript" src="../lib/copyleft.js"></script>
+  </head>
+  <body>
+
+    <div class="container-fluid ">
+      <div class="row">
+        <div class="col-12  bg-info">
+          <h1 id="header">九阴已知设计失误</h1>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-12 col-sm-10 col-md-8 col-lg-6" id="doc">
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid" id="footer">
+      <div class="row">
+        <div class="col-12 bg-success">
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+
+  </body>
+</html>
