@@ -13,8 +13,7 @@
 
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/showdown/1.7.4/showdown.min.js"></script>
       <script type="text/javascript">
-        jQuery.get("./9yinErr.md", function(data){
-          var doc = data;
+        jQuery.get("./9yinErr.md", function(doc){
           var converter = new showdown.Converter();
           var dochtml = converter.makeHtml(doc);
           jQuery("#doc").html(dochtml);
