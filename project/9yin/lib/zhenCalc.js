@@ -16,6 +16,28 @@ var zhenFunc = [
   (l) => sousha_zhen(l),
 ]
 
+jq(function(){
+  let magic = getItemInStorage( "candywater_9yin_magic_property", "#magic_property");
+  let physics= getItemInStorage( "candywater_9yin_physics_property", "#physics_property");
+  let left = getItemInStorage("candywater_9yin_left_property", "#weaponDamage_left");
+  let right = getItemInStorage("candywater_9yin_right_property", "#weaponDamage_right");
+  jq("#magic_property").val(magic);
+  jq("#physics_property").val(physics);
+  jq("#weaponDamage_left").val(left);
+  jq("#weaponDamage_right").val(right);
+})
+
+
+function getItemInStorage(str, id){
+  if(localStorage.getItem(str))
+    return parseFloat( localStorage.getItem(str) );
+  else
+    return "";
+}
+
+function setItemInStorage(str, id){
+    localStorage.setItem(str, jq(id).val());
+}
 
 
 function calc_zhen(){
@@ -33,7 +55,7 @@ function zhen_real_damage(damages, zhen_level){
                       ( zhenData[0] + zhenData[1]) * 0.195
   let real_damage_left = real_damage + zhenData[2];
   let real_damage_right = real_damage + zhenData[3];
-  return [real_damage_left, real_damage_right];
+  return [real_damage_left.toFixed(2), real_damage_right.toFixed(2)];
 }
 
 function dilie_zhen(zhen_level){
@@ -97,16 +119,19 @@ function sousha_zhen(zhen_level){
 
 
 
-
-
 function getZhenData(){
-  let magic = parseFloat( jq("#magic_property").val() );
-  let physics= parseFloat( jq("#physics_property").val() );
+  let magic, physics;
+  magic = jq("#magic_property").val();
+  physics = jq("#physics_property").val();
+  setItemInStorage("candywater_9yin_magic_property", "#magic_property");
+  setItemInStorage("candywater_9yin_physics_property", "#physics_property");
   console.log("magic:" + magic);
   console.log("physics:" + physics);
 
   let weaponDamage_left = parseFloat( jq("#weaponDamage_left").val() );
   let weaponDamage_right = parseFloat( jq("#weaponDamage_right").val() );
+  setItemInStorage("candywater_9yin_left_property", "#weaponDamage_left");
+  setItemInStorage("candywater_9yin_right_property", "#weaponDamage_right");
   console.log("left:" + weaponDamage_left);
   console.log("right:" + weaponDamage_right);
 
