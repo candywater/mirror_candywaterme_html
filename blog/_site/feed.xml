@@ -1,4 +1,32 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/blog/_site/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/_site/" rel="alternate" type="text/html" /><updated>2017-09-06T03:54:18+09:00</updated><id>http://localhost:4000/blog/_site/</id><title type="html">Candy Water’s Blog</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">关于ACCESS的null的一个小问题</title><link href="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html" rel="alternate" type="text/html" title="关于ACCESS的null的一个小问题" /><published>2017-08-30T00:00:00+09:00</published><updated>2017-08-30T00:00:00+09:00</updated><id>http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access</id><content type="html" xml:base="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html">&lt;p&gt;近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.5.0">Jekyll</generator><link href="http://localhost:4000/blog/_site/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/_site/" rel="alternate" type="text/html" /><updated>2017-11-20T03:16:45+09:00</updated><id>http://localhost:4000/blog/_site/</id><title type="html">Candy Water’s Blog</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">杂记</title><link href="http://localhost:4000/blog/_site/essay_blog/essay/2017/11/20/mingmingjiu.html" rel="alternate" type="text/html" title="杂记" /><published>2017-11-20T00:00:00+09:00</published><updated>2017-11-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/_site/essay_blog/essay/2017/11/20/mingmingjiu</id><content type="html" xml:base="http://localhost:4000/blog/_site/essay_blog/essay/2017/11/20/mingmingjiu.html">&lt;p&gt;从lofter迁移到这里。
+却这么久都不更新文字。
+可以推脱说，是生活不安定。心情跌落到了谷底。
+毕竟，我连手写的日记都已经好久没有再写过了。
+但是我不得不承认一个事实，就是。
+很显然我这个日志的更新机制做的还不行。&lt;/p&gt;
+
+&lt;p&gt;做了个小template。以后再写一个batch。把一股脑的动作都自动做了。
+这样节约了麻烦，应该也就会更新的勤奋一些了吧（大概）。&lt;/p&gt;
+
+&lt;p&gt;毕业有一阵子了。
+对日本这个多重外包也有新的认识。
+碰到一个做了快20年的前辈。下班了我要走。
+他反问我。你回家这么早做什么呀。
+然后他默默加班了2个小时。虽然没有什么任务。&lt;/p&gt;
+
+&lt;p&gt;想起了知乎上的好多好多的言论。
+懒得去辩解什么。反正，也正好到了该撤退的时候了，不是么。
+做什么，都不要忘记了初心，不是么。&lt;/p&gt;
+
+&lt;p&gt;研究室在举办OBOG会。同学找到我。我回说很想去啊。
+然后我就没了下文。
+我是真的很想回去。虽然里面没有国人。但是跟这几个人很想见一见，叙叙旧，讲讲今。
+但是我现在的生活真的很不安定。我一开始就打算的回国。谁能想到会拖得这么久。
+生活这东西你真的很难去判断去说什么。&lt;/p&gt;
+
+&lt;p&gt;他就这么的来。&lt;/p&gt;
+
+&lt;p&gt;他就这么的走。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><category term="essay" /><summary type="html">从lofter迁移到这里。 却这么久都不更新文字。 可以推脱说，是生活不安定。心情跌落到了谷底。 毕竟，我连手写的日记都已经好久没有再写过了。 但是我不得不承认一个事实，就是。 很显然我这个日志的更新机制做的还不行。 做了个小template。以后再写一个batch。把一股脑的动作都自动做了。 这样节约了麻烦，应该也就会更新的勤奋一些了吧（大概）。 毕业有一阵子了。 对日本这个多重外包也有新的认识。 碰到一个做了快20年的前辈。下班了我要走。 他反问我。你回家这么早做什么呀。 然后他默默加班了2个小时。虽然没有什么任务。 想起了知乎上的好多好多的言论。 懒得去辩解什么。反正，也正好到了该撤退的时候了，不是么。 做什么，都不要忘记了初心，不是么。 研究室在举办OBOG会。同学找到我。我回说很想去啊。 然后我就没了下文。 我是真的很想回去。虽然里面没有国人。但是跟这几个人很想见一见，叙叙旧，讲讲今。 但是我现在的生活真的很不安定。我一开始就打算的回国。谁能想到会拖得这么久。 生活这东西你真的很难去判断去说什么。 他就这么的来。 他就这么的走。</summary></entry><entry><title type="html">关于ACCESS的null的一个小问题</title><link href="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html" rel="alternate" type="text/html" title="关于ACCESS的null的一个小问题" /><published>2017-08-30T00:00:00+09:00</published><updated>2017-08-30T00:00:00+09:00</updated><id>http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access</id><content type="html" xml:base="http://localhost:4000/blog/_site/tech_blog/tech/2017/08/30/access.html">&lt;p&gt;近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。
 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。
 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要），
