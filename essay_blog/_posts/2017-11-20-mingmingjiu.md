@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 杂记
+title: 杂记 明明就
 date: 2017-11-20 +0900
 tags: essay
 category: essay
