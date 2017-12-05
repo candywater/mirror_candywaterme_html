@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 杂记 11/22
+title: 近期短记
 date: 2017-11-22 +0900
 tags: 
 category: essay

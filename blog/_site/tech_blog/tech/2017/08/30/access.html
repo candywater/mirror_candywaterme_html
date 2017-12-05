@@ -135,21 +135,18 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
 <p>好吧，我想说，空白数据的很烦（在不更改两个数据表格的前提下）。劳资先把空白数据都用select先去掉再说。
 神奇的事情发生了。
 我使用</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>is not null and &lt;&gt; ""
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>is not null and &lt;&gt; ""
+</code></pre></div></div>
 <p>结果愣是抽不出来。。。。</p>
 
 <p>后来还是我的大叔给出了解决方案。他边把思路说给我听，我边写着代码。
 先进行值的判断，看是不是null。</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>iif( IsNull(A), "", A)
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>iif( IsNull(A), "", A)
+</code></pre></div></div>
 
 <p>然后在条件那里</p>
-<div class="highlighter-rouge"><pre class="highlight"><code>&lt;&gt; ""
-</code></pre>
-</div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;&gt; ""
+</code></pre></div></div>
 
 <p>先把null的都转换，然后再跟空文字比较。
 解决！</p>

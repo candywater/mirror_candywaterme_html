@@ -184,7 +184,7 @@ class B每3秒count一次.</p>
 
 <p><strong>Main.java</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>public class Main{
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>public class Main{
 
   public static void main(String args[]){
   TestThread a = new TestThread("class a", 2000);
@@ -194,12 +194,11 @@ class B每3秒count一次.</p>
   b.start();
   }
 }
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p><strong>TestThread.java</strong></p>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
 public class TestThread extends Thread {
 
   private String name;
@@ -227,12 +226,11 @@ public class TestThread extends Thread {
 }
 
 
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <h4 id="结果-测试环境wsl-win10-openjdk-8"><strong>结果</strong> (测试环境WSL, win10, openjdk-8)</h4>
 
-<div class="highlighter-rouge"><pre class="highlight"><code>%time java Main
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>%time java Main
 class a : 02[s]
 class b : 03[s]
 class a : 14[s]
@@ -240,8 +238,7 @@ class b : 16[s]
 class a : 26[s]
 class b : 29[s]
 java Main 0.11s user 0.22s system 3% cpu 9.315 total
-</code></pre>
-</div>
+</code></pre></div></div>
 
 <p>可以说是出现了匪夷所思的结果.
 因为只运行了9秒,但是currentTimeMillis()却显示运行了近30秒.</p>
