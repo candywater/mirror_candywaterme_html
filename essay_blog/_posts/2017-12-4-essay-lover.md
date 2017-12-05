@@ -1,6 +1,6 @@
 ---
 layout: post
-title: LOVER
+title: Lover
 date: 2017-12-04 +0900
 tags: access, sql
 category: essay
@@ -15,6 +15,7 @@ category: essay
 心底里猛地揪起来一句话
 
 > 与你年轻时的面貌相比,我更爱你现在备受摧残的容颜
+
 > 杜拉斯<情人>
 
 车站时的Koto可爱不再
