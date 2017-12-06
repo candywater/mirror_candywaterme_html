@@ -3,7 +3,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>{{ site.name | xml_escape }} - Articles</title>
+    <!--title>{{ site.name | xml_escape }} - Articles</title-->
+    <title>Candy Water's Essay - Articles</title>
     <description>{% if site.description %}{{ site.description | xml_escape }}{% endif %}</description>
     <link>
     {{ site.url }}</link>
