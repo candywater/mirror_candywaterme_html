@@ -22,7 +22,7 @@ title: Candy Water's Blog
 # email: your-email@example.com
 description: Welcome to Candy Water's world!!
 # this means to ignore newlines until "baseurl:"
-baseurl: "/blog/_site" # the subpath of your site, e.g. /blog
+baseurl: "/blog" # the subpath of your site, e.g. /blog
 url: "http://candy-water.com" # the base hostname & protocol for your site, e.g. http://example.com
 # twitter_username: jekyllrb
 github_username:  candywater
