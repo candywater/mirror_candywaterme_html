@@ -36,7 +36,12 @@ comments: true
   {% endif %}
 
   <hr>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="disqus_thread"></div>
   <script>
 
@@ -55,6 +60,21 @@ comments: true
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+
+    /* edit disqus */
+    var css_disqus = document.createElement("link");
+    css_disqus.href = "../css/edit_disqus_comment.css";
+    css_disqus.rel = "stylesheet"
+    css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    $('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
     </script>
+    <iframe src="" name="frame1" width="" height=""></iframe>
 
 </article>

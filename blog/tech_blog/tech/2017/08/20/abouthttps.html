@@ -8,12 +8,14 @@
 
   <title>记，升级到https的菜鸟旅程</title>
   <meta name="description" content="起因之一是看到月光博客的微博， 据谷歌邮件通知，从2017年10月起，当用户在HTTP网页上的表单中输入文本时，Chrome（版本62）将显示一条“不安全”警告，并在所有无痕模式下的HTTP网页上显示这一警告，即使没有密码也会显示警告，解决方法是：迁移到https。 恰巧同时期看到twitter上有人谈及let’...">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/tech_blog/tech/2017/08/20/abouthttps.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water&#39;s Blog" href="/blog/feed.xml">
+
   
-  
+
 </head>
 
 
@@ -163,7 +165,12 @@
   
 
   <hr>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="disqus_thread"></div>
   <script>
 
@@ -182,7 +189,22 @@
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+
+    /* edit disqus */
+    var css_disqus = document.createElement("link");
+    css_disqus.href = "../css/edit_disqus_comment.css";
+    css_disqus.rel = "stylesheet"
+    css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    $('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
     </script>
+    <iframe src="" name="frame1" width="" height=""></iframe>
 
 </article>
 
@@ -190,6 +212,8 @@
     </main>
 
     <footer class="site-footer">
+
+
 
   <div class="wrapper">
 

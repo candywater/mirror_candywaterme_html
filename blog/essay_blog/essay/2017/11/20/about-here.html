@@ -8,12 +8,14 @@
 
   <title>lofter迁移许久</title>
   <meta name="description" content="从lofter迁移到这里。 却这么久都不更新文字。 可以推脱说，是生活不安定。心情跌落到了谷底。 毕竟，我连手写的日记都已经好久没有再写过了。 但是我不得不承认一个事实，就是。 很显然我这个日志的更新机制做的还不行。 做了个小template。以后再写一个batch。把一股脑的动作都自动做了。 这样节约了麻烦，应...">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/essay_blog/essay/2017/11/20/about-here.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water&#39;s Blog" href="/blog/feed.xml">
+
   
-  
+
 </head>
 
 
@@ -144,7 +146,12 @@
   
 
   <hr>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="disqus_thread"></div>
   <script>
 
@@ -163,7 +170,22 @@
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+
+    /* edit disqus */
+    var css_disqus = document.createElement("link");
+    css_disqus.href = "../css/edit_disqus_comment.css";
+    css_disqus.rel = "stylesheet"
+    css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    $('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
     </script>
+    <iframe src="" name="frame1" width="" height=""></iframe>
 
 </article>
 
@@ -171,6 +193,8 @@
     </main>
 
     <footer class="site-footer">
+
+
 
   <div class="wrapper">
 

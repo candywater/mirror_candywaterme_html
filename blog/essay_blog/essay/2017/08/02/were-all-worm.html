@@ -8,12 +8,14 @@
 
   <title>我们都是被，命运侵蚀的，小虫。</title>
   <meta name="description" content="我们都是被，命运侵蚀的，小虫。">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/essay_blog/essay/2017/08/02/were-all-worm.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water&#39;s Blog" href="/blog/feed.xml">
+
   
-  
+
 </head>
 
 
@@ -116,7 +118,12 @@
   
 
   <hr>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="disqus_thread"></div>
   <script>
 
@@ -135,7 +142,22 @@
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+
+    /* edit disqus */
+    var css_disqus = document.createElement("link");
+    css_disqus.href = "../css/edit_disqus_comment.css";
+    css_disqus.rel = "stylesheet"
+    css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    $('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
     </script>
+    <iframe src="" name="frame1" width="" height=""></iframe>
 
 </article>
 
@@ -143,6 +165,8 @@
     </main>
 
     <footer class="site-footer">
+
+
 
   <div class="wrapper">
 

@@ -8,12 +8,14 @@
 
   <title>Lover</title>
   <meta name="description" content="比起梦一般的Natsu 现在很多时候更多会想起Koto 想起那次在车站偶然相遇时 她的那张疲惫 满面油光的 显着老态的脸 心底里猛地揪起来一句话 与你年轻时的面貌相比,我更爱你现在备受摧残的容颜 杜拉斯 车站时的Koto可爱不再 我却没有一丝的厌倦 我还是喜欢着的 从那张就可以回想起高中刚开学的脸 高中刚开学那天...">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/essay_blog/essay/2017/12/04/essay-lover.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water&#39;s Blog" href="/blog/feed.xml">
+
   
-  
+
 </head>
 
 
@@ -148,7 +150,12 @@
   
 
   <hr>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="disqus_thread"></div>
   <script>
 
@@ -167,7 +174,22 @@
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+
+    /* edit disqus */
+    var css_disqus = document.createElement("link");
+    css_disqus.href = "../css/edit_disqus_comment.css";
+    css_disqus.rel = "stylesheet"
+    css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    $('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
     </script>
+    <iframe src="" name="frame1" width="" height=""></iframe>
 
 </article>
 
@@ -175,6 +197,8 @@
     </main>
 
     <footer class="site-footer">
+
+
 
   <div class="wrapper">
 

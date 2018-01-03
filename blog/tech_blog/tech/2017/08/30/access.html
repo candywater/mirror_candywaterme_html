@@ -8,12 +8,14 @@
 
   <title>关于ACCESS的null的一个小问题</title>
   <meta name="description" content="近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要）， 做着一个又一个小query还挺来瘾的——虽然...">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/tech_blog/tech/2017/08/30/access.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water&#39;s Blog" href="/blog/feed.xml">
+
   
-  
+
 </head>
 
 
@@ -205,7 +207,12 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
   
 
   <hr>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="disqus_thread"></div>
   <script>
 
@@ -224,7 +231,22 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+
+    /* edit disqus */
+    var css_disqus = document.createElement("link");
+    css_disqus.href = "../css/edit_disqus_comment.css";
+    css_disqus.rel = "stylesheet"
+    css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    $('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
     </script>
+    <iframe src="" name="frame1" width="" height=""></iframe>
 
 </article>
 
@@ -232,6 +254,8 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
     </main>
 
     <footer class="site-footer">
+
+
 
   <div class="wrapper">
 

@@ -8,12 +8,14 @@
 
   <title>关于JAVA同期的初步学习笔记(1)</title>
   <meta name="description" content="缘由是看知乎的一个答案, 里面写到同期的部分愣是没看懂. 由于我自己也没写过需要同期的东西. 就参照几个东西边看边研究. techscore マルチスレッドプログラミング IBM doc Javaの理論と実践: volatile を扱う oracle doc Synchronized Methods Thread...">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/tech_blog/tech/2017/07/13/tech-java-sync.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water&#39;s Blog" href="/blog/feed.xml">
+
   
-  
+
 </head>
 
 
@@ -280,7 +282,12 @@ java Main 0.11s user 0.22s system 3% cpu 9.315 total
   
 
   <hr>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="disqus_thread"></div>
   <script>
 
@@ -299,7 +306,22 @@ java Main 0.11s user 0.22s system 3% cpu 9.315 total
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+
+    /* edit disqus */
+    var css_disqus = document.createElement("link");
+    css_disqus.href = "../css/edit_disqus_comment.css";
+    css_disqus.rel = "stylesheet"
+    css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    $('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
     </script>
+    <iframe src="" name="frame1" width="" height=""></iframe>
 
 </article>
 
@@ -307,6 +329,8 @@ java Main 0.11s user 0.22s system 3% cpu 9.315 total
     </main>
 
     <footer class="site-footer">
+
+
 
   <div class="wrapper">
 

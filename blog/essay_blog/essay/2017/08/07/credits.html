@@ -8,12 +8,14 @@
 
   <title>版权问题</title>
   <meta name="description" content="在YouTube观看各种remix的视频的时候。 发现其中一个图片指向了一个网站。 https://unsplash.com/ 一个免费提供该网站所有图片的，所有使用权限的网站。 他的介绍页面是这么写的。 do whatever you want 他的版权页面是这么写的 You can use them for ...">
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
 
   <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="canonical" href="http://localhost:4000/blog/essay_blog/essay/2017/08/07/credits.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water&#39;s Blog" href="/blog/feed.xml">
+
   
-  
+
 </head>
 
 
@@ -216,7 +218,12 @@ lessig也有篇<a href="https://www.ted.com/talks/lawrence_lessig_the_unstoppabl
   
 
   <hr>
-
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
   <div id="disqus_thread"></div>
   <script>
 
@@ -235,7 +242,22 @@ lessig也有篇<a href="https://www.ted.com/talks/lawrence_lessig_the_unstoppabl
     s.setAttribute('data-timestamp', +new Date());
     (d.head || d.body).appendChild(s);
     })();
+
+    /* edit disqus */
+    var css_disqus = document.createElement("link");
+    css_disqus.href = "../css/edit_disqus_comment.css";
+    css_disqus.rel = "stylesheet"
+    css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    $('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
     </script>
+    <iframe src="" name="frame1" width="" height=""></iframe>
 
 </article>
 
@@ -243,6 +265,8 @@ lessig也有篇<a href="https://www.ted.com/talks/lawrence_lessig_the_unstoppabl
     </main>
 
     <footer class="site-footer">
+
+
 
   <div class="wrapper">
 
