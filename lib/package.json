@@ -1,0 +1,17 @@
+{
+  "name": "lib",
+  "version": "1.0.0",
+  "description": "lib",
+  "main": "index_js.js",
+  "dependencies": {
+    "bootstrap": "^4.0.0-alpha.6",
+    "jquery": "^3.2.1",
+    "tether": "^1.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "npm ls && exit 1"
+  },
+  "author": "",
+  "license": ""
+}
