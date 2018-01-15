@@ -9,7 +9,8 @@ function calc(){
   input_names = jQuery("#input_names").val();
   input_names = input_names.split(/[,，\s]/);
   input_names.forEach(function(item, i){
-    input_names[i] = item.replace(/\s/g, "");
+    if(item == "")
+      input_names.splice(i, 1);
   })
   roll_sim(input_names.length);
 }
