@@ -491,6 +491,28 @@ java Main 0.11s user 0.22s system 3% cpu 9.315 total
     &lt;p&gt;&lt;a href=&quot;http://d.hatena.ne.jp/higher_tomorrow/20100407/1270639866&quot;&gt;Javaアプリケーションのログの時刻がずれている&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h1 id=&quot;后记&quot;&gt;后记&lt;/h1&gt;
+&lt;p&gt;我发现我犯了一个很低级的错误。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;System.out.println(name + &quot; : &quot; + i +
+	(System.currentTimeMillis() - time)/1000 + &quot;[s]&quot;);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;中，第一行的行末没有添加空格，所以正确的output应该是，&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;class a : 0 2[s]
+class b : 0 3[s]
+class a : 1 4[s]
+class b : 1 6[s]
+class a : 2 6[s]
+class b : 2 9[s]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;错误的不是程序，而是写output的我自己。&lt;/p&gt;
+
 </description>
           
           <pubDate>Thu, 13 Jul 2017 00:00:00 +0900</pubDate>

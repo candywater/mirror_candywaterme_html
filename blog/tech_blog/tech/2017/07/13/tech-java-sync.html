@@ -273,6 +273,28 @@ java Main 0.11s user 0.22s system 3% cpu 9.315 total
   </li>
 </ul>
 
+<hr />
+
+<h1 id="后记">后记</h1>
+<p>我发现我犯了一个很低级的错误。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>System.out.println(name + " : " + i +
+	(System.currentTimeMillis() - time)/1000 + "[s]");
+</code></pre></div></div>
+
+<p>中，第一行的行末没有添加空格，所以正确的output应该是，</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>class a : 0 2[s]
+class b : 0 3[s]
+class a : 1 4[s]
+class b : 1 6[s]
+class a : 2 6[s]
+class b : 2 9[s]
+</code></pre></div></div>
+
+<p>错误的不是程序，而是写output的我自己。</p>
+
+
   </div>
 
   
