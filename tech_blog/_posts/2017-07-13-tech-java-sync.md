@@ -133,3 +133,27 @@ java Main 0.11s user 0.22s system 3% cpu 9.315 total
 + [Java: currentTimeMillis() と nanoTime() は混ぜると危険](http://d.hatena.ne.jp/sardine/20091226/p1)
 
 + [Javaアプリケーションのログの時刻がずれている](http://d.hatena.ne.jp/higher_tomorrow/20100407/1270639866)
+
+---
+
+# 后记
+我发现我犯了一个很低级的错误。
+
+```
+System.out.println(name + " : " + i +
+	(System.currentTimeMillis() - time)/1000 + "[s]");
+```
+
+中，第一行的行末没有添加空格，所以正确的output应该是，
+
+```
+class a : 0 2[s]
+class b : 0 3[s]
+class a : 1 4[s]
+class b : 1 6[s]
+class a : 2 6[s]
+class b : 2 9[s]
+```
+
+错误的不是程序，而是写output的我自己。
+		
