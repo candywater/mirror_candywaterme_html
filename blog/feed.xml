@@ -1,4 +1,66 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-01-28T21:40:43+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water’s Blog</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">Lover</title><link href="http://localhost:4000/blog/essay_blog/essay/2017/12/04/essay-lover.html" rel="alternate" type="text/html" title="Lover" /><published>2017-12-04T00:00:00+09:00</published><updated>2017-12-04T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2017/12/04/essay-lover</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2017/12/04/essay-lover.html">&lt;p&gt;比起梦一般的Natsu&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-01-28T22:54:02+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water’s Blog</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">记录网站重构为nginx</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/01/28/update-site.html" rel="alternate" type="text/html" title="记录网站重构为nginx" /><published>2018-01-28T00:00:00+09:00</published><updated>2018-01-28T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/01/28/update-site</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/01/28/update-site.html">&lt;p&gt;近几天打算续写java的同期。因为做了一个cancel的多线程的东西，有了些许心得故续写。&lt;/p&gt;
+
+&lt;p&gt;最早写tech博客是为了炫耀技巧。但是每次执笔的时候都发现，自己真是太菜了= = 没啥子好写的。每次都查着资料，查着查着就跑去打游戏去了&lt;span&gt;（喂！ヽ(●-`Д´-)ノ）&lt;/span&gt;&lt;/p&gt;
+
+&lt;p&gt;但是现在发现，自己好菜，记不住自己曾经写过的东西= =。。。&lt;/p&gt;
+
+&lt;p&gt;当然，我也知道这是人之常情，twitter上有个话题，就是各大出名library的作者，各种套路自己花样记不住自己写的API的事情。编程中也有一个说法，叫做programmer永远记不住自己一个月以前写过的东西。&lt;/p&gt;
+
+&lt;p&gt;由于。。。自己真的记不太住自己之前是如何用apache2来构建的网站（注释基本没有留。。。）所以这次只是简单记录如何简单的构筑nginx网站。
+而且以后，&lt;strong&gt;也专心的记录自己写过的东西，防止忘了！&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;1.首先，由于apache2正在运行，要先关闭掉apache2。&lt;/p&gt;
+
+&lt;p&gt;不然，安装nginx之后，会自动开始运行nginx的service。之后会出错，导致你无法正确安装程序。但是可以删除程序！
+可以先去验证是不是安装包出错了，再可以验证是不是sudo权限被占用。都不是的话，那就是apache的锅，（当然也可能是其他问题）关掉apache的service，重启nginx。就可以解决。&lt;/p&gt;
+
+&lt;p&gt;2.nginx的configure&lt;/p&gt;
+
+&lt;p&gt;apache的历史包袱很重，没有对比就没有伤害，nginx的conf文件，完全是类JSON形式的，只不过区别是尾巴一定要加上“；”。估计是为了方便complier处理以及为了可以缩写成一行吧。
+JSON形式真的太好写了，而且非常易懂。&lt;/p&gt;
+
+&lt;p&gt;举个例子。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;http{
+  server{
+    listen 80;
+    server_name candy-water.com;
+    location / {
+      root /abc/def;
+    }
+    error_page 406 /404.html
+  }
+
+  if($scheme ！= &quot;https&quot;){
+    return 301 https://$host$request_uri;
+  } # 这里是cerbot帮忙写的
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;基本上已经不需要解释了= =&lt;/p&gt;
+
+&lt;p&gt;本来多个virtual domain，我还打算找网上的资料。。。但是这一看就懂了。。。
+我就多写了几个server，把server_name换了一下。。。。就成了。
+不像apache，要写好多个小文件0.0  当然不写小文件也是可以做到的。&lt;/p&gt;
+
+&lt;p&gt;后来查了一下资料。location所代表的意思是，类似于java servlet里面的url pattern，可以把url读取，然后转换为｛｝里面包裹的地址返回。
+下次可以做个fast cgi试试。
+我有尝试把http2放进去，不过我发现即便没有放，firefox会自动发送http2的get request（通过检查f12的network）。
+所以事实上不放也是可以的。下次再仔细研究一下。
+基本构建就是如此了，&lt;/p&gt;
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://qiita.com/Aruneko/items/8c11f9e45a33457c3c1f&quot;&gt;NginxでHTTP2を有効にする&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://nginx.org/en/docs/beginners_guide.html&quot;&gt;Nginx Beginner’s Guide&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://certbot.eff.org/#ubuntutyakkety-nginx&quot;&gt;cert-bot-nginx&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://qiita.com/katzueno/items/44e02db2f1bfa0de5860&quot;&gt;nginx コマンド超シンプル早見表&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.cyberciti.biz/faq/star-stop-restart-apache2-webserver/&quot;&gt;Start / Stop and Restart Apache 2 Web Server Command&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.skyarch.net/blog/?p=7088&quot;&gt;nginxのrewriteを使ったリダイレクト&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://qiita.com/ryounagaoka/items/fd641e39a196b47db875&quot;&gt;Nginxのエラーページをカスタマイズする方法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://heartbeats.jp/hbblog/2012/04/nginx05.html&quot;&gt;nginx連載5回目: nginxの設定、その3 - locationディレクティブ&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.digitalocean.com/community/tutorials/how-to-set-up-nginx-server-blocks-virtual-hosts-on-ubuntu-14-04-lts&quot;&gt;How To Set Up Nginx Server Blocks (Virtual Hosts) on Ubuntu 14.04 LTS &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="nginx," /><summary type="html">近几天打算续写java的同期。因为做了一个cancel的多线程的东西，有了些许心得故续写。 最早写tech博客是为了炫耀技巧。但是每次执笔的时候都发现，自己真是太菜了= = 没啥子好写的。每次都查着资料，查着查着就跑去打游戏去了（喂！ヽ(●-`Д´-)ノ） 但是现在发现，自己好菜，记不住自己曾经写过的东西= =。。。 当然，我也知道这是人之常情，twitter上有个话题，就是各大出名library的作者，各种套路自己花样记不住自己写的API的事情。编程中也有一个说法，叫做programmer永远记不住自己一个月以前写过的东西。 由于。。。自己真的记不太住自己之前是如何用apache2来构建的网站（注释基本没有留。。。）所以这次只是简单记录如何简单的构筑nginx网站。 而且以后，也专心的记录自己写过的东西，防止忘了！ 1.首先，由于apache2正在运行，要先关闭掉apache2。 不然，安装nginx之后，会自动开始运行nginx的service。之后会出错，导致你无法正确安装程序。但是可以删除程序！ 可以先去验证是不是安装包出错了，再可以验证是不是sudo权限被占用。都不是的话，那就是apache的锅，（当然也可能是其他问题）关掉apache的service，重启nginx。就可以解决。 2.nginx的configure apache的历史包袱很重，没有对比就没有伤害，nginx的conf文件，完全是类JSON形式的，只不过区别是尾巴一定要加上“；”。估计是为了方便complier处理以及为了可以缩写成一行吧。 JSON形式真的太好写了，而且非常易懂。 举个例子。 http{ server{ listen 80; server_name candy-water.com; location / { root /abc/def; } error_page 406 /404.html } if($scheme ！= &quot;https&quot;){ return 301 https://$host$request_uri; } # 这里是cerbot帮忙写的 } 基本上已经不需要解释了= = 本来多个virtual domain，我还打算找网上的资料。。。但是这一看就懂了。。。 我就多写了几个server，把server_name换了一下。。。。就成了。 不像apache，要写好多个小文件0.0 当然不写小文件也是可以做到的。 后来查了一下资料。location所代表的意思是，类似于java servlet里面的url pattern，可以把url读取，然后转换为｛｝里面包裹的地址返回。 下次可以做个fast cgi试试。 我有尝试把http2放进去，不过我发现即便没有放，firefox会自动发送http2的get request（通过检查f12的network）。 所以事实上不放也是可以的。下次再仔细研究一下。 基本构建就是如此了， 参考资料： NginxでHTTP2を有効にする Nginx Beginner’s Guide cert-bot-nginx nginx コマンド超シンプル早見表 Start / Stop and Restart Apache 2 Web Server Command nginxのrewriteを使ったリダイレクト Nginxのエラーページをカスタマイズする方法 nginx連載5回目: nginxの設定、その3 - locationディレクティブ How To Set Up Nginx Server Blocks (Virtual Hosts) on Ubuntu 14.04 LTS</summary></entry><entry><title type="html">Lover</title><link href="http://localhost:4000/blog/essay_blog/essay/2017/12/04/essay-lover.html" rel="alternate" type="text/html" title="Lover" /><published>2017-12-04T00:00:00+09:00</published><updated>2017-12-04T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2017/12/04/essay-lover</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2017/12/04/essay-lover.html">&lt;p&gt;比起梦一般的Natsu&lt;/p&gt;
 
 &lt;p&gt;现在很多时候更多会想起Koto&lt;/p&gt;
 
@@ -473,33 +535,4 @@ lessig也有篇&lt;a href=&quot;https://www.ted.com/talks/lawrence_lessig_the_un
 对于下载的图片内容不设任何限制--类似于支持remix文化以及一系列产生新文化的概念。
 虽然应该并不是符合万国法律的那种credit（具体在这里https://unsplash.com/about）。
 如果想要万国法律适用的还是要用cc license或者MIT license。
---&gt;</content><author><name></name></author><category term="essay" /><summary type="html">在YouTube观看各种remix的视频的时候。 发现其中一个图片指向了一个网站。 https://unsplash.com/ 一个免费提供该网站所有图片的，所有使用权限的网站。 他的介绍页面是这么写的。 do whatever you want 他的版权页面是这么写的 You can use them for commercial and noncommercial purposes. You do not need to ask permission from or provide credit to the photographer or Unsplash, although it is appreciated when possible. 这个版权的唯一限制是这样的 This license does not include the right to compile photos from Unsplash to replicate a similar or competing service. 他不允许把图片放到同类的竞争网站上面。仅此而已。 其实这个就属于支持remix文化以及创生新文化，还有抵触目前版权法的内容。 相似的东西其实非常多。例如在法律框架下，保证自己的作品可以被任何人使用的权利， 人们创造了很多东西。譬如MIT license，譬如cc license。 原因很简单。 版权法的创造是为了保护更好的创作。 保护以创作为生的人。 但正如没有绝对的善，也没有绝对的恶。 版权法确确实实在阻碍新文化的产生。 也就是说，他的过度保护在产生一个悖论。 那就是，他原本是为了保护更好的创作。 但是现在，因为有了它，没有办法去更好的创作。 好的，这里有一个逻辑的回路，就是这里是没有主语的。 有人可能会认为，这是保护一部分人在创作，但是另一部分人无法创作。 也许吧。 但是我认为，这里的主语是共通的。不是一部分人和另一部分人。 而是，一部分的创作是可以进行的，但另一部分创作没法进行。 主语应该是创作本身，而不是人。 古代欧洲曾经认为灵感来源于家中的小精灵，而不是人本身。 这是一个很有趣的观点——人不应该由于创作而被神化。 近来国内的版权呼声高起。我也看到知乎上很多很多的人标注着，维权骑士云云。 这并不是个坏事情。但是对于知识流动的本身。这并不是一件值得推崇的事。 显然人们还没有注意到这一点。 迪士尼的版权可以把版权从56年延长到75年，可以把75年延长到95年。 我相信这也是一种的正义。 我可以选择这种正义。 我也可以选择把自己的作品不用这种正义。 版权的问题很深。 近到同人类的作品，杂志。 总所周知，盗墓笔记，还有日系的一系列漫画，之所以风火的原因之一就是同人类作品的蜂拥。 这也是当今各大版权商纠结的一个地方，一方面想用法律，保护版权来赚钱； 一方面你过度保护了，万一这作品火不起来了怎么办。 有人会说，我不商业使用就不侵犯版权。不不不，各个地方的法律都不一样的。 譬如每年都在举办同人类的免费、无偿活动的日本。只要作者起诉，一样可以轻松获胜。 你只要公开，就有可能问责。 （在日本，之前还有过这种辩论。如若加入TPP，对于著作权， 即便作者不起诉，警察仍旧可以随意起诉，势必会破坏这种同人文化。 所以对于加入TPP的具体规则产生了大激辩。详见山田太郎和赤松健的一系列视频。) 本来这篇文章我想说很多东西的。 我想赞颂这种无私的精神的。 版权法本身没有错，但是法律的一再改版使得版权法愈演愈烈。 但是我冷静下来，发现这也只是一种选择。 这是自由派的一种选择。 猫套上枷锁会得精神类疾病， 然而狗却依然活的很快活。 人类的社会性大概是基于两个之间吧， 有枷锁可以活，没枷锁也一样的活。 所以我发现这只是一种选择， 无论我怎么样的赞颂，也改变不了这只是一个无力的赞颂的事实。 lessig也有篇演讲， 在讲述努力去改变。不只是著作权云云云云，很多方面都是一样。 我也一样。 如果国内真的在面临改变，不管是怎么样的。 我想去亲身经历。不是逃跑，总要有人要面对。 参考资料： unsplash的介绍页面：https://unsplash.com/about unsplash的版权页面：https://unsplash.com/license 状告火锅店？为了维护著作权，迪士尼做的可远不止这些：http://www.guokr.com/article/442338/ 作者身后不寂寞：那些版权过期后的改编https://www.15yan.com/story/dE2hbypOHdc/ lessig的ted演讲：https://www.ted.com/talks/larry_lessig_says_the_law_is_strangling_creativity</summary></entry><entry><title type="html">夜</title><link href="http://localhost:4000/blog/essay_blog/essay/2017/08/07/night.html" rel="alternate" type="text/html" title="夜" /><published>2017-08-07T00:00:00+09:00</published><updated>2017-08-07T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2017/08/07/night</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2017/08/07/night.html">&lt;p&gt;在知乎的&lt;a href=&quot;https://www.zhihu.com/question/34599206/answer/71369947&quot;&gt;这里&lt;/a&gt;曾看过这么一段话&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;那天晚上我就回家了，我妈给我打了几千块钱，我把房租还了后留了一千给老邢，自己坐上了火车，老邢并没有感激我，反而用憎恨的眼光目送我离开。我能够理解他，如果在北京有什么比冰冷的现实更可怕的，那就只有孤独了。
-那一刻，我是个逃兵，他是个被抛弃的伤兵。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这感觉其实是很多人不能也没法去理解的。
-当我还在初中、高中就远走异国他乡去留学的时候，我回来讲这些感受。不仅是同龄的同学旧友们无法理解。高龄的长辈们也是同样。&lt;/p&gt;
-
-&lt;p&gt;其实是很感谢网络。没有网络，是找不到有着这么多共鸣的人的。
-曾在高中时候看过日本的一个游戏类网站的一个对话录。我猜另一个人应该是有名的ひろゆき吧，但我不确定，也可能是网络界、游戏界的某个人士。我实在是记不清了。
-里面曾经这么提及网络。&lt;/p&gt;
-
-&lt;p&gt;常常在网络上会看到很多人分享自己的故事。（在2ch这样的地方。）
-有很多故事是很感人的。很多都是些很悲惨、被社会压得紧紧的人的故事。
-这些都是我们在媒体上见不到的故事。
-如果没有网络，那他们也许就这样就算了。
-但是通过网络，事实上有很多跟他们有同样共鸣的人，生活很苦，为了吃饭而奔波的人会跟他们发出共鸣。
-然而他们如果实在现实生活中的话也许永远都没办法遇到有共鸣的人。&lt;/p&gt;
-
-&lt;p&gt;网络是片知识的海洋？不，它是一片信息的海洋。
-有很多有共鸣的人，所以在那一刻我会觉得网络在拉近我。
-网络在给我安全感。
-我甚至不能没了手机。
-因为手机甚至就代表着我和这个世界的联系——我起码还在和这个世界有着某种的联系。&lt;/p&gt;
-
-&lt;p&gt;也许网络让人的&lt;a href=&quot;http://www.guokr.com/article/92734/&quot;&gt;更&lt;/a&gt;&lt;a href=&quot;http://www.guokr.com/article/91840/&quot;&gt;孤&lt;/a&gt;&lt;a href=&quot;https://www.ted.com/talks/sherry_turkle_alone_together&quot;&gt;独&lt;/a&gt;&lt;a href=&quot;http://www.guokr.com/article/77438/&quot;&gt;。&lt;/a&gt;
-不过网络也在帮人解除心里的石&lt;a href=&quot;http://www.guokr.com/article/438754/&quot;&gt;。&lt;/a&gt;
-网络并非无所不能。网络永远没法代替面对面的交流——关于只有网络交流的负面影响的研究可以告诉你网络的意想不到的负面。
-但他同时也在给可以静下心来的人救赎。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">在知乎的这里曾看过这么一段话 那天晚上我就回家了，我妈给我打了几千块钱，我把房租还了后留了一千给老邢，自己坐上了火车，老邢并没有感激我，反而用憎恨的眼光目送我离开。我能够理解他，如果在北京有什么比冰冷的现实更可怕的，那就只有孤独了。 那一刻，我是个逃兵，他是个被抛弃的伤兵。 这感觉其实是很多人不能也没法去理解的。 当我还在初中、高中就远走异国他乡去留学的时候，我回来讲这些感受。不仅是同龄的同学旧友们无法理解。高龄的长辈们也是同样。 其实是很感谢网络。没有网络，是找不到有着这么多共鸣的人的。 曾在高中时候看过日本的一个游戏类网站的一个对话录。我猜另一个人应该是有名的ひろゆき吧，但我不确定，也可能是网络界、游戏界的某个人士。我实在是记不清了。 里面曾经这么提及网络。 常常在网络上会看到很多人分享自己的故事。（在2ch这样的地方。） 有很多故事是很感人的。很多都是些很悲惨、被社会压得紧紧的人的故事。 这些都是我们在媒体上见不到的故事。 如果没有网络，那他们也许就这样就算了。 但是通过网络，事实上有很多跟他们有同样共鸣的人，生活很苦，为了吃饭而奔波的人会跟他们发出共鸣。 然而他们如果实在现实生活中的话也许永远都没办法遇到有共鸣的人。 网络是片知识的海洋？不，它是一片信息的海洋。 有很多有共鸣的人，所以在那一刻我会觉得网络在拉近我。 网络在给我安全感。 我甚至不能没了手机。 因为手机甚至就代表着我和这个世界的联系——我起码还在和这个世界有着某种的联系。 也许网络让人的更孤独。 不过网络也在帮人解除心里的石。 网络并非无所不能。网络永远没法代替面对面的交流——关于只有网络交流的负面影响的研究可以告诉你网络的意想不到的负面。 但他同时也在给可以静下心来的人救赎。</summary></entry></feed>
+--&gt;</content><author><name></name></author><category term="essay" /><summary type="html">在YouTube观看各种remix的视频的时候。 发现其中一个图片指向了一个网站。 https://unsplash.com/ 一个免费提供该网站所有图片的，所有使用权限的网站。 他的介绍页面是这么写的。 do whatever you want 他的版权页面是这么写的 You can use them for commercial and noncommercial purposes. You do not need to ask permission from or provide credit to the photographer or Unsplash, although it is appreciated when possible. 这个版权的唯一限制是这样的 This license does not include the right to compile photos from Unsplash to replicate a similar or competing service. 他不允许把图片放到同类的竞争网站上面。仅此而已。 其实这个就属于支持remix文化以及创生新文化，还有抵触目前版权法的内容。 相似的东西其实非常多。例如在法律框架下，保证自己的作品可以被任何人使用的权利， 人们创造了很多东西。譬如MIT license，譬如cc license。 原因很简单。 版权法的创造是为了保护更好的创作。 保护以创作为生的人。 但正如没有绝对的善，也没有绝对的恶。 版权法确确实实在阻碍新文化的产生。 也就是说，他的过度保护在产生一个悖论。 那就是，他原本是为了保护更好的创作。 但是现在，因为有了它，没有办法去更好的创作。 好的，这里有一个逻辑的回路，就是这里是没有主语的。 有人可能会认为，这是保护一部分人在创作，但是另一部分人无法创作。 也许吧。 但是我认为，这里的主语是共通的。不是一部分人和另一部分人。 而是，一部分的创作是可以进行的，但另一部分创作没法进行。 主语应该是创作本身，而不是人。 古代欧洲曾经认为灵感来源于家中的小精灵，而不是人本身。 这是一个很有趣的观点——人不应该由于创作而被神化。 近来国内的版权呼声高起。我也看到知乎上很多很多的人标注着，维权骑士云云。 这并不是个坏事情。但是对于知识流动的本身。这并不是一件值得推崇的事。 显然人们还没有注意到这一点。 迪士尼的版权可以把版权从56年延长到75年，可以把75年延长到95年。 我相信这也是一种的正义。 我可以选择这种正义。 我也可以选择把自己的作品不用这种正义。 版权的问题很深。 近到同人类的作品，杂志。 总所周知，盗墓笔记，还有日系的一系列漫画，之所以风火的原因之一就是同人类作品的蜂拥。 这也是当今各大版权商纠结的一个地方，一方面想用法律，保护版权来赚钱； 一方面你过度保护了，万一这作品火不起来了怎么办。 有人会说，我不商业使用就不侵犯版权。不不不，各个地方的法律都不一样的。 譬如每年都在举办同人类的免费、无偿活动的日本。只要作者起诉，一样可以轻松获胜。 你只要公开，就有可能问责。 （在日本，之前还有过这种辩论。如若加入TPP，对于著作权， 即便作者不起诉，警察仍旧可以随意起诉，势必会破坏这种同人文化。 所以对于加入TPP的具体规则产生了大激辩。详见山田太郎和赤松健的一系列视频。) 本来这篇文章我想说很多东西的。 我想赞颂这种无私的精神的。 版权法本身没有错，但是法律的一再改版使得版权法愈演愈烈。 但是我冷静下来，发现这也只是一种选择。 这是自由派的一种选择。 猫套上枷锁会得精神类疾病， 然而狗却依然活的很快活。 人类的社会性大概是基于两个之间吧， 有枷锁可以活，没枷锁也一样的活。 所以我发现这只是一种选择， 无论我怎么样的赞颂，也改变不了这只是一个无力的赞颂的事实。 lessig也有篇演讲， 在讲述努力去改变。不只是著作权云云云云，很多方面都是一样。 我也一样。 如果国内真的在面临改变，不管是怎么样的。 我想去亲身经历。不是逃跑，总要有人要面对。 参考资料： unsplash的介绍页面：https://unsplash.com/about unsplash的版权页面：https://unsplash.com/license 状告火锅店？为了维护著作权，迪士尼做的可远不止这些：http://www.guokr.com/article/442338/ 作者身后不寂寞：那些版权过期后的改编https://www.15yan.com/story/dE2hbypOHdc/ lessig的ted演讲：https://www.ted.com/talks/larry_lessig_says_the_law_is_strangling_creativity</summary></entry></feed>
