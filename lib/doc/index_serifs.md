@@ -151,6 +151,8 @@ by 应知识 @zhihu.com
 “如果你打过手枪的话，技术上你是用男人的手达到高潮。所以理论上，你是GAY。”
 by 抽大麻会让你脑袋坏掉
 
+“Just because people tell you it can't be done, that doesn't necessarily mean that it can't be done. It just means that they can't do it.”
+by Anders hejlsberg
 
 
 '"  &nbsp;  "'
