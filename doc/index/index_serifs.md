@@ -1,4 +1,4 @@
-"happy a new day!!"
+﻿"happy a new day!!"
 
 "The world is round and the place which may seem like the end may also be only the beginning.
 地球是圆的，而看似像终点的地方可能也只是起点。"
