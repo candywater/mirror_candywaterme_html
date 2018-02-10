@@ -21,3 +21,7 @@ permalink: /about/
 - [阮一峰的个人网站](http://www.ruanyifeng.com/home.html)
 
 - [草东没有派对.com](http://nopartyforcaodong.com/album/)
+
+- [韩寒博客](http://blog.sina.com.cn/twocold)
+
+- [一个](http://wufazhuce.com/one/1984)
