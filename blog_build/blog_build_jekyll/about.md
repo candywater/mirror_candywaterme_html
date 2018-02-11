@@ -8,13 +8,15 @@ permalink: /about/
 
 #### 订阅信息
 
-- [Tech RSS](https://candy-water.com/blog/rss/tech.xml)
+- [Tech Rss](https://candy-water.com/blog/rss/tech.xml)
 
-- [Essay RSS](https://candy-water.com/blog/rss/essay.xml)
+- [Essay Rss](https://candy-water.com/blog/rss/essay.xml)
 
 #### 友情链接集合
 
 - [赛肥腻腻的 Android 工作筆記](https://xnfood.com.tw/android/)
+
+#### 站长个人爱好
 
 - [月光博客](http://www.williamlong.info/)
 
