@@ -38,7 +38,7 @@ http{
     location / {
       root /abc/def;
     }
-    error_page 406 /404.html
+    error_page 406 /404.html;
   }
 
   if($scheme ！= "https"){
