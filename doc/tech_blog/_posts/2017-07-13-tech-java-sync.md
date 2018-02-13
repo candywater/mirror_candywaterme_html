@@ -4,7 +4,6 @@ title: 关于JAVA同期的初步学习笔记(1)
 date: 2017-07-13 +0900
 tags: JAVA, sync
 category: tech
-
 ---
 
 
@@ -156,4 +155,3 @@ class b : 2 9[s]
 ```
 
 错误的不是程序，而是写output的我自己。
-		

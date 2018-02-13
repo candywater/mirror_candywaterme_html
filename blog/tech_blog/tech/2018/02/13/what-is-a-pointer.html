@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>记，升级到https的菜鸟旅程</title>
-  <meta name="description" content="起因之一是看到月光博客的微博， 据谷歌邮件通知，从2017年10月起，当用户在HTTP网页上的表单中输入文本时，Chrome（版本62）将显示一条“不安全”警告，并在所有无痕模式下的HTTP网页上显示这一警告，即使没有密码也会显示警告，解决方法是：迁移到https。 恰巧同时期看到twitter上有人谈及let’...">
+  <title>什么是pointer</title>
+  <meta name="description" content="写同期之前，写一个基础小知识吧。一个小学弟（初学者）问我什么是指针。 ummmm……. 这要用手机打字的话，估计会写到自己崩溃吧XD 恰巧身边有电脑，就记录一下。顺便把这个文章给他分享下XD pointer我记得汉语翻译是指针，一般是c和c++中特有的一个概念。不过php中也有类似于指针的东西，至于具体名字是不是...">
 
   <link rel="stylesheet" href="/blog/assets/main.css">
-  <link rel="canonical" href="https://candy-water.com/blog/tech_blog/tech/2017/08/20/abouthttps.html">
+  <link rel="canonical" href="https://candy-water.com/blog/tech_blog/tech/2018/02/13/what-is-a-pointer.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water" href="/blog/feed.xml">
   <!--icon-->
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -180,11 +180,11 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">记，升级到https的菜鸟旅程</h1>
+    <h1 class="post-title" itemprop="name headline">什么是pointer</h1>
     <p class="post-meta">
-      <time datetime="2017-08-20T00:00:00+09:00" itemprop="datePublished">
+      <time datetime="2018-02-13T00:00:00+09:00" itemprop="datePublished">
         
-        Aug 20, 2017
+        Feb 13, 2018
       </time>
       
     </p>
@@ -192,54 +192,63 @@
   <hr>
   </header>
   <div class="post-content" itemprop="articleBody">
-    <p>起因之一是看到月光博客的<a href="https://weibo.com/1494759712/FizDQd6sQ">微博</a>，</p>
-<blockquote>
-  <p>据谷歌邮件通知，从2017年10月起，当用户在HTTP网页上的表单中输入文本时，Chrome（版本62）将显示一条“不安全”警告，并在所有无痕模式下的HTTP网页上显示这一警告，即使没有密码也会显示警告，解决方法是：迁移到https。</p>
-</blockquote>
+    <p>写同期之前，写一个基础小知识吧。一个小学弟（初学者）问我什么是指针。
+ummmm…….
+这要用手机打字的话，估计会写到自己崩溃吧XD 恰巧身边有电脑，就记录一下。顺便把这个文章给他分享下XD</p>
 
-<p>恰巧同时期看到twitter上有人谈及<a href="https://letsencrypt.org/">let’s encrypt</a>。
-本来还打算用aws的一些服务或者找一些别的CA去花钱挂一个证书，但是看到这个好像不错，就从文档读起。</p>
+<p>pointer我记得汉语翻译是指针，一般是c和c++中特有的一个概念。不过php中也有类似于指针的东西，至于具体名字是不是指针我就不清楚了。</p>
 
-<p>事实上文档写的很简单，大致就是<a href="https://letsencrypt.org/getting-started/">你要有一个cgi的环境</a>，
-然后我们用<a href="https://certbot.eff.org/">certbot</a>就可以非常简单嗨皮的构建https环境。
-很傻瓜。但是事实上如果用apache一类的，也不过是装个mod，然后把证书的path写上去，同样是傻瓜式的构筑，而且是很麻烦的那种傻瓜。
-既然这样，倒不如用let’s encrypt这种看起来就很赞，而且目标和梦想都很伟大的project – <a href="https://en.wikipedia.org/wiki/Let%27s_Encrypt#Overview">要加密整个互联网，啊哈。</a></p>
+<p>想要理解指针，首先要理解的一个事情就是，内存(RAM)的作用。暂且抛却heap和stack的区别。我们在程序中所书写的所有变量(variable),函数(function)都是存储在内存之中的。
+为什么存储在内存中？当然是速度快啊！当然你也可以在硬盘中一点一点读取，边用边读，当然这就是另一个话题了。
+因为所有的数据都存储在RAM之中，
+所以我们使用数据的进行计算的时候，也对应的要从内存中选择。
+我学弟学习的是c++，我就用c++举例子好了。（不然我想用js的说TAT）</p>
 
-<p>文档虽然简单，但是介绍了它的一些特性，比如支持什么样的算法（但是这里我找的不是很清楚，看的不太仔细，只是看到略提一笔）。
-还说好像是60天就会一自动更新。而且还提供了譬如不使用sudo的一个certbot的fork。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int a = 0;
+</code></pre></div></div>
 
-<p>看起来这么赞，
-就照着它的使用说明用吧！
-虽然我原本是想使用最复杂的椭圆密码和椭圆验证。
-但是秉着</p>
-<blockquote>
-  <p>先有一个，再要好的一个</p>
-</blockquote>
+<p>这里的a就是指向内存中的一块被宣言成为int的一小块区域。大小是根据你系统的bit数而决定的，64bit还是32bit的话，大小也会不一样。
+当然，除了基本类型，譬如stl库中的类型，也同样是被存储在内存中的。就比如下面的v就是例子。</p>
 
-<p>的这样一个基本原则，我按照操作说明很简单的操作起来。
-<a href="https://certbot.eff.org/">操作说明:https://certbot.eff.org/</a></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>std::vector&lt;int&gt; v;
+v.push_back(233);
+</code></pre></div></div>
 
-<p>可是结果大大出乎我的意料，明明应该很简单就可以构筑的东西为什么会来来回回的失败。
-（我怀疑是我的参数设定错误所以一直更改原本网站的参数然后继续尝试）
-失败到后来我竟然被let’s encrypt CA 禁止了一段时间去认证 – 失败的认证次数过多，相当于被“禁言”了几十分钟。</p>
+<p>但是在传递数值的时候会产生一个问题。在譬如js，或者java一类的所谓的高等语言中，一般是会不让编程者注意到这一信息。事实上这一信息会产生一定的速度差异，当然也会有编程困扰。
+废话讲的有点多。暂且抛弃c++中的参照(reference)的概念，用pointer写一个简单的例子。
+继续我们的基础类型int的例子。</p>
 
-<p>我把mariaDB和mysql的残骸清除，把过去装的一个垃圾傻瓜邮箱伺服器系统的残骸找到清除，
-（那个“开源”邮箱伺服器系统竟然不提供卸载功能，作者留言说，要想卸载，重装OS吧。简直是WTF，作者还是国人，丢。。。。）
-到最后才发现根本原因，我的virtual host的设定导致他无法正确的打开443port。。。。。因为我设置是伺服器从本地（伺服器）出发只能走80通道。。。。。
-（当初是多神经才这么设定，一定是设定错了。。。。当时考虑的可能是防御hacking？？？！我应该是把目的地和出发地设置反了）</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int a = 233;
+int* b = &amp;a;
+</code></pre></div></div>
+<p>注意我们的宣言，是int<em>，我们的类型是int</em>。当然你写成</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int *b = &amp;a;
+</code></pre></div></div>
+<p>也是没有任何的错误的。</p>
 
-<p>然后无奈的暂时取消掉virtual host，装成功了之后再一点点设置回来。
-还好certbot还比较聪明（写的比较傻瓜）</p>
+<p>这时，这个b就是一个pointer。他指向的是a。
+什么意思呢。原本我们的a，就指向的是RAM中的一个宣言为int类型的一个小空间。如果我们</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>int c = a;
+</code></pre></div></div>
+<p>那么我们所做的，是在RAM中再确立了另一块小空间，用c来指向那里，然后把a的数值copy过去。
+但是我们int*类型的b所做的，就是直接指向了a的空间。</p>
 
-<p>看，<a href="http://candy-water.com">candy-water.com</a>，无论怎么走，都是从443通道了，真开心！</p>
+<p>事实上不必怀疑，int*类型本身也是会占据一定的RAM空间的，当然这是后话。</p>
 
-<p>参阅资料：</p>
-<ul>
-  <li>let’s encrypt:<a href="https://letsencrypt.org/">https://letsencrypt.org/</a></li>
-  <li>certbot:<a href="https://certbot.eff.org/">https://certbot.eff.org/</a></li>
-  <li>部分document:<a href="https://certbot.eff.org/docs/">https://certbot.eff.org/docs/</a></li>
-  <li>劳资要加密全世界的宣言:<a href="https://en.wikipedia.org/wiki/Let%27s_Encrypt#Overview">https://en.wikipedia.org/wiki/Let%27s_Encrypt#Overview</a></li>
-</ul>
+<p>那么这样做会带来一个问题。就是，如果a的数值变了的话，会怎么样。
+答案很简单。因为a的数值变了的话，a在RAM空间的数值会变化，所以b的数值也会变。但是c因为是在RAM空间的另一块区域开启的新空间，所以，a的空间变的怎样，其实是没有任何关系的。
+所以即便a的数值产生了变化，c的数值也不会变。</p>
+
+<p>这就是pointer和普通变量(variable)的区别。pointer赋予我们的是直接操作RAM的能力。当然会有少许的性能代价(pointer本身也会占据内存)。也会有相当程度的风险，比如memory leak。
+（爱，老哥我毕业论文就差点因为不小心写出了memory leak没法用程序验证理论，险些GG。多亏了valgrind这个神程序。。。。）</p>
+
+<p>当然，c和c++语言中的pointer，当然是不仅仅只有这个功能，还跟array有着密不可分的关系，所以说c写起来才让人头疼啊。。。。</p>
+
+<p>PS：这个array的汉语翻译我没找到。。。
+这个等我今天晚上回家再继续码字吧！</p>
+
+<p>参考资料：
+暂无。</p>
 
   </div>
 

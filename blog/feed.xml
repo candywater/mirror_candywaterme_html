@@ -1,4 +1,60 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-02-12T14:51:06+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water’s Blog</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">不朽</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/02/12/essay-about-forever.html" rel="alternate" type="text/html" title="不朽" /><published>2018-02-12T00:00:00+09:00</published><updated>2018-02-12T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/02/12/essay-about-forever</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/02/12/essay-about-forever.html">&lt;p&gt;不知是受什么影响。我总觉得想是在世间留下点什么。可能大约是小学3年级时候开始思索的人生的意义。也可能是一些其他的别的。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-02-13T11:56:45+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">什么是pointer</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/13/what-is-a-pointer.html" rel="alternate" type="text/html" title="什么是pointer" /><published>2018-02-13T00:00:00+09:00</published><updated>2018-02-13T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/13/what-is-a-pointer</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/13/what-is-a-pointer.html">&lt;p&gt;写同期之前，写一个基础小知识吧。一个小学弟（初学者）问我什么是指针。
+ummmm…….
+这要用手机打字的话，估计会写到自己崩溃吧XD 恰巧身边有电脑，就记录一下。顺便把这个文章给他分享下XD&lt;/p&gt;
+
+&lt;p&gt;pointer我记得汉语翻译是指针，一般是c和c++中特有的一个概念。不过php中也有类似于指针的东西，至于具体名字是不是指针我就不清楚了。&lt;/p&gt;
+
+&lt;p&gt;想要理解指针，首先要理解的一个事情就是，内存(RAM)的作用。暂且抛却heap和stack的区别。我们在程序中所书写的所有变量(variable),函数(function)都是存储在内存之中的。
+为什么存储在内存中？当然是速度快啊！当然你也可以在硬盘中一点一点读取，边用边读，当然这就是另一个话题了。
+因为所有的数据都存储在RAM之中，
+所以我们使用数据的进行计算的时候，也对应的要从内存中选择。
+我学弟学习的是c++，我就用c++举例子好了。（不然我想用js的说TAT）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int a = 0;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这里的a就是指向内存中的一块被宣言成为int的一小块区域。大小是根据你系统的bit数而决定的，64bit还是32bit的话，大小也会不一样。
+当然，除了基本类型，譬如stl库中的类型，也同样是被存储在内存中的。就比如下面的v就是例子。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;std::vector&amp;lt;int&amp;gt; v;
+v.push_back(233);
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;但是在传递数值的时候会产生一个问题。在譬如js，或者java一类的所谓的高等语言中，一般是会不让编程者注意到这一信息。事实上这一信息会产生一定的速度差异，当然也会有编程困扰。
+废话讲的有点多。暂且抛弃c++中的参照(reference)的概念，用pointer写一个简单的例子。
+继续我们的基础类型int的例子。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int a = 233;
+int* b = &amp;amp;a;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;注意我们的宣言，是int&lt;em&gt;，我们的类型是int&lt;/em&gt;。当然你写成&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int *b = &amp;amp;a;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;也是没有任何的错误的。&lt;/p&gt;
+
+&lt;p&gt;这时，这个b就是一个pointer。他指向的是a。
+什么意思呢。原本我们的a，就指向的是RAM中的一个宣言为int类型的一个小空间。如果我们&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;int c = a;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;那么我们所做的，是在RAM中再确立了另一块小空间，用c来指向那里，然后把a的数值copy过去。
+但是我们int*类型的b所做的，就是直接指向了a的空间。&lt;/p&gt;
+
+&lt;p&gt;事实上不必怀疑，int*类型本身也是会占据一定的RAM空间的，当然这是后话。&lt;/p&gt;
+
+&lt;p&gt;那么这样做会带来一个问题。就是，如果a的数值变了的话，会怎么样。
+答案很简单。因为a的数值变了的话，a在RAM空间的数值会变化，所以b的数值也会变。但是c因为是在RAM空间的另一块区域开启的新空间，所以，a的空间变的怎样，其实是没有任何关系的。
+所以即便a的数值产生了变化，c的数值也不会变。&lt;/p&gt;
+
+&lt;p&gt;这就是pointer和普通变量(variable)的区别。pointer赋予我们的是直接操作RAM的能力。当然会有少许的性能代价(pointer本身也会占据内存)。也会有相当程度的风险，比如memory leak。
+（爱，老哥我毕业论文就差点因为不小心写出了memory leak没法用程序验证理论，险些GG。多亏了valgrind这个神程序。。。。）&lt;/p&gt;
+
+&lt;p&gt;当然，c和c++语言中的pointer，当然是不仅仅只有这个功能，还跟array有着密不可分的关系，所以说c写起来才让人头疼啊。。。。&lt;/p&gt;
+
+&lt;p&gt;PS：这个array的汉语翻译我没找到。。。
+这个等我今天晚上回家再继续码字吧！&lt;/p&gt;
+
+&lt;p&gt;参考资料：
+暂无。&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="c,c++" /><summary type="html">写同期之前，写一个基础小知识吧。一个小学弟（初学者）问我什么是指针。 ummmm……. 这要用手机打字的话，估计会写到自己崩溃吧XD 恰巧身边有电脑，就记录一下。顺便把这个文章给他分享下XD pointer我记得汉语翻译是指针，一般是c和c++中特有的一个概念。不过php中也有类似于指针的东西，至于具体名字是不是指针我就不清楚了。 想要理解指针，首先要理解的一个事情就是，内存(RAM)的作用。暂且抛却heap和stack的区别。我们在程序中所书写的所有变量(variable),函数(function)都是存储在内存之中的。 为什么存储在内存中？当然是速度快啊！当然你也可以在硬盘中一点一点读取，边用边读，当然这就是另一个话题了。 因为所有的数据都存储在RAM之中， 所以我们使用数据的进行计算的时候，也对应的要从内存中选择。 我学弟学习的是c++，我就用c++举例子好了。（不然我想用js的说TAT） int a = 0; 这里的a就是指向内存中的一块被宣言成为int的一小块区域。大小是根据你系统的bit数而决定的，64bit还是32bit的话，大小也会不一样。 当然，除了基本类型，譬如stl库中的类型，也同样是被存储在内存中的。就比如下面的v就是例子。 std::vector&amp;lt;int&amp;gt; v; v.push_back(233); 但是在传递数值的时候会产生一个问题。在譬如js，或者java一类的所谓的高等语言中，一般是会不让编程者注意到这一信息。事实上这一信息会产生一定的速度差异，当然也会有编程困扰。 废话讲的有点多。暂且抛弃c++中的参照(reference)的概念，用pointer写一个简单的例子。 继续我们的基础类型int的例子。 int a = 233; int* b = &amp;amp;a; 注意我们的宣言，是int，我们的类型是int。当然你写成 int *b = &amp;amp;a; 也是没有任何的错误的。 这时，这个b就是一个pointer。他指向的是a。 什么意思呢。原本我们的a，就指向的是RAM中的一个宣言为int类型的一个小空间。如果我们 int c = a; 那么我们所做的，是在RAM中再确立了另一块小空间，用c来指向那里，然后把a的数值copy过去。 但是我们int*类型的b所做的，就是直接指向了a的空间。 事实上不必怀疑，int*类型本身也是会占据一定的RAM空间的，当然这是后话。 那么这样做会带来一个问题。就是，如果a的数值变了的话，会怎么样。 答案很简单。因为a的数值变了的话，a在RAM空间的数值会变化，所以b的数值也会变。但是c因为是在RAM空间的另一块区域开启的新空间，所以，a的空间变的怎样，其实是没有任何关系的。 所以即便a的数值产生了变化，c的数值也不会变。 这就是pointer和普通变量(variable)的区别。pointer赋予我们的是直接操作RAM的能力。当然会有少许的性能代价(pointer本身也会占据内存)。也会有相当程度的风险，比如memory leak。 （爱，老哥我毕业论文就差点因为不小心写出了memory leak没法用程序验证理论，险些GG。多亏了valgrind这个神程序。。。。） 当然，c和c++语言中的pointer，当然是不仅仅只有这个功能，还跟array有着密不可分的关系，所以说c写起来才让人头疼啊。。。。 PS：这个array的汉语翻译我没找到。。。 这个等我今天晚上回家再继续码字吧！ 参考资料： 暂无。</summary></entry><entry><title type="html">不朽</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/02/12/essay-about-forever.html" rel="alternate" type="text/html" title="不朽" /><published>2018-02-12T00:00:00+09:00</published><updated>2018-02-12T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/02/12/essay-about-forever</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/02/12/essay-about-forever.html">&lt;p&gt;不知是受什么影响。我总觉得想是在世间留下点什么。可能大约是小学3年级时候开始思索的人生的意义。也可能是一些其他的别的。&lt;/p&gt;
 
 &lt;p&gt;高晓松曾经说过一个很有趣的现象。我国有很多出名的书法家。但是却很少有出名的音乐家。不止是本代如此，历朝历代历来如此，就好像是一个民族性一样。
 非要说理由的话很多吧。
@@ -353,116 +409,4 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
   &lt;li&gt;certbot:&lt;a href=&quot;https://certbot.eff.org/&quot;&gt;https://certbot.eff.org/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;部分document:&lt;a href=&quot;https://certbot.eff.org/docs/&quot;&gt;https://certbot.eff.org/docs/&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;劳资要加密全世界的宣言:&lt;a href=&quot;https://en.wikipedia.org/wiki/Let%27s_Encrypt#Overview&quot;&gt;https://en.wikipedia.org/wiki/Let%27s_Encrypt#Overview&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="rust," /><category term="os" /><summary type="html">起因之一是看到月光博客的微博， 据谷歌邮件通知，从2017年10月起，当用户在HTTP网页上的表单中输入文本时，Chrome（版本62）将显示一条“不安全”警告，并在所有无痕模式下的HTTP网页上显示这一警告，即使没有密码也会显示警告，解决方法是：迁移到https。 恰巧同时期看到twitter上有人谈及let’s encrypt。 本来还打算用aws的一些服务或者找一些别的CA去花钱挂一个证书，但是看到这个好像不错，就从文档读起。 事实上文档写的很简单，大致就是你要有一个cgi的环境， 然后我们用certbot就可以非常简单嗨皮的构建https环境。 很傻瓜。但是事实上如果用apache一类的，也不过是装个mod，然后把证书的path写上去，同样是傻瓜式的构筑，而且是很麻烦的那种傻瓜。 既然这样，倒不如用let’s encrypt这种看起来就很赞，而且目标和梦想都很伟大的project – 要加密整个互联网，啊哈。 文档虽然简单，但是介绍了它的一些特性，比如支持什么样的算法（但是这里我找的不是很清楚，看的不太仔细，只是看到略提一笔）。 还说好像是60天就会一自动更新。而且还提供了譬如不使用sudo的一个certbot的fork。 看起来这么赞， 就照着它的使用说明用吧！ 虽然我原本是想使用最复杂的椭圆密码和椭圆验证。 但是秉着 先有一个，再要好的一个 的这样一个基本原则，我按照操作说明很简单的操作起来。 操作说明:https://certbot.eff.org/ 可是结果大大出乎我的意料，明明应该很简单就可以构筑的东西为什么会来来回回的失败。 （我怀疑是我的参数设定错误所以一直更改原本网站的参数然后继续尝试） 失败到后来我竟然被let’s encrypt CA 禁止了一段时间去认证 – 失败的认证次数过多，相当于被“禁言”了几十分钟。 我把mariaDB和mysql的残骸清除，把过去装的一个垃圾傻瓜邮箱伺服器系统的残骸找到清除， （那个“开源”邮箱伺服器系统竟然不提供卸载功能，作者留言说，要想卸载，重装OS吧。简直是WTF，作者还是国人，丢。。。。） 到最后才发现根本原因，我的virtual host的设定导致他无法正确的打开443port。。。。。因为我设置是伺服器从本地（伺服器）出发只能走80通道。。。。。 （当初是多神经才这么设定，一定是设定错了。。。。当时考虑的可能是防御hacking？？？！我应该是把目的地和出发地设置反了） 然后无奈的暂时取消掉virtual host，装成功了之后再一点点设置回来。 还好certbot还比较聪明（写的比较傻瓜） 看，candy-water.com，无论怎么走，都是从443通道了，真开心！ 参阅资料： let’s encrypt:https://letsencrypt.org/ certbot:https://certbot.eff.org/ 部分document:https://certbot.eff.org/docs/ 劳资要加密全世界的宣言:https://en.wikipedia.org/wiki/Let%27s_Encrypt#Overview</summary></entry><entry><title type="html">关于rust的初步学习笔记(1)-heap和stack的基本概念</title><link href="http://localhost:4000/blog/tech_blog/tech/2017/08/20/about-rust-1.html" rel="alternate" type="text/html" title="关于rust的初步学习笔记(1)-heap和stack的基本概念" /><published>2017-08-20T00:00:00+09:00</published><updated>2017-08-20T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2017/08/20/about-rust-1</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2017/08/20/about-rust-1.html">&lt;p&gt;因为个人对java并没有什么热爱，
-（然而我的c++书籍的阅读却没有我小说的阅读进度快…)
-加之近来身体不佳。
-关于java同期的探索暂且告一段落———反正这个知识早晚会再次用到。（那时再来探索吧）
-虽然我应该近期会优先探索非同期的部分——nodejs的部分。&lt;/p&gt;
-
-&lt;h2 id=&quot;关于rust&quot;&gt;关于rust&lt;/h2&gt;
-&lt;p&gt;缘由是在知乎上偶然看到这个东西。我错把这个东西当成的c++的一个衍生物品。以为是类似于RAII一类的东西。
-事实上随手查阅这个东西的时候，才发现是一门语言。
-而且是Mozilla主导开发的。一下子好感度大增，撇下只是看维基百科没有看的太明白的RAII，读起了rust的document。&lt;/p&gt;
-
-&lt;p&gt;rust的document很完备。
-我这里就权当一个读书笔记了。&lt;/p&gt;
-
-&lt;h2 id=&quot;heap和stack&quot;&gt;heap和stack&lt;/h2&gt;
-
-&lt;h3 id=&quot;为什么讨论heap和stack&quot;&gt;为什么讨论heap和stack？&lt;/h3&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;rust的文档中提到了他俩&lt;/li&gt;
-  &lt;li&gt;事实上语言在内存中运用的时候，有时候会考虑到这两个数据结构。因为这是计算机内部的系统结构的一部分。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;基础概念&quot;&gt;基础概念&lt;/h3&gt;
-
-&lt;p&gt;关于algorithm上heap和stack是怎么一个定义这里就不多赘述了。因为stack的结构简单，所以 理论上stack会比heap要快。
-在acm中heap常会被用一个array来实装，而stack由于一般大多的stl都会提供实装，所以并不需要手动实装。&lt;/p&gt;
-
-&lt;p&gt;这里需要说一个点就是，&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%92%E3%83%BC%E3%83%97&quot;&gt;日文维基百科&lt;/a&gt;中会说到heap的删除时间是O(log(n))。
-这个给我绕住了。
-因为我印象中，比如容纳{4, 5, 6}的一个heap的话，指定删除一个值6，事实上不可能是log(n)。
-然后我看到了搜索一个值需要的时间是O(n)，我迷惑了，怎么搜索的时间会比删除的时间要长。
-然后我意识到，容纳{4, 5, 6}的一个heap的话，删除一个值是说，删除一个指定index值的值。
-相当于删除index是0 or 1 or 2 的一个值。这样的话删除时间的确是O(log(n))。&lt;/p&gt;
-
-&lt;p&gt;(PS:英文和中文维基百科就讲的很清楚：“delete-max [or delete-min]”)&lt;/p&gt;
-
-&lt;p&gt;绕开heap和stack这些繁复的algorithm的基础定义。
-我们来看rust中是如何定义内存中heap和stack的使用的。&lt;/p&gt;
-
-&lt;!--
-&gt;For data with a size unknown to us at compile time or a size that might change, we can store data on the heap instead. The heap is less organized: when we put data on the heap, we ask for some amount of space. The operating system finds an empty spot somewhere in the heap that is big enough, marks it as being in use, and returns to us a pointer to that location. This process is called allocating on the heap, and sometimes we abbreviate the phrase as just “allocating.” Pushing values onto the stack is not considered allocating. Because the pointer is a known, fixed size, we can store the pointer on the stack, but when we want the actual data, we have to follow the pointer.
---&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;The heap, on the other hand, is slower, and is explicitly allocated by your program. But it’s effectively unlimited in size, and is globally accessible.
-– rust first-edition document 4.1. The Stack and the Heap&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Accessing data in the heap is slower than accessing data on the stack because we have to follow a pointer to get there. Contemporary processors are faster if they jump around less in memory.
-When our code calls a function, the values passed into the function (including, potentially, pointers to data on the heap) and the function’s local variables get pushed onto the stack. When the function is over, those values get popped off the stack.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;– rust second-edition document 4.1. What is Ownership?&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;也就是说，&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;在内存中，stack是被你的rust确保的，而heap是被你写的程序所确保的。&lt;/li&gt;
-  &lt;li&gt;确保空间大小的时候，stack是必须是固定大小。heap是pointer式的指向，所以不用固定大小。&lt;/li&gt;
-  &lt;li&gt;heap往往是全局类的（global）。&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;关于stack&quot;&gt;关于stack&lt;/h3&gt;
-
-&lt;p&gt;再详细的讲。
-在呼叫一个函数（function）的时候。函数的一部分情报，以及函数内部的定义的局部变量，会被记忆到stack中。
-这也是在acm中，使用递推（Recursion ）来解决一些问题的时候，由于呼叫自己的次数过多，导致内存不够用，
-产生著名的stack over flow问题。（这里并不是在说同名问答论坛）&lt;/p&gt;
-
-&lt;p&gt;这样的stack空间，在这个函数结束的时候，会被解放。
-也就是说，哪怕你的这个函数内部定义了1GB大小的非pointer式指向的array，
-但是是被线性呼叫的，而不是被同时呼叫。
-那么在4GB的内存上理论上也是没有问题的。&lt;/p&gt;
-
-&lt;h3 id=&quot;关于heap&quot;&gt;关于heap&lt;/h3&gt;
-
-&lt;p&gt;也就是说，在函数内部呼叫例如&lt;/p&gt;
-
-&lt;div class=&quot;language-c++ highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;set&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;的一行的时候，这里使用的就是heap。&lt;/p&gt;
-
-&lt;p&gt;使用heap的时候需要注意产生的一个问题就是，由于属于pointer指向，会产生这个内存领域没有被解放的问题。&lt;/p&gt;
-
-&lt;p&gt;比如，函数内部呼叫上面的一行指令的时候，会在stack（根据rust的document）生成一个pointer，指向heap领域。
-在函数结束的时候，这个pointer会跟着一起被毁灭。但是所指向的heap领域在有时候并不会被毁灭。
-在c++中，大部分stl（可能是所有的？）在函数结束的时候都会自动运行destructor（如果我没有记错）。
-来进行内存的解放。
-然而过分的解除和确保heap领域可能会造成fragmentation问题
-（？）（参见&lt;a href=&quot;https://www.uquest.co.jp/embedded/learning/lecture16.html&quot;&gt;ヒープとスタック&lt;/a&gt;
-这里就已经是硬件方面的编程了，属于我不懂的领域）&lt;/p&gt;
-
-&lt;p&gt;rust是如何处理这一问题的呢？&lt;/p&gt;
-
-&lt;h2 id=&quot;结语&quot;&gt;结语&lt;/h2&gt;
-
-&lt;p&gt;这里我有一个疑问，那么全局变量呢（global variables)呢？如果是array或者int的话？
-是属于stack还是heap？
-答案是在c中，这是使用了另一个叫做data segment的区域。（参见&lt;a href=&quot;http://www1.cts.ne.jp/~clab/hsample/Point/Point19.html&quot;&gt;関数や変数のメモリ配置&lt;/a&gt;）&lt;/p&gt;
-
-&lt;p&gt;那么rust是如何处理这些繁复的内容的呢？
-这些疑问留给下次吧，我累了= =&lt;/p&gt;
-
-&lt;p&gt;参考资料：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;第一版rust的document：&lt;a href=&quot;https://doc.rust-lang.org/book/first-edition/&quot;&gt;https://doc.rust-lang.org/book/first-edition/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;第二版rust的document：&lt;a href=&quot;https://doc.rust-lang.org/book/second-edition/&quot;&gt;https://doc.rust-lang.org/book/second-edition/&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;ヒープとスタック：&lt;a href=&quot;https://www.uquest.co.jp/embedded/learning/lecture16.html&quot;&gt;https://www.uquest.co.jp/embedded/learning/lecture16.html&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;関数や変数のメモリ配置：&lt;a href=&quot;http://www1.cts.ne.jp/~clab/hsample/Point/Point19.html&quot;&gt;http://www1.cts.ne.jp/~clab/hsample/Point/Point19.html&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="rust," /><category term="os" /><summary type="html">因为个人对java并没有什么热爱， （然而我的c++书籍的阅读却没有我小说的阅读进度快…) 加之近来身体不佳。 关于java同期的探索暂且告一段落———反正这个知识早晚会再次用到。（那时再来探索吧） 虽然我应该近期会优先探索非同期的部分——nodejs的部分。 关于rust 缘由是在知乎上偶然看到这个东西。我错把这个东西当成的c++的一个衍生物品。以为是类似于RAII一类的东西。 事实上随手查阅这个东西的时候，才发现是一门语言。 而且是Mozilla主导开发的。一下子好感度大增，撇下只是看维基百科没有看的太明白的RAII，读起了rust的document。 rust的document很完备。 我这里就权当一个读书笔记了。 heap和stack 为什么讨论heap和stack？ rust的文档中提到了他俩 事实上语言在内存中运用的时候，有时候会考虑到这两个数据结构。因为这是计算机内部的系统结构的一部分。 基础概念 关于algorithm上heap和stack是怎么一个定义这里就不多赘述了。因为stack的结构简单，所以 理论上stack会比heap要快。 在acm中heap常会被用一个array来实装，而stack由于一般大多的stl都会提供实装，所以并不需要手动实装。 这里需要说一个点就是，日文维基百科中会说到heap的删除时间是O(log(n))。 这个给我绕住了。 因为我印象中，比如容纳{4, 5, 6}的一个heap的话，指定删除一个值6，事实上不可能是log(n)。 然后我看到了搜索一个值需要的时间是O(n)，我迷惑了，怎么搜索的时间会比删除的时间要长。 然后我意识到，容纳{4, 5, 6}的一个heap的话，删除一个值是说，删除一个指定index值的值。 相当于删除index是0 or 1 or 2 的一个值。这样的话删除时间的确是O(log(n))。 (PS:英文和中文维基百科就讲的很清楚：“delete-max [or delete-min]”) 绕开heap和stack这些繁复的algorithm的基础定义。 我们来看rust中是如何定义内存中heap和stack的使用的。 The heap, on the other hand, is slower, and is explicitly allocated by your program. But it’s effectively unlimited in size, and is globally accessible. – rust first-edition document 4.1. The Stack and the Heap Accessing data in the heap is slower than accessing data on the stack because we have to follow a pointer to get there. Contemporary processors are faster if they jump around less in memory. When our code calls a function, the values passed into the function (including, potentially, pointers to data on the heap) and the function’s local variables get pushed onto the stack. When the function is over, those values get popped off the stack. – rust second-edition document 4.1. What is Ownership? 也就是说， 在内存中，stack是被你的rust确保的，而heap是被你写的程序所确保的。 确保空间大小的时候，stack是必须是固定大小。heap是pointer式的指向，所以不用固定大小。 heap往往是全局类的（global）。 关于stack 再详细的讲。 在呼叫一个函数（function）的时候。函数的一部分情报，以及函数内部的定义的局部变量，会被记忆到stack中。 这也是在acm中，使用递推（Recursion ）来解决一些问题的时候，由于呼叫自己的次数过多，导致内存不够用， 产生著名的stack over flow问题。（这里并不是在说同名问答论坛） 这样的stack空间，在这个函数结束的时候，会被解放。 也就是说，哪怕你的这个函数内部定义了1GB大小的非pointer式指向的array， 但是是被线性呼叫的，而不是被同时呼叫。 那么在4GB的内存上理论上也是没有问题的。 关于heap 也就是说，在函数内部呼叫例如 std::set&amp;lt;int&amp;gt; a{1, 2, 3}; 的一行的时候，这里使用的就是heap。 使用heap的时候需要注意产生的一个问题就是，由于属于pointer指向，会产生这个内存领域没有被解放的问题。 比如，函数内部呼叫上面的一行指令的时候，会在stack（根据rust的document）生成一个pointer，指向heap领域。 在函数结束的时候，这个pointer会跟着一起被毁灭。但是所指向的heap领域在有时候并不会被毁灭。 在c++中，大部分stl（可能是所有的？）在函数结束的时候都会自动运行destructor（如果我没有记错）。 来进行内存的解放。 然而过分的解除和确保heap领域可能会造成fragmentation问题 （？）（参见ヒープとスタック 这里就已经是硬件方面的编程了，属于我不懂的领域） rust是如何处理这一问题的呢？ 结语 这里我有一个疑问，那么全局变量呢（global variables)呢？如果是array或者int的话？ 是属于stack还是heap？ 答案是在c中，这是使用了另一个叫做data segment的区域。（参见関数や変数のメモリ配置） 那么rust是如何处理这些繁复的内容的呢？ 这些疑问留给下次吧，我累了= = 参考资料： 第一版rust的document：https://doc.rust-lang.org/book/first-edition/ 第二版rust的document：https://doc.rust-lang.org/book/second-edition/ ヒープとスタック：https://www.uquest.co.jp/embedded/learning/lecture16.html 関数や変数のメモリ配置：http://www1.cts.ne.jp/~clab/hsample/Point/Point19.html</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="rust," /><category term="os" /><summary type="html">起因之一是看到月光博客的微博， 据谷歌邮件通知，从2017年10月起，当用户在HTTP网页上的表单中输入文本时，Chrome（版本62）将显示一条“不安全”警告，并在所有无痕模式下的HTTP网页上显示这一警告，即使没有密码也会显示警告，解决方法是：迁移到https。 恰巧同时期看到twitter上有人谈及let’s encrypt。 本来还打算用aws的一些服务或者找一些别的CA去花钱挂一个证书，但是看到这个好像不错，就从文档读起。 事实上文档写的很简单，大致就是你要有一个cgi的环境， 然后我们用certbot就可以非常简单嗨皮的构建https环境。 很傻瓜。但是事实上如果用apache一类的，也不过是装个mod，然后把证书的path写上去，同样是傻瓜式的构筑，而且是很麻烦的那种傻瓜。 既然这样，倒不如用let’s encrypt这种看起来就很赞，而且目标和梦想都很伟大的project – 要加密整个互联网，啊哈。 文档虽然简单，但是介绍了它的一些特性，比如支持什么样的算法（但是这里我找的不是很清楚，看的不太仔细，只是看到略提一笔）。 还说好像是60天就会一自动更新。而且还提供了譬如不使用sudo的一个certbot的fork。 看起来这么赞， 就照着它的使用说明用吧！ 虽然我原本是想使用最复杂的椭圆密码和椭圆验证。 但是秉着 先有一个，再要好的一个 的这样一个基本原则，我按照操作说明很简单的操作起来。 操作说明:https://certbot.eff.org/ 可是结果大大出乎我的意料，明明应该很简单就可以构筑的东西为什么会来来回回的失败。 （我怀疑是我的参数设定错误所以一直更改原本网站的参数然后继续尝试） 失败到后来我竟然被let’s encrypt CA 禁止了一段时间去认证 – 失败的认证次数过多，相当于被“禁言”了几十分钟。 我把mariaDB和mysql的残骸清除，把过去装的一个垃圾傻瓜邮箱伺服器系统的残骸找到清除， （那个“开源”邮箱伺服器系统竟然不提供卸载功能，作者留言说，要想卸载，重装OS吧。简直是WTF，作者还是国人，丢。。。。） 到最后才发现根本原因，我的virtual host的设定导致他无法正确的打开443port。。。。。因为我设置是伺服器从本地（伺服器）出发只能走80通道。。。。。 （当初是多神经才这么设定，一定是设定错了。。。。当时考虑的可能是防御hacking？？？！我应该是把目的地和出发地设置反了） 然后无奈的暂时取消掉virtual host，装成功了之后再一点点设置回来。 还好certbot还比较聪明（写的比较傻瓜） 看，candy-water.com，无论怎么走，都是从443通道了，真开心！ 参阅资料： let’s encrypt:https://letsencrypt.org/ certbot:https://certbot.eff.org/ 部分document:https://certbot.eff.org/docs/ 劳资要加密全世界的宣言:https://en.wikipedia.org/wiki/Let%27s_Encrypt#Overview</summary></entry></feed>
