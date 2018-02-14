@@ -32,7 +32,7 @@ ummmmm........根据我的测试，server端的java里面的进程，大约是�
   - （2）从browser端传送到server端的处理过程之中
   - （3）在server端进行数据的处理
   - （4）在server端数据处理结束之后，发送response之前
-  - （5）browser端接受到response
+  - （5）browser端接受到response之前
 
 在这里，（1）和（4）（5）基本是不用考虑的，在实际使用中需要考虑的是（2）~（3）。
 
@@ -48,7 +48,7 @@ cancel处理可以使用thread自带的isInterrupted()这一属性，而想要�
 
 这里涉及到一个问题。如果不只是一个人在进行数据输入。不同进程同时处理一个static的map的话，会有小概率出问题。
 
-经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个mesord都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围）
+经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个method都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围）
 这里会涉及到一个效率问题。就是，如果锁的时间过长，会拖慢整个程序。如下面的参考资料，我事实上考虑过使用singleton的双重锁来解决不要static一开始就占用一块内存的地盘的效率问题。
 不过在考虑诸多之后，因为原本想要锁住的操作也很简单，我就没有采用那种pattern。
 我的做法是，cancel request来了之后，直接用上文的sessionID + 现在的毫秒时间组成的特征码来查看map中是否有thread的reference，有的话执行interrupt，没有的话直接放弃，不管cancel request的死活。
