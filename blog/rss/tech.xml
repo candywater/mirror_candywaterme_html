@@ -28,7 +28,13 @@
 &lt;p&gt;再譬如令人惊讶的brainfuck这门语言，也同样是图灵完全语言。那么理论上，可以用c来bind brainfuck，
 brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写的东西也可以转换成c。&lt;/p&gt;
 
-&lt;p&gt;&lt;a href=&quot;http://hak7a3.hatenablog.com/entry/2016/12/17/122422&quot;&gt;这里&lt;/a&gt;还有人用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全的尝试。&lt;/p&gt;
+&lt;p&gt;我目前知道的4种证明一种语言是图灵完全语言的方法：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1.用这种语言实现重复处理。(也就是可以实现finite automaton)&lt;/li&gt;
+  &lt;li&gt;2.用这种语言实现&lt;a href=&quot;https://en.wikipedia.org/wiki/Rule_110&quot;&gt;rule 110&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;3.用这种语言实现&lt;a href=&quot;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&quot;&gt;life&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;4.用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全。(这个可以说是不用证明)&lt;/li&gt;
+&lt;/ul&gt;
 
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;INPUT -&amp;gt; PROCESS -&amp;gt; OUTPUT
           ↑___|
@@ -38,36 +44,50 @@ brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写�
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;c++ template
-&lt;a href=&quot;https://stackoverflow.com/questions/189172/c-templates-turing-complete&quot;&gt;[1]stackoverflow&lt;/a&gt;
-&lt;a href=&quot;https://www.artima.com/cppsource/codefeaturesP.html&quot;&gt;[2]用c++ template实现recurse&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;c++ template&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/189172/c-templates-turing-complete&quot;&gt;[1]stackoverflow&lt;/a&gt;
+  &lt;a href=&quot;https://www.artima.com/cppsource/codefeaturesP.html&quot;&gt;[2]用c++ template实现一些work&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;HTML5 + CSS
-&lt;a href=&quot;https://stackoverflow.com/questions/2497146/is-css-turing-complete&quot;&gt;[3]stackoverflow&lt;/a&gt;&lt;/p&gt;
+    &lt;p&gt;HTML5 + CSS&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/2497146/is-css-turing-complete&quot;&gt;[3]stackoverflow&lt;/a&gt;
+  &lt;a href=&quot;http://eli.fox-epste.in/rule110-full.html&quot;&gt;[4]用css来实现的rule 110&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;万智牌(Magic: The Gathering)&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://www.toothycat.net/~hologram/Turing/HowItWorks.html&quot;&gt;[5]用magic牌实现turning machine的解说（我没细读…）&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Minecraft&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?feature=player_embedded&amp;amp;v=7sNge0Ywz-M&quot;&gt;[6]用minecraft实现的简易compute的油管视频，这里的ROM是人肉（视频作者…）&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;神奇宝贝 黄 （ポケットモンスター　イエロー）&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;Little Big Planet&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://tasvideos.org/2913S.html&quot;&gt;[7]利用黄的一个bug，可以改写游戏的memory addresses，从而进行图灵完全的实现（这个有点牵强….）&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;Tex&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://hak7a3.hatenablog.com/entry/2016/12/17/122422&quot;&gt;[8]用实现一个图灵完全语言的编译器(complier)来证明这个语言是图灵完全语言&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;SQL&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://assets.en.oreilly.com/1/event/27/High%20Performance%20SQL%20with%20PostgreSQL%20Presentation.pdf&quot;&gt;[9]sql的图灵完全说明&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
     &lt;p&gt;(Cプリプロセッサー)&lt;/p&gt;
+
+    &lt;p&gt;&lt;a href=&quot;http://www.ioccc.org/years.html#2001&quot;&gt;[10]参照2001年的IOCCC大会的herrmann1条目&lt;/a&gt;&lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
+
+&lt;p&gt;写完之后才发现其实要看的东西还蛮多的，很多基础概念要么就是忘记了，要么就是原本就搞得不太清楚….&lt;/p&gt;
 
 &lt;p&gt;参考资料：&lt;/p&gt;
 &lt;ul&gt;
@@ -80,10 +100,10 @@ brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写�
 &lt;/ul&gt;
 </description>
           
-          <pubDate>Wed, 21 Feb 2018 00:00:00 +0900</pubDate>
+          <pubDate>Fri, 23 Feb 2018 00:00:00 +0900</pubDate>
           <link>
-          http://localhost:4000/tech_blog/tech/2018/02/21/about-somehow-becoming-tuning-complete-lan.html</link>
-          <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/02/21/about-somehow-becoming-tuning-complete-lan.html</guid>
+          http://localhost:4000/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html</link>
+          <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html</guid>
         </item>
         
       
