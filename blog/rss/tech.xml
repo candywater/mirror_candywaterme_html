@@ -10,6 +10,87 @@
       
         
         <item>
+          <title>关于一不小心就变成了图灵完全的...</title>
+          
+            <description>&lt;p&gt;最近几天没做leetcode的题，工作太忙了。明明就要离职了55555….
+就顺便偷个懒，写点好玩的东西。主要内容和灵感来自&lt;a href=&quot;https://cpplover.blogspot.jp/2013/10/blog-post_20.html&quot;&gt;这篇文章(https://cpplover.blogspot.jp/2013/10/blog-post_20.html)&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;1什么是图灵完全&quot;&gt;1.什么是图灵完全&lt;/h3&gt;
+
+&lt;p&gt;首先我们要明确一个概念。什么算是图灵完全。
+简单来说，就是跟万能图灵机具有同等计算能力的计算模型，就可以称之为图灵完全。
+图灵机可以看作是当代计算机的简化模型。基本上图灵机就是抽象化的基本计算机模型。&lt;/p&gt;
+
+&lt;p&gt;一般而言，大多数当代的编程语言都是图灵完全的语言。
+跟NP的概念很类似，同样具有图灵机概念的话，理论上互相做的事情都可以相互转换。
+也就是说，c++能做的到的大多数事情，js同样也可以做到。&lt;/p&gt;
+
+&lt;p&gt;再譬如令人惊讶的brainfuck这门语言，也同样是图灵完全语言。那么理论上，可以用c来bind brainfuck，
+brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写的东西也可以转换成c。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://hak7a3.hatenablog.com/entry/2016/12/17/122422&quot;&gt;这里&lt;/a&gt;还有人用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全的尝试。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;INPUT -&amp;gt; PROCESS -&amp;gt; OUTPUT
+          ↑___|
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2不小心就变成图灵完全的&quot;&gt;2.不小心就变成图灵完全的…&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;c++ template
+&lt;a href=&quot;https://stackoverflow.com/questions/189172/c-templates-turing-complete&quot;&gt;[1]stackoverflow&lt;/a&gt;
+&lt;a href=&quot;https://www.artima.com/cppsource/codefeaturesP.html&quot;&gt;[2]用c++ template实现recurse&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;HTML5 + CSS
+&lt;a href=&quot;https://stackoverflow.com/questions/2497146/is-css-turing-complete&quot;&gt;[3]stackoverflow&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;万智牌(Magic: The Gathering)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Minecraft&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;神奇宝贝 黄 （ポケットモンスター　イエロー）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Little Big Planet&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tex&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SQL&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(Cプリプロセッサー)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cpplover.blogspot.jp/2013/10/blog-post_20.html&quot;&gt;うっかりチューリング完全になっちゃったもの&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/zrbabbler/20140607/1402135613&quot;&gt;TeX はどうしてアレなのか&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hak7a3.hatenablog.com/entry/2016/12/17/122422&quot;&gt;もうひとつのTeXがチューリング完全であることの証明&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://0-chromosome.hatenablog.jp/entry/2015/12/07/000000&quot;&gt;TeXで簡単プログラミング♪&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E5%AE%8C%E5%85%A8&quot;&gt;wikipedia:チューリング完全&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Turing_completeness&quot;&gt;Turing completeness&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+          
+          <pubDate>Wed, 21 Feb 2018 00:00:00 +0900</pubDate>
+          <link>
+          http://localhost:4000/tech_blog/tech/2018/02/21/about-somehow-becoming-tuning-complete-lan.html</link>
+          <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/02/21/about-somehow-becoming-tuning-complete-lan.html</guid>
+        </item>
+        
+      
+    
+      
+        
+        <item>
           <title>关于JAVA同期的初步学习笔记(2)</title>
           
             <description>&lt;p&gt;源于。。。。嗯。因为发现之前写过一个JAVA同期的东西。所以开了这个续集。&lt;/p&gt;
@@ -42,6 +123,8 @@ ummmmm……..根据我的测试，server端的java里面的进程，大约是�
   &lt;li&gt;（5）browser端接受到response之前&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2.png&quot; alt=&quot;process flow&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;在这里，（1）和（4）（5）基本是不用考虑的，在实际使用中需要考虑的是（2）~（3）。&lt;/p&gt;
 
 &lt;p&gt;首先，这个处理是用xmlhttprequest来做的，那在传输数据的过程中，使用xhr自带的abort()可以取消（2）的处理过程。&lt;/p&gt;
@@ -51,10 +134,14 @@ ummmmm……..根据我的测试，server端的java里面的进程，大约是�
 cancel处理可以使用thread自带的isInterrupted()这一属性，而想要遥控这个属性事实上也可以把这个thread的reference带走，譬如放到一个static的内部结构里面，
 这样就可以用别的线程去遥控那个interrupted的属性。&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-2.png&quot; alt=&quot;cancel req&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;如果把thread的reference带出来也是可以。我们可以通过很多东西来确认一个独特的thread。比如sessionID + 现在的毫秒时间组成的独特的特征码。
 这样的话我们把thread放到一个map里面就可以解决问题了。&lt;/p&gt;
 
 &lt;p&gt;这里涉及到一个问题。如果不只是一个人在进行数据输入。不同进程同时处理一个static的map的话，会有小概率出问题。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-3.png&quot; alt=&quot;multithread cancel&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个method都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围）
 这里会涉及到一个效率问题。就是，如果锁的时间过长，会拖慢整个程序。如下面的参考资料，我事实上考虑过使用singleton的双重锁来解决不要static一开始就占用一块内存的地盘的效率问题。

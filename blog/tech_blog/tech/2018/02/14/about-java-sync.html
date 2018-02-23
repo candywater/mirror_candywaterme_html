@@ -222,6 +222,8 @@ ummmmm……..根据我的测试，server端的java里面的进程，大约是�
   <li>（5）browser端接受到response之前</li>
 </ul>
 
+<p><img src="\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2.png" alt="process flow" /></p>
+
 <p>在这里，（1）和（4）（5）基本是不用考虑的，在实际使用中需要考虑的是（2）~（3）。</p>
 
 <p>首先，这个处理是用xmlhttprequest来做的，那在传输数据的过程中，使用xhr自带的abort()可以取消（2）的处理过程。</p>
@@ -231,10 +233,14 @@ ummmmm……..根据我的测试，server端的java里面的进程，大约是�
 cancel处理可以使用thread自带的isInterrupted()这一属性，而想要遥控这个属性事实上也可以把这个thread的reference带走，譬如放到一个static的内部结构里面，
 这样就可以用别的线程去遥控那个interrupted的属性。</p>
 
+<p><img src="\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-2.png" alt="cancel req" /></p>
+
 <p>如果把thread的reference带出来也是可以。我们可以通过很多东西来确认一个独特的thread。比如sessionID + 现在的毫秒时间组成的独特的特征码。
 这样的话我们把thread放到一个map里面就可以解决问题了。</p>
 
 <p>这里涉及到一个问题。如果不只是一个人在进行数据输入。不同进程同时处理一个static的map的话，会有小概率出问题。</p>
+
+<p><img src="\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-3.png" alt="multithread cancel" /></p>
 
 <p>经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个method都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围）
 这里会涉及到一个效率问题。就是，如果锁的时间过长，会拖慢整个程序。如下面的参考资料，我事实上考虑过使用singleton的双重锁来解决不要static一开始就占用一块内存的地盘的效率问题。

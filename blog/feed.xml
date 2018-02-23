@@ -1,4 +1,69 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-02-15T01:06:45+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">关于JAVA同期的初步学习笔记(2)</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync.html" rel="alternate" type="text/html" title="关于JAVA同期的初步学习笔记(2)" /><published>2018-02-14T00:00:00+09:00</published><updated>2018-02-14T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync.html">&lt;p&gt;源于。。。。嗯。因为发现之前写过一个JAVA同期的东西。所以开了这个续集。&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-02-23T16:54:23+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">关于一不小心就变成了图灵完全的…</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/21/about-somehow-becoming-tuning-complete-lan.html" rel="alternate" type="text/html" title="关于一不小心就变成了图灵完全的..." /><published>2018-02-21T00:00:00+09:00</published><updated>2018-02-21T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/21/about-somehow-becoming-tuning-complete-lan</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/21/about-somehow-becoming-tuning-complete-lan.html">&lt;p&gt;最近几天没做leetcode的题，工作太忙了。明明就要离职了55555….
+就顺便偷个懒，写点好玩的东西。主要内容和灵感来自&lt;a href=&quot;https://cpplover.blogspot.jp/2013/10/blog-post_20.html&quot;&gt;这篇文章(https://cpplover.blogspot.jp/2013/10/blog-post_20.html)&lt;/a&gt;。&lt;/p&gt;
+
+&lt;h3 id=&quot;1什么是图灵完全&quot;&gt;1.什么是图灵完全&lt;/h3&gt;
+
+&lt;p&gt;首先我们要明确一个概念。什么算是图灵完全。
+简单来说，就是跟万能图灵机具有同等计算能力的计算模型，就可以称之为图灵完全。
+图灵机可以看作是当代计算机的简化模型。基本上图灵机就是抽象化的基本计算机模型。&lt;/p&gt;
+
+&lt;p&gt;一般而言，大多数当代的编程语言都是图灵完全的语言。
+跟NP的概念很类似，同样具有图灵机概念的话，理论上互相做的事情都可以相互转换。
+也就是说，c++能做的到的大多数事情，js同样也可以做到。&lt;/p&gt;
+
+&lt;p&gt;再譬如令人惊讶的brainfuck这门语言，也同样是图灵完全语言。那么理论上，可以用c来bind brainfuck，
+brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写的东西也可以转换成c。&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://hak7a3.hatenablog.com/entry/2016/12/17/122422&quot;&gt;这里&lt;/a&gt;还有人用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全的尝试。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;INPUT -&amp;gt; PROCESS -&amp;gt; OUTPUT
+          ↑___|
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;2不小心就变成图灵完全的&quot;&gt;2.不小心就变成图灵完全的…&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;c++ template
+&lt;a href=&quot;https://stackoverflow.com/questions/189172/c-templates-turing-complete&quot;&gt;[1]stackoverflow&lt;/a&gt;
+&lt;a href=&quot;https://www.artima.com/cppsource/codefeaturesP.html&quot;&gt;[2]用c++ template实现recurse&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;HTML5 + CSS
+&lt;a href=&quot;https://stackoverflow.com/questions/2497146/is-css-turing-complete&quot;&gt;[3]stackoverflow&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;万智牌(Magic: The Gathering)&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Minecraft&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;神奇宝贝 黄 （ポケットモンスター　イエロー）&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Little Big Planet&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tex&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SQL&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(Cプリプロセッサー)&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cpplover.blogspot.jp/2013/10/blog-post_20.html&quot;&gt;うっかりチューリング完全になっちゃったもの&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/zrbabbler/20140607/1402135613&quot;&gt;TeX はどうしてアレなのか&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hak7a3.hatenablog.com/entry/2016/12/17/122422&quot;&gt;もうひとつのTeXがチューリング完全であることの証明&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://0-chromosome.hatenablog.jp/entry/2015/12/07/000000&quot;&gt;TeXで簡単プログラミング♪&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E5%AE%8C%E5%85%A8&quot;&gt;wikipedia:チューリング完全&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Turing_completeness&quot;&gt;Turing completeness&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="图灵" /><summary type="html">最近几天没做leetcode的题，工作太忙了。明明就要离职了55555…. 就顺便偷个懒，写点好玩的东西。主要内容和灵感来自这篇文章(https://cpplover.blogspot.jp/2013/10/blog-post_20.html)。 1.什么是图灵完全 首先我们要明确一个概念。什么算是图灵完全。 简单来说，就是跟万能图灵机具有同等计算能力的计算模型，就可以称之为图灵完全。 图灵机可以看作是当代计算机的简化模型。基本上图灵机就是抽象化的基本计算机模型。 一般而言，大多数当代的编程语言都是图灵完全的语言。 跟NP的概念很类似，同样具有图灵机概念的话，理论上互相做的事情都可以相互转换。 也就是说，c++能做的到的大多数事情，js同样也可以做到。 再譬如令人惊讶的brainfuck这门语言，也同样是图灵完全语言。那么理论上，可以用c来bind brainfuck， brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写的东西也可以转换成c。 这里还有人用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全的尝试。 INPUT -&amp;gt; PROCESS -&amp;gt; OUTPUT ↑___| 2.不小心就变成图灵完全的… c++ template [1]stackoverflow [2]用c++ template实现recurse HTML5 + CSS [3]stackoverflow 万智牌(Magic: The Gathering) Minecraft 神奇宝贝 黄 （ポケットモンスター　イエロー） Little Big Planet Tex SQL (Cプリプロセッサー) 参考资料： うっかりチューリング完全になっちゃったもの TeX はどうしてアレなのか もうひとつのTeXがチューリング完全であることの証明 TeXで簡単プログラミング♪ wikipedia:チューリング完全 Turing completeness</summary></entry><entry><title type="html">关于JAVA同期的初步学习笔记(2)</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync.html" rel="alternate" type="text/html" title="关于JAVA同期的初步学习笔记(2)" /><published>2018-02-14T00:00:00+09:00</published><updated>2018-02-14T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync.html">&lt;p&gt;源于。。。。嗯。因为发现之前写过一个JAVA同期的东西。所以开了这个续集。&lt;/p&gt;
 
 &lt;p&gt;前阵子做了一个cancel处理的一个小东西。好像是。。。组里的都嫌麻烦（？）反正最后玛德竟然抛给我了。
 这是抛绣球么，净挑年轻的抛（？）我也很累的好么。&lt;/p&gt;
@@ -28,6 +93,8 @@ ummmmm……..根据我的测试，server端的java里面的进程，大约是�
   &lt;li&gt;（5）browser端接受到response之前&lt;/li&gt;
 &lt;/ul&gt;
 
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2.png&quot; alt=&quot;process flow&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;在这里，（1）和（4）（5）基本是不用考虑的，在实际使用中需要考虑的是（2）~（3）。&lt;/p&gt;
 
 &lt;p&gt;首先，这个处理是用xmlhttprequest来做的，那在传输数据的过程中，使用xhr自带的abort()可以取消（2）的处理过程。&lt;/p&gt;
@@ -37,10 +104,14 @@ ummmmm……..根据我的测试，server端的java里面的进程，大约是�
 cancel处理可以使用thread自带的isInterrupted()这一属性，而想要遥控这个属性事实上也可以把这个thread的reference带走，譬如放到一个static的内部结构里面，
 这样就可以用别的线程去遥控那个interrupted的属性。&lt;/p&gt;
 
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-2.png&quot; alt=&quot;cancel req&quot; /&gt;&lt;/p&gt;
+
 &lt;p&gt;如果把thread的reference带出来也是可以。我们可以通过很多东西来确认一个独特的thread。比如sessionID + 现在的毫秒时间组成的独特的特征码。
 这样的话我们把thread放到一个map里面就可以解决问题了。&lt;/p&gt;
 
 &lt;p&gt;这里涉及到一个问题。如果不只是一个人在进行数据输入。不同进程同时处理一个static的map的话，会有小概率出问题。&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-3.png&quot; alt=&quot;multithread cancel&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个method都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围）
 这里会涉及到一个效率问题。就是，如果锁的时间过长，会拖慢整个程序。如下面的参考资料，我事实上考虑过使用singleton的双重锁来解决不要static一开始就占用一块内存的地盘的效率问题。
@@ -350,93 +421,4 @@ win10自动更新新版本，重启，上一个版本的被保存到windows.old�
 &lt;p&gt;我想回应她说，&lt;/p&gt;
 
 &lt;p&gt;“其实，
-爱就是救赎。”&lt;/p&gt;</content><author><name></name></author><category term="essay" /><category term="access," /><category term="sql" /><summary type="html">翻看自己2012年5月写的日记 上面抄写着TLC姐的签名：“他要的是爱，不是你的救赎。” 也许是说我的吧。 毕竟那时候我还很瘦。也不算胖。还有着耍帅的资本。 时过了这么久，5、6年有余了。 我想回应她说， “其实， 爱就是救赎。”</summary></entry><entry><title type="html">关于ACCESS的null的一个小问题</title><link href="http://localhost:4000/blog/tech_blog/tech/2017/08/30/access.html" rel="alternate" type="text/html" title="关于ACCESS的null的一个小问题" /><published>2017-08-30T00:00:00+09:00</published><updated>2017-08-30T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2017/08/30/access</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2017/08/30/access.html">&lt;p&gt;近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。
-ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
-总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。
-虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要），
-做着一个又一个小query还挺来瘾的——虽然这么说吧，我更喜欢编程。&lt;/p&gt;
-
-&lt;p&gt;在传统的这种SQL式的database之中，关于null的设定就如同schema的设定一样，
-在不同的软件中有着不同的设定。譬如在这篇日文&lt;a href=&quot;https://www.ashisuto.co.jp/corporate/column/technical-column/detail/1197236_2274.html&quot;&gt;博文&lt;/a&gt;中有总结，oracle的话会把NULL和长度为0的文字（也就是空文字）作为同等的东西去处理。
-但是mysql就会把他俩当成不一样的东西处理。
-提到schema就不得不提一嘴，我到现在也没弄明白它的具体定义，
-好吧，我觉得以后有时间有兴趣的话读一读oracle的文档。&lt;/p&gt;
-
-&lt;p&gt;那么在ACCESS中是如何处理的。这里有份&lt;a href=&quot;https://support.microsoft.com/ja-jp/help/883247&quot;&gt;微软的日文文档&lt;/a&gt;。
-里面详细的讲到在ACCESS中，null和空文字是两个概念。不过用Is Null和Not Like “*“，抽出的结果是相同的。
-也就是虽然是2个概念，但是可以用同样的statement来抽出。&lt;/p&gt;
-
-&lt;p&gt;这里总结一下定义的不同。&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;null属于空文字or数值不确定的数值。&lt;/li&gt;
-  &lt;li&gt;空文字只是空文字而已。可以用这个来输入“”。有的table不支持输入“”。那你就改table的设定，强行输入空文字。&lt;/li&gt;
-  &lt;li&gt;根据table的设定不同，你可以用enter等来输入空文字，也可以不支持输入空文字。&lt;/li&gt;
-  &lt;li&gt;用Like “*“的话，可以抽出空文字&lt;/li&gt;
-  &lt;li&gt;用Not Like “*“的话，不可以抽出空文字，只能抽出null&lt;/li&gt;
-  &lt;li&gt;用is Null 的话，不可以抽出空文字，只能抽出null&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;好吧。这篇文章介绍怎么更改设定，然后输入空文字。有一个很详尽的表格介绍。&lt;/p&gt;
-
-&lt;p&gt;我来讲讲的我遇到的问题。
-从外部的sql系列的数据库抽数据。
-然后有一行的record，是空数据。
-然而我们需要进行外部结合，把这个数据表格，和我们已有的数据表格比较。
-然后把重复的去掉，把我们已有数据表格里面不重复的留下。&lt;/p&gt;
-
-&lt;p&gt;好吧，我想说，空白数据的很烦（在不更改两个数据表格的前提下）。劳资先把空白数据都用select先去掉再说。
-神奇的事情发生了。
-我使用&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;is not null and &amp;lt;&amp;gt; &quot;&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;结果愣是抽不出来。。。。&lt;/p&gt;
-
-&lt;p&gt;后来还是我的大叔给出了解决方案。他边把思路说给我听，我边写着代码。
-先进行值的判断，看是不是null。&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;iif( IsNull(A), &quot;&quot;, A)
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;然后在条件那里&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&amp;lt;&amp;gt; &quot;&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-
-&lt;p&gt;先把null的都转换，然后再跟空文字比较。
-解决！&lt;/p&gt;
-
-&lt;p&gt;厉害了我的大叔。我的天。&lt;/p&gt;
-
-&lt;h3 id=&quot;事后反思&quot;&gt;事后反思：&lt;/h3&gt;
-&lt;p&gt;当然仔细的想一想。is not null可以抽出空文字，不可以抽出null。
-&amp;lt;&amp;gt;”” （大概）可以抽出null，不可以抽出空文字。&lt;/p&gt;
-
-&lt;p&gt;那么也就是说，我们假设2个数据库表格中，分别存在null和空文字。
-那么&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;
-    &lt;p&gt;抽出null的时候。
-是用&amp;lt;&amp;gt;”“抽出来的，然后和不可以抽出null的is not null的AND条件发生激烈碰撞。
-结果就是不符合条件抽不出来。&lt;/p&gt;
-  &lt;/li&gt;
-  &lt;li&gt;
-    &lt;p&gt;抽出空文字的时候，同样是两个条件互相搏击打架，结果就是导致无法满足抽出条件——弄巧成拙。&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;大叔讲的话很简单。&lt;/p&gt;
-&lt;blockquote&gt;
-  &lt;p&gt;涉及到null就很烦啊，我也不知道具体是啥意思，
-我就记得sql server的时候null的处理就很花心思。你用if文大概这么做一下吧。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;道理很简单，这东西可以用简单的方式绕开的话（而且不是很降低效率到不可以接受的程度的话），
-那就绕开它。专心做逻辑。&lt;/p&gt;
-
-&lt;p&gt;参考资料：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%B9%E3%82%AD%E3%83%BC%E3%83%9E_(%E3%83%87%E3%83%BC%E3%82%BF%E3%83%99%E3%83%BC%E3%82%B9)&quot;&gt;スキーマ_(データベース)&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://docs.oracle.com/cd/E12151_01/doc.150/e12155/oracle_mysql_compared.htm#i1026408&quot;&gt;Oracle and MySQL Compared:2.2.3.2 Column Default Value&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://www.ashisuto.co.jp/corporate/column/technical-column/detail/1197236_2274.html&quot;&gt;SQLの観点から「Oracle Database」「PostgreSQL」「MySQL」の特徴を整理しよう！&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://support.microsoft.com/ja-jp/help/883247&quot;&gt;Access の Null 値と、長さ 0 の文字列の違いについて&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="access," /><category term="sql" /><summary type="html">近来在用MS的ACCESS这个小型数据库来做一些抽取数据，以及验证数据的东西。 ACCESS可谓是麻雀虽小，五脏俱全的终极典型。 总会在你想不到的地方使用简单的鼠标点点点来完成一个又一个操作。 虽然还不大会怎么从外部的api调用access（对于现在的我也没有必要）， 做着一个又一个小query还挺来瘾的——虽然这么说吧，我更喜欢编程。 在传统的这种SQL式的database之中，关于null的设定就如同schema的设定一样， 在不同的软件中有着不同的设定。譬如在这篇日文博文中有总结，oracle的话会把NULL和长度为0的文字（也就是空文字）作为同等的东西去处理。 但是mysql就会把他俩当成不一样的东西处理。 提到schema就不得不提一嘴，我到现在也没弄明白它的具体定义， 好吧，我觉得以后有时间有兴趣的话读一读oracle的文档。 那么在ACCESS中是如何处理的。这里有份微软的日文文档。 里面详细的讲到在ACCESS中，null和空文字是两个概念。不过用Is Null和Not Like “*“，抽出的结果是相同的。 也就是虽然是2个概念，但是可以用同样的statement来抽出。 这里总结一下定义的不同。 null属于空文字or数值不确定的数值。 空文字只是空文字而已。可以用这个来输入“”。有的table不支持输入“”。那你就改table的设定，强行输入空文字。 根据table的设定不同，你可以用enter等来输入空文字，也可以不支持输入空文字。 用Like “*“的话，可以抽出空文字 用Not Like “*“的话，不可以抽出空文字，只能抽出null 用is Null 的话，不可以抽出空文字，只能抽出null 好吧。这篇文章介绍怎么更改设定，然后输入空文字。有一个很详尽的表格介绍。 我来讲讲的我遇到的问题。 从外部的sql系列的数据库抽数据。 然后有一行的record，是空数据。 然而我们需要进行外部结合，把这个数据表格，和我们已有的数据表格比较。 然后把重复的去掉，把我们已有数据表格里面不重复的留下。 好吧，我想说，空白数据的很烦（在不更改两个数据表格的前提下）。劳资先把空白数据都用select先去掉再说。 神奇的事情发生了。 我使用 is not null and &amp;lt;&amp;gt; &quot;&quot; 结果愣是抽不出来。。。。 后来还是我的大叔给出了解决方案。他边把思路说给我听，我边写着代码。 先进行值的判断，看是不是null。 iif( IsNull(A), &quot;&quot;, A) 然后在条件那里 &amp;lt;&amp;gt; &quot;&quot; 先把null的都转换，然后再跟空文字比较。 解决！ 厉害了我的大叔。我的天。 事后反思： 当然仔细的想一想。is not null可以抽出空文字，不可以抽出null。 &amp;lt;&amp;gt;”” （大概）可以抽出null，不可以抽出空文字。 那么也就是说，我们假设2个数据库表格中，分别存在null和空文字。 那么 抽出null的时候。 是用&amp;lt;&amp;gt;”“抽出来的，然后和不可以抽出null的is not null的AND条件发生激烈碰撞。 结果就是不符合条件抽不出来。 抽出空文字的时候，同样是两个条件互相搏击打架，结果就是导致无法满足抽出条件——弄巧成拙。 大叔讲的话很简单。 涉及到null就很烦啊，我也不知道具体是啥意思， 我就记得sql server的时候null的处理就很花心思。你用if文大概这么做一下吧。 道理很简单，这东西可以用简单的方式绕开的话（而且不是很降低效率到不可以接受的程度的话）， 那就绕开它。专心做逻辑。 参考资料： スキーマ_(データベース) Oracle and MySQL Compared:2.2.3.2 Column Default Value SQLの観点から「Oracle Database」「PostgreSQL」「MySQL」の特徴を整理しよう！ Access の Null 値と、長さ 0 の文字列の違いについて</summary></entry></feed>
+爱就是救赎。”&lt;/p&gt;</content><author><name></name></author><category term="essay" /><category term="access," /><category term="sql" /><summary type="html">翻看自己2012年5月写的日记 上面抄写着TLC姐的签名：“他要的是爱，不是你的救赎。” 也许是说我的吧。 毕竟那时候我还很瘦。也不算胖。还有着耍帅的资本。 时过了这么久，5、6年有余了。 我想回应她说， “其实， 爱就是救赎。”</summary></entry></feed>
