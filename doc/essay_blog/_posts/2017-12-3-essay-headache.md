@@ -2,7 +2,7 @@
 layout: post
 title: 今日头痛
 date: 2017-12-03 +0900
-tags: access, sql
+tags: 
 category: essay
 ---
 
