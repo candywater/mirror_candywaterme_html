@@ -26,4 +26,4 @@ permalink: /about/
 
 - [韩寒博客](http://blog.sina.com.cn/twocold)
 
-- [一个](http://wufazhuce.com/one/1984)
+- [一个](http://wufazhuce.com/one/2014)
