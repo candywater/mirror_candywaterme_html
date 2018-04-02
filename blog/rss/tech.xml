@@ -28,11 +28,15 @@
 
 &lt;p&gt;在博主看来两者有以下的区别：&lt;br /&gt;
 (1)debian比较轻。&lt;br /&gt;
-(2)这点要注意，在2018/April/02时点，ubuntu的非LTS版本的17.10在WSL环境下，不支持多语言的UTF-8。这点在微软的WSL的
-&lt;a href=&quot;https://github.com/Microsoft/WSL/issues/1878&quot;&gt;issue&lt;/a&gt;
+(2)新版本的编码问题。&lt;br /&gt;
+在2018/April/02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。
+这点在微软的WSL的&lt;a href=&quot;https://github.com/Microsoft/WSL/issues/1878&quot;&gt;issue&lt;/a&gt;
 中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。&lt;br /&gt;
 (3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分&lt;br /&gt;
-(4)使用private key认证的时候，在debian有这样的限制。如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。这点就要额外设置，是和ubuntu不一样的地方。ubuntu的话就不需要额外设置。这方面的权限方面，debian做的比较安全。
+(4)使用private key认证的权限问题。&lt;br /&gt;
+在debian有这样的限制：如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。&lt;br /&gt;
+这点需要额外设置，是和ubuntu不一样的地方。ubuntu的话就不需要额外设置，git似乎是具有特殊权限，可以绕过这个权限设置。&lt;br /&gt;
+这方面的权限方面，看起来是debian做的比较安全。&lt;br /&gt;
 (5)其他基本没看出有很大的区别&lt;br /&gt;&lt;/p&gt;
 
 &lt;h3 id=&quot;4wsl不推荐使用自带terminal推荐使用外部的terminal&quot;&gt;4.wsl不推荐使用自带terminal，推荐使用外部的terminal&lt;/h3&gt;
