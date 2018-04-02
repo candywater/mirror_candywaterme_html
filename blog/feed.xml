@@ -1,4 +1,70 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-03-28T18:08:16+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">pubg外挂问题</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html" rel="alternate" type="text/html" title="pubg外挂问题" /><published>2018-03-27T00:00:00+09:00</published><updated>2018-03-27T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html">&lt;p&gt;突然想玩吃鸡。结果竟然有个1.9GB的更新。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-04-02T13:10:52+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">wsl环境下几个小知识</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html" rel="alternate" type="text/html" title="wsl环境下几个小知识" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html">&lt;p&gt;记录下自己使用时感觉实用的小知识吧！&lt;/p&gt;
+
+&lt;h3 id=&quot;1什么是wsl&quot;&gt;1.什么是wsl？&lt;/h3&gt;
+
+&lt;p&gt;wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。
+&lt;br /&gt;这个是很早就出名的一个，win10专为开发者开发的一样东西。
+目前推荐的方式是使用microsoft store去下载。&lt;/p&gt;
+
+&lt;h3 id=&quot;2wsl不仅仅只有ubuntu一家&quot;&gt;2.wsl不仅仅只有ubuntu一家。&lt;/h3&gt;
+
+&lt;p&gt;在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get）&lt;/p&gt;
+
+&lt;h3 id=&quot;3为何博主在debian和ubuntu之间推荐debian&quot;&gt;3.为何博主在debian和ubuntu之间推荐debian？&lt;/h3&gt;
+
+&lt;p&gt;在博主看来两者有以下的区别：&lt;br /&gt;
+(1)debian比较轻。&lt;br /&gt;
+(2)这点要注意，在2018/April/02时点，ubuntu的非LTS版本的17.10在WSL环境下，不支持多语言的UTF-8。这点在微软的WSL的
+&lt;a href=&quot;https://github.com/Microsoft/WSL/issues/1878&quot;&gt;issue&lt;/a&gt;
+中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。&lt;br /&gt;
+(3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分&lt;br /&gt;
+(4)其他基本没看出有很大的区别&lt;br /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;4wsl不推荐使用自带terminal推荐使用外部的terminal&quot;&gt;4.wsl不推荐使用自带terminal，推荐使用外部的terminal&lt;/h3&gt;
+
+&lt;p&gt;我个人使用的是这一款：&lt;a href=&quot;https://github.com/goreliu/wsl-terminal&quot;&gt;https://github.com/goreliu/wsl-terminal&lt;/a&gt;
+&lt;br /&gt;
+自带的terminal会有如下问题。
+&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;(1)ubuntu的case&lt;br /&gt;
+比如2016版本的早期terminal，有口吃的毛病。&lt;a href=&quot;https://www.isthnew.com/archives/win10-bash.html&quot;&gt;参见这里&lt;/a&gt;&lt;br /&gt;
+当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。&lt;/li&gt;
+  &lt;li&gt;(2)debian的case&lt;br /&gt;
+debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候，
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;(PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有下载许可)&lt;br /&gt;
+在debian的原生terminal会出现这样的感觉
+&lt;img src=&quot;/assets/stills/blog/20180402-wsl-tips/1522640663357.jpg&quot; alt=&quot;debian-wrong&quot; /&gt;
+因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。
+&lt;img src=&quot;/assets/stills/blog/20180402-wsl-tips/1522640828060.jpg&quot; alt=&quot;wsl-correct&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;5切换默认的wsl&quot;&gt;5.切换默认的wsl&lt;/h3&gt;
+
+&lt;p&gt;使用wslconfig。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wslconfig /l
+wslconfig /l /a
+wslconfig /setdefault
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;简单明了，应该不用解释了。
+切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。&lt;/p&gt;
+
+&lt;p&gt;暂时就想到这里。就先这样吧！&lt;/p&gt;
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;wslconfig command:&lt;a href=&quot;https://linuxfan.info/wslconfig&quot;&gt;WSLで複数のLinuxディストリビューションを管理する&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;更改语言encode系列:&lt;a href=&quot;https://askubuntu.com/questions/298971/full-switch-locale-ubuntu-server-installed-with-no-locales-how-to-enable-local&quot;&gt;Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;更改语言encode系列:&lt;a href=&quot;https://qiita.com/tailak/items/77b90a4df07e4f6a1fc2&quot;&gt;Debian/Ubuntuのデフォルトロケールを変更する&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;mingw的package manager&lt;a href=&quot;https://stackoverflow.com/questions/30046903/is-there-any-package-management-system-for-mingwmsys&quot;&gt;Is there any package management system for MinGW+MSYS?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;ubuntu17.10在wsl的语言encode问题:&lt;a href=&quot;https://github.com/Microsoft/WSL/issues/1878&quot;&gt;Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;早期ubuntu原生wsl的termial的口吃问题:&lt;a href=&quot;https://www.isthnew.com/archives/win10-bash.html&quot;&gt;Win10的Bash真是好用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;debian下，用sudo时和本地用户不共用一个vimrc问题:&lt;a href=&quot;https://unix.stackexchange.com/questions/34069/problem-with-vim-when-logged-in-as-root&quot;&gt;Problem with vim when logged in as root&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;debian在microsoft store的链接:&lt;a href=&quot;https://www.microsoft.com/store/productId/9MSVKQC78PK6&quot;&gt;debian in ms store&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="wsl," /><category term="ubuntu," /><category term="debian," /><category term="ubuntu" /><category term="LTS" /><summary type="html">记录下自己使用时感觉实用的小知识吧！ 1.什么是wsl？ wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。 这个是很早就出名的一个，win10专为开发者开发的一样东西。 目前推荐的方式是使用microsoft store去下载。 2.wsl不仅仅只有ubuntu一家。 在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get） 3.为何博主在debian和ubuntu之间推荐debian？ 在博主看来两者有以下的区别： (1)debian比较轻。 (2)这点要注意，在2018/April/02时点，ubuntu的非LTS版本的17.10在WSL环境下，不支持多语言的UTF-8。这点在微软的WSL的 issue 中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。 (3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分 (4)其他基本没看出有很大的区别 4.wsl不推荐使用自带terminal，推荐使用外部的terminal 我个人使用的是这一款：https://github.com/goreliu/wsl-terminal 自带的terminal会有如下问题。 (1)ubuntu的case 比如2016版本的早期terminal，有口吃的毛病。参见这里 当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。 (2)debian的case debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候， you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot; (PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有下载许可) 在debian的原生terminal会出现这样的感觉 因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。 5.切换默认的wsl 使用wslconfig。 wslconfig /l wslconfig /l /a wslconfig /setdefault 简单明了，应该不用解释了。 切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。 暂时就想到这里。就先这样吧！ 参考资料： wslconfig command:WSLで複数のLinuxディストリビューションを管理する 更改语言encode系列:Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide? 更改语言encode系列:Debian/Ubuntuのデフォルトロケールを変更する mingw的package managerIs there any package management system for MinGW+MSYS? ubuntu17.10在wsl的语言encode问题:Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878 早期ubuntu原生wsl的termial的口吃问题:Win10的Bash真是好用 debian下，用sudo时和本地用户不共用一个vimrc问题:Problem with vim when logged in as root debian在microsoft store的链接:debian in ms store</summary></entry><entry><title type="html">pubg外挂问题</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html" rel="alternate" type="text/html" title="pubg外挂问题" /><published>2018-03-27T00:00:00+09:00</published><updated>2018-03-27T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html">&lt;p&gt;突然想玩吃鸡。结果竟然有个1.9GB的更新。
 很偶然的随意看了一眼pubg的更新日志。&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&quot;http://store.steampowered.com/news/externalpost/eurogamer/2365953485465329247&quot;&gt;PlayerUnknown’s Battlegrounds adds weapon skins, is “considering” region-locked servers&lt;/a&gt;&lt;/p&gt;
@@ -514,31 +580,4 @@ win10自动更新新版本，重启，上一个版本的被保存到windows.old�
 
 &lt;p&gt;虽然视力仍然只能看清2米远。不过算了。&lt;/p&gt;
 
-&lt;p&gt;能活着就真的很幸运了。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">今日头疼。 把电脑的cpu换成8700k。 再一次感受到了电子数据的脆弱。 c盘的数据被彻底抹除——原本是可以复原的，但是win10自动更新后自动重启的设定让我措手不及。 win10自动更新新版本，重启，上一个版本的被保存到windows.old文件夹里。 原本的在windows.old里的资料全部被抹除掉重写。 所有数据全部消失。 那就，换回纸制品吧。 但是纸质数据的碎片化——真的会找不到想找的东西。我不会魔法。没办法把这一切弄得很好很好。 头痛。一天的整头痛。 似乎是睡眠时房间温度太低。脑袋吃不消，就开始作痛。 等到晚上11点左右，终于把电脑各种设定都设置好。调教周全。 开始听歌。听音乐。真的恢复了好多。身体就像略有康复一般。 有音乐真好。 虽然视力仍然只能看清2米远。不过算了。 能活着就真的很幸运了。</summary></entry><entry><title type="html">近期短记</title><link href="http://localhost:4000/blog/essay_blog/essay/2017/11/22/essay-recent-record.html" rel="alternate" type="text/html" title="近期短记" /><published>2017-11-22T00:00:00+09:00</published><updated>2017-11-22T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2017/11/22/essay-recent-record</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2017/11/22/essay-recent-record.html">&lt;p&gt;哇。写到一半。在notepad++上写到一半然后电脑就崩溃了。吓得我和我的小伙伴们都惊呆了。
-竟然连备份都没有。
-没办法，这个五年多的电脑变得越来越不安定。
-可能是我之前安装cpu风扇的时候，那个散热的胶让我不小心涂在了边缘。
-可能是我之前拆cpu的时候，不小心撞坏了顶针。
-总之我也不知道是什么样的鬼原因吧。我是想换一台电脑了–起码换个cpu。
-但是鉴于同等配置的笔记本的高昂价格。我决定依旧台式。&lt;/p&gt;
-
-&lt;p&gt;今天7点就下班了。竟然只加班了半个小时。我也觉得挺不可思议的。
-我还以为大家都忘记了正常的下班时间（当然我总是忘记正常的上班时间），
-这次竟然没有在下班时间之后再给我安排任务。&lt;/p&gt;
-
-&lt;p&gt;我微微一笑。忍着头痛，踏上了回家的旅程。
-头痛不负我，我坐了反方向的电车。结果还是快11点才到家。&lt;/p&gt;
-
-&lt;p&gt;科技的博客好久没有更新。一方面是前阵子手术，没时间；一方面是，日式外包，也就是这副模样。
-好多30-50岁的前辈们，留给家的任务就是窝着床，睡觉。
-按照他们上班的时间来算，他们回家之后的晚饭时间都很紧凑。
-这个样子，也是一生。
-这也是我最早不选择日本企业的原因——进了之后一定会外包出去，然后自己成为负责人。
-好吧。虽然我依旧是在日本。&lt;/p&gt;
-
-&lt;p&gt;开了这个个人站点之后就不敢这样子的吐槽了。总怕被抓包。
-不过我发现，一旦限制了我的嘴，我竟然就什么也写不出来了。
-那就这样好了。只要不影响我的正常生活。我就依旧如同在lofter一样吐槽就好了。
-那就这样好了。&lt;/p&gt;
-
-&lt;p&gt;记于2017 Nov.22 于东京&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">哇。写到一半。在notepad++上写到一半然后电脑就崩溃了。吓得我和我的小伙伴们都惊呆了。 竟然连备份都没有。 没办法，这个五年多的电脑变得越来越不安定。 可能是我之前安装cpu风扇的时候，那个散热的胶让我不小心涂在了边缘。 可能是我之前拆cpu的时候，不小心撞坏了顶针。 总之我也不知道是什么样的鬼原因吧。我是想换一台电脑了–起码换个cpu。 但是鉴于同等配置的笔记本的高昂价格。我决定依旧台式。 今天7点就下班了。竟然只加班了半个小时。我也觉得挺不可思议的。 我还以为大家都忘记了正常的下班时间（当然我总是忘记正常的上班时间）， 这次竟然没有在下班时间之后再给我安排任务。 我微微一笑。忍着头痛，踏上了回家的旅程。 头痛不负我，我坐了反方向的电车。结果还是快11点才到家。 科技的博客好久没有更新。一方面是前阵子手术，没时间；一方面是，日式外包，也就是这副模样。 好多30-50岁的前辈们，留给家的任务就是窝着床，睡觉。 按照他们上班的时间来算，他们回家之后的晚饭时间都很紧凑。 这个样子，也是一生。 这也是我最早不选择日本企业的原因——进了之后一定会外包出去，然后自己成为负责人。 好吧。虽然我依旧是在日本。 开了这个个人站点之后就不敢这样子的吐槽了。总怕被抓包。 不过我发现，一旦限制了我的嘴，我竟然就什么也写不出来了。 那就这样好了。只要不影响我的正常生活。我就依旧如同在lofter一样吐槽就好了。 那就这样好了。 记于2017 Nov.22 于东京</summary></entry></feed>
+&lt;p&gt;能活着就真的很幸运了。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">今日头疼。 把电脑的cpu换成8700k。 再一次感受到了电子数据的脆弱。 c盘的数据被彻底抹除——原本是可以复原的，但是win10自动更新后自动重启的设定让我措手不及。 win10自动更新新版本，重启，上一个版本的被保存到windows.old文件夹里。 原本的在windows.old里的资料全部被抹除掉重写。 所有数据全部消失。 那就，换回纸制品吧。 但是纸质数据的碎片化——真的会找不到想找的东西。我不会魔法。没办法把这一切弄得很好很好。 头痛。一天的整头痛。 似乎是睡眠时房间温度太低。脑袋吃不消，就开始作痛。 等到晚上11点左右，终于把电脑各种设定都设置好。调教周全。 开始听歌。听音乐。真的恢复了好多。身体就像略有康复一般。 有音乐真好。 虽然视力仍然只能看清2米远。不过算了。 能活着就真的很幸运了。</summary></entry></feed>
