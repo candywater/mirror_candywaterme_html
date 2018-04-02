@@ -20,7 +20,7 @@
 &lt;br /&gt;这个是很早就出名的一个，win10专为开发者开发的一样东西。
 目前推荐的方式是使用microsoft store去下载。&lt;/p&gt;
 
-&lt;h3 id=&quot;2wsl不仅仅只有ubuntu一家&quot;&gt;2.wsl不仅仅只有ubuntu一家。&lt;/h3&gt;
+&lt;h3 id=&quot;2wsl不仅仅只有ubuntu一家&quot;&gt;2.wsl不仅仅只有ubuntu一家&lt;/h3&gt;
 
 &lt;p&gt;在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get）&lt;/p&gt;
 
@@ -49,7 +49,7 @@
 debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候，
     &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;(PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有下载许可)&lt;br /&gt;
+    &lt;p&gt;(PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则)&lt;br /&gt;
 在debian的原生terminal会出现这样的感觉
 &lt;img src=&quot;/assets/stills/blog/20180402-wsl-tips/1522640663357.jpg&quot; alt=&quot;debian-wrong&quot; /&gt;
 因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。
