@@ -49,7 +49,7 @@ function ifmatch(str){
   for( i in filterwords ){
     let res = fakeequal(filterwords[i], str);
     if(res >= 0){
-      console.log("str1:" + filterwords[i] + " str2:" + str);
+      //console.log("str1:" + filterwords[i] + " str2:" + str);
       return [filterwords[i], res];
     }
   }
@@ -83,6 +83,7 @@ function maxlen(){
 
 function split_serifs(str){
   str = str.split(/(?:\r\n){1,}/g);
+  //for(i in str) if()
   console.log(str);
   return str;
 }
