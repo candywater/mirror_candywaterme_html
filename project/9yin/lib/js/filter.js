@@ -82,8 +82,8 @@ function maxlen(){
 
 
 function split_serifs(str){
-  str = str.split(/(?:\r\n){2,}/g);
-  //for(i in str) if()
+  str = str.split(/(\r|\n){1,}/g);
+  //for(i in str) if(str[i] == "\r" || str[i] == "\n" || str[i] == "\r\n")
   console.log(str);
   return str;
 }
