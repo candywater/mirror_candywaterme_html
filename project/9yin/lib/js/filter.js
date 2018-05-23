@@ -17,7 +17,7 @@ function init(){
   xhr.timeout = req.timeout;//can not wait for more than 3 seconds!!
   xhr.responseType = req.dataType;
   xhr.open(req.method, req.url, true);
-  xhr.onprogress = function(){console.log("just wait for loading....");}
+  xhr.onprogress = function(){console.log("just wait for loading...." + Date.now());  }
   xhr.onload = function(res){
     filterwords = split_serifs(res.target.responseText);
     document.getElementById("ready").innerHTML = "ready to use <br/> 输出格式 你的语句：将被屏蔽的关键词<br><br/>"
