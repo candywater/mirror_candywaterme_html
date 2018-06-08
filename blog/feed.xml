@@ -1,4 +1,31 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-04-02T13:28:42+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">wsl环境下几个小知识</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html" rel="alternate" type="text/html" title="wsl环境下几个小知识" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html">&lt;p&gt;记录下自己使用时感觉实用的小知识吧！&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-06-09T07:48:28+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">青春</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth.html" rel="alternate" type="text/html" title="青春" /><published>2018-06-09T00:00:00+09:00</published><updated>2018-06-09T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth.html">&lt;p&gt;在整理家中的东西。好多东西，不想扔。但是真的带不回去。&lt;br /&gt;
+感觉都是一些回忆在里面。&lt;br /&gt;
+我把他们给丢了。&lt;br /&gt;
+就好像把青春给丢了。&lt;/p&gt;
+
+&lt;p&gt;这些天关注，一个叫工口组组长的人的推特。他前些天发了这样的&lt;a href=&quot;https://twitter.com/erochain/status/1004688674871635972&quot;&gt;一条推。&lt;/a&gt;
+大意是说，很多人低估了某一个年龄段的女孩们的，渴望被爱的程度。
+我突然就懂了好多事情。突然就理解了她们那之后的无情。
+原来就是渴望已去，剩下的就只有冰冰的冷漠和淡淡的现实。&lt;/p&gt;
+
+&lt;p&gt;工口组组长是个很有趣的人，我很喜欢看他的推。
+好像是从这么&lt;a href=&quot;https://twitter.com/erochain/status/967760549931925505&quot;&gt;一个推&lt;/a&gt;开始关注他的吧。
+他的推刻骨的见多。像是&lt;a href=&quot;https://twitter.com/erochain/status/997869455127465984&quot;&gt;这条&lt;/a&gt;&lt;a href=&quot;https://twitter.com/erochain/status/1003884858366541825&quot;&gt;、这条。&lt;/a&gt;
+有趣的人，见血的灵魂。
+看着他的推。我总会想。为什么我还要回去呢。那边难道还有着什么我还在留恋的么。&lt;/p&gt;
+
+&lt;p&gt;有点懂了说，为什么恋爱的故事，都要强行发生在青春期。
+恐怕不只是那个年龄的美丽，还有着那个年龄的刻骨。
+可是回忆起自己，留下的却只有一个又一个的心悸。那边的学生时代大概是最好的了吧。
+不过学生时代已经过去，也许迎接我的是又一个，又一个残酷的童话吧。
+就像我这生一样，运气早就在初三的时候截止了。
+剩下的，是一个又一个狗屎。&lt;/p&gt;
+
+&lt;p&gt;也许，不是我在选择命运。是命运在选择我。&lt;/p&gt;
+
+&lt;p&gt;我只有回去这一条路。&lt;/p&gt;
+
+&lt;p&gt;–&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">在整理家中的东西。好多东西，不想扔。但是真的带不回去。 感觉都是一些回忆在里面。 我把他们给丢了。 就好像把青春给丢了。</summary></entry><entry><title type="html">wsl环境下几个小知识</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html" rel="alternate" type="text/html" title="wsl环境下几个小知识" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html">&lt;p&gt;记录下自己使用时感觉实用的小知识吧！&lt;/p&gt;
 
 &lt;h3 id=&quot;1什么是wsl&quot;&gt;1.什么是wsl？&lt;/h3&gt;
 
@@ -561,31 +588,4 @@ JSON形式真的太好写了，而且非常易懂。&lt;/p&gt;
 
 &lt;p&gt;就从这张似是老去的脸上浮出来，&lt;/p&gt;
 
-&lt;p&gt;依稀她高中的模样&lt;/p&gt;</content><author><name></name></author><category term="essay" /><category term="access," /><category term="sql" /><summary type="html">比起梦一般的Natsu 现在很多时候更多会想起Koto 想起那次在车站偶然相遇时 她的那张疲惫 满面油光的 显着老态的脸 心底里猛地揪起来一句话 与你年轻时的面貌相比,我更爱你现在备受摧残的容颜 杜拉斯 车站时的Koto可爱不再 我却没有一丝的厌倦 我还是喜欢着的 从那张就可以回想起高中刚开学的脸 高中刚开学那天的第一次见面 就好像天使一般的笑容 就从那张脸上咧开 就从这张似是老去的脸上浮出来， 依稀她高中的模样</summary></entry><entry><title type="html">今日头痛</title><link href="http://localhost:4000/blog/essay_blog/essay/2017/12/03/essay-headache.html" rel="alternate" type="text/html" title="今日头痛" /><published>2017-12-03T00:00:00+09:00</published><updated>2017-12-03T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2017/12/03/essay-headache</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2017/12/03/essay-headache.html">&lt;p&gt;今日头疼。&lt;/p&gt;
-
-&lt;p&gt;把电脑的cpu换成8700k。
-再一次感受到了电子数据的脆弱。&lt;/p&gt;
-
-&lt;p&gt;c盘的数据被彻底抹除——原本是可以复原的，但是win10自动更新后自动重启的设定让我措手不及。
-win10自动更新新版本，重启，上一个版本的被保存到windows.old文件夹里。
-原本的在windows.old里的资料全部被抹除掉重写。&lt;/p&gt;
-
-&lt;p&gt;所有数据全部消失。&lt;/p&gt;
-
-&lt;p&gt;那就，换回纸制品吧。&lt;/p&gt;
-
-&lt;p&gt;但是纸质数据的碎片化——真的会找不到想找的东西。我不会魔法。没办法把这一切弄得很好很好。&lt;/p&gt;
-
-&lt;p&gt;头痛。一天的整头痛。&lt;/p&gt;
-
-&lt;p&gt;似乎是睡眠时房间温度太低。脑袋吃不消，就开始作痛。&lt;/p&gt;
-
-&lt;p&gt;等到晚上11点左右，终于把电脑各种设定都设置好。调教周全。&lt;/p&gt;
-
-&lt;p&gt;开始听歌。听音乐。真的恢复了好多。身体就像略有康复一般。&lt;/p&gt;
-
-&lt;p&gt;有音乐真好。&lt;/p&gt;
-
-&lt;p&gt;虽然视力仍然只能看清2米远。不过算了。&lt;/p&gt;
-
-&lt;p&gt;能活着就真的很幸运了。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">今日头疼。 把电脑的cpu换成8700k。 再一次感受到了电子数据的脆弱。 c盘的数据被彻底抹除——原本是可以复原的，但是win10自动更新后自动重启的设定让我措手不及。 win10自动更新新版本，重启，上一个版本的被保存到windows.old文件夹里。 原本的在windows.old里的资料全部被抹除掉重写。 所有数据全部消失。 那就，换回纸制品吧。 但是纸质数据的碎片化——真的会找不到想找的东西。我不会魔法。没办法把这一切弄得很好很好。 头痛。一天的整头痛。 似乎是睡眠时房间温度太低。脑袋吃不消，就开始作痛。 等到晚上11点左右，终于把电脑各种设定都设置好。调教周全。 开始听歌。听音乐。真的恢复了好多。身体就像略有康复一般。 有音乐真好。 虽然视力仍然只能看清2米远。不过算了。 能活着就真的很幸运了。</summary></entry></feed>
+&lt;p&gt;依稀她高中的模样&lt;/p&gt;</content><author><name></name></author><category term="essay" /><category term="access," /><category term="sql" /><summary type="html">比起梦一般的Natsu 现在很多时候更多会想起Koto 想起那次在车站偶然相遇时 她的那张疲惫 满面油光的 显着老态的脸 心底里猛地揪起来一句话 与你年轻时的面貌相比,我更爱你现在备受摧残的容颜 杜拉斯 车站时的Koto可爱不再 我却没有一丝的厌倦 我还是喜欢着的 从那张就可以回想起高中刚开学的脸 高中刚开学那天的第一次见面 就好像天使一般的笑容 就从那张脸上咧开 就从这张似是老去的脸上浮出来， 依稀她高中的模样</summary></entry></feed>
