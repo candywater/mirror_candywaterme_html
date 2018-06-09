@@ -1,2 +1,3 @@
-jekyll serve -s ./blog_build/blog_build_jekyll -d ./blog_build/blog_build_jekyll/_site 
+jekyll serve -s ./blog_build/blog_build_jekyll -d ./blog_build/blog_build_jekyll/_site --incremental
+# jekyll serve -s ./blog_build/blog_build_jekyll -d ./blog_build/blog_build_jekyll/_site 
 
