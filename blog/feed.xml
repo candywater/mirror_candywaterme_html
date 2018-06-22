@@ -1,29 +1,84 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-06-09T19:18:29+09:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">青春</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth.html" rel="alternate" type="text/html" title="青春" /><published>2018-06-09T00:00:00+09:00</published><updated>2018-06-09T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth.html">在整理家中的东西。好多东西，不想扔。但是真的带不回去。&lt;br&gt;
-感觉都是一些回忆在里面。&lt;br&gt;
-我把他们给丢了。&lt;br&gt;
-就好像把青春给丢了。
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-06-22T19:58:53+08:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">如何更改iphone的备份存储位置(windows)</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/06/22/change-iphone-bak-up-location.html" rel="alternate" type="text/html" title="如何更改iphone的备份存储位置(windows)" /><published>2018-06-22T00:00:00+08:00</published><updated>2018-06-22T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/06/22/change-iphone-bak-up-location</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/06/22/change-iphone-bak-up-location.html">&lt;p&gt;写一个简单的小知识。我自己因为换电脑用了好几次，每次都要找，于是就记在这里。&lt;br /&gt;
+windows环境下，如何更改iphone的备份存储位置。&lt;/p&gt;
 
-这些天关注，一个叫工口组组长的人的推特。他前些天发了这样的[一条推。](https://twitter.com/erochain/status/1004688674871635972)
+&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
+
+&lt;p&gt;现代社会（咳咳），大家都喜欢用ssd作为系统盘。但是ssd的高昂的价格，让许多人不得不做出让步，所以系统盘许多都是128GB，256GB。如果是只有系统，还好，但是iphone的默认备份保存地址是c盘（windows环境下），如果iphone的容量是128GB，基本上就是要悲剧了。&lt;br /&gt;
+那就迎来了一个问题。需要把iphone的备份位置转移。&lt;/p&gt;
+
+&lt;h3 id=&quot;前提知识&quot;&gt;前提知识&lt;/h3&gt;
+
+&lt;p&gt;首先找到iphone的具体备份位置。&lt;br /&gt;
+根据苹果资料[1]，win 7/8/10 是在这里。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%appdata%\Apple Computer\MobileSync\Backup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;如果是win10的microsoft store里面购买的话，是在这里。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%USERPROFILE%\Apple\MobileSync\Backup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;直接在地址栏敲下这个就可以到达这个文件夹。&lt;/p&gt;
+
+&lt;p&gt;然后你要准备一个其他硬盘的文件夹。这里用&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[your-new-bakup]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;代替。&lt;/p&gt;
+
+&lt;h3 id=&quot;具体做法&quot;&gt;具体做法&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;打开cmd。（win键 + R召唤出一个窗口，然后输入cmd，点回车）&lt;/li&gt;
+  &lt;li&gt;在cmd输入以下指令
+win 7/8/10的情况
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd %appdata%\Apple Computer\MobileSync
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;win 10(Microsoft Store)的情况&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd %USERPROFILE%\Apple\MobileSync
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;在cmd输入以下指令
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rmdir Backup
+mkdir /J Backup [your-new-bakup]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;注意&quot;&gt;注意&lt;/h3&gt;
+
+&lt;p&gt;powershell神奇的不能用mklink这个指令，稍微查了一下，竟然要从cmd呼叫。用下面这个指令。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cmd /c &quot;mklink&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;不过这个是2014年的文章了，也不知现在有没有变化。&lt;/p&gt;
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;[1]&lt;a href=&quot;https://oldno07.com/itunes-backup-iphone/&quot;&gt;iPhoneバックアップの保存先を変更するiTunesの設定方法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[2]&lt;a href=&quot;https://support.apple.com/en-us/ht204215&quot;&gt;Locate backups of your iPhone, iPad, and iPod touch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[3]&lt;a href=&quot;http://tech.guitarrapc.com/entry/2014/08/19/022232#PowerShell-%E3%81%A7%E3%82%B7%E3%83%B3%E3%83%9C%E3%83%AA%E3%83%83%E3%82%AF%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AF%E6%89%B1%E3%81%84%E3%81%AB%E3%81%8F%E3%81%84&quot;&gt;PowerShell で シンボリックリンクを 使えるようにしよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="iphone," /><category term="sync," /><category term="bakup" /><summary type="html">写一个简单的小知识。我自己因为换电脑用了好几次，每次都要找，于是就记在这里。 windows环境下，如何更改iphone的备份存储位置。 前言 现代社会（咳咳），大家都喜欢用ssd作为系统盘。但是ssd的高昂的价格，让许多人不得不做出让步，所以系统盘许多都是128GB，256GB。如果是只有系统，还好，但是iphone的默认备份保存地址是c盘（windows环境下），如果iphone的容量是128GB，基本上就是要悲剧了。 那就迎来了一个问题。需要把iphone的备份位置转移。 前提知识 首先找到iphone的具体备份位置。 根据苹果资料[1]，win 7/8/10 是在这里。 %appdata%\Apple Computer\MobileSync\Backup 如果是win10的microsoft store里面购买的话，是在这里。 %USERPROFILE%\Apple\MobileSync\Backup 直接在地址栏敲下这个就可以到达这个文件夹。 然后你要准备一个其他硬盘的文件夹。这里用 [your-new-bakup] 代替。 具体做法 打开cmd。（win键 + R召唤出一个窗口，然后输入cmd，点回车） 在cmd输入以下指令 win 7/8/10的情况 cd %appdata%\Apple Computer\MobileSync win 10(Microsoft Store)的情况 cd %USERPROFILE%\Apple\MobileSync 在cmd输入以下指令 rmdir Backup mkdir /J Backup [your-new-bakup] 注意 powershell神奇的不能用mklink这个指令，稍微查了一下，竟然要从cmd呼叫。用下面这个指令。 cmd /c &quot;mklink&quot; 不过这个是2014年的文章了，也不知现在有没有变化。 参考资料： [1]iPhoneバックアップの保存先を変更するiTunesの設定方法 [2]Locate backups of your iPhone, iPad, and iPod touch [3]PowerShell で シンボリックリンクを 使えるようにしよう</summary></entry><entry><title type="html">青春</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth.html" rel="alternate" type="text/html" title="青春" /><published>2018-06-09T00:00:00+08:00</published><updated>2018-06-09T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/youth.html">&lt;p&gt;在整理家中的东西。好多东西，不想扔。但是真的带不回去。&lt;br /&gt;
+感觉都是一些回忆在里面。&lt;br /&gt;
+我把他们给丢了。&lt;br /&gt;
+就好像把青春给丢了。&lt;/p&gt;
+
+&lt;p&gt;这些天关注，一个叫工口组组长的人的推特。他前些天发了这样的&lt;a href=&quot;https://twitter.com/erochain/status/1004688674871635972&quot;&gt;一条推。&lt;/a&gt;
 大意是说，很多人低估了某一个年龄段的女孩们的，渴望被爱的程度。
 我突然就懂了好多事情。突然就理解了她们那之后的无情。
-原来就是渴望已去，剩下的就只有冰冰的冷漠和淡淡的现实。
+原来就是渴望已去，剩下的就只有冰冰的冷漠和淡淡的现实。&lt;/p&gt;
 
-工口组组长是个很有趣的人，我很喜欢看他的推。
-好像是从这么[一个推](https://twitter.com/erochain/status/967760549931925505)开始关注他的吧。
-他的推刻骨的见多。像是[这条](https://twitter.com/erochain/status/997869455127465984)[、这条。](https://twitter.com/erochain/status/1003884858366541825)
+&lt;p&gt;工口组组长是个很有趣的人，我很喜欢看他的推。
+好像是从这么&lt;a href=&quot;https://twitter.com/erochain/status/967760549931925505&quot;&gt;一个推&lt;/a&gt;开始关注他的吧。
+他的推刻骨的见多。像是&lt;a href=&quot;https://twitter.com/erochain/status/997869455127465984&quot;&gt;这条&lt;/a&gt;&lt;a href=&quot;https://twitter.com/erochain/status/1003884858366541825&quot;&gt;、这条。&lt;/a&gt;
 有趣的人，见血的灵魂。
-看着他的推。我总会想。为什么我还要回去呢。那边难道还有着什么我还在留恋的么。
+看着他的推。我总会想。为什么我还要回去呢。那边难道还有着什么我还在留恋的么。&lt;/p&gt;
 
-有点懂了说，为什么恋爱的故事，都要强行发生在青春期。
+&lt;p&gt;有点懂了说，为什么恋爱的故事，都要强行发生在青春期。
 恐怕不只是那个年龄的美丽，还有着那个年龄的刻骨。
 可是回忆起自己，留下的却只有一个又一个的心悸。那边的学生时代大概是最好的了吧。
 不过学生时代已经过去，也许迎接我的是又一个，又一个残酷的童话吧。
 就像我这生一样，运气早就在初三的时候截止了。
-剩下的，是一个又一个狗屎。
+剩下的，是一个又一个狗屎。&lt;/p&gt;
 
-也许，不是我在选择命运。是命运在选择我。
+&lt;p&gt;也许，不是我在选择命运。是命运在选择我。&lt;/p&gt;
 
-我只有回去这一条路。
+&lt;p&gt;我只有回去这一条路。&lt;/p&gt;
 
 &lt;!-- 按顺序记录四条推 --&gt;
 
@@ -62,7 +117,7 @@ MoeAsuka
 Lvv2.com
  @lvv2com
 这个真的太虐了吧……！ ​ https://Lvv2.com/t/1011947/  
-11:22 PM - 4 Jun 2018 --&gt;</content><author><name></name></author><category term="essay" /><summary type="html">在整理家中的东西。好多东西，不想扔。但是真的带不回去。 感觉都是一些回忆在里面。 我把他们给丢了。 就好像把青春给丢了。</summary></entry><entry><title type="html">虚拟故事 - 彤</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/tong.html" rel="alternate" type="text/html" title="虚拟故事 - 彤" /><published>2018-06-09T00:00:00+09:00</published><updated>2018-06-09T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/tong</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/tong.html">&lt;p&gt;&lt;img src=&quot;/assets/stills/blog/20180609/kumasan.jpg&quot; alt=&quot;KUMA桑&quot; /&gt;&lt;/p&gt;
+11:22 PM - 4 Jun 2018 --&gt;</content><author><name></name></author><category term="essay" /><summary type="html">在整理家中的东西。好多东西，不想扔。但是真的带不回去。 感觉都是一些回忆在里面。 我把他们给丢了。 就好像把青春给丢了。</summary></entry><entry><title type="html">虚拟故事 - 彤</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/tong.html" rel="alternate" type="text/html" title="虚拟故事 - 彤" /><published>2018-06-09T00:00:00+08:00</published><updated>2018-06-09T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/tong</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/tong.html">&lt;p&gt;&lt;img src=&quot;/assets/stills/blog/20180609/kumasan.jpg&quot; alt=&quot;KUMA桑&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;photo by KUMA桑@lofter (&lt;a href=&quot;http://kumasan.lofter.com/post/a7c98_87c193b&quot;&gt;http://kumasan.lofter.com/post/a7c98_87c193b&lt;/a&gt;)
 &lt;br /&gt;copyright (&lt;a href=&quot;https://creativecommons.org/licenses/by-nc-nd/2.5/deed.zh&quot;&gt;https://creativecommons.org/licenses/by-nc-nd/2.5/deed.zh&lt;/a&gt;)&lt;/p&gt;
@@ -173,420 +228,409 @@ Lvv2.com
 
 &lt;hr /&gt;
 &lt;p&gt;　
-[1]:小说《修真聊天群》中黄大仙的妖犬&lt;/p&gt;</content><author><name></name></author><category term="essay" /><category term="原创小说" /><summary type="html"></summary></entry><entry><title type="html">lofter</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/lofter.html" rel="alternate" type="text/html" title="lofter" /><published>2018-06-09T00:00:00+09:00</published><updated>2018-06-09T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/lofter</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/lofter.html">许久不登陆lofter。
-这次是为了要一个图片的版权。
+[1]:小说《修真聊天群》中黄大仙的妖犬&lt;/p&gt;</content><author><name></name></author><category term="essay" /><category term="原创小说" /><summary type="html"></summary></entry><entry><title type="html">lofter</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/lofter.html" rel="alternate" type="text/html" title="lofter" /><published>2018-06-09T00:00:00+08:00</published><updated>2018-06-09T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/lofter</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/lofter.html">&lt;p&gt;许久不登陆lofter。
+这次是为了要一个图片的版权。&lt;/p&gt;
 
-刚上线就看到一个通知，一个文章因为涉黄，被下架了。
+&lt;p&gt;刚上线就看到一个通知，一个文章因为涉黄，被下架了。
 我看了看以前的备份，并不是我写的文章。而且文章也很难说他是涉黄的。
-大概是关键词吧，只有那么几个词语而已。
+大概是关键词吧，只有那么几个词语而已。&lt;/p&gt;
 
-庆幸自己早早离开了lofter。早就会有这么一天。
-这一天早晚会来临。
+&lt;p&gt;庆幸自己早早离开了lofter。早就会有这么一天。
+这一天早晚会来临。&lt;/p&gt;
 
-一幕铁网，如同细胞膜，有选择性的过滤。
+&lt;p&gt;一幕铁网，如同细胞膜，有选择性的过滤。
 从天而降。
-由不得你出不出去。</content><author><name></name></author><category term="essay" /><summary type="html">许久不登陆lofter。 这次是为了要一个图片的版权。</summary></entry><entry><title type="html">习惯</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs.html" rel="alternate" type="text/html" title="习惯" /><published>2018-06-09T00:00:00+09:00</published><updated>2018-06-09T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs.html">我发现这都是一种习惯。
+由不得你出不出去。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">许久不登陆lofter。 这次是为了要一个图片的版权。</summary></entry><entry><title type="html">习惯</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs.html" rel="alternate" type="text/html" title="习惯" /><published>2018-06-09T00:00:00+08:00</published><updated>2018-06-09T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs.html">&lt;p&gt;我发现这都是一种习惯。
 习惯没事闲下来画个画。
 习惯没事编个程。
-习惯没事拿起笔记本，开始写日记。
+习惯没事拿起笔记本，开始写日记。&lt;/p&gt;
 
-网上有一句话，叫什么，成功是种习惯。还是优秀是种习惯了的。
-都对，都说的通。
+&lt;p&gt;网上有一句话，叫什么，成功是种习惯。还是优秀是种习惯了的。
+都对，都说的通。&lt;/p&gt;
 
-![i'm lucky, i'm living, now](/assets/stills/blog/20180609/IMG_2131.jpg)
-&lt;br&gt;photo by candywater, 2018/March/20th
+&lt;p&gt;&lt;img src=&quot;/assets/stills/blog/20180609/IMG_2131.jpg&quot; alt=&quot;i'm lucky, i'm living, now&quot; /&gt;
+&lt;br /&gt;photo by candywater, 2018/March/20th&lt;/p&gt;
 
-废话不多说，我去画几幅画，然后去寻早饭食了。</content><author><name></name></author><category term="essay" /><summary type="html">我发现这都是一种习惯。 习惯没事闲下来画个画。 习惯没事编个程。 习惯没事拿起笔记本，开始写日记。</summary></entry><entry><title type="html">wsl环境下几个小知识</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html" rel="alternate" type="text/html" title="wsl环境下几个小知识" /><published>2018-04-02T00:00:00+09:00</published><updated>2018-04-02T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html">记录下自己使用时感觉实用的小知识吧！
+&lt;p&gt;废话不多说，我去画几幅画，然后去寻早饭食了。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">我发现这都是一种习惯。 习惯没事闲下来画个画。 习惯没事编个程。 习惯没事拿起笔记本，开始写日记。</summary></entry><entry><title type="html">wsl环境下几个小知识</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html" rel="alternate" type="text/html" title="wsl环境下几个小知识" /><published>2018-04-02T00:00:00+08:00</published><updated>2018-04-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html">&lt;p&gt;记录下自己使用时感觉实用的小知识吧！&lt;/p&gt;
 
-### 1.什么是wsl？
+&lt;h3 id=&quot;1什么是wsl&quot;&gt;1.什么是wsl？&lt;/h3&gt;
 
-wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的...(突然找不到可以黑的点)。
-&lt;br&gt;这个是很早就出名的一个，win10专为开发者开发的一样东西。
-目前推荐的方式是使用microsoft store去下载。
+&lt;p&gt;wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。
+&lt;br /&gt;这个是很早就出名的一个，win10专为开发者开发的一样东西。
+目前推荐的方式是使用microsoft store去下载。&lt;/p&gt;
 
-### 2.wsl不仅仅只有ubuntu一家
+&lt;h3 id=&quot;2wsl不仅仅只有ubuntu一家&quot;&gt;2.wsl不仅仅只有ubuntu一家&lt;/h3&gt;
 
-在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get）
+&lt;p&gt;在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get）&lt;/p&gt;
 
-### 3.为何博主在debian和ubuntu之间推荐debian？
+&lt;h3 id=&quot;3为何博主在debian和ubuntu之间推荐debian&quot;&gt;3.为何博主在debian和ubuntu之间推荐debian？&lt;/h3&gt;
 
-在博主看来两者有以下的区别：&lt;br&gt;
-+ (1)debian比较轻。&lt;br&gt;
-+ (2)新版本的编码问题。&lt;br&gt;
-  在2018 Apr 02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。
-  这点在微软的WSL的[issue](https://github.com/Microsoft/WSL/issues/1878)
-  中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。&lt;br&gt;
-+ (3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分&lt;br&gt;
-+ (4)使用private key认证的权限问题。&lt;br&gt;
-  在debian有这样的限制：&lt;br&gt;
-  如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。&lt;br&gt;
-  这点需要额外注意，如果是ubuntu的话就不需要额外设置。在ubuntu中，git似乎是具有特殊权限，可以绕过这个文件禁止一般用户读取的权限设置。
-  权限方面，看起来是debian做的比较安全。&lt;br&gt;
-+ (5)其他基本没看出有很大的区别&lt;br&gt;
+&lt;p&gt;在博主看来两者有以下的区别：&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;(1)debian比较轻。&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;(2)新版本的编码问题。&lt;br /&gt;
+在2018 Apr 02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。
+这点在微软的WSL的&lt;a href=&quot;https://github.com/Microsoft/WSL/issues/1878&quot;&gt;issue&lt;/a&gt;
+中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;(3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;(4)使用private key认证的权限问题。&lt;br /&gt;
+在debian有这样的限制：&lt;br /&gt;
+如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。&lt;br /&gt;
+这点需要额外注意，如果是ubuntu的话就不需要额外设置。在ubuntu中，git似乎是具有特殊权限，可以绕过这个文件禁止一般用户读取的权限设置。
+权限方面，看起来是debian做的比较安全。&lt;br /&gt;&lt;/li&gt;
+  &lt;li&gt;(5)其他基本没看出有很大的区别&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-### 4.wsl不推荐使用自带terminal，推荐使用外部的terminal
+&lt;h3 id=&quot;4wsl不推荐使用自带terminal推荐使用外部的terminal&quot;&gt;4.wsl不推荐使用自带terminal，推荐使用外部的terminal&lt;/h3&gt;
 
-我个人使用的是这一款：[https://github.com/goreliu/wsl-terminal](https://github.com/goreliu/wsl-terminal)
-&lt;br&gt;
+&lt;p&gt;我个人使用的是这一款：&lt;a href=&quot;https://github.com/goreliu/wsl-terminal&quot;&gt;https://github.com/goreliu/wsl-terminal&lt;/a&gt;
+&lt;br /&gt;
 自带的terminal会有如下问题。
-&lt;br&gt;
-+ (1)ubuntu的case&lt;br&gt;
-比如2016版本的早期terminal，有口吃的毛病。[参见这里](https://www.isthnew.com/archives/win10-bash.html)&lt;br&gt;
-当然后期的版本貌似更改了这一毛病，不过似乎....如果换了terminal就再也不用担心这个毛病了不是麽。
-+ (2)debian的case&lt;br&gt;
+&lt;br /&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;(1)ubuntu的case&lt;br /&gt;
+比如2016版本的早期terminal，有口吃的毛病。&lt;a href=&quot;https://www.isthnew.com/archives/win10-bash.html&quot;&gt;参见这里&lt;/a&gt;&lt;br /&gt;
+当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。&lt;/li&gt;
+  &lt;li&gt;(2)debian的case&lt;br /&gt;
 debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候，
-```
-you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot;
-```
-(PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则)&lt;br&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;(PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则)&lt;br /&gt;
 在debian的原生terminal会出现这样的感觉
-![debian-wrong](/assets/stills/blog/20180402-wsl-tips/1522640663357.jpg)
+&lt;img src=&quot;/assets/stills/blog/20180402-wsl-tips/1522640663357.jpg&quot; alt=&quot;debian-wrong&quot; /&gt;
 因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。
-![wsl-correct](/assets/stills/blog/20180402-wsl-tips/1522640828060.jpg)
+&lt;img src=&quot;/assets/stills/blog/20180402-wsl-tips/1522640828060.jpg&quot; alt=&quot;wsl-correct&quot; /&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-### 5.切换默认的wsl
+&lt;h3 id=&quot;5切换默认的wsl&quot;&gt;5.切换默认的wsl&lt;/h3&gt;
 
-使用wslconfig。
-```
-wslconfig /l
+&lt;p&gt;使用wslconfig。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wslconfig /l
 wslconfig /l /a
 wslconfig /setdefault
-```
-简单明了，应该不用解释了。
-切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;简单明了，应该不用解释了。
+切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。&lt;/p&gt;
 
+&lt;p&gt;暂时就想到这里。就先这样吧！&lt;/p&gt;
 
-暂时就想到这里。就先这样吧！
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;wslconfig command:&lt;a href=&quot;https://linuxfan.info/wslconfig&quot;&gt;WSLで複数のLinuxディストリビューションを管理する&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;更改语言encode系列:&lt;a href=&quot;https://askubuntu.com/questions/298971/full-switch-locale-ubuntu-server-installed-with-no-locales-how-to-enable-local&quot;&gt;Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;更改语言encode系列:&lt;a href=&quot;https://qiita.com/tailak/items/77b90a4df07e4f6a1fc2&quot;&gt;Debian/Ubuntuのデフォルトロケールを変更する&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;mingw的package manager&lt;a href=&quot;https://stackoverflow.com/questions/30046903/is-there-any-package-management-system-for-mingwmsys&quot;&gt;Is there any package management system for MinGW+MSYS?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;ubuntu17.10在wsl的语言encode问题:&lt;a href=&quot;https://github.com/Microsoft/WSL/issues/1878&quot;&gt;Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;早期ubuntu原生wsl的termial的口吃问题:&lt;a href=&quot;https://www.isthnew.com/archives/win10-bash.html&quot;&gt;Win10的Bash真是好用&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;debian下，用sudo时和本地用户不共用一个vimrc问题:&lt;a href=&quot;https://unix.stackexchange.com/questions/34069/problem-with-vim-when-logged-in-as-root&quot;&gt;Problem with vim when logged in as root&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;debian在microsoft store的链接:&lt;a href=&quot;https://www.microsoft.com/store/productId/9MSVKQC78PK6&quot;&gt;debian in ms store&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="wsl," /><category term="ubuntu," /><category term="debian," /><category term="ubuntu" /><category term="LTS" /><summary type="html">记录下自己使用时感觉实用的小知识吧！ 1.什么是wsl？ wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。 这个是很早就出名的一个，win10专为开发者开发的一样东西。 目前推荐的方式是使用microsoft store去下载。 2.wsl不仅仅只有ubuntu一家 在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get） 3.为何博主在debian和ubuntu之间推荐debian？ 在博主看来两者有以下的区别： (1)debian比较轻。 (2)新版本的编码问题。 在2018 Apr 02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。 这点在微软的WSL的issue 中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。 (3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分 (4)使用private key认证的权限问题。 在debian有这样的限制： 如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。 这点需要额外注意，如果是ubuntu的话就不需要额外设置。在ubuntu中，git似乎是具有特殊权限，可以绕过这个文件禁止一般用户读取的权限设置。 权限方面，看起来是debian做的比较安全。 (5)其他基本没看出有很大的区别 4.wsl不推荐使用自带terminal，推荐使用外部的terminal 我个人使用的是这一款：https://github.com/goreliu/wsl-terminal 自带的terminal会有如下问题。 (1)ubuntu的case 比如2016版本的早期terminal，有口吃的毛病。参见这里 当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。 (2)debian的case debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候， you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot; (PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则) 在debian的原生terminal会出现这样的感觉 因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。 5.切换默认的wsl 使用wslconfig。 wslconfig /l wslconfig /l /a wslconfig /setdefault 简单明了，应该不用解释了。 切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。 暂时就想到这里。就先这样吧！ 参考资料： wslconfig command:WSLで複数のLinuxディストリビューションを管理する 更改语言encode系列:Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide? 更改语言encode系列:Debian/Ubuntuのデフォルトロケールを変更する mingw的package managerIs there any package management system for MinGW+MSYS? ubuntu17.10在wsl的语言encode问题:Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878 早期ubuntu原生wsl的termial的口吃问题:Win10的Bash真是好用 debian下，用sudo时和本地用户不共用一个vimrc问题:Problem with vim when logged in as root debian在microsoft store的链接:debian in ms store</summary></entry><entry><title type="html">pubg外挂问题</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html" rel="alternate" type="text/html" title="pubg外挂问题" /><published>2018-03-27T00:00:00+08:00</published><updated>2018-03-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html">&lt;p&gt;突然想玩吃鸡。结果竟然有个1.9GB的更新。
+很偶然的随意看了一眼pubg的更新日志。&lt;/p&gt;
 
-参考资料：
-- wslconfig command:[WSLで複数のLinuxディストリビューションを管理する](https://linuxfan.info/wslconfig)
-- 更改语言encode系列:[Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide?](https://askubuntu.com/questions/298971/full-switch-locale-ubuntu-server-installed-with-no-locales-how-to-enable-local)
-- 更改语言encode系列:[Debian/Ubuntuのデフォルトロケールを変更する](https://qiita.com/tailak/items/77b90a4df07e4f6a1fc2)
-- mingw的package manager[Is there any package management system for MinGW+MSYS?](https://stackoverflow.com/questions/30046903/is-there-any-package-management-system-for-mingwmsys)
-- ubuntu17.10在wsl的语言encode问题:[Microsoft/WSL issue :Assertion `ec &gt;= 0' failed. #1878](https://github.com/Microsoft/WSL/issues/1878)
-- 早期ubuntu原生wsl的termial的口吃问题:[Win10的Bash真是好用](https://www.isthnew.com/archives/win10-bash.html)
-- debian下，用sudo时和本地用户不共用一个vimrc问题:[Problem with vim when logged in as root](https://unix.stackexchange.com/questions/34069/problem-with-vim-when-logged-in-as-root)
-- debian在microsoft store的链接:[debian in ms store](https://www.microsoft.com/store/productId/9MSVKQC78PK6)</content><author><name></name></author><category term="tech" /><category term="wsl," /><category term="ubuntu," /><category term="debian," /><category term="ubuntu" /><category term="LTS" /><summary type="html">记录下自己使用时感觉实用的小知识吧！ 1.什么是wsl？ wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。 这个是很早就出名的一个，win10专为开发者开发的一样东西。 目前推荐的方式是使用microsoft store去下载。 2.wsl不仅仅只有ubuntu一家 在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get） 3.为何博主在debian和ubuntu之间推荐debian？ 在博主看来两者有以下的区别： (1)debian比较轻。 (2)新版本的编码问题。 在2018 Apr 02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。 这点在微软的WSL的issue 中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。 (3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分 (4)使用private key认证的权限问题。 在debian有这样的限制： 如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。 这点需要额外注意，如果是ubuntu的话就不需要额外设置。在ubuntu中，git似乎是具有特殊权限，可以绕过这个文件禁止一般用户读取的权限设置。 权限方面，看起来是debian做的比较安全。 (5)其他基本没看出有很大的区别 4.wsl不推荐使用自带terminal，推荐使用外部的terminal 我个人使用的是这一款：https://github.com/goreliu/wsl-terminal 自带的terminal会有如下问题。 (1)ubuntu的case 比如2016版本的早期terminal，有口吃的毛病。参见这里 当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。 (2)debian的case debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候， you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot; (PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则) 在debian的原生terminal会出现这样的感觉 因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。 5.切换默认的wsl 使用wslconfig。 wslconfig /l wslconfig /l /a wslconfig /setdefault 简单明了，应该不用解释了。 切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。 暂时就想到这里。就先这样吧！ 参考资料： wslconfig command:WSLで複数のLinuxディストリビューションを管理する 更改语言encode系列:Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide? 更改语言encode系列:Debian/Ubuntuのデフォルトロケールを変更する mingw的package managerIs there any package management system for MinGW+MSYS? ubuntu17.10在wsl的语言encode问题:Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878 早期ubuntu原生wsl的termial的口吃问题:Win10的Bash真是好用 debian下，用sudo时和本地用户不共用一个vimrc问题:Problem with vim when logged in as root debian在microsoft store的链接:debian in ms store</summary></entry><entry><title type="html">pubg外挂问题</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html" rel="alternate" type="text/html" title="pubg外挂问题" /><published>2018-03-27T00:00:00+09:00</published><updated>2018-03-27T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html">突然想玩吃鸡。结果竟然有个1.9GB的更新。
-很偶然的随意看了一眼pubg的更新日志。
+&lt;p&gt;&lt;a href=&quot;http://store.steampowered.com/news/externalpost/eurogamer/2365953485465329247&quot;&gt;PlayerUnknown’s Battlegrounds adds weapon skins, is “considering” region-locked servers&lt;/a&gt;&lt;/p&gt;
 
-[PlayerUnknown's Battlegrounds adds weapon skins, is &quot;considering&quot; region-locked servers](http://store.steampowered.com/news/externalpost/eurogamer/2365953485465329247)
+&lt;blockquote&gt;
+  &lt;p&gt;Region-locked servers are a long-requested feature, with proponents frequently citing anti-cheat company BattleEye’s claims that “the vast majority” of PUBG cheaters are from China.&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;Region-locked servers are a long-requested feature, with proponents frequently citing anti-cheat company BattleEye's claims that &quot;the vast majority&quot; of PUBG cheaters are from China.
+&lt;p&gt;你说不太清楚是什么感觉。
+我回国在即，也就是说，如果锁区，我也会和国内的玩家在一起玩，而没办法和海外的一起玩。&lt;/p&gt;
 
-你说不太清楚是什么感觉。
-我回国在即，也就是说，如果锁区，我也会和国内的玩家在一起玩，而没办法和海外的一起玩。
+&lt;p&gt;有外挂的游戏体验很差。非常差。&lt;/p&gt;
 
-有外挂的游戏体验很差。非常差。
+&lt;p&gt;我的心情很复杂。&lt;br /&gt;
+一是我非常厌恶和外挂一起玩，我为外挂感到愤怒，&lt;br /&gt;
+二是我却也为外挂出在中国而自卑。&lt;br /&gt;&lt;/p&gt;
 
-我的心情很复杂。&lt;br&gt;
-一是我非常厌恶和外挂一起玩，我为外挂感到愤怒，&lt;br&gt;
-二是我却也为外挂出在中国而自卑。&lt;br&gt;
+&lt;p&gt;这造成什么现象呢。&lt;br /&gt;
+就是一方面需要认清自己的国家确确实实产出了99%的外挂。&lt;br /&gt;
+另一方面，如果锁区，那么就要忍受自己和99%的外挂被锁到一个区内玩的事实。&lt;br /&gt;
+(ps:全球玩家3000万，大陆玩家1000万多。)&lt;/p&gt;
 
-这造成什么现象呢。&lt;br&gt;
-就是一方面需要认清自己的国家确确实实产出了99%的外挂。&lt;br&gt;
-另一方面，如果锁区，那么就要忍受自己和99%的外挂被锁到一个区内玩的事实。&lt;br&gt;
-(ps:全球玩家3000万，大陆玩家1000万多。)
+&lt;p&gt;一方面需要忍受不是自己过错造成的过失的指责和歧视，&lt;br /&gt;
+另一方面更需要忍受不是自己过错，但是异常糟糕的游戏体验。&lt;/p&gt;
 
-一方面需要忍受不是自己过错造成的过失的指责和歧视，&lt;br&gt;
-另一方面更需要忍受不是自己过错，但是异常糟糕的游戏体验。
-
-我有一个朋友，尽管有别的朋友提醒，我还是跟他玩了2局。
+&lt;p&gt;我有一个朋友，尽管有别的朋友提醒，我还是跟他玩了2局。
 很不意外，虽然他的游戏整体意识很有问题，找掩体，隐藏自身，或者别的什么都并不是很好。
 我通过一个多小时的仔细研读录像，我清楚的认识到他跟我的两局都是用的外挂。
-尽管我根本就不想承认这一点。
+尽管我根本就不想承认这一点。&lt;/p&gt;
 
-我欣赏叛骨精神。
+&lt;p&gt;我欣赏叛骨精神。
 我也认可一定程度的反抗。
-不过反抗只存在于这种situation的时候。应该去怎么想呢。
+不过反抗只存在于这种situation的时候。应该去怎么想呢。&lt;/p&gt;
 
-我发现我建立独立网站真的很正确。因为怕是围城之内，已尽皆王土了。
-我就在这里说一说，大话。
+&lt;p&gt;我发现我建立独立网站真的很正确。因为怕是围城之内，已尽皆王土了。
+我就在这里说一说，大话。&lt;/p&gt;
 
-因为这种，并非自己过错而承担整体后果的事情非常多。
-&lt;br&gt;
+&lt;p&gt;因为这种，并非自己过错而承担整体后果的事情非常多。
+&lt;br /&gt;
 一大例子就是，很多人要求霓虹人去道歉。但是有的人说，事情又不是我做的，为什么我从出生起就要背负这种忏悔？
 还有很多种这样的例子。比如某县。人们并不能选择自己出生的国家。但是为什么某些胖胖做的事情需要其他人去承担后果，去承担这种鄙视和歧视。
-&lt;br&gt;
+&lt;br /&gt;
 这两件事，其实本质上是一样的。
-&lt;br&gt;
+&lt;br /&gt;
 很多人会悲天由命。一个人能做的事情太少了。一个人的力量太小了。
 我看到视频里的DB人在下跪，我看到视频里的GD大妈和大爷在众前欢快的自由打滚。
-事情是不是会真的像贾某某说的一样，会真的变得覆水难收？
+事情是不是会真的像贾某某说的一样，会真的变得覆水难收？&lt;/p&gt;
 
-&gt;我觉得中国需要一些非常彪悍的个性的人，彪悍到可以独立的与这个时代共舞，参与到里面，改变它，影响它。
-&lt;br&gt;
-&gt;而不是穿上盔甲，说我是独立的，眼睁睁看着所有的事情覆水难收。
+&lt;blockquote&gt;
+  &lt;p&gt;我觉得中国需要一些非常彪悍的个性的人，彪悍到可以独立的与这个时代共舞，参与到里面，改变它，影响它。
+&lt;br /&gt;
+而不是穿上盔甲，说我是独立的，眼睁睁看着所有的事情覆水难收。&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;[贾樟柯访谈：贫穷改变了中国人的心理面目](http://hx.cnd.org/2009/04/14/%E8%B4%BE%E6%A8%9F%E6%9F%AF%E8%AE%BF%E8%B0%88%EF%BC%9A%E8%B4%AB%E7%A9%B7%E6%94%B9%E5%8F%98%E4%BA%86%E4%B8%AD%E5%9B%BD%E4%BA%BA%E7%9A%84%E5%BF%83%E7%90%86%E9%9D%A2%E7%9B%AE/)  
+&lt;blockquote&gt;
+  &lt;p&gt;&lt;a href=&quot;http://hx.cnd.org/2009/04/14/%E8%B4%BE%E6%A8%9F%E6%9F%AF%E8%AE%BF%E8%B0%88%EF%BC%9A%E8%B4%AB%E7%A9%B7%E6%94%B9%E5%8F%98%E4%BA%86%E4%B8%AD%E5%9B%BD%E4%BA%BA%E7%9A%84%E5%BF%83%E7%90%86%E9%9D%A2%E7%9B%AE/&quot;&gt;贾樟柯访谈：贫穷改变了中国人的心理面目&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;2009 年 04 月 14 日 由 CND《华夏文摘》编辑
-
+&lt;blockquote&gt;
+  &lt;p&gt;2009 年 04 月 14 日 由 CND《华夏文摘》编辑&lt;/p&gt;
+&lt;/blockquote&gt;
 
 &lt;!--
 最后我要说。我们为了强大，就真的什么都可以做么。
- --&gt;</content><author><name></name></author><category term="essay" /><category term="pubg" /><summary type="html">突然想玩吃鸡。结果竟然有个1.9GB的更新。 很偶然的随意看了一眼pubg的更新日志。 PlayerUnknown’s Battlegrounds adds weapon skins, is “considering” region-locked servers Region-locked servers are a long-requested feature, with proponents frequently citing anti-cheat company BattleEye’s claims that “the vast majority” of PUBG cheaters are from China. 你说不太清楚是什么感觉。 我回国在即，也就是说，如果锁区，我也会和国内的玩家在一起玩，而没办法和海外的一起玩。 有外挂的游戏体验很差。非常差。 我的心情很复杂。 一是我非常厌恶和外挂一起玩，我为外挂感到愤怒， 二是我却也为外挂出在中国而自卑。 这造成什么现象呢。 就是一方面需要认清自己的国家确确实实产出了99%的外挂。 另一方面，如果锁区，那么就要忍受自己和99%的外挂被锁到一个区内玩的事实。 (ps:全球玩家3000万，大陆玩家1000万多。) 一方面需要忍受不是自己过错造成的过失的指责和歧视， 另一方面更需要忍受不是自己过错，但是异常糟糕的游戏体验。 我有一个朋友，尽管有别的朋友提醒，我还是跟他玩了2局。 很不意外，虽然他的游戏整体意识很有问题，找掩体，隐藏自身，或者别的什么都并不是很好。 我通过一个多小时的仔细研读录像，我清楚的认识到他跟我的两局都是用的外挂。 尽管我根本就不想承认这一点。 我欣赏叛骨精神。 我也认可一定程度的反抗。 不过反抗只存在于这种situation的时候。应该去怎么想呢。 我发现我建立独立网站真的很正确。因为怕是围城之内，已尽皆王土了。 我就在这里说一说，大话。 因为这种，并非自己过错而承担整体后果的事情非常多。 一大例子就是，很多人要求霓虹人去道歉。但是有的人说，事情又不是我做的，为什么我从出生起就要背负这种忏悔？ 还有很多种这样的例子。比如某县。人们并不能选择自己出生的国家。但是为什么某些胖胖做的事情需要其他人去承担后果，去承担这种鄙视和歧视。 这两件事，其实本质上是一样的。 很多人会悲天由命。一个人能做的事情太少了。一个人的力量太小了。 我看到视频里的DB人在下跪，我看到视频里的GD大妈和大爷在众前欢快的自由打滚。 事情是不是会真的像贾某某说的一样，会真的变得覆水难收？ 我觉得中国需要一些非常彪悍的个性的人，彪悍到可以独立的与这个时代共舞，参与到里面，改变它，影响它。 而不是穿上盔甲，说我是独立的，眼睁睁看着所有的事情覆水难收。 贾樟柯访谈：贫穷改变了中国人的心理面目 2009 年 04 月 14 日 由 CND《华夏文摘》编辑</summary></entry><entry><title type="html">我所敬佩的</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe.html" rel="alternate" type="text/html" title="我所敬佩的" /><published>2018-03-15T00:00:00+09:00</published><updated>2018-03-15T00:00:00+09:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe.html">&lt;!--#### 耶和華見證人--&gt;
+ --&gt;</content><author><name></name></author><category term="essay" /><category term="pubg" /><summary type="html">突然想玩吃鸡。结果竟然有个1.9GB的更新。 很偶然的随意看了一眼pubg的更新日志。 PlayerUnknown’s Battlegrounds adds weapon skins, is “considering” region-locked servers Region-locked servers are a long-requested feature, with proponents frequently citing anti-cheat company BattleEye’s claims that “the vast majority” of PUBG cheaters are from China. 你说不太清楚是什么感觉。 我回国在即，也就是说，如果锁区，我也会和国内的玩家在一起玩，而没办法和海外的一起玩。 有外挂的游戏体验很差。非常差。 我的心情很复杂。 一是我非常厌恶和外挂一起玩，我为外挂感到愤怒， 二是我却也为外挂出在中国而自卑。 这造成什么现象呢。 就是一方面需要认清自己的国家确确实实产出了99%的外挂。 另一方面，如果锁区，那么就要忍受自己和99%的外挂被锁到一个区内玩的事实。 (ps:全球玩家3000万，大陆玩家1000万多。) 一方面需要忍受不是自己过错造成的过失的指责和歧视， 另一方面更需要忍受不是自己过错，但是异常糟糕的游戏体验。 我有一个朋友，尽管有别的朋友提醒，我还是跟他玩了2局。 很不意外，虽然他的游戏整体意识很有问题，找掩体，隐藏自身，或者别的什么都并不是很好。 我通过一个多小时的仔细研读录像，我清楚的认识到他跟我的两局都是用的外挂。 尽管我根本就不想承认这一点。 我欣赏叛骨精神。 我也认可一定程度的反抗。 不过反抗只存在于这种situation的时候。应该去怎么想呢。 我发现我建立独立网站真的很正确。因为怕是围城之内，已尽皆王土了。 我就在这里说一说，大话。 因为这种，并非自己过错而承担整体后果的事情非常多。 一大例子就是，很多人要求霓虹人去道歉。但是有的人说，事情又不是我做的，为什么我从出生起就要背负这种忏悔？ 还有很多种这样的例子。比如某县。人们并不能选择自己出生的国家。但是为什么某些胖胖做的事情需要其他人去承担后果，去承担这种鄙视和歧视。 这两件事，其实本质上是一样的。 很多人会悲天由命。一个人能做的事情太少了。一个人的力量太小了。 我看到视频里的DB人在下跪，我看到视频里的GD大妈和大爷在众前欢快的自由打滚。 事情是不是会真的像贾某某说的一样，会真的变得覆水难收？ 我觉得中国需要一些非常彪悍的个性的人，彪悍到可以独立的与这个时代共舞，参与到里面，改变它，影响它。 而不是穿上盔甲，说我是独立的，眼睁睁看着所有的事情覆水难收。 贾樟柯访谈：贫穷改变了中国人的心理面目 2009 年 04 月 14 日 由 CND《华夏文摘》编辑</summary></entry><entry><title type="html">我所敬佩的</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe.html" rel="alternate" type="text/html" title="我所敬佩的" /><published>2018-03-15T00:00:00+08:00</published><updated>2018-03-15T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe.html">&lt;!--#### 耶和華見證人--&gt;
 
-所有的宗教团体中。我最敬佩的就是耶和华见证人。
+&lt;p&gt;所有的宗教团体中。我最敬佩的就是耶和华见证人。&lt;/p&gt;
 
-历史上的宗教如此之多。宗教团体也很多。
+&lt;p&gt;历史上的宗教如此之多。宗教团体也很多。
 我很喜欢自然宗教。比较符合原始生存的，自然信仰。比如，认为一切皆有灵的北欧信仰。比如，爱斯基摩对于杀戮之果的祭祀。再比如，亚洲大陆的萨满风俗（跳大神也是一种分支）。
 他们迷信，但是无害。
 不过自然信仰之所以抵挡不过后来的三大宗教，一个很大的原因就是没有一个强大的组织。他们并不知晓组织和团队力量的强大。
 &lt;!--无论是做什么事，建造帝国也好，创建大学也罢。团体的能力是如此的强大。--&gt;
-三大宗教的团体万万千，像是基督教的派系就有诸多，除了出名的东正那几支，还有譬如摩尔门教，耶和华见证人这些影响力也是很大的团体。
+三大宗教的团体万万千，像是基督教的派系就有诸多，除了出名的东正那几支，还有譬如摩尔门教，耶和华见证人这些影响力也是很大的团体。&lt;/p&gt;
 
-耶和华见证人成立的时间不长，最初是由一名教授创立的。
+&lt;p&gt;耶和华见证人成立的时间不长，最初是由一名教授创立的。
 这个教派的教规很有趣。在有着别的教派通有的严于律己的教律同时，还有一条不寻常的律己教律。
-他们是完全忠于圣经的一派，所以这教律也同样是源于圣经。
+他们是完全忠于圣经的一派，所以这教律也同样是源于圣经。&lt;/p&gt;
 
-他们拒绝使用兵器。
+&lt;p&gt;他们拒绝使用兵器。&lt;/p&gt;
 
-&gt;“国与国不再拔剑相攻，他们也不再学习战事。”
+&lt;blockquote&gt;
+  &lt;p&gt;“国与国不再拔剑相攻，他们也不再学习战事。”&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;--《旧约·以赛亚书·2章4节》
-&gt;--《旧约·弥迦书·4章3节》
+&lt;blockquote&gt;
+  &lt;p&gt;–《旧约·以赛亚书·2章4节》
+–《旧约·弥迦书·4章3节》&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;“把剑收回原处！凡拿剑的，都会死在剑下。”
+&lt;blockquote&gt;
+  &lt;p&gt;“把剑收回原处！凡拿剑的，都会死在剑下。”&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;--《新约·马太福音·26章52节》
+&lt;blockquote&gt;
+  &lt;p&gt;–《新约·马太福音·26章52节》&lt;/p&gt;
+&lt;/blockquote&gt;
 
-因为这一条教律引发了很多的事件。
+&lt;p&gt;因为这一条教律引发了很多的事件。
 1996年，日本的分会中，有人拒绝上高中的剑道课，导致高中无法毕业。
 2000年前后，台湾分会中，拒绝服兵役时使用兵器，导致入狱。由于出狱后仍需服没有完成的兵役，他们再次因为拒绝使用兵器而入狱。如此的反复入狱，引发社会性话题。
-回溯到20世纪初期的纳粹德国时期，只有耶和华见证人作为一个宗教团体，拒绝迎合纳粹的种种要求：拒绝效忠国家和元首，拒绝参与军事行动。
+回溯到20世纪初期的纳粹德国时期，只有耶和华见证人作为一个宗教团体，拒绝迎合纳粹的种种要求：拒绝效忠国家和元首，拒绝参与军事行动。&lt;/p&gt;
 
-根据维基百科的叙述
+&lt;p&gt;根据维基百科的叙述&lt;/p&gt;
 
-&gt;在德国，纳粹统治期间共有6262人被捕，2074人被关入集中营，有大約1200個耶和華見證人在納粹時期喪生，其中270人因良心緣故拒絕參與軍事服務而被處決。耶和華見證人表明自己與所信仰的完全一致：“我們必須接受上帝的統治，服從上帝而不是服從人。”
+&lt;blockquote&gt;
+  &lt;p&gt;在德国，纳粹统治期间共有6262人被捕，2074人被关入集中营，有大約1200個耶和華見證人在納粹時期喪生，其中270人因良心緣故拒絕參與軍事服務而被處決。耶和華見證人表明自己與所信仰的完全一致：“我們必須接受上帝的統治，服從上帝而不是服從人。”&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;（使徒行傳5:29）
+&lt;blockquote&gt;
+  &lt;p&gt;（使徒行傳5:29）&lt;/p&gt;
+&lt;/blockquote&gt;
 
-这种精神令人钦佩。什么算爱国。什么算爱人。
+&lt;p&gt;这种精神令人钦佩。什么算爱国。什么算爱人。
 带着我的偏见来讲的话，不愧是教授、学者创立的宗教呀。
 即便是宗教团体，也是可以这样的别出一格。
-完全可以和同时期创立的xx门教作比较。
+完全可以和同时期创立的xx门教作比较。&lt;/p&gt;
 
-当然，归根结底到底是宗教，
+&lt;p&gt;当然，归根结底到底是宗教，
 对于我这种皇帝炎帝信仰类的自然信仰者，不得不指出一句，
-圣经中的如此的一句话。
+圣经中的如此的一句话。&lt;/p&gt;
 
-&gt;“耶和华是我的牧者，我必一无所缺。”
+&lt;blockquote&gt;
+  &lt;p&gt;“耶和华是我的牧者，我必一无所缺。”&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;“我虽然走在漆黑的谷中，却不怕受害，因为你与我同在，你的仗、你的竿都给我安慰。”
+&lt;blockquote&gt;
+  &lt;p&gt;“我虽然走在漆黑的谷中，却不怕受害，因为你与我同在，你的仗、你的竿都给我安慰。”&lt;/p&gt;
+&lt;/blockquote&gt;
 
-&gt;《旧约·诗篇·23章1节》《旧约·诗篇·23章4节》
+&lt;blockquote&gt;
+  &lt;p&gt;《旧约·诗篇·23章1节》《旧约·诗篇·23章4节》&lt;/p&gt;
+&lt;/blockquote&gt;
 
-参考资料：
+&lt;p&gt;参考资料：&lt;/p&gt;
 
-- 《圣经·新世界译本》
-- [维基百科：耶和华见证人](https://zh.wikipedia.org/wiki/%E8%80%B6%E5%92%8C%E8%8F%AF%E8%A6%8B%E8%AD%89%E4%BA%BA#%E8%A2%AB%E8%BF%AB%E5%AE%B3%E5%8F%B2)
-- [维基百科：エホバの証人](https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%9B%E3%83%90%E3%81%AE%E8%A8%BC%E4%BA%BA)</content><author><name></name></author><category term="essay" /><summary type="html">所有的宗教团体中。我最敬佩的就是耶和华见证人。 历史上的宗教如此之多。宗教团体也很多。 我很喜欢自然宗教。比较符合原始生存的，自然信仰。比如，认为一切皆有灵的北欧信仰。比如，爱斯基摩对于杀戮之果的祭祀。再比如，亚洲大陆的萨满风俗（跳大神也是一种分支）。 他们迷信，但是无害。 不过自然信仰之所以抵挡不过后来的三大宗教，一个很大的原因就是没有一个强大的组织。他们并不知晓组织和团队力量的强大。 三大宗教的团体万万千，像是基督教的派系就有诸多，除了出名的东正那几支，还有譬如摩尔门教，耶和华见证人这些影响力也是很大的团体。 耶和华见证人成立的时间不长，最初是由一名教授创立的。 这个教派的教规很有趣。在有着别的教派通有的严于律己的教律同时，还有一条不寻常的律己教律。 他们是完全忠于圣经的一派，所以这教律也同样是源于圣经。 他们拒绝使用兵器。 “国与国不再拔剑相攻，他们也不再学习战事。” –《旧约·以赛亚书·2章4节》 –《旧约·弥迦书·4章3节》 “把剑收回原处！凡拿剑的，都会死在剑下。” –《新约·马太福音·26章52节》 因为这一条教律引发了很多的事件。 1996年，日本的分会中，有人拒绝上高中的剑道课，导致高中无法毕业。 2000年前后，台湾分会中，拒绝服兵役时使用兵器，导致入狱。由于出狱后仍需服没有完成的兵役，他们再次因为拒绝使用兵器而入狱。如此的反复入狱，引发社会性话题。 回溯到20世纪初期的纳粹德国时期，只有耶和华见证人作为一个宗教团体，拒绝迎合纳粹的种种要求：拒绝效忠国家和元首，拒绝参与军事行动。 根据维基百科的叙述 在德国，纳粹统治期间共有6262人被捕，2074人被关入集中营，有大約1200個耶和華見證人在納粹時期喪生，其中270人因良心緣故拒絕參與軍事服務而被處決。耶和華見證人表明自己與所信仰的完全一致：“我們必須接受上帝的統治，服從上帝而不是服從人。” （使徒行傳5:29） 这种精神令人钦佩。什么算爱国。什么算爱人。 带着我的偏见来讲的话，不愧是教授、学者创立的宗教呀。 即便是宗教团体，也是可以这样的别出一格。 完全可以和同时期创立的xx门教作比较。 当然，归根结底到底是宗教， 对于我这种皇帝炎帝信仰类的自然信仰者，不得不指出一句， 圣经中的如此的一句话。 “耶和华是我的牧者，我必一无所缺。” “我虽然走在漆黑的谷中，却不怕受害，因为你与我同在，你的仗、你的竿都给我安慰。” 《旧约·诗篇·23章1节》《旧约·诗篇·23章4节》 参考资料： 《圣经·新世界译本》 维基百科：耶和华见证人 维基百科：エホバの証人</summary></entry><entry><title type="html">关于一不小心就变成了图灵完全的…</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html" rel="alternate" type="text/html" title="关于一不小心就变成了图灵完全的..." /><published>2018-02-23T00:00:00+09:00</published><updated>2018-02-23T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html">最近几天没做leetcode的题，工作太忙了。明明就要离职了55555....
-就顺便偷个懒，写点好玩的东西。主要内容和灵感来自[这篇文章(https://cpplover.blogspot.jp/2013/10/blog-post_20.html)](https://cpplover.blogspot.jp/2013/10/blog-post_20.html)。
+&lt;ul&gt;
+  &lt;li&gt;《圣经·新世界译本》&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%80%B6%E5%92%8C%E8%8F%AF%E8%A6%8B%E8%AD%89%E4%BA%BA#%E8%A2%AB%E8%BF%AB%E5%AE%B3%E5%8F%B2&quot;&gt;维基百科：耶和华见证人&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%9B%E3%83%90%E3%81%AE%E8%A8%BC%E4%BA%BA&quot;&gt;维基百科：エホバの証人&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="essay" /><summary type="html">所有的宗教团体中。我最敬佩的就是耶和华见证人。 历史上的宗教如此之多。宗教团体也很多。 我很喜欢自然宗教。比较符合原始生存的，自然信仰。比如，认为一切皆有灵的北欧信仰。比如，爱斯基摩对于杀戮之果的祭祀。再比如，亚洲大陆的萨满风俗（跳大神也是一种分支）。 他们迷信，但是无害。 不过自然信仰之所以抵挡不过后来的三大宗教，一个很大的原因就是没有一个强大的组织。他们并不知晓组织和团队力量的强大。 三大宗教的团体万万千，像是基督教的派系就有诸多，除了出名的东正那几支，还有譬如摩尔门教，耶和华见证人这些影响力也是很大的团体。 耶和华见证人成立的时间不长，最初是由一名教授创立的。 这个教派的教规很有趣。在有着别的教派通有的严于律己的教律同时，还有一条不寻常的律己教律。 他们是完全忠于圣经的一派，所以这教律也同样是源于圣经。 他们拒绝使用兵器。 “国与国不再拔剑相攻，他们也不再学习战事。” –《旧约·以赛亚书·2章4节》 –《旧约·弥迦书·4章3节》 “把剑收回原处！凡拿剑的，都会死在剑下。” –《新约·马太福音·26章52节》 因为这一条教律引发了很多的事件。 1996年，日本的分会中，有人拒绝上高中的剑道课，导致高中无法毕业。 2000年前后，台湾分会中，拒绝服兵役时使用兵器，导致入狱。由于出狱后仍需服没有完成的兵役，他们再次因为拒绝使用兵器而入狱。如此的反复入狱，引发社会性话题。 回溯到20世纪初期的纳粹德国时期，只有耶和华见证人作为一个宗教团体，拒绝迎合纳粹的种种要求：拒绝效忠国家和元首，拒绝参与军事行动。 根据维基百科的叙述 在德国，纳粹统治期间共有6262人被捕，2074人被关入集中营，有大約1200個耶和華見證人在納粹時期喪生，其中270人因良心緣故拒絕參與軍事服務而被處決。耶和華見證人表明自己與所信仰的完全一致：“我們必須接受上帝的統治，服從上帝而不是服從人。” （使徒行傳5:29） 这种精神令人钦佩。什么算爱国。什么算爱人。 带着我的偏见来讲的话，不愧是教授、学者创立的宗教呀。 即便是宗教团体，也是可以这样的别出一格。 完全可以和同时期创立的xx门教作比较。 当然，归根结底到底是宗教， 对于我这种皇帝炎帝信仰类的自然信仰者，不得不指出一句， 圣经中的如此的一句话。 “耶和华是我的牧者，我必一无所缺。” “我虽然走在漆黑的谷中，却不怕受害，因为你与我同在，你的仗、你的竿都给我安慰。” 《旧约·诗篇·23章1节》《旧约·诗篇·23章4节》 参考资料： 《圣经·新世界译本》 维基百科：耶和华见证人 维基百科：エホバの証人</summary></entry><entry><title type="html">关于一不小心就变成了图灵完全的…</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html" rel="alternate" type="text/html" title="关于一不小心就变成了图灵完全的..." /><published>2018-02-23T00:00:00+08:00</published><updated>2018-02-23T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html">&lt;p&gt;最近几天没做leetcode的题，工作太忙了。明明就要离职了55555….
+就顺便偷个懒，写点好玩的东西。主要内容和灵感来自&lt;a href=&quot;https://cpplover.blogspot.jp/2013/10/blog-post_20.html&quot;&gt;这篇文章(https://cpplover.blogspot.jp/2013/10/blog-post_20.html)&lt;/a&gt;。&lt;/p&gt;
 
-### 1.什么是图灵完全
+&lt;h3 id=&quot;1什么是图灵完全&quot;&gt;1.什么是图灵完全&lt;/h3&gt;
 
-首先我们要明确一个概念。什么算是图灵完全。
+&lt;p&gt;首先我们要明确一个概念。什么算是图灵完全。
 简单来说，就是跟万能图灵机具有同等计算能力的计算模型，就可以称之为图灵完全。
-图灵机可以看作是当代计算机的简化模型。基本上图灵机就是抽象化的基本计算机模型。
+图灵机可以看作是当代计算机的简化模型。基本上图灵机就是抽象化的基本计算机模型。&lt;/p&gt;
 
-一般而言，大多数当代的编程语言都是图灵完全的语言。
+&lt;p&gt;一般而言，大多数当代的编程语言都是图灵完全的语言。
 跟NP的概念很类似，同样具有图灵机概念的话，理论上互相做的事情都可以相互转换。
-也就是说，c++能做的到的大多数事情，js同样也可以做到。
+也就是说，c++能做的到的大多数事情，js同样也可以做到。&lt;/p&gt;
 
-再譬如令人惊讶的brainfuck这门语言，也同样是图灵完全语言。那么理论上，可以用c来bind brainfuck，
-brain来bind c就算了....c写的东西可以转换成brainfuck，brainfuck写的东西也可以转换成c。
+&lt;p&gt;再譬如令人惊讶的brainfuck这门语言，也同样是图灵完全语言。那么理论上，可以用c来bind brainfuck，
+brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写的东西也可以转换成c。&lt;/p&gt;
 
-我目前知道的4种证明一种语言是图灵完全语言的方法：
-+ 1.用这种语言实现重复处理。(也就是可以实现finite automaton)
-+ 2.用这种语言实现[rule 110](https://en.wikipedia.org/wiki/Rule_110)。
-+ 3.用这种语言实现[life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life)。
-+ 4.用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全。(这个可以说是不用证明)
+&lt;p&gt;我目前知道的4种证明一种语言是图灵完全语言的方法：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;1.用这种语言实现重复处理。(也就是可以实现finite automaton)&lt;/li&gt;
+  &lt;li&gt;2.用这种语言实现&lt;a href=&quot;https://en.wikipedia.org/wiki/Rule_110&quot;&gt;rule 110&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;3.用这种语言实现&lt;a href=&quot;https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life&quot;&gt;life&lt;/a&gt;。&lt;/li&gt;
+  &lt;li&gt;4.用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全。(这个可以说是不用证明)&lt;/li&gt;
+&lt;/ul&gt;
 
-```
-INPUT -&gt; PROCESS -&gt; OUTPUT
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;INPUT -&amp;gt; PROCESS -&amp;gt; OUTPUT
           ↑___|
-```
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 
-### 2.不小心就变成图灵完全的...
+&lt;h3 id=&quot;2不小心就变成图灵完全的&quot;&gt;2.不小心就变成图灵完全的…&lt;/h3&gt;
 
-- c++ template
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;c++ template&lt;/p&gt;
 
-    [\[1\]stackoverflow](https://stackoverflow.com/questions/189172/c-templates-turing-complete)
-    [\[2\]用c++ template实现一些work](https://www.artima.com/cppsource/codefeaturesP.html)
+    &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/189172/c-templates-turing-complete&quot;&gt;[1]stackoverflow&lt;/a&gt;
+  &lt;a href=&quot;https://www.artima.com/cppsource/codefeaturesP.html&quot;&gt;[2]用c++ template实现一些work&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;HTML5 + CSS&lt;/p&gt;
 
-- HTML5 + CSS
+    &lt;p&gt;&lt;a href=&quot;https://stackoverflow.com/questions/2497146/is-css-turing-complete&quot;&gt;[3]stackoverflow&lt;/a&gt;
+  &lt;a href=&quot;http://eli.fox-epste.in/rule110-full.html&quot;&gt;[4]用css来实现的rule 110&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;万智牌(Magic: The Gathering)&lt;/p&gt;
 
-    [\[3\]stackoverflow](https://stackoverflow.com/questions/2497146/is-css-turing-complete)
-    [\[4\]用css来实现的rule 110](http://eli.fox-epste.in/rule110-full.html)
+    &lt;p&gt;&lt;a href=&quot;https://www.toothycat.net/~hologram/Turing/HowItWorks.html&quot;&gt;[5]用magic牌实现turning machine的解说（我没细读…）&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Minecraft&lt;/p&gt;
 
-- 万智牌(Magic: The Gathering)
+    &lt;p&gt;&lt;a href=&quot;https://www.youtube.com/watch?feature=player_embedded&amp;amp;v=7sNge0Ywz-M&quot;&gt;[6]用minecraft实现的简易compute的油管视频，这里的ROM是人肉（视频作者…）&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;神奇宝贝 黄 （ポケットモンスター　イエロー）&lt;/p&gt;
 
-    [\[5\]用magic牌实现turning machine的解说（我没细读...）](https://www.toothycat.net/~hologram/Turing/HowItWorks.html)
+    &lt;p&gt;&lt;a href=&quot;http://tasvideos.org/2913S.html&quot;&gt;[7]利用黄的一个bug，可以改写游戏的memory addresses，从而进行图灵完全的实现（这个有点牵强….）&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Tex&lt;/p&gt;
 
-- Minecraft
+    &lt;p&gt;&lt;a href=&quot;http://hak7a3.hatenablog.com/entry/2016/12/17/122422&quot;&gt;[8]用实现一个图灵完全语言的编译器(complier)来证明这个语言是图灵完全语言&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;SQL&lt;/p&gt;
 
-    [\[6\]用minecraft实现的简易compute的油管视频，这里的ROM是人肉（视频作者...）](https://www.youtube.com/watch?feature=player_embedded&amp;v=7sNge0Ywz-M)
+    &lt;p&gt;&lt;a href=&quot;http://assets.en.oreilly.com/1/event/27/High%20Performance%20SQL%20with%20PostgreSQL%20Presentation.pdf&quot;&gt;[9]sql的图灵完全说明&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;(Cプリプロセッサー)&lt;/p&gt;
 
-- 神奇宝贝 黄 （ポケットモンスター　イエロー）
+    &lt;p&gt;&lt;a href=&quot;http://www.ioccc.org/years.html#2001&quot;&gt;[10]参照2001年的IOCCC大会的herrmann1条目&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-    [\[7\]利用黄的一个bug，可以改写游戏的memory addresses，从而进行图灵完全的实现（这个有点牵强....）](http://tasvideos.org/2913S.html)
+&lt;p&gt;写完之后才发现其实要看的东西还蛮多的，很多基础概念要么就是忘记了，要么就是原本就搞得不太清楚….&lt;/p&gt;
 
-- Tex
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://cpplover.blogspot.jp/2013/10/blog-post_20.html&quot;&gt;うっかりチューリング完全になっちゃったもの&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/zrbabbler/20140607/1402135613&quot;&gt;TeX はどうしてアレなのか&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://hak7a3.hatenablog.com/entry/2016/12/17/122422&quot;&gt;もうひとつのTeXがチューリング完全であることの証明&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://0-chromosome.hatenablog.jp/entry/2015/12/07/000000&quot;&gt;TeXで簡単プログラミング♪&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E5%AE%8C%E5%85%A8&quot;&gt;wikipedia:チューリング完全&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://en.wikipedia.org/wiki/Turing_completeness&quot;&gt;Turing completeness&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="图灵" /><summary type="html">最近几天没做leetcode的题，工作太忙了。明明就要离职了55555…. 就顺便偷个懒，写点好玩的东西。主要内容和灵感来自这篇文章(https://cpplover.blogspot.jp/2013/10/blog-post_20.html)。 1.什么是图灵完全 首先我们要明确一个概念。什么算是图灵完全。 简单来说，就是跟万能图灵机具有同等计算能力的计算模型，就可以称之为图灵完全。 图灵机可以看作是当代计算机的简化模型。基本上图灵机就是抽象化的基本计算机模型。 一般而言，大多数当代的编程语言都是图灵完全的语言。 跟NP的概念很类似，同样具有图灵机概念的话，理论上互相做的事情都可以相互转换。 也就是说，c++能做的到的大多数事情，js同样也可以做到。 再譬如令人惊讶的brainfuck这门语言，也同样是图灵完全语言。那么理论上，可以用c来bind brainfuck， brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写的东西也可以转换成c。 我目前知道的4种证明一种语言是图灵完全语言的方法： 1.用这种语言实现重复处理。(也就是可以实现finite automaton) 2.用这种语言实现rule 110。 3.用这种语言实现life。 4.用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全。(这个可以说是不用证明) INPUT -&amp;gt; PROCESS -&amp;gt; OUTPUT ↑___| 2.不小心就变成图灵完全的… c++ template [1]stackoverflow [2]用c++ template实现一些work HTML5 + CSS [3]stackoverflow [4]用css来实现的rule 110 万智牌(Magic: The Gathering) [5]用magic牌实现turning machine的解说（我没细读…） Minecraft [6]用minecraft实现的简易compute的油管视频，这里的ROM是人肉（视频作者…） 神奇宝贝 黄 （ポケットモンスター　イエロー） [7]利用黄的一个bug，可以改写游戏的memory addresses，从而进行图灵完全的实现（这个有点牵强….） Tex [8]用实现一个图灵完全语言的编译器(complier)来证明这个语言是图灵完全语言 SQL [9]sql的图灵完全说明 (Cプリプロセッサー) [10]参照2001年的IOCCC大会的herrmann1条目 写完之后才发现其实要看的东西还蛮多的，很多基础概念要么就是忘记了，要么就是原本就搞得不太清楚…. 参考资料： うっかりチューリング完全になっちゃったもの TeX はどうしてアレなのか もうひとつのTeXがチューリング完全であることの証明 TeXで簡単プログラミング♪ wikipedia:チューリング完全 Turing completeness</summary></entry><entry><title type="html">关于JAVA同期的初步学习笔记(2)</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync.html" rel="alternate" type="text/html" title="关于JAVA同期的初步学习笔记(2)" /><published>2018-02-14T00:00:00+08:00</published><updated>2018-02-14T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync.html">&lt;p&gt;源于。。。。嗯。因为发现之前写过一个JAVA同期的东西。所以开了这个续集。&lt;/p&gt;
 
-    [\[8\]用实现一个图灵完全语言的编译器(complier)来证明这个语言是图灵完全语言](http://hak7a3.hatenablog.com/entry/2016/12/17/122422)
-- SQL
+&lt;p&gt;前阵子做了一个cancel处理的一个小东西。好像是。。。组里的都嫌麻烦（？）反正最后玛德竟然抛给我了。
+这是抛绣球么，净挑年轻的抛（？）我也很累的好么。&lt;/p&gt;
 
-    [\[9\]sql的图灵完全说明](http://assets.en.oreilly.com/1/event/27/High%20Performance%20SQL%20with%20PostgreSQL%20Presentation.pdf)
-
-- (Cプリプロセッサー)   
-
-    [\[10\]参照2001年的IOCCC大会的herrmann1条目](http://www.ioccc.org/years.html#2001)
-
-写完之后才发现其实要看的东西还蛮多的，很多基础概念要么就是忘记了，要么就是原本就搞得不太清楚....
-
-参考资料：
-- [うっかりチューリング完全になっちゃったもの](https://cpplover.blogspot.jp/2013/10/blog-post_20.html)
-- [TeX はどうしてアレなのか](http://d.hatena.ne.jp/zrbabbler/20140607/1402135613)
-- [もうひとつのTeXがチューリング完全であることの証明](http://hak7a3.hatenablog.com/entry/2016/12/17/122422)
-- [TeXで簡単プログラミング♪](http://0-chromosome.hatenablog.jp/entry/2015/12/07/000000)
-- [wikipedia:チューリング完全](https://ja.wikipedia.org/wiki/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%AA%E3%83%B3%E3%82%B0%E5%AE%8C%E5%85%A8)
-- [Turing completeness](https://en.wikipedia.org/wiki/Turing_completeness)</content><author><name></name></author><category term="tech" /><category term="图灵" /><summary type="html">最近几天没做leetcode的题，工作太忙了。明明就要离职了55555…. 就顺便偷个懒，写点好玩的东西。主要内容和灵感来自这篇文章(https://cpplover.blogspot.jp/2013/10/blog-post_20.html)。 1.什么是图灵完全 首先我们要明确一个概念。什么算是图灵完全。 简单来说，就是跟万能图灵机具有同等计算能力的计算模型，就可以称之为图灵完全。 图灵机可以看作是当代计算机的简化模型。基本上图灵机就是抽象化的基本计算机模型。 一般而言，大多数当代的编程语言都是图灵完全的语言。 跟NP的概念很类似，同样具有图灵机概念的话，理论上互相做的事情都可以相互转换。 也就是说，c++能做的到的大多数事情，js同样也可以做到。 再譬如令人惊讶的brainfuck这门语言，也同样是图灵完全语言。那么理论上，可以用c来bind brainfuck， brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写的东西也可以转换成c。 我目前知道的4种证明一种语言是图灵完全语言的方法： 1.用这种语言实现重复处理。(也就是可以实现finite automaton) 2.用这种语言实现rule 110。 3.用这种语言实现life。 4.用某种语言制作可以另一种已经被证明是图灵完全的语言的complier来证明，这个语言是图灵完全。(这个可以说是不用证明) INPUT -&amp;gt; PROCESS -&amp;gt; OUTPUT ↑___| 2.不小心就变成图灵完全的… c++ template [1]stackoverflow [2]用c++ template实现一些work HTML5 + CSS [3]stackoverflow [4]用css来实现的rule 110 万智牌(Magic: The Gathering) [5]用magic牌实现turning machine的解说（我没细读…） Minecraft [6]用minecraft实现的简易compute的油管视频，这里的ROM是人肉（视频作者…） 神奇宝贝 黄 （ポケットモンスター　イエロー） [7]利用黄的一个bug，可以改写游戏的memory addresses，从而进行图灵完全的实现（这个有点牵强….） Tex [8]用实现一个图灵完全语言的编译器(complier)来证明这个语言是图灵完全语言 SQL [9]sql的图灵完全说明 (Cプリプロセッサー) [10]参照2001年的IOCCC大会的herrmann1条目 写完之后才发现其实要看的东西还蛮多的，很多基础概念要么就是忘记了，要么就是原本就搞得不太清楚…. 参考资料： うっかりチューリング完全になっちゃったもの TeX はどうしてアレなのか もうひとつのTeXがチューリング完全であることの証明 TeXで簡単プログラミング♪ wikipedia:チューリング完全 Turing completeness</summary></entry><entry><title type="html">关于JAVA同期的初步学习笔记(2)</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync.html" rel="alternate" type="text/html" title="关于JAVA同期的初步学习笔记(2)" /><published>2018-02-14T00:00:00+09:00</published><updated>2018-02-14T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/14/about-java-sync.html">源于。。。。嗯。因为发现之前写过一个JAVA同期的东西。所以开了这个续集。
-
-前阵子做了一个cancel处理的一个小东西。好像是。。。组里的都嫌麻烦（？）反正最后玛德竟然抛给我了。
-这是抛绣球么，净挑年轻的抛（？）我也很累的好么。
-
-简单来说是这么一个东西。
+&lt;p&gt;简单来说是这么一个东西。
 现有一个系统，是从browser端向DB传送数据。数据中途要经历大量的翻过来覆过去的转换类型，最后变成整整齐齐的一个个小表格塞到DB里面去。
-ummmmm........根据我的测试，server端的java里面的进程，大约是，100MB的数据，就会占据大约2GB的内存（RAM）。
-本着不让server端迅速的因为大数据（咦？）而崩溃，目前已存的系统是这样设计的。
+ummmmm……..根据我的测试，server端的java里面的进程，大约是，100MB的数据，就会占据大约2GB的内存（RAM）。
+本着不让server端迅速的因为大数据（咦？）而崩溃，目前已存的系统是这样设计的。&lt;/p&gt;
 
-允许一个账单的数据输入，不过是排队一个接着一个输入。
+&lt;p&gt;允许一个账单的数据输入，不过是排队一个接着一个输入。
 比如队列中有{a, b, c}三个文件，那么是按照顺序，先输入a，等a的处理结束之后从server端返回处理成功的response。等browser端接到response之后再开始b的处理。
-同理c。
+同理c。&lt;/p&gt;
 
-使用方嫌等待时间太长了，要求出“取消”机能。这个很理解，我亲测，100MB的数据，我的小破电脑愣是跑了4-5个小时都没跑完。就算是workstation跑程序，就这个效率的话....
-于是乎就跟文章开头一样，这个绣球最后就抛到我这里了= =||
+&lt;p&gt;使用方嫌等待时间太长了，要求出“取消”机能。这个很理解，我亲测，100MB的数据，我的小破电脑愣是跑了4-5个小时都没跑完。就算是workstation跑程序，就这个效率的话….
+于是乎就跟文章开头一样，这个绣球最后就抛到我这里了= =||&lt;/p&gt;
 
-我考虑的有2点，
+&lt;p&gt;我考虑的有2点，
 (1)不破坏现有结构。
-(2)在现有结构基础上做到cancel处理。不留后遗症的cancel处理。
+(2)在现有结构基础上做到cancel处理。不留后遗症的cancel处理。&lt;/p&gt;
 
-我们可以把单个文件的处理过程大致分为5个过程。
-  - （1）从browser端发送数据之前的所有处理
-  - （2）从browser端传送到server端的处理过程之中
-  - （3）在server端进行数据的处理
-  - （4）在server端数据处理结束之后，发送response之前
-  - （5）browser端接受到response之前
+&lt;p&gt;我们可以把单个文件的处理过程大致分为5个过程。&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;（1）从browser端发送数据之前的所有处理&lt;/li&gt;
+  &lt;li&gt;（2）从browser端传送到server端的处理过程之中&lt;/li&gt;
+  &lt;li&gt;（3）在server端进行数据的处理&lt;/li&gt;
+  &lt;li&gt;（4）在server端数据处理结束之后，发送response之前&lt;/li&gt;
+  &lt;li&gt;（5）browser端接受到response之前&lt;/li&gt;
+&lt;/ul&gt;
 
-![process flow](\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2.png)
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2.png&quot; alt=&quot;process flow&quot; /&gt;&lt;/p&gt;
 
-在这里，（1）和（4）（5）基本是不用考虑的，在实际使用中需要考虑的是（2）~（3）。
+&lt;p&gt;在这里，（1）和（4）（5）基本是不用考虑的，在实际使用中需要考虑的是（2）~（3）。&lt;/p&gt;
 
-首先，这个处理是用xmlhttprequest来做的，那在传输数据的过程中，使用xhr自带的abort()可以取消（2）的处理过程。
+&lt;p&gt;首先，这个处理是用xmlhttprequest来做的，那在传输数据的过程中，使用xhr自带的abort()可以取消（2）的处理过程。&lt;/p&gt;
 
-其次，要处理（3）的过程应当如何去做。tomcat是典型的多线程server，由于内部处理得当，所以处理数据的线程无法被其他的线程干扰。
+&lt;p&gt;其次，要处理（3）的过程应当如何去做。tomcat是典型的多线程server，由于内部处理得当，所以处理数据的线程无法被其他的线程干扰。
 也就是说，如果你发送一个cancel请求，事实上是无法直接遥控正在处理数据的线程的。
 cancel处理可以使用thread自带的isInterrupted()这一属性，而想要遥控这个属性事实上也可以把这个thread的reference带走，譬如放到一个static的内部结构里面，
-这样就可以用别的线程去遥控那个interrupted的属性。
+这样就可以用别的线程去遥控那个interrupted的属性。&lt;/p&gt;
 
-![cancel req](\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-2.png)
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-2.png&quot; alt=&quot;cancel req&quot; /&gt;&lt;/p&gt;
 
-如果把thread的reference带出来也是可以。我们可以通过很多东西来确认一个独特的thread。比如sessionID + 现在的毫秒时间组成的独特的特征码。
-这样的话我们把thread放到一个map里面就可以解决问题了。
+&lt;p&gt;如果把thread的reference带出来也是可以。我们可以通过很多东西来确认一个独特的thread。比如sessionID + 现在的毫秒时间组成的独特的特征码。
+这样的话我们把thread放到一个map里面就可以解决问题了。&lt;/p&gt;
 
-这里涉及到一个问题。如果不只是一个人在进行数据输入。不同进程同时处理一个static的map的话，会有小概率出问题。
+&lt;p&gt;这里涉及到一个问题。如果不只是一个人在进行数据输入。不同进程同时处理一个static的map的话，会有小概率出问题。&lt;/p&gt;
 
-![multithread cancel](\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-3.png)
+&lt;p&gt;&lt;img src=&quot;\assets\stills\blog\20180214-java-sync-2\20180214-about-java-sync-2-3.png&quot; alt=&quot;multithread cancel&quot; /&gt;&lt;/p&gt;
 
-经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个method都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围）
+&lt;p&gt;经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个method都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围）
 这里会涉及到一个效率问题。就是，如果锁的时间过长，会拖慢整个程序。如下面的参考资料，我事实上考虑过使用singleton的双重锁来解决不要static一开始就占用一块内存的地盘的效率问题。
 不过在考虑诸多之后，因为原本想要锁住的操作也很简单，我就没有采用那种pattern。
 我的做法是，cancel request来了之后，直接用上文的sessionID + 现在的毫秒时间组成的特征码来查看map中是否有thread的reference，有的话执行interrupt，没有的话直接放弃，不管cancel request的死活。
-这样的话并不会出现锁住整个进程的问题。
+这样的话并不会出现锁住整个进程的问题。&lt;/p&gt;
 
-这样（3）也解决了。
+&lt;p&gt;这样（3）也解决了。&lt;/p&gt;
 
-就这么愉快的解决了这个问题。说起来废话很多，也是因为一开始做了很多想法，比如储存cancel request，这样可以把cancel request的成败也通知browser端。
+&lt;p&gt;就这么愉快的解决了这个问题。说起来废话很多，也是因为一开始做了很多想法，比如储存cancel request，这样可以把cancel request的成败也通知browser端。
 但是这样产生了别的问题，如果是恰巧在(4)和(5)之间的时候来的cancel request，就必须要把cancel request删除，不然会永久的留在内存之中。
-这样的话要做一个可以定期自动删除数据的map...um......倒不是做不到XD 但是效率未免会太差了点。
+这样的话要做一个可以定期自动删除数据的map…um……倒不是做不到XD 但是效率未免会太差了点。&lt;/p&gt;
 
-PS：
-对了，记得知乎上的轮子哥曾经说过，如果只用getter，就不用同期锁。如果只要有一个进程要用setter，那就要做同期锁，而且要getter和setter同时上锁。
+&lt;p&gt;PS：
+对了，记得知乎上的轮子哥曾经说过，如果只用getter，就不用同期锁。如果只要有一个进程要用setter，那就要做同期锁，而且要getter和setter同时上锁。&lt;/p&gt;
 
-仔细想想很有道理，不然如果只setter上锁，getter不上锁，在get的瞬间，数据还没得到的时候，但是代码已经执行结束的瞬间，如果被setter换了数据，那么就会得到不一样的数据。这样怎么想都有点风险。
+&lt;p&gt;仔细想想很有道理，不然如果只setter上锁，getter不上锁，在get的瞬间，数据还没得到的时候，但是代码已经执行结束的瞬间，如果被setter换了数据，那么就会得到不一样的数据。这样怎么想都有点风险。&lt;/p&gt;
 
-参考资料：
-- [tomcat 8 reference](https://tomcat.apache.org/tomcat-8.0-doc/)
-- [Java threads and thread interrupts](https://stackoverflow.com/questions/30721261/java-threads-and-thread-interrupts)
-- [JavaでSingletonパターンを実装するのにclassとenumのどちらを使うべきか](http://blog.yuku-t.com/entry/20110225/1298567486)
-- [enumを利用したSingleton実装のサンプルコード](https://qiita.com/neko_the_shadow/items/1879e8a8e6aec0e86845)
-- [Java best practice: Class with only static methods](https://stackoverflow.com/questions/31409982/java-best-practice-class-with-only-static-methods/31410051)
-- [What is so bad about singletons?](https://stackoverflow.com/questions/137975/what-is-so-bad-about-singletons)
-- [When should the Singleton pattern NOT be used?](https://stackoverflow.com/questions/4074154/when-should-the-singleton-pattern-not-be-used-besides-the-obvious)
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://tomcat.apache.org/tomcat-8.0-doc/&quot;&gt;tomcat 8 reference&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/30721261/java-threads-and-thread-interrupts&quot;&gt;Java threads and thread interrupts&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://blog.yuku-t.com/entry/20110225/1298567486&quot;&gt;JavaでSingletonパターンを実装するのにclassとenumのどちらを使うべきか&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://qiita.com/neko_the_shadow/items/1879e8a8e6aec0e86845&quot;&gt;enumを利用したSingleton実装のサンプルコード&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/31409982/java-best-practice-class-with-only-static-methods/31410051&quot;&gt;Java best practice: Class with only static methods&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/137975/what-is-so-bad-about-singletons&quot;&gt;What is so bad about singletons?&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/4074154/when-should-the-singleton-pattern-not-be-used-besides-the-obvious&quot;&gt;When should the Singleton pattern NOT be used?&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 
-没太大关联的：
-- [Mapping a specific servlet to be the default servlet in Tomcat](https://stackoverflow.com/questions/14223150/mapping-a-specific-servlet-to-be-the-default-servlet-in-tomcat/14225540)
-- [\[Java\]難解なSerializableという仕様について俺が知っていること、というか俺の理解](http://d.hatena.ne.jp/daisuke-m/20100414/1271228333)</content><author><name></name></author><category term="tech" /><category term="java," /><category term="sync," /><category term="multithread" /><summary type="html">源于。。。。嗯。因为发现之前写过一个JAVA同期的东西。所以开了这个续集。 前阵子做了一个cancel处理的一个小东西。好像是。。。组里的都嫌麻烦（？）反正最后玛德竟然抛给我了。 这是抛绣球么，净挑年轻的抛（？）我也很累的好么。 简单来说是这么一个东西。 现有一个系统，是从browser端向DB传送数据。数据中途要经历大量的翻过来覆过去的转换类型，最后变成整整齐齐的一个个小表格塞到DB里面去。 ummmmm……..根据我的测试，server端的java里面的进程，大约是，100MB的数据，就会占据大约2GB的内存（RAM）。 本着不让server端迅速的因为大数据（咦？）而崩溃，目前已存的系统是这样设计的。 允许一个账单的数据输入，不过是排队一个接着一个输入。 比如队列中有{a, b, c}三个文件，那么是按照顺序，先输入a，等a的处理结束之后从server端返回处理成功的response。等browser端接到response之后再开始b的处理。 同理c。 使用方嫌等待时间太长了，要求出“取消”机能。这个很理解，我亲测，100MB的数据，我的小破电脑愣是跑了4-5个小时都没跑完。就算是workstation跑程序，就这个效率的话…. 于是乎就跟文章开头一样，这个绣球最后就抛到我这里了= =|| 我考虑的有2点， (1)不破坏现有结构。 (2)在现有结构基础上做到cancel处理。不留后遗症的cancel处理。 我们可以把单个文件的处理过程大致分为5个过程。 （1）从browser端发送数据之前的所有处理 （2）从browser端传送到server端的处理过程之中 （3）在server端进行数据的处理 （4）在server端数据处理结束之后，发送response之前 （5）browser端接受到response之前 在这里，（1）和（4）（5）基本是不用考虑的，在实际使用中需要考虑的是（2）~（3）。 首先，这个处理是用xmlhttprequest来做的，那在传输数据的过程中，使用xhr自带的abort()可以取消（2）的处理过程。 其次，要处理（3）的过程应当如何去做。tomcat是典型的多线程server，由于内部处理得当，所以处理数据的线程无法被其他的线程干扰。 也就是说，如果你发送一个cancel请求，事实上是无法直接遥控正在处理数据的线程的。 cancel处理可以使用thread自带的isInterrupted()这一属性，而想要遥控这个属性事实上也可以把这个thread的reference带走，譬如放到一个static的内部结构里面， 这样就可以用别的线程去遥控那个interrupted的属性。 如果把thread的reference带出来也是可以。我们可以通过很多东西来确认一个独特的thread。比如sessionID + 现在的毫秒时间组成的独特的特征码。 这样的话我们把thread放到一个map里面就可以解决问题了。 这里涉及到一个问题。如果不只是一个人在进行数据输入。不同进程同时处理一个static的map的话，会有小概率出问题。 经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个method都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围） 这里会涉及到一个效率问题。就是，如果锁的时间过长，会拖慢整个程序。如下面的参考资料，我事实上考虑过使用singleton的双重锁来解决不要static一开始就占用一块内存的地盘的效率问题。 不过在考虑诸多之后，因为原本想要锁住的操作也很简单，我就没有采用那种pattern。 我的做法是，cancel request来了之后，直接用上文的sessionID + 现在的毫秒时间组成的特征码来查看map中是否有thread的reference，有的话执行interrupt，没有的话直接放弃，不管cancel request的死活。 这样的话并不会出现锁住整个进程的问题。 这样（3）也解决了。 就这么愉快的解决了这个问题。说起来废话很多，也是因为一开始做了很多想法，比如储存cancel request，这样可以把cancel request的成败也通知browser端。 但是这样产生了别的问题，如果是恰巧在(4)和(5)之间的时候来的cancel request，就必须要把cancel request删除，不然会永久的留在内存之中。 这样的话要做一个可以定期自动删除数据的map…um……倒不是做不到XD 但是效率未免会太差了点。 PS： 对了，记得知乎上的轮子哥曾经说过，如果只用getter，就不用同期锁。如果只要有一个进程要用setter，那就要做同期锁，而且要getter和setter同时上锁。 仔细想想很有道理，不然如果只setter上锁，getter不上锁，在get的瞬间，数据还没得到的时候，但是代码已经执行结束的瞬间，如果被setter换了数据，那么就会得到不一样的数据。这样怎么想都有点风险。 参考资料： tomcat 8 reference Java threads and thread interrupts JavaでSingletonパターンを実装するのにclassとenumのどちらを使うべきか enumを利用したSingleton実装のサンプルコード Java best practice: Class with only static methods What is so bad about singletons? When should the Singleton pattern NOT be used? 没太大关联的： Mapping a specific servlet to be the default servlet in Tomcat [Java]難解なSerializableという仕様について俺が知っていること、というか俺の理解</summary></entry><entry><title type="html">什么是pointer</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/02/13/what-is-a-pointer.html" rel="alternate" type="text/html" title="什么是pointer" /><published>2018-02-13T00:00:00+09:00</published><updated>2018-02-13T00:00:00+09:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/02/13/what-is-a-pointer</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/02/13/what-is-a-pointer.html">写同期之前，写一个基础小知识吧。一个小学弟（初学者）问我什么是指针。
-ummmm.......
-这要用手机打字的话，估计会写到自己崩溃吧XD 恰巧身边有电脑，就记录一下。顺便把这个文章给他分享下XD
-
-pointer我记得汉语翻译是指针，一般是c和c++中特有的一个概念。不过php中也有类似于指针的东西，至于具体名字是不是指针我就不清楚了。
-
-想要理解指针，首先要理解的一个事情就是，内存(RAM)的作用。暂且抛却heap和stack的区别。我们在程序中所书写的所有变量(variable),函数(function)都是存储在内存之中的。
-为什么存储在内存中？当然是速度快啊！当然你也可以在硬盘中一点一点读取，边用边读，当然这就是另一个话题了。
-因为所有的数据都存储在RAM之中，
-所以我们使用数据的进行计算的时候，也对应的要从内存中选择。
-我学弟学习的是c++，我就用c++举例子好了。（不然我想用js的说TAT）
-
-```
-int a = 0;
-```
-
-这里的a就是指向内存中的一块被宣言成为int的一小块区域。大小是根据你系统的bit数而决定的，64bit还是32bit的话，大小也会不一样。
-当然，除了基本类型，譬如stl库中的类型，也同样是被存储在内存中的。就比如下面的v就是例子。
-
-```
-std::vector&lt;int&gt; v;
-v.push_back(233);
-```
-
-但是在传递数值的时候会产生一个问题。在譬如js，或者java一类的所谓的高等语言中，一般是会不让编程者注意到这一信息。事实上这一信息会产生一定的速度差异和优势，当然也会产生相应的编程困扰。
-废话讲的有点多。暂且抛弃c++中的参照(reference)的概念，用pointer写一个简单的例子。
-继续我们的基础类型int的例子。
-
-```
-int a = 233;
-int* b = &amp;a;
-```
-注意我们的宣言，是int*，我们的类型是int*。当然你写成
-````
-int *b = &amp;a;
-````
-也是没有任何的错误的。
-
-这时，这个int*类型的b就是一个pointer。他指向的是a。
-什么意思呢。原本我们的a，就指向的是RAM中的一个宣言为int类型的一个小空间。如果我们
-```
-int c = a;
-```
-那么我们所做的，是在RAM中再确立了另一块小空间，用c来指向那里，然后把a的数值copy过去。
-
-但是我们int*类型的b所做的，就是直接指向了a的空间。
-
-事实上不必怀疑，int*类型本身也是会占据一定的RAM空间的，当然这是后话。
-
-那么这样做会带来一个问题。就是，如果a的数值变了的话，会怎么样。
-答案很简单。因为a的数值变了的话，a在RAM空间的数值会变化，所以b的数值也会变。但是c因为是在RAM空间的另一块区域开启的新空间，所以，a的空间变的怎样，其实是没有任何关系的。
-所以即便a的数值产生了变化，c的数值也不会变。
-
-这就是pointer和普通变量(variable)的区别。pointer赋予我们的是直接操作RAM的能力。当然会有少许的性能代价(pointer本身也会占据内存)。也会有相当程度的风险，比如memory leak。
-（爱，老哥我毕业论文就差点因为不小心写出了memory leak没法用程序验证理论，险些GG。多亏了valgrind这个神程序。。。。）
-
-当然，c和c++语言中的pointer，当然是不仅仅只有这个功能，还跟array有着密不可分的关系，所以说c写起来才让人头疼啊。。。。
-
-PS：这个array的汉语翻译我没找到。。。
-这个等我今天晚上回家再继续码字吧！
-
-
-参考资料：
-暂无。</content><author><name></name></author><category term="tech" /><category term="c,c++" /><summary type="html">写同期之前，写一个基础小知识吧。一个小学弟（初学者）问我什么是指针。 ummmm……. 这要用手机打字的话，估计会写到自己崩溃吧XD 恰巧身边有电脑，就记录一下。顺便把这个文章给他分享下XD pointer我记得汉语翻译是指针，一般是c和c++中特有的一个概念。不过php中也有类似于指针的东西，至于具体名字是不是指针我就不清楚了。 想要理解指针，首先要理解的一个事情就是，内存(RAM)的作用。暂且抛却heap和stack的区别。我们在程序中所书写的所有变量(variable),函数(function)都是存储在内存之中的。 为什么存储在内存中？当然是速度快啊！当然你也可以在硬盘中一点一点读取，边用边读，当然这就是另一个话题了。 因为所有的数据都存储在RAM之中， 所以我们使用数据的进行计算的时候，也对应的要从内存中选择。 我学弟学习的是c++，我就用c++举例子好了。（不然我想用js的说TAT） int a = 0; 这里的a就是指向内存中的一块被宣言成为int的一小块区域。大小是根据你系统的bit数而决定的，64bit还是32bit的话，大小也会不一样。 当然，除了基本类型，譬如stl库中的类型，也同样是被存储在内存中的。就比如下面的v就是例子。 std::vector&amp;lt;int&amp;gt; v; v.push_back(233); 但是在传递数值的时候会产生一个问题。在譬如js，或者java一类的所谓的高等语言中，一般是会不让编程者注意到这一信息。事实上这一信息会产生一定的速度差异和优势，当然也会产生相应的编程困扰。 废话讲的有点多。暂且抛弃c++中的参照(reference)的概念，用pointer写一个简单的例子。 继续我们的基础类型int的例子。 int a = 233; int* b = &amp;amp;a; 注意我们的宣言，是int，我们的类型是int。当然你写成 int *b = &amp;amp;a; 也是没有任何的错误的。 这时，这个int*类型的b就是一个pointer。他指向的是a。 什么意思呢。原本我们的a，就指向的是RAM中的一个宣言为int类型的一个小空间。如果我们 int c = a; 那么我们所做的，是在RAM中再确立了另一块小空间，用c来指向那里，然后把a的数值copy过去。 但是我们int*类型的b所做的，就是直接指向了a的空间。 事实上不必怀疑，int*类型本身也是会占据一定的RAM空间的，当然这是后话。 那么这样做会带来一个问题。就是，如果a的数值变了的话，会怎么样。 答案很简单。因为a的数值变了的话，a在RAM空间的数值会变化，所以b的数值也会变。但是c因为是在RAM空间的另一块区域开启的新空间，所以，a的空间变的怎样，其实是没有任何关系的。 所以即便a的数值产生了变化，c的数值也不会变。 这就是pointer和普通变量(variable)的区别。pointer赋予我们的是直接操作RAM的能力。当然会有少许的性能代价(pointer本身也会占据内存)。也会有相当程度的风险，比如memory leak。 （爱，老哥我毕业论文就差点因为不小心写出了memory leak没法用程序验证理论，险些GG。多亏了valgrind这个神程序。。。。） 当然，c和c++语言中的pointer，当然是不仅仅只有这个功能，还跟array有着密不可分的关系，所以说c写起来才让人头疼啊。。。。 PS：这个array的汉语翻译我没找到。。。 这个等我今天晚上回家再继续码字吧！ 参考资料： 暂无。</summary></entry></feed>
+&lt;p&gt;没太大关联的：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/questions/14223150/mapping-a-specific-servlet-to-be-the-default-servlet-in-tomcat/14225540&quot;&gt;Mapping a specific servlet to be the default servlet in Tomcat&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;http://d.hatena.ne.jp/daisuke-m/20100414/1271228333&quot;&gt;[Java]難解なSerializableという仕様について俺が知っていること、というか俺の理解&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="java," /><category term="sync," /><category term="multithread" /><summary type="html">源于。。。。嗯。因为发现之前写过一个JAVA同期的东西。所以开了这个续集。 前阵子做了一个cancel处理的一个小东西。好像是。。。组里的都嫌麻烦（？）反正最后玛德竟然抛给我了。 这是抛绣球么，净挑年轻的抛（？）我也很累的好么。 简单来说是这么一个东西。 现有一个系统，是从browser端向DB传送数据。数据中途要经历大量的翻过来覆过去的转换类型，最后变成整整齐齐的一个个小表格塞到DB里面去。 ummmmm……..根据我的测试，server端的java里面的进程，大约是，100MB的数据，就会占据大约2GB的内存（RAM）。 本着不让server端迅速的因为大数据（咦？）而崩溃，目前已存的系统是这样设计的。 允许一个账单的数据输入，不过是排队一个接着一个输入。 比如队列中有{a, b, c}三个文件，那么是按照顺序，先输入a，等a的处理结束之后从server端返回处理成功的response。等browser端接到response之后再开始b的处理。 同理c。 使用方嫌等待时间太长了，要求出“取消”机能。这个很理解，我亲测，100MB的数据，我的小破电脑愣是跑了4-5个小时都没跑完。就算是workstation跑程序，就这个效率的话…. 于是乎就跟文章开头一样，这个绣球最后就抛到我这里了= =|| 我考虑的有2点， (1)不破坏现有结构。 (2)在现有结构基础上做到cancel处理。不留后遗症的cancel处理。 我们可以把单个文件的处理过程大致分为5个过程。 （1）从browser端发送数据之前的所有处理 （2）从browser端传送到server端的处理过程之中 （3）在server端进行数据的处理 （4）在server端数据处理结束之后，发送response之前 （5）browser端接受到response之前 在这里，（1）和（4）（5）基本是不用考虑的，在实际使用中需要考虑的是（2）~（3）。 首先，这个处理是用xmlhttprequest来做的，那在传输数据的过程中，使用xhr自带的abort()可以取消（2）的处理过程。 其次，要处理（3）的过程应当如何去做。tomcat是典型的多线程server，由于内部处理得当，所以处理数据的线程无法被其他的线程干扰。 也就是说，如果你发送一个cancel请求，事实上是无法直接遥控正在处理数据的线程的。 cancel处理可以使用thread自带的isInterrupted()这一属性，而想要遥控这个属性事实上也可以把这个thread的reference带走，譬如放到一个static的内部结构里面， 这样就可以用别的线程去遥控那个interrupted的属性。 如果把thread的reference带出来也是可以。我们可以通过很多东西来确认一个独特的thread。比如sessionID + 现在的毫秒时间组成的独特的特征码。 这样的话我们把thread放到一个map里面就可以解决问题了。 这里涉及到一个问题。如果不只是一个人在进行数据输入。不同进程同时处理一个static的map的话，会有小概率出问题。 经典的解决办法就是锁。在java里面是一个叫做synchronized的东西。简单而言，其实把整个method都上锁就可以轻易解决这一难题。（另一个据说很多JVM不按标准实装的volatile暂时不在讨论范围） 这里会涉及到一个效率问题。就是，如果锁的时间过长，会拖慢整个程序。如下面的参考资料，我事实上考虑过使用singleton的双重锁来解决不要static一开始就占用一块内存的地盘的效率问题。 不过在考虑诸多之后，因为原本想要锁住的操作也很简单，我就没有采用那种pattern。 我的做法是，cancel request来了之后，直接用上文的sessionID + 现在的毫秒时间组成的特征码来查看map中是否有thread的reference，有的话执行interrupt，没有的话直接放弃，不管cancel request的死活。 这样的话并不会出现锁住整个进程的问题。 这样（3）也解决了。 就这么愉快的解决了这个问题。说起来废话很多，也是因为一开始做了很多想法，比如储存cancel request，这样可以把cancel request的成败也通知browser端。 但是这样产生了别的问题，如果是恰巧在(4)和(5)之间的时候来的cancel request，就必须要把cancel request删除，不然会永久的留在内存之中。 这样的话要做一个可以定期自动删除数据的map…um……倒不是做不到XD 但是效率未免会太差了点。 PS： 对了，记得知乎上的轮子哥曾经说过，如果只用getter，就不用同期锁。如果只要有一个进程要用setter，那就要做同期锁，而且要getter和setter同时上锁。 仔细想想很有道理，不然如果只setter上锁，getter不上锁，在get的瞬间，数据还没得到的时候，但是代码已经执行结束的瞬间，如果被setter换了数据，那么就会得到不一样的数据。这样怎么想都有点风险。 参考资料： tomcat 8 reference Java threads and thread interrupts JavaでSingletonパターンを実装するのにclassとenumのどちらを使うべきか enumを利用したSingleton実装のサンプルコード Java best practice: Class with only static methods What is so bad about singletons? When should the Singleton pattern NOT be used? 没太大关联的： Mapping a specific servlet to be the default servlet in Tomcat [Java]難解なSerializableという仕様について俺が知っていること、というか俺の理解</summary></entry></feed>

@@ -8,6 +8,77 @@
     http://localhost:4000</link>
     
       
+        
+        <item>
+          <title>如何更改iphone的备份存储位置(windows)</title>
+          
+            <description>&lt;p&gt;写一个简单的小知识。我自己因为换电脑用了好几次，每次都要找，于是就记在这里。&lt;br /&gt;
+windows环境下，如何更改iphone的备份存储位置。&lt;/p&gt;
+
+&lt;h3 id=&quot;前言&quot;&gt;前言&lt;/h3&gt;
+
+&lt;p&gt;现代社会（咳咳），大家都喜欢用ssd作为系统盘。但是ssd的高昂的价格，让许多人不得不做出让步，所以系统盘许多都是128GB，256GB。如果是只有系统，还好，但是iphone的默认备份保存地址是c盘（windows环境下），如果iphone的容量是128GB，基本上就是要悲剧了。&lt;br /&gt;
+那就迎来了一个问题。需要把iphone的备份位置转移。&lt;/p&gt;
+
+&lt;h3 id=&quot;前提知识&quot;&gt;前提知识&lt;/h3&gt;
+
+&lt;p&gt;首先找到iphone的具体备份位置。&lt;br /&gt;
+根据苹果资料[1]，win 7/8/10 是在这里。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%appdata%\Apple Computer\MobileSync\Backup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;如果是win10的microsoft store里面购买的话，是在这里。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;%USERPROFILE%\Apple\MobileSync\Backup
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;直接在地址栏敲下这个就可以到达这个文件夹。&lt;/p&gt;
+
+&lt;p&gt;然后你要准备一个其他硬盘的文件夹。这里用&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[your-new-bakup]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;代替。&lt;/p&gt;
+
+&lt;h3 id=&quot;具体做法&quot;&gt;具体做法&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;打开cmd。（win键 + R召唤出一个窗口，然后输入cmd，点回车）&lt;/li&gt;
+  &lt;li&gt;在cmd输入以下指令
+win 7/8/10的情况
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd %appdata%\Apple Computer\MobileSync
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+    &lt;p&gt;win 10(Microsoft Store)的情况&lt;/p&gt;
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd %USERPROFILE%\Apple\MobileSync
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;在cmd输入以下指令
+    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rmdir Backup
+mkdir /J Backup [your-new-bakup]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;注意&quot;&gt;注意&lt;/h3&gt;
+
+&lt;p&gt;powershell神奇的不能用mklink这个指令，稍微查了一下，竟然要从cmd呼叫。用下面这个指令。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cmd /c &quot;mklink&quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;不过这个是2014年的文章了，也不知现在有没有变化。&lt;/p&gt;
+
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;[1]&lt;a href=&quot;https://oldno07.com/itunes-backup-iphone/&quot;&gt;iPhoneバックアップの保存先を変更するiTunesの設定方法&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[2]&lt;a href=&quot;https://support.apple.com/en-us/ht204215&quot;&gt;Locate backups of your iPhone, iPad, and iPod touch&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;[3]&lt;a href=&quot;http://tech.guitarrapc.com/entry/2014/08/19/022232#PowerShell-%E3%81%A7%E3%82%B7%E3%83%B3%E3%83%9C%E3%83%AA%E3%83%83%E3%82%AF%E3%83%AA%E3%83%B3%E3%82%AF%E3%81%AF%E6%89%B1%E3%81%84%E3%81%AB%E3%81%8F%E3%81%84&quot;&gt;PowerShell で シンボリックリンクを 使えるようにしよう&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+          
+          <pubDate>Fri, 22 Jun 2018 00:00:00 +0800</pubDate>
+          <link>
+          http://localhost:4000/tech_blog/tech/2018/06/22/change-iphone-bak-up-location.html</link>
+          <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/06/22/change-iphone-bak-up-location.html</guid>
+        </item>
+        
+      
+    
+      
     
       
     
@@ -97,7 +168,7 @@ wslconfig /setdefault
 &lt;/ul&gt;
 </description>
           
-          <pubDate>Mon, 02 Apr 2018 00:00:00 +0900</pubDate>
+          <pubDate>Mon, 02 Apr 2018 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2018/04/02/wsl-tips.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/04/02/wsl-tips.html</guid>
@@ -202,7 +273,7 @@ brain来bind c就算了….c写的东西可以转换成brainfuck，brainfuck写�
 &lt;/ul&gt;
 </description>
           
-          <pubDate>Fri, 23 Feb 2018 00:00:00 +0900</pubDate>
+          <pubDate>Fri, 23 Feb 2018 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html</guid>
@@ -300,7 +371,7 @@ cancel处理可以使用thread自带的isInterrupted()这一属性，而想要�
 &lt;/ul&gt;
 </description>
           
-          <pubDate>Wed, 14 Feb 2018 00:00:00 +0900</pubDate>
+          <pubDate>Wed, 14 Feb 2018 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2018/02/14/about-java-sync.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/02/14/about-java-sync.html</guid>
@@ -373,7 +444,7 @@ int* b = &amp;amp;a;
 暂无。&lt;/p&gt;
 </description>
           
-          <pubDate>Tue, 13 Feb 2018 00:00:00 +0900</pubDate>
+          <pubDate>Tue, 13 Feb 2018 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2018/02/13/what-is-a-pointer.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/02/13/what-is-a-pointer.html</guid>
@@ -453,7 +524,7 @@ JSON形式真的太好写了，而且非常易懂。&lt;/p&gt;
 &lt;/ul&gt;
 </description>
           
-          <pubDate>Sun, 28 Jan 2018 00:00:00 +0900</pubDate>
+          <pubDate>Sun, 28 Jan 2018 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2018/01/28/update-site.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/01/28/update-site.html</guid>
@@ -568,7 +639,7 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
 &lt;/ul&gt;
 </description>
           
-          <pubDate>Wed, 30 Aug 2017 00:00:00 +0900</pubDate>
+          <pubDate>Wed, 30 Aug 2017 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2017/08/30/access.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2017/08/30/access.html</guid>
@@ -631,7 +702,7 @@ ACCESS可谓是麻雀虽小，五脏俱全的终极典型。
 &lt;/ul&gt;
 </description>
           
-          <pubDate>Sun, 20 Aug 2017 00:00:00 +0900</pubDate>
+          <pubDate>Sun, 20 Aug 2017 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2017/08/20/abouthttps.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2017/08/20/abouthttps.html</guid>
@@ -759,7 +830,7 @@ When our code calls a function, the values passed into the function (including, 
 &lt;/ul&gt;
 </description>
           
-          <pubDate>Sun, 20 Aug 2017 00:00:00 +0900</pubDate>
+          <pubDate>Sun, 20 Aug 2017 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2017/08/20/about-rust-1.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2017/08/20/about-rust-1.html</guid>
@@ -968,7 +1039,7 @@ class b : 2 9[s]
 &lt;p&gt;错误的不是程序，而是写output的我自己。&lt;/p&gt;
 </description>
           
-          <pubDate>Thu, 13 Jul 2017 00:00:00 +0900</pubDate>
+          <pubDate>Thu, 13 Jul 2017 00:00:00 +0800</pubDate>
           <link>
           http://localhost:4000/tech_blog/tech/2017/07/13/tech-java-sync.html</link>
           <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2017/07/13/tech-java-sync.html</guid>
