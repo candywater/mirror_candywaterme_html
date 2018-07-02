@@ -6,7 +6,7 @@ permalink: /about/
 
 这里是 [Candy Water](http://candy-water.com/about) 的小小天地。
 
-#### 订阅信息
+#### 订阅信息(RSS)
 
 - [Tech Rss](https://candy-water.com/blog/rss/tech.xml)
 
