@@ -30,6 +30,19 @@ $ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
 ```
 successed.
 
+PS:
+after I changed path of xcode-select, I got a warning below....umm....
+I think it should warn me earlier...
+```
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+!!!! WARNING: You are on OS X 10.11 El Capitan or greater, you may need to add the
+!!!! WARNING:   `--unsafe-perm=true` flag when running `npm install`
+!!!! WARNING:   or else it will fail.
+!!!! WARNING: link:
+!!!! WARNING:   https://github.com/phonegap/ios-deploy#os-x-1011-el-capitan-or-greater
+!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+```
+
 
 reference:
 [1][IonicのiOSのビルドのエラー](http://shinriyo.hateblo.jp/entry/2018/02/17/Ionic%E3%81%AEiOS%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC)
