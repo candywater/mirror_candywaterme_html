@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>lofter</title>
-  <meta name="description" content="许久不登陆lofter。 这次是为了要一个图片的版权。">
+  <title>Error when installing ios-deploy from ios</title>
+  <meta name="description" content="when I install ios-deploy via npm npm install -g ios-deploy I got an error below &amp;gt; ios-deploy@1.9.3 preinstall /usr/local/lib/node_modules/ios-deploy &amp;gt;...">
 
   <link rel="stylesheet" href="/blog/assets/main.css">
-  <link rel="canonical" href="https://candy-water.com/blog/essay_blog/essay/2018/06/09/lofter.html">
+  <link rel="canonical" href="https://candy-water.com/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water" href="/blog/feed.xml">
   <!--icon-->
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -203,11 +203,11 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">lofter</h1>
+    <h1 class="post-title" itemprop="name headline">Error when installing ios-deploy from ios</h1>
     <p class="post-meta">
-      <time datetime="2018-06-09T00:00:00+08:00" itemprop="datePublished">
+      <time datetime="2018-08-24T00:00:00+08:00" itemprop="datePublished">
         
-        Jun 9, 2018
+        Aug 24, 2018
       </time>
       
     </p>
@@ -215,19 +215,28 @@
   <hr>
   </header>
   <div class="post-content" itemprop="articleBody">
-    <p>许久不登陆lofter。
-这次是为了要一个图片的版权。</p>
+    <p>when I install ios-deploy via npm</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install -g ios-deploy
+</code></pre></div></div>
+<p>I got an error below</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt; ios-deploy@1.9.3 preinstall /usr/local/lib/node_modules/ios-deploy
+&gt; ./src/scripts/check_reqs.js &amp;&amp; xcodebuild
 
-<p>刚上线就看到一个通知，一个文章因为涉黄，被下架了。
-我看了看以前的备份，并不是我写的文章。而且文章也很难说他是涉黄的。
-大概是关键词吧，只有那么几个词语而已。</p>
+stderr: xcode-select: error: tool ‘xcodebuild’ requires Xcode, but active developer directory ‘/Library/Developer/CommandLineTools’ is a command line tools instance
+</code></pre></div></div>
+<p>I searched a answer which switches path of xcode-select.</p>
 
-<p>庆幸自己早早离开了lofter。早就会有这么一天。
-这一天早晚会来临。</p>
+<p>I found my path is</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ xcode-select -p
+/Library/Developer/CommandLineTools
+</code></pre></div></div>
+<p>and I changed it to this.</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer
+</code></pre></div></div>
+<p>successed.</p>
 
-<p>一幕铁网，如同细胞膜，有选择性的过滤。
-从天而降。
-由不得你出不出去。</p>
+<p>reference:
+[1]<a href="http://shinriyo.hateblo.jp/entry/2018/02/17/Ionic%E3%81%AEiOS%E3%81%AE%E3%83%93%E3%83%AB%E3%83%89%E3%81%AE%E3%82%A8%E3%83%A9%E3%83%BC">IonicのiOSのビルドのエラー</a></p>
 
   </div>
 
