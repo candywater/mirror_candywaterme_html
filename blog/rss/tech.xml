@@ -10,7 +10,7 @@
       
         
         <item>
-          <title>Error when installing ios-deploy from ios</title>
+          <title>Error when installing ios-deploy via npm</title>
           
             <description>&lt;p&gt;when I install ios-deploy via npm&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install -g ios-deploy

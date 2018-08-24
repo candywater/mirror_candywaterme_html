@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Error when installing ios-deploy from ios
+title: Error when installing ios-deploy via npm
 date: 2018-08-24 +0800
 tags: iphone, npm, ios-deploy
 category: tech
