@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Candy Water</title>
-  <meta name="description" content="Welcome to Candy Water&#39;s world!!">
+  <title>webpack的初步学习笔记(1)</title>
+  <meta name="description" content="解除了一下webpack。以前就想接触一下，不过并没有他们说的那么简单。 撕逼乎上有人说，这就是前端的人不懂后端，所以webpack根本玩不明白。这东西就和makefile一样一样的之乎者也。 昨天总算弄懂了。其实还是makefile比较直观 = = 虽然我每次都要看一下makefile的说明才能写得出来XD 如...">
 
   <link rel="stylesheet" href="/blog/assets/main.css">
-  <link rel="canonical" href="https://candy-water.com/blog/tech_blog/">
+  <link rel="canonical" href="https://candy-water.com/blog/tech_blog/tech/2018/09/02/about-webpack.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water" href="/blog/feed.xml">
   <!--icon-->
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -200,197 +200,98 @@
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
-  <div class="row" style="position: relative;">
-      <h1 class="page-heading" style="">Article List</h1>
+  <header class="post-header">
+    <h1 class="post-title" itemprop="name headline">webpack的初步学习笔记(1)</h1>
+    <p class="post-meta">
+      <time datetime="2018-09-02T00:00:00+08:00" itemprop="datePublished">
+        
+        Sep 2, 2018
+      </time>
+      
+    </p>
+
+  <hr>
+  </header>
+  <div class="post-content" itemprop="articleBody">
+    <p>解除了一下webpack。以前就想接触一下，不过并没有他们说的那么简单。<br />
+撕逼乎上有人说，这就是前端的人不懂后端，所以webpack根本玩不明白。这东西就和makefile一样一样的之乎者也。<br />
+昨天总算弄懂了。其实还是makefile比较直观 = = 虽然我每次都要看一下makefile的说明才能写得出来XD</p>
+
+<h2 id="如何在网页中调用bundle文件中的函数">如何在网页中调用bundle文件中的函数</h2>
+
+<p>很简单，就是把那个函数全域化。</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>function you_want_to_use_outside() {
+}
+var you_want_to_use_outside_too = () =&gt; {console.log();};
+
+window.you_want_to_use_outside      = you_want_to_use_outside
+global.you_want_to_use_outside_too  = you_want_to_use_outside_too
+</code></pre></div></div>
+<p>是不是有点太简单？<br />
+在webpack中，<code class="highlighter-rouge">global</code>会被自动转换成window。<br />
+我之前思考的是另一个问题。 <br />
+这个东西会不会不安全?<br />
+因为我还蛮想用<code class="highlighter-rouge">export</code>这个东西的XD</p>
+
+<p>不过在[2]中的看到了好多种方法，想了想，还是选择了最简单的这个<code class="highlighter-rouge">window</code>。<br />
+同时，为了通过eslint，我决定不使用<code class="highlighter-rouge">global</code>。</p>
+
+<p>[1]<a href="https://qiita.com/homahi/items/305f689506c9a1c66810">webpackでTypeScriptからコンパイルしたJavaScriptの関数をうまく呼び出せない。</a><br />
+[2]<a href="https://stackoverflow.com/questions/37656592/define-global-variable-with-webpack">Define global variable with webpack</a></p>
+
   </div>
 
+  
 
-  <ul class="post-list">
-    
-      
-        <li>
-          
-          <span class="post-meta">Sep 2, 2018</span>
+  
 
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/09/02/about-webpack.html">webpack的初步学习笔记(1)</a>
-          </h2>
-        </li>
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Sep 2, 2018</span>
+  
 
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom.html">近期杂记 - 关于editor的种种</a>
-          </h2>
-        </li>
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Aug 24, 2018</span>
+  <hr>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="disqus_thread"></div>
+  <script>
 
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html">Error when installing ios-deploy via npm</a>
-          </h2>
-        </li>
-      
-    
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Jun 22, 2018</span>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
 
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/06/22/change-iphone-bak-up-location.html">如何更改iphone的备份存储位置(windows)</a>
-          </h2>
-        </li>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Apr 2, 2018</span>
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
 
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/04/02/wsl-tips.html">wsl环境下几个小知识</a>
-          </h2>
-        </li>
-      
-    
-      
-    
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Feb 23, 2018</span>
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://candy-water-com.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
 
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/02/23/somehow-becoming-tuning-complete.html">关于一不小心就变成了图灵完全的...</a>
-          </h2>
-        </li>
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Feb 14, 2018</span>
+    /* edit disqus */
+    //var css_disqus = document.createElement("link");
+    //css_disqus.href = "../css/edit_disqus_comment.css";
+    //css_disqus.rel = "stylesheet"
+    //css_disqus.type = "text/css"
+    //https://stackoverflow.com/questions/217776/how-to-apply-css-to-iframe
+    //https://stackoverflow.com/questions/6494721/css-override-body-style-for-content-in-iframe
+    /*$('iframe').load( function() {
+        $('iframe').contents().find("head")
+          .append($("<style type='text/css'>  #comment-policy{display:none;}  </style>"));
+    });
+    /*document.getElementsByTagName("iframe")[0].document.body.appendChild(css_disqus);*/
+    /* --- end --- */
+    </script>
+    <!--iframe src="" name="frame1" width="" height=""></iframe-->
 
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/02/14/about-java-sync.html">关于JAVA同期的初步学习笔记(2)</a>
-          </h2>
-        </li>
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Feb 13, 2018</span>
-
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/02/13/what-is-a-pointer.html">什么是pointer</a>
-          </h2>
-        </li>
-      
-    
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Jan 28, 2018</span>
-
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2018/01/28/update-site.html">记录网站重构为nginx</a>
-          </h2>
-        </li>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Aug 30, 2017</span>
-
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2017/08/30/access.html">关于ACCESS的null的一个小问题</a>
-          </h2>
-        </li>
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Aug 20, 2017</span>
-
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2017/08/20/abouthttps.html">记，升级到https的菜鸟旅程</a>
-          </h2>
-        </li>
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Aug 20, 2017</span>
-
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2017/08/20/about-rust-1.html">关于rust的初步学习笔记(1)-heap和stack的基本概念</a>
-          </h2>
-        </li>
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-        <li>
-          
-          <span class="post-meta">Jul 13, 2017</span>
-
-          <h2>
-            <a class="post-link" href="/blog/tech_blog/tech/2017/07/13/tech-java-sync.html">关于JAVA同期的初步学习笔记(1)</a>
-          </h2>
-        </li>
-      
-    
-  </ul>
-  <p class="rss-subscribe">subscribe tech <a href="/blog/rss/tech.xml">via RSS</a></p>
-
-
-</div>
+</article>
 
       </div>
     </main>

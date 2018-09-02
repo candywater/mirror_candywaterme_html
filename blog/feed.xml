@@ -1,4 +1,146 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-08-24T18:48:11+08:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">Error when installing ios-deploy via npm</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html" rel="alternate" type="text/html" title="Error when installing ios-deploy via npm" /><published>2018-08-24T00:00:00+08:00</published><updated>2018-08-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html">&lt;p&gt;when I install ios-deploy via npm&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-09-02T12:40:36+08:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">webpack的初步学习笔记(1)</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack.html" rel="alternate" type="text/html" title="webpack的初步学习笔记(1)" /><published>2018-09-02T00:00:00+08:00</published><updated>2018-09-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack.html">&lt;p&gt;解除了一下webpack。以前就想接触一下，不过并没有他们说的那么简单。&lt;br /&gt;
+撕逼乎上有人说，这就是前端的人不懂后端，所以webpack根本玩不明白。这东西就和makefile一样一样的之乎者也。&lt;br /&gt;
+昨天总算弄懂了。其实还是makefile比较直观 = = 虽然我每次都要看一下makefile的说明才能写得出来XD&lt;/p&gt;
+
+&lt;h2 id=&quot;如何在网页中调用bundle文件中的函数&quot;&gt;如何在网页中调用bundle文件中的函数&lt;/h2&gt;
+
+&lt;p&gt;很简单，就是把那个函数全域化。&lt;/p&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;function you_want_to_use_outside() {
+}
+var you_want_to_use_outside_too = () =&amp;gt; {console.log();};
+
+window.you_want_to_use_outside      = you_want_to_use_outside
+global.you_want_to_use_outside_too  = you_want_to_use_outside_too
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;是不是有点太简单？&lt;br /&gt;
+在webpack中，&lt;code class=&quot;highlighter-rouge&quot;&gt;global&lt;/code&gt;会被自动转换成window。&lt;br /&gt;
+我之前思考的是另一个问题。 &lt;br /&gt;
+这个东西会不会不安全?&lt;br /&gt;
+因为我还蛮想用&lt;code class=&quot;highlighter-rouge&quot;&gt;export&lt;/code&gt;这个东西的XD&lt;/p&gt;
+
+&lt;p&gt;不过在[2]中的看到了好多种方法，想了想，还是选择了最简单的这个&lt;code class=&quot;highlighter-rouge&quot;&gt;window&lt;/code&gt;。&lt;br /&gt;
+同时，为了通过eslint，我决定不使用&lt;code class=&quot;highlighter-rouge&quot;&gt;global&lt;/code&gt;。&lt;/p&gt;
+
+&lt;p&gt;[1]&lt;a href=&quot;https://qiita.com/homahi/items/305f689506c9a1c66810&quot;&gt;webpackでTypeScriptからコンパイルしたJavaScriptの関数をうまく呼び出せない。&lt;/a&gt;&lt;br /&gt;
+[2]&lt;a href=&quot;https://stackoverflow.com/questions/37656592/define-global-variable-with-webpack&quot;&gt;Define global variable with webpack&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="webpack," /><category term="js," /><category term="javascript," /><category term="npm," /><category term="nodejs" /><summary type="html">解除了一下webpack。以前就想接触一下，不过并没有他们说的那么简单。 撕逼乎上有人说，这就是前端的人不懂后端，所以webpack根本玩不明白。这东西就和makefile一样一样的之乎者也。 昨天总算弄懂了。其实还是makefile比较直观 = = 虽然我每次都要看一下makefile的说明才能写得出来XD 如何在网页中调用bundle文件中的函数 很简单，就是把那个函数全域化。 function you_want_to_use_outside() { } var you_want_to_use_outside_too = () =&amp;gt; {console.log();}; window.you_want_to_use_outside = you_want_to_use_outside global.you_want_to_use_outside_too = you_want_to_use_outside_too 是不是有点太简单？ 在webpack中，global会被自动转换成window。 我之前思考的是另一个问题。 这个东西会不会不安全? 因为我还蛮想用export这个东西的XD 不过在[2]中的看到了好多种方法，想了想，还是选择了最简单的这个window。 同时，为了通过eslint，我决定不使用global。 [1]webpackでTypeScriptからコンパイルしたJavaScriptの関数をうまく呼び出せない。 [2]Define global variable with webpack</summary></entry><entry><title type="html">近期杂记 - 关于editor的种种</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom.html" rel="alternate" type="text/html" title="近期杂记 - 关于editor的种种" /><published>2018-09-02T00:00:00+08:00</published><updated>2018-09-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom.html">&lt;h2 id=&quot;choco安装windows的更新&quot;&gt;choco安装windows的更新&lt;/h2&gt;
+
+&lt;p&gt;今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ choco install neovim
+Chocolatey v0.10.11
+Installing the following packages:
+neovim
+By installing you accept licenses for the packages.
+Progress: Downloading vcredist2015 14.0.24215.20170201... 100%
+Progress: Downloading vcredist140 14.12.25810... 100%
+Progress: Downloading KB3033929 1.0.3... 100%
+Progress: Downloading chocolatey-windowsupdate.extension 1.0.2... 100%
+Progress: Downloading KB3035131 1.0.1... 100%
+Progress: Downloading KB2919355 1.0.20160915... 100%
+Progress: Downloading KB2919442 1.0.20160915... 100%
+Progress: Downloading KB2999226 1.0.20170509... 100%
+Progress: Downloading neovim 0.3.1... 100%
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;$ Chocolatey installed 9/9 packages.
+ See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
+
+Installed:
+ - kb2919355 v1.0.20160915
+ - kb3033929 v1.0.3
+ - kb2999226 v1.0.20170509
+ - vcredist2015 v14.0.24215.20170201
+ - kb2919442 v1.0.20160915
+ - vcredist140 v14.12.25810
+ - neovim v0.3.1
+ - kb3035131 v1.0.1
+ - chocolatey-windowsupdate.extension v1.0.2
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;说实话非常有趣。&lt;br /&gt;
+我在choco的主页这里（https://chocolatey.org/packages?q=WindowsUpdate）发现，原来有关windows update的包，也只有4个而已。&lt;br /&gt;
+很显然我要失望了，并不能把choco作为升级代理工具了XD&lt;/p&gt;
+
+&lt;h2 id=&quot;使用atom时输入法卡顿&quot;&gt;使用atom时输入法卡顿&lt;/h2&gt;
+
+&lt;p&gt;首先我使用的是双拼输入法，是win10自带的微软双拼输入法。&lt;br /&gt;
+这个输入法本身就有些卡顿（不知道为什么)&lt;br /&gt;
+在使用atom的时候，比如换行，比如切换到英文，比如鼠标把光标移走，比如删除输入过的文字，都有概率会卡顿。&lt;/p&gt;
+
+&lt;p&gt;具体表现为，要输入大约10多个字母之后输入法才会启动，不然什么东西都不显示，什么东西都打不出来。&lt;br /&gt;
+唯一规避的方式只有连续按两次shift = =||&lt;br /&gt;
+也是一个奇葩的bug了。&lt;br /&gt;
+在网上找到方法说，安装中文包会解决。&lt;br /&gt;
+不过很显然这个方法对我来说没有什么用。&lt;br /&gt;
+只好查找下一个editor试试看看咯。&lt;/p&gt;
+
+&lt;h2 id=&quot;markdown在atom中末尾的空格会被删除&quot;&gt;markdown在atom中末尾的空格会被删除&lt;/h2&gt;
+
+&lt;p&gt;众所周知markdown文件在末尾的单个空格意味着改行。&lt;br /&gt;
+我查了一下网上给出的查看whitespace这个package的建议&lt;br /&gt;
+发现里面的设定是如果在markdown文件中，有2个空格就不会被删除。&lt;br /&gt;
+嗯，那就用两个空格吧！&lt;/p&gt;
+
+&lt;p&gt;[1]&lt;a href=&quot;www.phpvar.com/bbs/forum.php?mod=viewthread&amp;amp;tid=125&quot;&gt;atom自动删除行末空格行？ - Atom &amp;amp; Sublime Text - 前端技术分享论坛&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&quot;atom的替代选项---xray-&quot;&gt;atom的替代选项 - xray ？&lt;/h2&gt;
+
+&lt;p&gt;github在开发完atom之后，貌似又要开发xray。&lt;br /&gt;
+这个消息很早就看过了，只不过记不住它的名字。&lt;br /&gt;
+想说虽然正在开发中，不过用一下看看吧！看到没有release，同时又没有makefile = =||&lt;br /&gt;
+算了算了，好像用不了的样子（自我安慰）&lt;br /&gt;
+那我就不用了！&lt;br /&gt;
+而且看他的2018 Q3的目标，竟然是version control system = = 我了个去，好吧好吧，敬请期待。&lt;/p&gt;
+
+&lt;p&gt;他好像真的是用不了，我看它的报告（https://github.com/atom/xray/blob/master/docs/updates/2018_08_28.md）&lt;br /&gt;
+里面说好像下一步要做buffer= =&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;The file support added last week assumes that all files are empty.&lt;br /&gt;
+To allow files to be associated with editable content, we’re adapting the buffer module from xray_core to work with Memo’s new B-tree.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;啊…还有好长的路啊…不过看起来他们使用WEBGL来做，感觉好厉害。。。&lt;br /&gt;
+（关于使用WEBGL的笔记：https://github.com/atom/xray/blob/master/docs/updates/2018_03_05.md）&lt;/p&gt;
+
+&lt;h2 id=&quot;关于新vcs-memo&quot;&gt;关于新vcs memo&lt;/h2&gt;
+
+&lt;p&gt;关于这个新的vcs(version control system)，memo，大致看了一下它的说明。&lt;br /&gt;
+它主张有以下4个特性(加上我的翻译)&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Continuous persistence&lt;br /&gt;
+不间断的可持续性。所有的更改可以在不commit的情况下上传倒服务器，所以你的同事可以在另一台机器上继续你的工作。也可以在这个文件的历史之中擦除或者再现某一个历史纪录。&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Live branches&lt;br /&gt;
+实时的branch。只要你连接到网络，所有的branch的最新情报会实时更新。编辑每一个branch的复制品的时候会自动同步，而省去手动更改confict（冲突）的烦恼。&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Persistent annotations&lt;br /&gt;
+不间断的注解。在最新版本的代码中，创建永久链接给每一块代码，即便代码已经被编辑过，都指向同一块逻辑区域。（这个不是太懂）&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;blockquote&gt;
+      &lt;p&gt;Non-linear history&lt;br /&gt;
+非线性的历史。undo或者redo在某一特定区域。Group changes into arbitrary layers that can be dynamically toggled.（这句话每一个词我都懂，但是合在一起不知道什么意思）&lt;/p&gt;
+    &lt;/blockquote&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;这个的大概意思，应该是做一个类似于google doc的同时编辑的一个vcs版本啊。&lt;br /&gt;
+不过这个有几个难题，第一是网络的带宽问题，第二是网络的延迟问题，第三是同时编辑同一文件的冲突问题。&lt;br /&gt;
+第三最难解决，第一第二都是bottleneck而已。或者说，第一第二在内网的环境下，可能不算是问题。&lt;br /&gt;
+google doc能解决第三的原因在于它是在server端提供的服务。然后如果代码是在本地端的话，这个我认为除非出现量子网络，不然极难解决。&lt;br /&gt;
+记得svn的解决方案是lock…锁定…&lt;br /&gt;
+git的解决方案是…干脆不管XD  merge的时候再说XD&lt;/p&gt;
+
+&lt;p&gt;继续读，还真的是一个云服务，似乎是一个和git有兼容性的这个一个云服务。期待后续吧。&lt;/p&gt;
+
+&lt;p&gt;[2]&lt;a href=&quot;https://github.com/atom/xray/blob/master/memo/README.md&quot;&gt;Memo: Operation-based version control&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="choco," /><category term="xray," /><category term="atom," /><category term="editor," /><category term="memo" /><summary type="html">choco安装windows的更新 今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。 $ choco install neovim Chocolatey v0.10.11 Installing the following packages: neovim By installing you accept licenses for the packages. Progress: Downloading vcredist2015 14.0.24215.20170201... 100% Progress: Downloading vcredist140 14.12.25810... 100% Progress: Downloading KB3033929 1.0.3... 100% Progress: Downloading chocolatey-windowsupdate.extension 1.0.2... 100% Progress: Downloading KB3035131 1.0.1... 100% Progress: Downloading KB2919355 1.0.20160915... 100% Progress: Downloading KB2919442 1.0.20160915... 100% Progress: Downloading KB2999226 1.0.20170509... 100% Progress: Downloading neovim 0.3.1... 100% $ Chocolatey installed 9/9 packages. See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log). Installed: - kb2919355 v1.0.20160915 - kb3033929 v1.0.3 - kb2999226 v1.0.20170509 - vcredist2015 v14.0.24215.20170201 - kb2919442 v1.0.20160915 - vcredist140 v14.12.25810 - neovim v0.3.1 - kb3035131 v1.0.1 - chocolatey-windowsupdate.extension v1.0.2 说实话非常有趣。 我在choco的主页这里（https://chocolatey.org/packages?q=WindowsUpdate）发现，原来有关windows update的包，也只有4个而已。 很显然我要失望了，并不能把choco作为升级代理工具了XD 使用atom时输入法卡顿 首先我使用的是双拼输入法，是win10自带的微软双拼输入法。 这个输入法本身就有些卡顿（不知道为什么) 在使用atom的时候，比如换行，比如切换到英文，比如鼠标把光标移走，比如删除输入过的文字，都有概率会卡顿。 具体表现为，要输入大约10多个字母之后输入法才会启动，不然什么东西都不显示，什么东西都打不出来。 唯一规避的方式只有连续按两次shift = =|| 也是一个奇葩的bug了。 在网上找到方法说，安装中文包会解决。 不过很显然这个方法对我来说没有什么用。 只好查找下一个editor试试看看咯。 markdown在atom中末尾的空格会被删除 众所周知markdown文件在末尾的单个空格意味着改行。 我查了一下网上给出的查看whitespace这个package的建议 发现里面的设定是如果在markdown文件中，有2个空格就不会被删除。 嗯，那就用两个空格吧！ [1]atom自动删除行末空格行？ - Atom &amp;amp; Sublime Text - 前端技术分享论坛 atom的替代选项 - xray ？ github在开发完atom之后，貌似又要开发xray。 这个消息很早就看过了，只不过记不住它的名字。 想说虽然正在开发中，不过用一下看看吧！看到没有release，同时又没有makefile = =|| 算了算了，好像用不了的样子（自我安慰） 那我就不用了！ 而且看他的2018 Q3的目标，竟然是version control system = = 我了个去，好吧好吧，敬请期待。 他好像真的是用不了，我看它的报告（https://github.com/atom/xray/blob/master/docs/updates/2018_08_28.md） 里面说好像下一步要做buffer= = The file support added last week assumes that all files are empty. To allow files to be associated with editable content, we’re adapting the buffer module from xray_core to work with Memo’s new B-tree. 啊…还有好长的路啊…不过看起来他们使用WEBGL来做，感觉好厉害。。。 （关于使用WEBGL的笔记：https://github.com/atom/xray/blob/master/docs/updates/2018_03_05.md） 关于新vcs memo 关于这个新的vcs(version control system)，memo，大致看了一下它的说明。 它主张有以下4个特性(加上我的翻译) Continuous persistence 不间断的可持续性。所有的更改可以在不commit的情况下上传倒服务器，所以你的同事可以在另一台机器上继续你的工作。也可以在这个文件的历史之中擦除或者再现某一个历史纪录。 Live branches 实时的branch。只要你连接到网络，所有的branch的最新情报会实时更新。编辑每一个branch的复制品的时候会自动同步，而省去手动更改confict（冲突）的烦恼。 Persistent annotations 不间断的注解。在最新版本的代码中，创建永久链接给每一块代码，即便代码已经被编辑过，都指向同一块逻辑区域。（这个不是太懂） Non-linear history 非线性的历史。undo或者redo在某一特定区域。Group changes into arbitrary layers that can be dynamically toggled.（这句话每一个词我都懂，但是合在一起不知道什么意思） 这个的大概意思，应该是做一个类似于google doc的同时编辑的一个vcs版本啊。 不过这个有几个难题，第一是网络的带宽问题，第二是网络的延迟问题，第三是同时编辑同一文件的冲突问题。 第三最难解决，第一第二都是bottleneck而已。或者说，第一第二在内网的环境下，可能不算是问题。 google doc能解决第三的原因在于它是在server端提供的服务。然后如果代码是在本地端的话，这个我认为除非出现量子网络，不然极难解决。 记得svn的解决方案是lock…锁定… git的解决方案是…干脆不管XD merge的时候再说XD 继续读，还真的是一个云服务，似乎是一个和git有兼容性的这个一个云服务。期待后续吧。 [2]Memo: Operation-based version control</summary></entry><entry><title type="html">Error when installing ios-deploy via npm</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html" rel="alternate" type="text/html" title="Error when installing ios-deploy via npm" /><published>2018-08-24T00:00:00+08:00</published><updated>2018-08-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html">&lt;p&gt;when I install ios-deploy via npm&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install -g ios-deploy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;I got an error below&lt;/p&gt;
@@ -395,145 +537,4 @@ wslconfig /setdefault
   &lt;li&gt;早期ubuntu原生wsl的termial的口吃问题:&lt;a href=&quot;https://www.isthnew.com/archives/win10-bash.html&quot;&gt;Win10的Bash真是好用&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;debian下，用sudo时和本地用户不共用一个vimrc问题:&lt;a href=&quot;https://unix.stackexchange.com/questions/34069/problem-with-vim-when-logged-in-as-root&quot;&gt;Problem with vim when logged in as root&lt;/a&gt;&lt;/li&gt;
   &lt;li&gt;debian在microsoft store的链接:&lt;a href=&quot;https://www.microsoft.com/store/productId/9MSVKQC78PK6&quot;&gt;debian in ms store&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="wsl," /><category term="ubuntu," /><category term="debian," /><category term="ubuntu" /><category term="LTS" /><summary type="html">记录下自己使用时感觉实用的小知识吧！ 1.什么是wsl？ wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。 这个是很早就出名的一个，win10专为开发者开发的一样东西。 目前推荐的方式是使用microsoft store去下载。 2.wsl不仅仅只有ubuntu一家 在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get） 3.为何博主在debian和ubuntu之间推荐debian？ 在博主看来两者有以下的区别： (1)debian比较轻。 (2)新版本的编码问题。 在2018 Apr 02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。 这点在微软的WSL的issue 中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。 (3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分 (4)使用private key认证的权限问题。 在debian有这样的限制： 如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。 这点需要额外注意，如果是ubuntu的话就不需要额外设置。在ubuntu中，git似乎是具有特殊权限，可以绕过这个文件禁止一般用户读取的权限设置。 权限方面，看起来是debian做的比较安全。 (5)其他基本没看出有很大的区别 4.wsl不推荐使用自带terminal，推荐使用外部的terminal 我个人使用的是这一款：https://github.com/goreliu/wsl-terminal 自带的terminal会有如下问题。 (1)ubuntu的case 比如2016版本的早期terminal，有口吃的毛病。参见这里 当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。 (2)debian的case debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候， you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot; (PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则) 在debian的原生terminal会出现这样的感觉 因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。 5.切换默认的wsl 使用wslconfig。 wslconfig /l wslconfig /l /a wslconfig /setdefault 简单明了，应该不用解释了。 切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。 暂时就想到这里。就先这样吧！ 参考资料： wslconfig command:WSLで複数のLinuxディストリビューションを管理する 更改语言encode系列:Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide? 更改语言encode系列:Debian/Ubuntuのデフォルトロケールを変更する mingw的package managerIs there any package management system for MinGW+MSYS? ubuntu17.10在wsl的语言encode问题:Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878 早期ubuntu原生wsl的termial的口吃问题:Win10的Bash真是好用 debian下，用sudo时和本地用户不共用一个vimrc问题:Problem with vim when logged in as root debian在microsoft store的链接:debian in ms store</summary></entry><entry><title type="html">pubg外挂问题</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html" rel="alternate" type="text/html" title="pubg外挂问题" /><published>2018-03-27T00:00:00+08:00</published><updated>2018-03-27T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/03/27/pubg-cheat-issue.html">&lt;p&gt;突然想玩吃鸡。结果竟然有个1.9GB的更新。
-很偶然的随意看了一眼pubg的更新日志。&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&quot;http://store.steampowered.com/news/externalpost/eurogamer/2365953485465329247&quot;&gt;PlayerUnknown’s Battlegrounds adds weapon skins, is “considering” region-locked servers&lt;/a&gt;&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;Region-locked servers are a long-requested feature, with proponents frequently citing anti-cheat company BattleEye’s claims that “the vast majority” of PUBG cheaters are from China.&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;你说不太清楚是什么感觉。
-我回国在即，也就是说，如果锁区，我也会和国内的玩家在一起玩，而没办法和海外的一起玩。&lt;/p&gt;
-
-&lt;p&gt;有外挂的游戏体验很差。非常差。&lt;/p&gt;
-
-&lt;p&gt;我的心情很复杂。&lt;br /&gt;
-一是我非常厌恶和外挂一起玩，我为外挂感到愤怒，&lt;br /&gt;
-二是我却也为外挂出在中国而自卑。&lt;br /&gt;&lt;/p&gt;
-
-&lt;p&gt;这造成什么现象呢。&lt;br /&gt;
-就是一方面需要认清自己的国家确确实实产出了99%的外挂。&lt;br /&gt;
-另一方面，如果锁区，那么就要忍受自己和99%的外挂被锁到一个区内玩的事实。&lt;br /&gt;
-(ps:全球玩家3000万，大陆玩家1000万多。)&lt;/p&gt;
-
-&lt;p&gt;一方面需要忍受不是自己过错造成的过失的指责和歧视，&lt;br /&gt;
-另一方面更需要忍受不是自己过错，但是异常糟糕的游戏体验。&lt;/p&gt;
-
-&lt;p&gt;我有一个朋友，尽管有别的朋友提醒，我还是跟他玩了2局。
-很不意外，虽然他的游戏整体意识很有问题，找掩体，隐藏自身，或者别的什么都并不是很好。
-我通过一个多小时的仔细研读录像，我清楚的认识到他跟我的两局都是用的外挂。
-尽管我根本就不想承认这一点。&lt;/p&gt;
-
-&lt;p&gt;我欣赏叛骨精神。
-我也认可一定程度的反抗。
-不过反抗只存在于这种situation的时候。应该去怎么想呢。&lt;/p&gt;
-
-&lt;p&gt;我发现我建立独立网站真的很正确。因为怕是围城之内，已尽皆王土了。
-我就在这里说一说，大话。&lt;/p&gt;
-
-&lt;p&gt;因为这种，并非自己过错而承担整体后果的事情非常多。
-&lt;br /&gt;
-一大例子就是，很多人要求霓虹人去道歉。但是有的人说，事情又不是我做的，为什么我从出生起就要背负这种忏悔？
-还有很多种这样的例子。比如某县。人们并不能选择自己出生的国家。但是为什么某些胖胖做的事情需要其他人去承担后果，去承担这种鄙视和歧视。
-&lt;br /&gt;
-这两件事，其实本质上是一样的。
-&lt;br /&gt;
-很多人会悲天由命。一个人能做的事情太少了。一个人的力量太小了。
-我看到视频里的DB人在下跪，我看到视频里的GD大妈和大爷在众前欢快的自由打滚。
-事情是不是会真的像贾某某说的一样，会真的变得覆水难收？&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;我觉得中国需要一些非常彪悍的个性的人，彪悍到可以独立的与这个时代共舞，参与到里面，改变它，影响它。
-&lt;br /&gt;
-而不是穿上盔甲，说我是独立的，眼睁睁看着所有的事情覆水难收。&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;&lt;a href=&quot;http://hx.cnd.org/2009/04/14/%E8%B4%BE%E6%A8%9F%E6%9F%AF%E8%AE%BF%E8%B0%88%EF%BC%9A%E8%B4%AB%E7%A9%B7%E6%94%B9%E5%8F%98%E4%BA%86%E4%B8%AD%E5%9B%BD%E4%BA%BA%E7%9A%84%E5%BF%83%E7%90%86%E9%9D%A2%E7%9B%AE/&quot;&gt;贾樟柯访谈：贫穷改变了中国人的心理面目&lt;/a&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;2009 年 04 月 14 日 由 CND《华夏文摘》编辑&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;!--
-最后我要说。我们为了强大，就真的什么都可以做么。
- --&gt;</content><author><name></name></author><category term="essay" /><category term="pubg" /><summary type="html">突然想玩吃鸡。结果竟然有个1.9GB的更新。 很偶然的随意看了一眼pubg的更新日志。 PlayerUnknown’s Battlegrounds adds weapon skins, is “considering” region-locked servers Region-locked servers are a long-requested feature, with proponents frequently citing anti-cheat company BattleEye’s claims that “the vast majority” of PUBG cheaters are from China. 你说不太清楚是什么感觉。 我回国在即，也就是说，如果锁区，我也会和国内的玩家在一起玩，而没办法和海外的一起玩。 有外挂的游戏体验很差。非常差。 我的心情很复杂。 一是我非常厌恶和外挂一起玩，我为外挂感到愤怒， 二是我却也为外挂出在中国而自卑。 这造成什么现象呢。 就是一方面需要认清自己的国家确确实实产出了99%的外挂。 另一方面，如果锁区，那么就要忍受自己和99%的外挂被锁到一个区内玩的事实。 (ps:全球玩家3000万，大陆玩家1000万多。) 一方面需要忍受不是自己过错造成的过失的指责和歧视， 另一方面更需要忍受不是自己过错，但是异常糟糕的游戏体验。 我有一个朋友，尽管有别的朋友提醒，我还是跟他玩了2局。 很不意外，虽然他的游戏整体意识很有问题，找掩体，隐藏自身，或者别的什么都并不是很好。 我通过一个多小时的仔细研读录像，我清楚的认识到他跟我的两局都是用的外挂。 尽管我根本就不想承认这一点。 我欣赏叛骨精神。 我也认可一定程度的反抗。 不过反抗只存在于这种situation的时候。应该去怎么想呢。 我发现我建立独立网站真的很正确。因为怕是围城之内，已尽皆王土了。 我就在这里说一说，大话。 因为这种，并非自己过错而承担整体后果的事情非常多。 一大例子就是，很多人要求霓虹人去道歉。但是有的人说，事情又不是我做的，为什么我从出生起就要背负这种忏悔？ 还有很多种这样的例子。比如某县。人们并不能选择自己出生的国家。但是为什么某些胖胖做的事情需要其他人去承担后果，去承担这种鄙视和歧视。 这两件事，其实本质上是一样的。 很多人会悲天由命。一个人能做的事情太少了。一个人的力量太小了。 我看到视频里的DB人在下跪，我看到视频里的GD大妈和大爷在众前欢快的自由打滚。 事情是不是会真的像贾某某说的一样，会真的变得覆水难收？ 我觉得中国需要一些非常彪悍的个性的人，彪悍到可以独立的与这个时代共舞，参与到里面，改变它，影响它。 而不是穿上盔甲，说我是独立的，眼睁睁看着所有的事情覆水难收。 贾樟柯访谈：贫穷改变了中国人的心理面目 2009 年 04 月 14 日 由 CND《华夏文摘》编辑</summary></entry><entry><title type="html">我所敬佩的</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe.html" rel="alternate" type="text/html" title="我所敬佩的" /><published>2018-03-15T00:00:00+08:00</published><updated>2018-03-15T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/03/15/about-what-u-believe.html">&lt;!--#### 耶和華見證人--&gt;
-
-&lt;p&gt;所有的宗教团体中。我最敬佩的就是耶和华见证人。&lt;/p&gt;
-
-&lt;p&gt;历史上的宗教如此之多。宗教团体也很多。
-我很喜欢自然宗教。比较符合原始生存的，自然信仰。比如，认为一切皆有灵的北欧信仰。比如，爱斯基摩对于杀戮之果的祭祀。再比如，亚洲大陆的萨满风俗（跳大神也是一种分支）。
-他们迷信，但是无害。
-不过自然信仰之所以抵挡不过后来的三大宗教，一个很大的原因就是没有一个强大的组织。他们并不知晓组织和团队力量的强大。
-&lt;!--无论是做什么事，建造帝国也好，创建大学也罢。团体的能力是如此的强大。--&gt;
-三大宗教的团体万万千，像是基督教的派系就有诸多，除了出名的东正那几支，还有譬如摩尔门教，耶和华见证人这些影响力也是很大的团体。&lt;/p&gt;
-
-&lt;p&gt;耶和华见证人成立的时间不长，最初是由一名教授创立的。
-这个教派的教规很有趣。在有着别的教派通有的严于律己的教律同时，还有一条不寻常的律己教律。
-他们是完全忠于圣经的一派，所以这教律也同样是源于圣经。&lt;/p&gt;
-
-&lt;p&gt;他们拒绝使用兵器。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“国与国不再拔剑相攻，他们也不再学习战事。”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;–《旧约·以赛亚书·2章4节》
-–《旧约·弥迦书·4章3节》&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“把剑收回原处！凡拿剑的，都会死在剑下。”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;–《新约·马太福音·26章52节》&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;因为这一条教律引发了很多的事件。
-1996年，日本的分会中，有人拒绝上高中的剑道课，导致高中无法毕业。
-2000年前后，台湾分会中，拒绝服兵役时使用兵器，导致入狱。由于出狱后仍需服没有完成的兵役，他们再次因为拒绝使用兵器而入狱。如此的反复入狱，引发社会性话题。
-回溯到20世纪初期的纳粹德国时期，只有耶和华见证人作为一个宗教团体，拒绝迎合纳粹的种种要求：拒绝效忠国家和元首，拒绝参与军事行动。&lt;/p&gt;
-
-&lt;p&gt;根据维基百科的叙述&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;在德国，纳粹统治期间共有6262人被捕，2074人被关入集中营，有大約1200個耶和華見證人在納粹時期喪生，其中270人因良心緣故拒絕參與軍事服務而被處決。耶和華見證人表明自己與所信仰的完全一致：“我們必須接受上帝的統治，服從上帝而不是服從人。”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;（使徒行傳5:29）&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;这种精神令人钦佩。什么算爱国。什么算爱人。
-带着我的偏见来讲的话，不愧是教授、学者创立的宗教呀。
-即便是宗教团体，也是可以这样的别出一格。
-完全可以和同时期创立的xx门教作比较。&lt;/p&gt;
-
-&lt;p&gt;当然，归根结底到底是宗教，
-对于我这种皇帝炎帝信仰类的自然信仰者，不得不指出一句，
-圣经中的如此的一句话。&lt;/p&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“耶和华是我的牧者，我必一无所缺。”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;“我虽然走在漆黑的谷中，却不怕受害，因为你与我同在，你的仗、你的竿都给我安慰。”&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;blockquote&gt;
-  &lt;p&gt;《旧约·诗篇·23章1节》《旧约·诗篇·23章4节》&lt;/p&gt;
-&lt;/blockquote&gt;
-
-&lt;p&gt;参考资料：&lt;/p&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;《圣经·新世界译本》&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://zh.wikipedia.org/wiki/%E8%80%B6%E5%92%8C%E8%8F%AF%E8%A6%8B%E8%AD%89%E4%BA%BA#%E8%A2%AB%E8%BF%AB%E5%AE%B3%E5%8F%B2&quot;&gt;维基百科：耶和华见证人&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;&lt;a href=&quot;https://ja.wikipedia.org/wiki/%E3%82%A8%E3%83%9B%E3%83%90%E3%81%AE%E8%A8%BC%E4%BA%BA&quot;&gt;维基百科：エホバの証人&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="essay" /><summary type="html">所有的宗教团体中。我最敬佩的就是耶和华见证人。 历史上的宗教如此之多。宗教团体也很多。 我很喜欢自然宗教。比较符合原始生存的，自然信仰。比如，认为一切皆有灵的北欧信仰。比如，爱斯基摩对于杀戮之果的祭祀。再比如，亚洲大陆的萨满风俗（跳大神也是一种分支）。 他们迷信，但是无害。 不过自然信仰之所以抵挡不过后来的三大宗教，一个很大的原因就是没有一个强大的组织。他们并不知晓组织和团队力量的强大。 三大宗教的团体万万千，像是基督教的派系就有诸多，除了出名的东正那几支，还有譬如摩尔门教，耶和华见证人这些影响力也是很大的团体。 耶和华见证人成立的时间不长，最初是由一名教授创立的。 这个教派的教规很有趣。在有着别的教派通有的严于律己的教律同时，还有一条不寻常的律己教律。 他们是完全忠于圣经的一派，所以这教律也同样是源于圣经。 他们拒绝使用兵器。 “国与国不再拔剑相攻，他们也不再学习战事。” –《旧约·以赛亚书·2章4节》 –《旧约·弥迦书·4章3节》 “把剑收回原处！凡拿剑的，都会死在剑下。” –《新约·马太福音·26章52节》 因为这一条教律引发了很多的事件。 1996年，日本的分会中，有人拒绝上高中的剑道课，导致高中无法毕业。 2000年前后，台湾分会中，拒绝服兵役时使用兵器，导致入狱。由于出狱后仍需服没有完成的兵役，他们再次因为拒绝使用兵器而入狱。如此的反复入狱，引发社会性话题。 回溯到20世纪初期的纳粹德国时期，只有耶和华见证人作为一个宗教团体，拒绝迎合纳粹的种种要求：拒绝效忠国家和元首，拒绝参与军事行动。 根据维基百科的叙述 在德国，纳粹统治期间共有6262人被捕，2074人被关入集中营，有大約1200個耶和華見證人在納粹時期喪生，其中270人因良心緣故拒絕參與軍事服務而被處決。耶和華見證人表明自己與所信仰的完全一致：“我們必須接受上帝的統治，服從上帝而不是服從人。” （使徒行傳5:29） 这种精神令人钦佩。什么算爱国。什么算爱人。 带着我的偏见来讲的话，不愧是教授、学者创立的宗教呀。 即便是宗教团体，也是可以这样的别出一格。 完全可以和同时期创立的xx门教作比较。 当然，归根结底到底是宗教， 对于我这种皇帝炎帝信仰类的自然信仰者，不得不指出一句， 圣经中的如此的一句话。 “耶和华是我的牧者，我必一无所缺。” “我虽然走在漆黑的谷中，却不怕受害，因为你与我同在，你的仗、你的竿都给我安慰。” 《旧约·诗篇·23章1节》《旧约·诗篇·23章4节》 参考资料： 《圣经·新世界译本》 维基百科：耶和华见证人 维基百科：エホバの証人</summary></entry></feed>
+&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="wsl," /><category term="ubuntu," /><category term="debian," /><category term="ubuntu" /><category term="LTS" /><summary type="html">记录下自己使用时感觉实用的小知识吧！ 1.什么是wsl？ wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。 这个是很早就出名的一个，win10专为开发者开发的一样东西。 目前推荐的方式是使用microsoft store去下载。 2.wsl不仅仅只有ubuntu一家 在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get） 3.为何博主在debian和ubuntu之间推荐debian？ 在博主看来两者有以下的区别： (1)debian比较轻。 (2)新版本的编码问题。 在2018 Apr 02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。 这点在微软的WSL的issue 中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。 (3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分 (4)使用private key认证的权限问题。 在debian有这样的限制： 如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。 这点需要额外注意，如果是ubuntu的话就不需要额外设置。在ubuntu中，git似乎是具有特殊权限，可以绕过这个文件禁止一般用户读取的权限设置。 权限方面，看起来是debian做的比较安全。 (5)其他基本没看出有很大的区别 4.wsl不推荐使用自带terminal，推荐使用外部的terminal 我个人使用的是这一款：https://github.com/goreliu/wsl-terminal 自带的terminal会有如下问题。 (1)ubuntu的case 比如2016版本的早期terminal，有口吃的毛病。参见这里 当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。 (2)debian的case debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候， you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot; (PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则) 在debian的原生terminal会出现这样的感觉 因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。 5.切换默认的wsl 使用wslconfig。 wslconfig /l wslconfig /l /a wslconfig /setdefault 简单明了，应该不用解释了。 切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。 暂时就想到这里。就先这样吧！ 参考资料： wslconfig command:WSLで複数のLinuxディストリビューションを管理する 更改语言encode系列:Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide? 更改语言encode系列:Debian/Ubuntuのデフォルトロケールを変更する mingw的package managerIs there any package management system for MinGW+MSYS? ubuntu17.10在wsl的语言encode问题:Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878 早期ubuntu原生wsl的termial的口吃问题:Win10的Bash真是好用 debian下，用sudo时和本地用户不共用一个vimrc问题:Problem with vim when logged in as root debian在microsoft store的链接:debian in ms store</summary></entry></feed>
