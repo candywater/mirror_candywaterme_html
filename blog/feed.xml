@@ -1,4 +1,109 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-09-02T12:40:36+08:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">webpack的初步学习笔记(1)</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack.html" rel="alternate" type="text/html" title="webpack的初步学习笔记(1)" /><published>2018-09-02T00:00:00+08:00</published><updated>2018-09-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack.html">&lt;p&gt;解除了一下webpack。以前就想接触一下，不过并没有他们说的那么简单。&lt;br /&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-09-05T17:41:15+08:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">一个简单的nodejs小型图片下载器</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img.html" rel="alternate" type="text/html" title="一个简单的nodejs小型图片下载器" /><published>2018-09-05T00:00:00+08:00</published><updated>2018-09-05T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img.html">&lt;h2 id=&quot;缘由&quot;&gt;缘由&lt;/h2&gt;
+&lt;p&gt;因为自己想看把一个网站的页面的图片抓下来，而且图片的数量比较多，用wget会抓到许多没用的东西，所以决定写一个小东西来抓包。&lt;/p&gt;
+
+&lt;h2 id=&quot;requirement&quot;&gt;requirement&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;nodejs&lt;/li&gt;
+  &lt;li&gt;wget&lt;/li&gt;
+  &lt;li&gt;powershell or bash&lt;/li&gt;
+  &lt;li&gt;jsdom(npm)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;思路&quot;&gt;思路&lt;/h2&gt;
+&lt;p&gt;我的思路很简单，先把网页的代码抓下来，然后分析xml格式，找到原图片的链接，然后批量用wget下载。（省去了用nodejs来读取文件的麻烦）&lt;/p&gt;
+
+&lt;p&gt;get the code of webpage first, parse the code, find out links of imgs. then download imgs via wget.&lt;/p&gt;
+
+&lt;h2 id=&quot;命令行参数&quot;&gt;命令行参数&lt;/h2&gt;
+&lt;p&gt;需要把网址用命令行输入进去，免得每次用还要改参数….遵循如下格式。&lt;/p&gt;
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;node downloader &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;url1, url2, ...]
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;代码这么写就可以[5]&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nx&quot;&gt;process&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;forEach&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;arr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;length&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;==&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;default_value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;dosomething&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; 
+    &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;index&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;val&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;dosomething&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;抓网页源码&quot;&gt;抓网页源码&lt;/h2&gt;
+
+&lt;p&gt;这里要用到一个原生的包。[1]&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;https&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;然后就是简单的，合XMLHttpRequest差不多的&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;if&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;!&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;c1&quot;&gt;// if url == null, return&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;https&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;url&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;data&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;addItToData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;chunk&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);});&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;res&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;end&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;whenEndDoSth&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;on&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;error&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;error:&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;message&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;抓图片的处理在结束的时候做一个处理就可以了。在这里是在那个叫做whenEndDoSth的函数里面。&lt;/p&gt;
+
+&lt;h2 id=&quot;分析源码并找出图片连接&quot;&gt;分析源码，并找出图片连接&lt;/h2&gt;
+&lt;p&gt;这里我没有写出比较万能的用法，只写出了我想要抓的网页的办法。
+我想抓的链接在这里。&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;url1_I_want_to_get&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;
+&lt;span class=&quot;nt&quot;&gt;&amp;lt;figure&amp;gt;&amp;lt;a&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;href=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;url2_I_want_to_get&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&amp;lt;img&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/figure&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;所以我这里用jsdom来解析，[3]&lt;br /&gt;
+第一步先抓出所有的figure，&lt;br /&gt;
+第二部抓出每个figure里面的a的href。&lt;br /&gt;
+很遗憾jsdom和浏览器里面的dom还是有点不同的，第一步抓到figure之后，
+并不可以直接使用querySelector()这个函数，所以他并不是一个真正的浏览器dom，只是一个jsdom。嗯，也是可以理解，毕竟没必要完全实装嘛。
+所以这里要用2次new JSDOM();&lt;/p&gt;
+
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jsdom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;jsdom&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;JSDOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;jsdom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dom&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSDOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;figures&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dom&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelectorAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;figure&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;figures&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;){&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;figure&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;JSDOM&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;ele&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)).&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;window&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;a&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;getAttribute&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;href&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;))&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;用wget下载&quot;&gt;用wget下载&lt;/h2&gt;
+&lt;p&gt;这步就简单的多了。&lt;br /&gt;
+用nodejs原生提供的child_process。[8]&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;child_process&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;exec&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;wget -P &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;dir&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot; &quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;figure&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stdout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;stderr&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h2 id=&quot;结语&quot;&gt;结语&lt;/h2&gt;
+&lt;p&gt;基本上这样就完成了。&lt;br /&gt;
+我还有一个根据链接自动生成文件夹名称的小功能，也是用child_process来实现的，这里就不赘述了。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;妈妈再也不用担心我的鼠标手拉！&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;PS:还没有弄明白打包的问题，以后再打包之后弄成全域变量，然后直接使用吧。[2]&lt;/p&gt;
+
+&lt;p&gt;[1]&lt;a href=&quot;https://www.twilio.com/blog/2017/08/http-requests-in-node-js.html&quot;&gt;5 Ways to Make HTTP Requests in Node.js&lt;/a&gt;&lt;br /&gt;
+[2]&lt;a href=&quot;https://qiita.com/tonkotsuboy_com/items/8227f5993769c3df533d&quot;&gt;npm 5.2.0の新機能！ 「npx」でローカルパッケージを手軽に実行しよう&lt;/a&gt;&lt;br /&gt;
+[3]&lt;a href=&quot;https://stackoverflow.com/questions/7372972/how-do-i-parse-a-html-page-with-node-js&quot;&gt;How do I parse a HTML page with Node.js&lt;/a&gt;&lt;br /&gt;
+[4]&lt;a href=&quot;http://youmightnotneedjquery.com&quot;&gt;you might not need jquery&lt;/a&gt;&lt;br /&gt;
+[5]&lt;a href=&quot;https://stackoverflow.com/questions/4351521/how-do-i-pass-command-line-arguments-to-a-node-js-program&quot;&gt;How do I pass command line arguments to a Node.js program?&lt;/a&gt;&lt;br /&gt;
+[6]&lt;a href=&quot;https://stackoverflow.com/questions/12740659/downloading-images-with-node-js&quot;&gt;Downloading images with node.js&lt;/a&gt;&lt;br /&gt;
+[7]&lt;a href=&quot;https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js&quot;&gt;Execute a command line binary with Node.js&lt;/a&gt;&lt;br /&gt;
+[8]&lt;a href=&quot;https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback&quot;&gt;child_process.html#child_process_child_process_exec_command_options_callback&lt;/a&gt;&lt;br /&gt;
+[9]&lt;a href=&quot;https://qiita.com/renoji5126/items/09711d34fb30ca0cd84b&quot;&gt;ぼくのかんがえたさいきょうのnpm test&lt;/a&gt;&lt;br /&gt;
+[10]&lt;a href=&quot;https://qiita.com/Jxck_/items/efaff21b977ddc782971&quot;&gt;npm で依存もタスクも一元化する&lt;/a&gt;&lt;br /&gt;
+[11]&lt;a href=&quot;https://medium.com/netscape/a-guide-to-create-a-nodejs-command-line-package-c2166ad0452e&quot;&gt;A guide to creating a NodeJS command-line package&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="nodejs" /><summary type="html">缘由 因为自己想看把一个网站的页面的图片抓下来，而且图片的数量比较多，用wget会抓到许多没用的东西，所以决定写一个小东西来抓包。 requirement nodejs wget powershell or bash jsdom(npm) 思路 我的思路很简单，先把网页的代码抓下来，然后分析xml格式，找到原图片的链接，然后批量用wget下载。（省去了用nodejs来读取文件的麻烦） get the code of webpage first, parse the code, find out links of imgs. then download imgs via wget. 命令行参数 需要把网址用命令行输入进去，免得每次用还要改参数….遵循如下格式。 node downloader [url1, url2, ...] 代码这么写就可以[5] process.argv.forEach( (val, index, arr) =&amp;gt; { if(arr.length &amp;lt;= 2 &amp;amp;&amp;amp; index == 1){ url = default_value; dosomething(); } else if(index &amp;gt;= 2){ url = val; dosomething(); } } ) 抓网页源码 这里要用到一个原生的包。[1] const https = require(&quot;https&quot;); 然后就是简单的，合XMLHttpRequest差不多的 if(!url) return; // if url == null, return data = &quot;&quot;; https.get( url, (res) =&amp;gt; { res.on(&quot;data&quot;,(chunk)=&amp;gt; {addItToData(chunk);}); res.on(&quot;end&quot;, whenEndDoSth); }).on((&quot;error&quot;),(err) =&amp;gt; {console.log(&quot;error:&quot; + err.message)} ); 抓图片的处理在结束的时候做一个处理就可以了。在这里是在那个叫做whenEndDoSth的函数里面。 分析源码，并找出图片连接 这里我没有写出比较万能的用法，只写出了我想要抓的网页的办法。 我想抓的链接在这里。 &amp;lt;figure&amp;gt;&amp;lt;a href=&quot;url1_I_want_to_get&quot;&amp;gt;&amp;lt;img /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/figure&amp;gt; &amp;lt;figure&amp;gt;&amp;lt;a href=&quot;url2_I_want_to_get&quot;&amp;gt;&amp;lt;img /&amp;gt;&amp;lt;/a&amp;gt;&amp;lt;/figure&amp;gt; 所以我这里用jsdom来解析，[3] 第一步先抓出所有的figure， 第二部抓出每个figure里面的a的href。 很遗憾jsdom和浏览器里面的dom还是有点不同的，第一步抓到figure之后， 并不可以直接使用querySelector()这个函数，所以他并不是一个真正的浏览器dom，只是一个jsdom。嗯，也是可以理解，毕竟没必要完全实装嘛。 所以这里要用2次new JSDOM(); const jsdom = require(&quot;jsdom&quot;) const {JSDOM} = jsdom; const dom = new JSDOM(data); let figures = dom.window.document.querySelectorAll(&quot;figure&quot;); for(let ele of figures){ let figure = (new JSDOM(ele.innerHTML)).window.document.querySelector(&quot;a&quot;) console.log(figure.getAttribute(&quot;href&quot;)) } 用wget下载 这步就简单的多了。 用nodejs原生提供的child_process。[8] const {exec} = require(&quot;child_process&quot;) exec(&quot;wget -P &quot; + dir + &quot; &quot; + figure, (err, stdout, stderr) =&amp;gt; {}) 结语 基本上这样就完成了。 我还有一个根据链接自动生成文件夹名称的小功能，也是用child_process来实现的，这里就不赘述了。 妈妈再也不用担心我的鼠标手拉！ PS:还没有弄明白打包的问题，以后再打包之后弄成全域变量，然后直接使用吧。[2] [1]5 Ways to Make HTTP Requests in Node.js [2]npm 5.2.0の新機能！ 「npx」でローカルパッケージを手軽に実行しよう [3]How do I parse a HTML page with Node.js [4]you might not need jquery [5]How do I pass command line arguments to a Node.js program? [6]Downloading images with node.js [7]Execute a command line binary with Node.js [8]child_process.html#child_process_child_process_exec_command_options_callback [9]ぼくのかんがえたさいきょうのnpm test [10]npm で依存もタスクも一元化する [11]A guide to creating a NodeJS command-line package</summary></entry><entry><title type="html">webpack的初步学习笔记(1)</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack.html" rel="alternate" type="text/html" title="webpack的初步学习笔记(1)" /><published>2018-09-02T00:00:00+08:00</published><updated>2018-09-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-webpack.html">&lt;p&gt;解除了一下webpack。以前就想接触一下，不过并没有他们说的那么简单。&lt;br /&gt;
 撕逼乎上有人说，这就是前端的人不懂后端，所以webpack根本玩不明白。这东西就和makefile一样一样的之乎者也。&lt;br /&gt;
 昨天总算弄懂了。其实还是makefile比较直观 = = 虽然我每次都要看一下makefile的说明才能写得出来XD&lt;/p&gt;
 
@@ -463,78 +568,4 @@ Lvv2.com
 &lt;p&gt;&lt;img src=&quot;/assets/stills/blog/20180609/IMG_2131.jpg&quot; alt=&quot;i'm lucky, i'm living, now&quot; /&gt;
 &lt;br /&gt;photo by candywater, 2018/March/20th&lt;/p&gt;
 
-&lt;p&gt;废话不多说，我去画几幅画，然后去寻早饭食了。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">我发现这都是一种习惯。 习惯没事闲下来画个画。 习惯没事编个程。 习惯没事拿起笔记本，开始写日记。</summary></entry><entry><title type="html">wsl环境下几个小知识</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html" rel="alternate" type="text/html" title="wsl环境下几个小知识" /><published>2018-04-02T00:00:00+08:00</published><updated>2018-04-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/04/02/wsl-tips.html">&lt;p&gt;记录下自己使用时感觉实用的小知识吧！&lt;/p&gt;
-
-&lt;h3 id=&quot;1什么是wsl&quot;&gt;1.什么是wsl？&lt;/h3&gt;
-
-&lt;p&gt;wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。
-&lt;br /&gt;这个是很早就出名的一个，win10专为开发者开发的一样东西。
-目前推荐的方式是使用microsoft store去下载。&lt;/p&gt;
-
-&lt;h3 id=&quot;2wsl不仅仅只有ubuntu一家&quot;&gt;2.wsl不仅仅只有ubuntu一家&lt;/h3&gt;
-
-&lt;p&gt;在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get）&lt;/p&gt;
-
-&lt;h3 id=&quot;3为何博主在debian和ubuntu之间推荐debian&quot;&gt;3.为何博主在debian和ubuntu之间推荐debian？&lt;/h3&gt;
-
-&lt;p&gt;在博主看来两者有以下的区别：&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;(1)debian比较轻。&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;(2)新版本的编码问题。&lt;br /&gt;
-在2018 Apr 02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。
-这点在微软的WSL的&lt;a href=&quot;https://github.com/Microsoft/WSL/issues/1878&quot;&gt;issue&lt;/a&gt;
-中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;(3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;(4)使用private key认证的权限问题。&lt;br /&gt;
-在debian有这样的限制：&lt;br /&gt;
-如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。&lt;br /&gt;
-这点需要额外注意，如果是ubuntu的话就不需要额外设置。在ubuntu中，git似乎是具有特殊权限，可以绕过这个文件禁止一般用户读取的权限设置。
-权限方面，看起来是debian做的比较安全。&lt;br /&gt;&lt;/li&gt;
-  &lt;li&gt;(5)其他基本没看出有很大的区别&lt;br /&gt;&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;4wsl不推荐使用自带terminal推荐使用外部的terminal&quot;&gt;4.wsl不推荐使用自带terminal，推荐使用外部的terminal&lt;/h3&gt;
-
-&lt;p&gt;我个人使用的是这一款：&lt;a href=&quot;https://github.com/goreliu/wsl-terminal&quot;&gt;https://github.com/goreliu/wsl-terminal&lt;/a&gt;
-&lt;br /&gt;
-自带的terminal会有如下问题。
-&lt;br /&gt;&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;(1)ubuntu的case&lt;br /&gt;
-比如2016版本的早期terminal，有口吃的毛病。&lt;a href=&quot;https://www.isthnew.com/archives/win10-bash.html&quot;&gt;参见这里&lt;/a&gt;&lt;br /&gt;
-当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。&lt;/li&gt;
-  &lt;li&gt;(2)debian的case&lt;br /&gt;
-debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候，
-    &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot;
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
-    &lt;p&gt;(PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则)&lt;br /&gt;
-在debian的原生terminal会出现这样的感觉
-&lt;img src=&quot;/assets/stills/blog/20180402-wsl-tips/1522640663357.jpg&quot; alt=&quot;debian-wrong&quot; /&gt;
-因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。
-&lt;img src=&quot;/assets/stills/blog/20180402-wsl-tips/1522640828060.jpg&quot; alt=&quot;wsl-correct&quot; /&gt;&lt;/p&gt;
-  &lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;h3 id=&quot;5切换默认的wsl&quot;&gt;5.切换默认的wsl&lt;/h3&gt;
-
-&lt;p&gt;使用wslconfig。&lt;/p&gt;
-&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;wslconfig /l
-wslconfig /l /a
-wslconfig /setdefault
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
-&lt;p&gt;简单明了，应该不用解释了。
-切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。&lt;/p&gt;
-
-&lt;p&gt;暂时就想到这里。就先这样吧！&lt;/p&gt;
-
-&lt;p&gt;参考资料：&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;wslconfig command:&lt;a href=&quot;https://linuxfan.info/wslconfig&quot;&gt;WSLで複数のLinuxディストリビューションを管理する&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;更改语言encode系列:&lt;a href=&quot;https://askubuntu.com/questions/298971/full-switch-locale-ubuntu-server-installed-with-no-locales-how-to-enable-local&quot;&gt;Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;更改语言encode系列:&lt;a href=&quot;https://qiita.com/tailak/items/77b90a4df07e4f6a1fc2&quot;&gt;Debian/Ubuntuのデフォルトロケールを変更する&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;mingw的package manager&lt;a href=&quot;https://stackoverflow.com/questions/30046903/is-there-any-package-management-system-for-mingwmsys&quot;&gt;Is there any package management system for MinGW+MSYS?&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;ubuntu17.10在wsl的语言encode问题:&lt;a href=&quot;https://github.com/Microsoft/WSL/issues/1878&quot;&gt;Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;早期ubuntu原生wsl的termial的口吃问题:&lt;a href=&quot;https://www.isthnew.com/archives/win10-bash.html&quot;&gt;Win10的Bash真是好用&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;debian下，用sudo时和本地用户不共用一个vimrc问题:&lt;a href=&quot;https://unix.stackexchange.com/questions/34069/problem-with-vim-when-logged-in-as-root&quot;&gt;Problem with vim when logged in as root&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;debian在microsoft store的链接:&lt;a href=&quot;https://www.microsoft.com/store/productId/9MSVKQC78PK6&quot;&gt;debian in ms store&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</content><author><name></name></author><category term="tech" /><category term="wsl," /><category term="ubuntu," /><category term="debian," /><category term="ubuntu" /><category term="LTS" /><summary type="html">记录下自己使用时感觉实用的小知识吧！ 1.什么是wsl？ wsl = Windows Subsystem Linux,　是只有win 10 有的功能。有了wsl，妈妈再也不担心用cygwin的卡顿,用powershell的奇怪语言（？）的困扰和，用MinGW的…(突然找不到可以黑的点)。 这个是很早就出名的一个，win10专为开发者开发的一样东西。 目前推荐的方式是使用microsoft store去下载。 2.wsl不仅仅只有ubuntu一家 在microsoft store搜索linux,可以找到ubuntu, debian, kari linux等等诸多版本。个人比较推荐debian（原因是我的linux是ubuntu入手，比较习惯于apt家族。顺便一提，新版本提倡使用apt，而不是apt-get） 3.为何博主在debian和ubuntu之间推荐debian？ 在博主看来两者有以下的区别： (1)debian比较轻。 (2)新版本的编码问题。 在2018 Apr 02时点，ubuntu的17.10在WSL环境下，不支持多语言的utf-8。 这点在微软的WSL的issue 中有被人提及，我个人也是不小心升级了17.10结果导致了一系列困难，所以换的debian。 (3)使用vim的时候，要在root和自己的用户名两者都设置.vimrc文件，嗯这点要给debian减分 (4)使用private key认证的权限问题。 在debian有这样的限制： 如果用ssh的话，必须设置为一般权限用户无法使用。同时，这也会导致git无法使用那个key。 这点需要额外注意，如果是ubuntu的话就不需要额外设置。在ubuntu中，git似乎是具有特殊权限，可以绕过这个文件禁止一般用户读取的权限设置。 权限方面，看起来是debian做的比较安全。 (5)其他基本没看出有很大的区别 4.wsl不推荐使用自带terminal，推荐使用外部的terminal 我个人使用的是这一款：https://github.com/goreliu/wsl-terminal 自带的terminal会有如下问题。 (1)ubuntu的case 比如2016版本的早期terminal，有口吃的毛病。参见这里 当然后期的版本貌似更改了这一毛病，不过似乎….如果换了terminal就再也不用担心这个毛病了不是麽。 (2)debian的case debian的这个版本2018年3月5日才在ms的store上线，不过似乎对于ncurses这类的库支持不好还是怎样，比如使用you-get的时候， you-get &quot;https://www.youtube.com/watch?v=F2u3BhtMUTE&quot; (PS:博主版权的视频，并非非法下载，也欢迎大家下载，凭本文持有博主许可，另外需遵循youtube条则) 在debian的原生terminal会出现这样的感觉 因为似乎错了一个字节，然后就开始错位了，没有办法正确出现下图的这种情况。 5.切换默认的wsl 使用wslconfig。 wslconfig /l wslconfig /l /a wslconfig /setdefault 简单明了，应该不用解释了。 切换了之后，会发现比如我使用的那款terminal，会自动切换到默认的wsl。在powershell或者cmd里面，敲打bash或者wsl，也会开启默认的wsl。 暂时就想到这里。就先这样吧！ 参考资料： wslconfig command:WSLで複数のLinuxディストリビューションを管理する 更改语言encode系列:Full switch locale: Ubuntu server installed with no locales, how to enable locales systemwide? 更改语言encode系列:Debian/Ubuntuのデフォルトロケールを変更する mingw的package managerIs there any package management system for MinGW+MSYS? ubuntu17.10在wsl的语言encode问题:Microsoft/WSL issue :Assertion `ec &amp;gt;= 0’ failed. #1878 早期ubuntu原生wsl的termial的口吃问题:Win10的Bash真是好用 debian下，用sudo时和本地用户不共用一个vimrc问题:Problem with vim when logged in as root debian在microsoft store的链接:debian in ms store</summary></entry></feed>
+&lt;p&gt;废话不多说，我去画几幅画，然后去寻早饭食了。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">我发现这都是一种习惯。 习惯没事闲下来画个画。 习惯没事编个程。 习惯没事拿起笔记本，开始写日记。</summary></entry></feed>
