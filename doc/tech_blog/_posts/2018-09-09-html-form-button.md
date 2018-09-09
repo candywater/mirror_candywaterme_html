@@ -15,16 +15,16 @@ nodejs学习中，碰到这样的一段有趣的代码。
 ```
 这里是js的部分  
 ```js
-//$('form').submit(do_something);
+  $('form').submit(do_something);
 ```
 我遇到了几个问题，笑笑，我把解决他们的思路记录下来。  
 
 首先我疑惑的是，这个button上面也没有任何"submit"的标识，究竟为什么点回车or点那个button，就可以做do_something这个函数里面的东西？
 
-- 1. \<form\>里面的\<button\>究竟为什么可以充当\<input type=\"submit\"\>?
+- (1) \<form\>里面的\<button\>究竟为什么可以充当\<input type=\"submit\"\>?
 
 我觉得这个太不可思议，太不科学了，这一点也不编程。  
-我开始在mdn的海洋中寻找。  
+我开始在MDN的海洋中寻找。  
 终于让我找到这样的一句话。[1]
 
 > if there's only one \<button\> inside the \<form\>, that button will be treated as the "submit" button. 
@@ -37,7 +37,7 @@ nodejs学习中，碰到这样的一段有趣的代码。
 这个东西如果不用jQuery写应该怎么写。
 
 那么首先问题来了，
-- 2. 重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？  
+- (2) 重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？  
 我找到了这样的资料[6]:
 
 > jQuery certainly doesn’t help us here. The code follows the same intuitive syntax if we want to trigger some other DOM events, such as focus and blur, or submit on a \<form\>
@@ -89,6 +89,11 @@ trigger onsubmit. The submit method will not.
 像使用jQuery的人也会有这个疑问[8]...
 
 这个锅，历史你背定了，不怪我哦...XD
+
+### 结论
+
+(1)\<form\>中只有一个button的时候，这个button就是submit的发起按钮。  
+(2)想重定义from的submit的话，要在onsubmit上面写，不要直接在submit上写  
 
 
 [1][MDN \<input type=\"submit\"\>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit)  

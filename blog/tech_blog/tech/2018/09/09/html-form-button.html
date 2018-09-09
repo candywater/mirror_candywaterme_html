@@ -7,7 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>关于html的form元素的submit()的一点小问题</title>
-  <meta name="description" content="nodejs学习中，碰到这样的一段有趣的代码。 这里是html部分。 &amp;lt;form action=&quot;&quot;&amp;gt; &amp;lt;input id=&quot;m&quot; autocomplete=&quot;off&quot; /&amp;gt;&amp;lt;button&amp;gt;Send&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; 这里是js的部分 /...">
+  <meta name="description" content="nodejs学习中，碰到这样的一段有趣的代码。 这里是html部分。 &amp;lt;form action=&quot;&quot;&amp;gt; &amp;lt;input id=&quot;m&quot; autocomplete=&quot;off&quot; /&amp;gt;&amp;lt;button&amp;gt;Send&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; 这里是js的部分 $...">
 
   <link rel="stylesheet" href="/blog/assets/main.css">
   <link rel="canonical" href="https://candy-water.com/blog/tech_blog/tech/2018/09/09/html-form-button.html">
@@ -228,22 +228,18 @@
   <span class="nt">&lt;/form&gt;</span>
 </code></pre></div></div>
 <p>这里是js的部分</p>
-<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//$('form').submit(do_something);</span>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nx">$</span><span class="p">(</span><span class="s1">'form'</span><span class="p">).</span><span class="nx">submit</span><span class="p">(</span><span class="nx">do_something</span><span class="p">);</span>
 </code></pre></div></div>
 <p>我遇到了几个问题，笑笑，我把解决他们的思路记录下来。</p>
 
 <p>首先我疑惑的是，这个button上面也没有任何”submit”的标识，究竟为什么点回车or点那个button，就可以做do_something这个函数里面的东西？</p>
 
 <ul>
-  <li>
-    <ol>
-      <li>&lt;form&gt;里面的&lt;button&gt;究竟为什么可以充当&lt;input type="submit"&gt;?</li>
-    </ol>
-  </li>
+  <li>(1) &lt;form&gt;里面的&lt;button&gt;究竟为什么可以充当&lt;input type="submit"&gt;?</li>
 </ul>
 
 <p>我觉得这个太不可思议，太不科学了，这一点也不编程。<br />
-我开始在mdn的海洋中寻找。<br />
+我开始在MDN的海洋中寻找。<br />
 终于让我找到这样的一句话。[1]</p>
 
 <blockquote>
@@ -259,12 +255,8 @@
 
 <p>那么首先问题来了，</p>
 <ul>
-  <li>
-    <ol>
-      <li>重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？<br />
+  <li>(2) 重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？<br />
 我找到了这样的资料[6]:</li>
-    </ol>
-  </li>
 </ul>
 
 <blockquote>
@@ -326,6 +318,11 @@ by Filipus Klutiero</p>
 <p>像使用jQuery的人也会有这个疑问[8]…</p>
 
 <p>这个锅，历史你背定了，不怪我哦…XD</p>
+
+<h3 id="结论">结论</h3>
+
+<p>(1)&lt;form&gt;中只有一个button的时候，这个button就是submit的发起按钮。<br />
+(2)想重定义from的submit的话，要在onsubmit上面写，不要直接在submit上写</p>
 
 <p>[1]<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit">MDN &lt;input type="submit"&gt;</a><br />
 [2]<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLFormElement/submit">MDN form.submit</a><br />

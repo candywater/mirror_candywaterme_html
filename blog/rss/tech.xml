@@ -19,22 +19,18 @@
   &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;这里是js的部分&lt;/p&gt;
-&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//$('form').submit(do_something);&lt;/span&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'form'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;do_something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;我遇到了几个问题，笑笑，我把解决他们的思路记录下来。&lt;/p&gt;
 
 &lt;p&gt;首先我疑惑的是，这个button上面也没有任何”submit”的标识，究竟为什么点回车or点那个button，就可以做do_something这个函数里面的东西？&lt;/p&gt;
 
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;ol&gt;
-      &lt;li&gt;&amp;lt;form&amp;gt;里面的&amp;lt;button&amp;gt;究竟为什么可以充当&amp;lt;input type=&quot;submit&quot;&amp;gt;?&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
+  &lt;li&gt;(1) &amp;lt;form&amp;gt;里面的&amp;lt;button&amp;gt;究竟为什么可以充当&amp;lt;input type=&quot;submit&quot;&amp;gt;?&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;p&gt;我觉得这个太不可思议，太不科学了，这一点也不编程。&lt;br /&gt;
-我开始在mdn的海洋中寻找。&lt;br /&gt;
+我开始在MDN的海洋中寻找。&lt;br /&gt;
 终于让我找到这样的一句话。[1]&lt;/p&gt;
 
 &lt;blockquote&gt;
@@ -50,12 +46,8 @@
 
 &lt;p&gt;那么首先问题来了，&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;
-    &lt;ol&gt;
-      &lt;li&gt;重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？&lt;br /&gt;
+  &lt;li&gt;(2) 重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？&lt;br /&gt;
 我找到了这样的资料[6]:&lt;/li&gt;
-    &lt;/ol&gt;
-  &lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;blockquote&gt;
@@ -117,6 +109,11 @@ by Filipus Klutiero&lt;/p&gt;
 &lt;p&gt;像使用jQuery的人也会有这个疑问[8]…&lt;/p&gt;
 
 &lt;p&gt;这个锅，历史你背定了，不怪我哦…XD&lt;/p&gt;
+
+&lt;h3 id=&quot;结论&quot;&gt;结论&lt;/h3&gt;
+
+&lt;p&gt;(1)&amp;lt;form&amp;gt;中只有一个button的时候，这个button就是submit的发起按钮。&lt;br /&gt;
+(2)想重定义from的submit的话，要在onsubmit上面写，不要直接在submit上写&lt;/p&gt;
 
 &lt;p&gt;[1]&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit&quot;&gt;MDN &amp;lt;input type=&quot;submit&quot;&amp;gt;&lt;/a&gt;&lt;br /&gt;
 [2]&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLFormElement/submit&quot;&gt;MDN form.submit&lt;/a&gt;&lt;br /&gt;
