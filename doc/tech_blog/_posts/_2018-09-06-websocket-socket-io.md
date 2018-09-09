@@ -14,3 +14,6 @@ category: tech
 [5][教科書には載っていない ネットワークエンジニアの実践技術 第7回　TCPとUDPの違い，深層の真相](http://gihyo.jp/admin/serial/01/net_prac_tech/0007)
 [6][XMLHttpRequest vs. WebSocket](https://www.scriptol.com/ajax/xhr.php)
 [7][HTML5,CSS3,Javascript対応状況がわかるサイトまとめ](https://qiita.com/svjunic/items/0087a5d187838d136840)
+[8][socket-io-with-apache-cordova](https://socket.io/socket-io-with-apache-cordova/)
+[9][Node JS: Automatic selection of `http.get` vs `https.get`](https://stackoverflow.com/questions/15317902/node-js-automatic-selection-of-http-get-vs-https-get)
+[10][What is process.env.PORT in Node.js?](https://stackoverflow.com/questions/18864677/what-is-process-env-port-in-node-js)

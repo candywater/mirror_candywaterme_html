@@ -10,6 +10,135 @@
       
         
         <item>
+          <title>关于html的form元素的submit()的一点小问题</title>
+          
+            <description>&lt;p&gt;nodejs学习中，碰到这样的一段有趣的代码。 
+这里是html部分。&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;m&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;autocomplete=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;off&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;button&amp;gt;&lt;/span&gt;Send&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这里是js的部分&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//$('form').submit(do_something);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;我遇到了几个问题，笑笑，我把解决他们的思路记录下来。&lt;/p&gt;
+
+&lt;p&gt;首先我疑惑的是，这个button上面也没有任何”submit”的标识，究竟为什么点回车or点那个button，就可以做do_something这个函数里面的东西？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&amp;lt;form&amp;gt;里面的&amp;lt;button&amp;gt;究竟为什么可以充当&amp;lt;input type=&quot;submit&quot;&amp;gt;?&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我觉得这个太不可思议，太不科学了，这一点也不编程。&lt;br /&gt;
+我开始在mdn的海洋中寻找。&lt;br /&gt;
+终于让我找到这样的一句话。[1]&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;if there’s only one &amp;lt;button&amp;gt; inside the &amp;lt;form&amp;gt;, that button will be treated as the “submit” button.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原来是只有一个button的话，那么就默认当作submit处理= =&lt;br /&gt;
+这个确实方便，确有点玄幻，笑笑。毕竟真的是一个不好的习惯呢，笑笑&lt;/p&gt;
+
+&lt;p&gt;接下来我就产生了新的疑问。&lt;br /&gt;
+因为我是一个鉴定的摒弃jQuery病的晚期患者（虽然我自己的网站的许多部件基本就是用jQuery写的）&lt;br /&gt;
+这个东西如果不用jQuery写应该怎么写。&lt;/p&gt;
+
+&lt;p&gt;那么首先问题来了，&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？&lt;br /&gt;
+我找到了这样的资料[6]:&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;jQuery certainly doesn’t help us here. The code follows the same intuitive syntax if we want to trigger some other DOM events, such as focus and blur, or submit on a &amp;lt;form&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;也就是说，jQuery这里调用的其实是浏览器本身就已经提供的API，用jQuery写不过是加了一层jQuery的皮，事实上是很没有效率的一种行为。&lt;/p&gt;
+
+&lt;p&gt;哦 我懂了 那好像把下面这个重写&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;form&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;就行了吧？或者像jQuery一样把他的parameter带入一个自己想要override的函数就ok了吧？&lt;/p&gt;
+
+&lt;p&gt;事实上果断被现实狠生生的打了脸。 &lt;br /&gt;
+根据w3的标准文档[5]，form这个元素的submit是不可以像jQuery[4]一样拥有parameter的，然后我强行把submit重写似乎也不被允许 = = ||&lt;/p&gt;
+
+&lt;p&gt;卡住了。&lt;/p&gt;
+
+&lt;p&gt;等等，让我缓一缓。（我缓了一个下午，在仔细的读各种文档）&lt;/p&gt;
+
+&lt;p&gt;最后在重读[2]的时候，里面有一句话引起了我的注意：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;When invoking this method directly, no submit event is raised (in particular, the form’s onsubmit event handler is not run),  and constraint validation is not triggered either.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在基于Gecko的浏览器中，调用该方法后，表单的 onsubmit 事件句柄(比如,onsubmit=”return false;”)不会执行。不能保证由其一定会被 HTML 用户代理调用。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;英文和中文的有些许不一样。&lt;br /&gt;
+不过却提醒了我，我应该写的是onsubmit()这个函数，准确的说是事件….&lt;/p&gt;
+
+&lt;p&gt;所以准确的写法是&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;form&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onsubmit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;what_u_really_want_todo&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;what_u_really_want_todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;do_something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这里的&lt;code class=&quot;highlighter-rouge&quot;&gt;return false&lt;/code&gt;的作用是防止页面刷新。一旦点了按钮页面不在刷新，就说明这个成功了。&lt;/p&gt;
+
+&lt;p&gt;那么神奇的来了，这个submit()到底有什么用…&lt;br /&gt;
+根据[7]，这个疑似是历史遗留问题….我的天，锅又甩给历史了么….&lt;/p&gt;
+
+&lt;p&gt;这个邮件中有这样的文字&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;submit
+    Submits the form. It performs the same action as a submit button.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I don’t think the last sentence is correct. Using a submit input will 
+trigger onsubmit. The submit method will not.&lt;br /&gt;
+by Filipus Klutiero&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;像使用jQuery的人也会有这个疑问[8]…&lt;/p&gt;
+
+&lt;p&gt;这个锅，历史你背定了，不怪我哦…XD&lt;/p&gt;
+
+&lt;p&gt;[1]&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit&quot;&gt;MDN &amp;lt;input type=&quot;submit&quot;&amp;gt;&lt;/a&gt;&lt;br /&gt;
+[2]&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLFormElement/submit&quot;&gt;MDN form.submit&lt;/a&gt;&lt;br /&gt;
+[3]&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form&quot;&gt;MDN &amp;lt;form&amp;gt;&lt;/a&gt;&lt;br /&gt;
+[4]&lt;a href=&quot;https://api.jquery.com/submit/&quot;&gt;jQuery Doc .submit()&lt;/a&gt;&lt;br /&gt;
+[5]&lt;a href=&quot;https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-76767676&quot;&gt;W3 1. Document Object Model HTML&lt;/a&gt;&lt;br /&gt;
+[6]&lt;a href=&quot;https://blog.garstasio.com/you-dont-need-jquery/events/&quot;&gt;You Don’t Need jQuery!&lt;/a&gt;&lt;br /&gt;
+[7]&lt;a href=&quot;http://lists.w3.org/Archives/Public/www-dom/2012JanMar/0011.html&quot;&gt;DOM Level 2 HTML: Note about onsubmit is misplaced in HTMLFormElement spec (in enctype attribute rather than in submit method) (was Re: Minor formatting error in HTMLFormElement spec)&lt;/a&gt;&lt;br /&gt;
+[8]&lt;a href=&quot;https://bugs.jquery.com/ticket/3115&quot;&gt;jQuery #3115 CLOSED BUG (WONTFIX)&lt;/a&gt;&lt;/p&gt;
+</description>
+          
+          <pubDate>Sun, 09 Sep 2018 00:00:00 +0800</pubDate>
+          <link>
+          http://localhost:4000/tech_blog/tech/2018/09/09/html-form-button.html</link>
+          <guid isPermaLink="true">http://localhost:4000/tech_blog/tech/2018/09/09/html-form-button.html</guid>
+        </item>
+        
+      
+    
+      
+        
+        <item>
           <title>一个简单的nodejs小型图片下载器</title>
           
             <description>&lt;h2 id=&quot;缘由&quot;&gt;缘由&lt;/h2&gt;
@@ -173,7 +302,9 @@ global.you_want_to_use_outside_too  = you_want_to_use_outside_too
         <item>
           <title>近期杂记 - 关于editor的种种</title>
           
-            <description>&lt;h2 id=&quot;choco安装windows的更新&quot;&gt;choco安装windows的更新&lt;/h2&gt;
+            <description>&lt;p&gt;近期的一些小事的杂记。&lt;/p&gt;
+
+&lt;h2 id=&quot;1choco竟然会安装windows的更新&quot;&gt;1.choco竟然会安装windows的更新&lt;/h2&gt;
 
 &lt;p&gt;今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。&lt;/p&gt;
 
@@ -210,7 +341,7 @@ Installed:
 我在choco的主页这里（https://chocolatey.org/packages?q=WindowsUpdate）发现，原来有关windows update的包，也只有4个而已。&lt;br /&gt;
 很显然我要失望了，并不能把choco作为升级代理工具了XD&lt;/p&gt;
 
-&lt;h2 id=&quot;使用atom时输入法卡顿&quot;&gt;使用atom时输入法卡顿&lt;/h2&gt;
+&lt;h2 id=&quot;2使用atom时输入法卡顿问题&quot;&gt;2.使用atom时输入法卡顿问题&lt;/h2&gt;
 
 &lt;p&gt;首先我使用的是双拼输入法，是win10自带的微软双拼输入法。&lt;br /&gt;
 这个输入法本身就有些卡顿（不知道为什么)&lt;br /&gt;
@@ -223,7 +354,7 @@ Installed:
 不过很显然这个方法对我来说没有什么用。&lt;br /&gt;
 只好查找下一个editor试试看看咯。&lt;/p&gt;
 
-&lt;h2 id=&quot;markdown在atom中末尾的空格会被删除&quot;&gt;markdown在atom中末尾的空格会被删除&lt;/h2&gt;
+&lt;h2 id=&quot;3markdown在atom中末尾的单个空格会被删除&quot;&gt;3.markdown在atom中末尾的单个空格会被删除&lt;/h2&gt;
 
 &lt;p&gt;众所周知markdown文件在末尾的单个空格意味着改行。&lt;br /&gt;
 我查了一下网上给出的查看whitespace这个package的建议&lt;br /&gt;
@@ -232,7 +363,7 @@ Installed:
 
 &lt;p&gt;[1]&lt;a href=&quot;www.phpvar.com/bbs/forum.php?mod=viewthread&amp;amp;tid=125&quot;&gt;atom自动删除行末空格行？ - Atom &amp;amp; Sublime Text - 前端技术分享论坛&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;atom的替代选项---xray-&quot;&gt;atom的替代选项 - xray ？&lt;/h2&gt;
+&lt;h2 id=&quot;4atom的未来替代选项---xray-&quot;&gt;4.atom的未来替代选项 - xray ？&lt;/h2&gt;
 
 &lt;p&gt;github在开发完atom之后，貌似又要开发xray。&lt;br /&gt;
 这个消息很早就看过了，只不过记不住它的名字。&lt;br /&gt;
@@ -251,7 +382,7 @@ To allow files to be associated with editable content, we’re adapting the buff
 &lt;p&gt;啊…还有好长的路啊…不过看起来他们使用WEBGL来做，感觉好厉害。。。&lt;br /&gt;
 （关于使用WEBGL的笔记：https://github.com/atom/xray/blob/master/docs/updates/2018_03_05.md）&lt;/p&gt;
 
-&lt;h2 id=&quot;关于新vcs-memo&quot;&gt;关于新vcs memo&lt;/h2&gt;
+&lt;h2 id=&quot;5关于新世代vcs--memo&quot;&gt;5.关于新世代vcs – memo&lt;/h2&gt;
 
 &lt;p&gt;关于这个新的vcs(version control system)，memo，大致看了一下它的说明。&lt;br /&gt;
 它主张有以下4个特性(加上我的翻译)&lt;/p&gt;

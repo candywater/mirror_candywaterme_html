@@ -6,11 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>近期杂记 - 关于editor的种种</title>
-  <meta name="description" content="近期的一些小事的杂记。 1.choco竟然会安装windows的更新 今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。 $ choco install neovim Chocolatey v0.10.11 Installing the following pac...">
+  <title>关于html的form元素的submit()的一点小问题</title>
+  <meta name="description" content="nodejs学习中，碰到这样的一段有趣的代码。 这里是html部分。 &amp;lt;form action=&quot;&quot;&amp;gt; &amp;lt;input id=&quot;m&quot; autocomplete=&quot;off&quot; /&amp;gt;&amp;lt;button&amp;gt;Send&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; 这里是js的部分 /...">
 
   <link rel="stylesheet" href="/blog/assets/main.css">
-  <link rel="canonical" href="https://candy-water.com/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom.html">
+  <link rel="canonical" href="https://candy-water.com/blog/tech_blog/tech/2018/09/09/html-form-button.html">
   <link rel="alternate" type="application/rss+xml" title="Candy Water" href="/blog/feed.xml">
   <!--icon-->
   <link rel="icon" type="image/png" href="/favicon.png">
@@ -209,11 +209,11 @@
         <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title" itemprop="name headline">近期杂记 - 关于editor的种种</h1>
+    <h1 class="post-title" itemprop="name headline">关于html的form元素的submit()的一点小问题</h1>
     <p class="post-meta">
-      <time datetime="2018-09-02T00:00:00+08:00" itemprop="datePublished">
+      <time datetime="2018-09-09T00:00:00+08:00" itemprop="datePublished">
         
-        Sep 2, 2018
+        Sep 9, 2018
       </time>
       
     </p>
@@ -221,127 +221,120 @@
   <hr>
   </header>
   <div class="post-content" itemprop="articleBody">
-    <p>近期的一些小事的杂记。</p>
-
-<h2 id="1choco竟然会安装windows的更新">1.choco竟然会安装windows的更新</h2>
-
-<p>今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。</p>
-
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ choco install neovim
-Chocolatey v0.10.11
-Installing the following packages:
-neovim
-By installing you accept licenses for the packages.
-Progress: Downloading vcredist2015 14.0.24215.20170201... 100%
-Progress: Downloading vcredist140 14.12.25810... 100%
-Progress: Downloading KB3033929 1.0.3... 100%
-Progress: Downloading chocolatey-windowsupdate.extension 1.0.2... 100%
-Progress: Downloading KB3035131 1.0.1... 100%
-Progress: Downloading KB2919355 1.0.20160915... 100%
-Progress: Downloading KB2919442 1.0.20160915... 100%
-Progress: Downloading KB2999226 1.0.20170509... 100%
-Progress: Downloading neovim 0.3.1... 100%
+    <p>nodejs学习中，碰到这样的一段有趣的代码。 
+这里是html部分。</p>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  <span class="nt">&lt;form</span> <span class="na">action=</span><span class="s">""</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">id=</span><span class="s">"m"</span> <span class="na">autocomplete=</span><span class="s">"off"</span> <span class="nt">/&gt;&lt;button&gt;</span>Send<span class="nt">&lt;/button&gt;</span>
+  <span class="nt">&lt;/form&gt;</span>
 </code></pre></div></div>
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$ Chocolatey installed 9/9 packages.
- See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log).
-
-Installed:
- - kb2919355 v1.0.20160915
- - kb3033929 v1.0.3
- - kb2999226 v1.0.20170509
- - vcredist2015 v14.0.24215.20170201
- - kb2919442 v1.0.20160915
- - vcredist140 v14.12.25810
- - neovim v0.3.1
- - kb3035131 v1.0.1
- - chocolatey-windowsupdate.extension v1.0.2
+<p>这里是js的部分</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//$('form').submit(do_something);</span>
 </code></pre></div></div>
-<p>说实话非常有趣。<br />
-我在choco的主页这里（https://chocolatey.org/packages?q=WindowsUpdate）发现，原来有关windows update的包，也只有4个而已。<br />
-很显然我要失望了，并不能把choco作为升级代理工具了XD</p>
+<p>我遇到了几个问题，笑笑，我把解决他们的思路记录下来。</p>
 
-<h2 id="2使用atom时输入法卡顿问题">2.使用atom时输入法卡顿问题</h2>
+<p>首先我疑惑的是，这个button上面也没有任何”submit”的标识，究竟为什么点回车or点那个button，就可以做do_something这个函数里面的东西？</p>
 
-<p>首先我使用的是双拼输入法，是win10自带的微软双拼输入法。<br />
-这个输入法本身就有些卡顿（不知道为什么)<br />
-在使用atom的时候，比如换行，比如切换到英文，比如鼠标把光标移走，比如删除输入过的文字，都有概率会卡顿。</p>
-
-<p>具体表现为，要输入大约10多个字母之后输入法才会启动，不然什么东西都不显示，什么东西都打不出来。<br />
-唯一规避的方式只有连续按两次shift = =||<br />
-也是一个奇葩的bug了。<br />
-在网上找到方法说，安装中文包会解决。<br />
-不过很显然这个方法对我来说没有什么用。<br />
-只好查找下一个editor试试看看咯。</p>
-
-<h2 id="3markdown在atom中末尾的单个空格会被删除">3.markdown在atom中末尾的单个空格会被删除</h2>
-
-<p>众所周知markdown文件在末尾的单个空格意味着改行。<br />
-我查了一下网上给出的查看whitespace这个package的建议<br />
-发现里面的设定是如果在markdown文件中，有2个空格就不会被删除。<br />
-嗯，那就用两个空格吧！</p>
-
-<p>[1]<a href="www.phpvar.com/bbs/forum.php?mod=viewthread&amp;tid=125">atom自动删除行末空格行？ - Atom &amp; Sublime Text - 前端技术分享论坛</a></p>
-
-<h2 id="4atom的未来替代选项---xray-">4.atom的未来替代选项 - xray ？</h2>
-
-<p>github在开发完atom之后，貌似又要开发xray。<br />
-这个消息很早就看过了，只不过记不住它的名字。<br />
-想说虽然正在开发中，不过用一下看看吧！看到没有release，同时又没有makefile = =||<br />
-算了算了，好像用不了的样子（自我安慰）<br />
-那我就不用了！<br />
-而且看他的2018 Q3的目标，竟然是version control system = = 我了个去，好吧好吧，敬请期待。</p>
-
-<p>他好像真的是用不了，我看它的报告（https://github.com/atom/xray/blob/master/docs/updates/2018_08_28.md）<br />
-里面说好像下一步要做buffer= =</p>
-<blockquote>
-  <p>The file support added last week assumes that all files are empty.<br />
-To allow files to be associated with editable content, we’re adapting the buffer module from xray_core to work with Memo’s new B-tree.</p>
-</blockquote>
-
-<p>啊…还有好长的路啊…不过看起来他们使用WEBGL来做，感觉好厉害。。。<br />
-（关于使用WEBGL的笔记：https://github.com/atom/xray/blob/master/docs/updates/2018_03_05.md）</p>
-
-<h2 id="5关于新世代vcs--memo">5.关于新世代vcs – memo</h2>
-
-<p>关于这个新的vcs(version control system)，memo，大致看了一下它的说明。<br />
-它主张有以下4个特性(加上我的翻译)</p>
 <ul>
   <li>
-    <blockquote>
-      <p>Continuous persistence<br />
-不间断的可持续性。所有的更改可以在不commit的情况下上传倒服务器，所以你的同事可以在另一台机器上继续你的工作。也可以在这个文件的历史之中擦除或者再现某一个历史纪录。</p>
-    </blockquote>
-  </li>
-  <li>
-    <blockquote>
-      <p>Live branches<br />
-实时的branch。只要你连接到网络，所有的branch的最新情报会实时更新。编辑每一个branch的复制品的时候会自动同步，而省去手动更改confict（冲突）的烦恼。</p>
-    </blockquote>
-  </li>
-  <li>
-    <blockquote>
-      <p>Persistent annotations<br />
-不间断的注解。在最新版本的代码中，创建永久链接给每一块代码，即便代码已经被编辑过，都指向同一块逻辑区域。（这个不是太懂）</p>
-    </blockquote>
-  </li>
-  <li>
-    <blockquote>
-      <p>Non-linear history<br />
-非线性的历史。undo或者redo在某一特定区域。Group changes into arbitrary layers that can be dynamically toggled.（这句话每一个词我都懂，但是合在一起不知道什么意思）</p>
-    </blockquote>
+    <ol>
+      <li>&lt;form&gt;里面的&lt;button&gt;究竟为什么可以充当&lt;input type="submit"&gt;?</li>
+    </ol>
   </li>
 </ul>
 
-<p>这个的大概意思，应该是做一个类似于google doc的同时编辑的一个vcs版本啊。<br />
-不过这个有几个难题，第一是网络的带宽问题，第二是网络的延迟问题，第三是同时编辑同一文件的冲突问题。<br />
-第三最难解决，第一第二都是bottleneck而已。或者说，第一第二在内网的环境下，可能不算是问题。<br />
-google doc能解决第三的原因在于它是在server端提供的服务。然后如果代码是在本地端的话，这个我认为除非出现量子网络，不然极难解决。<br />
-记得svn的解决方案是lock…锁定…<br />
-git的解决方案是…干脆不管XD  merge的时候再说XD</p>
+<p>我觉得这个太不可思议，太不科学了，这一点也不编程。<br />
+我开始在mdn的海洋中寻找。<br />
+终于让我找到这样的一句话。[1]</p>
 
-<p>继续读，还真的是一个云服务，似乎是一个和git有兼容性的这个一个云服务。期待后续吧。</p>
+<blockquote>
+  <p>if there’s only one &lt;button&gt; inside the &lt;form&gt;, that button will be treated as the “submit” button.</p>
+</blockquote>
 
-<p>[2]<a href="https://github.com/atom/xray/blob/master/memo/README.md">Memo: Operation-based version control</a></p>
+<p>原来是只有一个button的话，那么就默认当作submit处理= =<br />
+这个确实方便，确有点玄幻，笑笑。毕竟真的是一个不好的习惯呢，笑笑</p>
+
+<p>接下来我就产生了新的疑问。<br />
+因为我是一个鉴定的摒弃jQuery病的晚期患者（虽然我自己的网站的许多部件基本就是用jQuery写的）<br />
+这个东西如果不用jQuery写应该怎么写。</p>
+
+<p>那么首先问题来了，</p>
+<ul>
+  <li>
+    <ol>
+      <li>重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？<br />
+我找到了这样的资料[6]:</li>
+    </ol>
+  </li>
+</ul>
+
+<blockquote>
+  <p>jQuery certainly doesn’t help us here. The code follows the same intuitive syntax if we want to trigger some other DOM events, such as focus and blur, or submit on a &lt;form&gt;</p>
+</blockquote>
+
+<p>也就是说，jQuery这里调用的其实是浏览器本身就已经提供的API，用jQuery写不过是加了一层jQuery的皮，事实上是很没有效率的一种行为。</p>
+
+<p>哦 我懂了 那好像把下面这个重写</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"form"</span><span class="p">).</span><span class="nx">submit</span><span class="p">()</span>
+</code></pre></div></div>
+<p>就行了吧？或者像jQuery一样把他的parameter带入一个自己想要override的函数就ok了吧？</p>
+
+<p>事实上果断被现实狠生生的打了脸。 <br />
+根据w3的标准文档[5]，form这个元素的submit是不可以像jQuery[4]一样拥有parameter的，然后我强行把submit重写似乎也不被允许 = = ||</p>
+
+<p>卡住了。</p>
+
+<p>等等，让我缓一缓。（我缓了一个下午，在仔细的读各种文档）</p>
+
+<p>最后在重读[2]的时候，里面有一句话引起了我的注意：</p>
+
+<blockquote>
+  <p>When invoking this method directly, no submit event is raised (in particular, the form’s onsubmit event handler is not run),  and constraint validation is not triggered either.</p>
+</blockquote>
+
+<blockquote>
+  <p>在基于Gecko的浏览器中，调用该方法后，表单的 onsubmit 事件句柄(比如,onsubmit=”return false;”)不会执行。不能保证由其一定会被 HTML 用户代理调用。</p>
+</blockquote>
+
+<p>英文和中文的有些许不一样。<br />
+不过却提醒了我，我应该写的是onsubmit()这个函数，准确的说是事件….</p>
+
+<p>所以准确的写法是</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">document</span><span class="p">.</span><span class="nx">querySelector</span><span class="p">(</span><span class="s2">"form"</span><span class="p">).</span><span class="nx">onsubmit</span> <span class="o">=</span> <span class="nx">what_u_really_want_todo</span>
+
+<span class="kd">var</span> <span class="nx">what_u_really_want_todo</span> <span class="o">=</span> <span class="p">()</span> <span class="o">=&gt;</span> <span class="p">{</span><span class="nx">do_something</span><span class="p">;</span> <span class="k">return</span> <span class="kc">false</span><span class="p">;}</span>
+</code></pre></div></div>
+
+<p>这里的<code class="highlighter-rouge">return false</code>的作用是防止页面刷新。一旦点了按钮页面不在刷新，就说明这个成功了。</p>
+
+<p>那么神奇的来了，这个submit()到底有什么用…<br />
+根据[7]，这个疑似是历史遗留问题….我的天，锅又甩给历史了么….</p>
+
+<p>这个邮件中有这样的文字</p>
+<blockquote>
+  <blockquote>
+    <p>submit
+    Submits the form. It performs the same action as a submit button.</p>
+  </blockquote>
+</blockquote>
+
+<blockquote>
+  <p>I don’t think the last sentence is correct. Using a submit input will 
+trigger onsubmit. The submit method will not.<br />
+by Filipus Klutiero</p>
+</blockquote>
+
+<p>像使用jQuery的人也会有这个疑问[8]…</p>
+
+<p>这个锅，历史你背定了，不怪我哦…XD</p>
+
+<p>[1]<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit">MDN &lt;input type="submit"&gt;</a><br />
+[2]<a href="https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLFormElement/submit">MDN form.submit</a><br />
+[3]<a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form">MDN &lt;form&gt;</a><br />
+[4]<a href="https://api.jquery.com/submit/">jQuery Doc .submit()</a><br />
+[5]<a href="https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-76767676">W3 1. Document Object Model HTML</a><br />
+[6]<a href="https://blog.garstasio.com/you-dont-need-jquery/events/">You Don’t Need jQuery!</a><br />
+[7]<a href="http://lists.w3.org/Archives/Public/www-dom/2012JanMar/0011.html">DOM Level 2 HTML: Note about onsubmit is misplaced in HTMLFormElement spec (in enctype attribute rather than in submit method) (was Re: Minor formatting error in HTMLFormElement spec)</a><br />
+[8]<a href="https://bugs.jquery.com/ticket/3115">jQuery #3115 CLOSED BUG (WONTFIX)</a></p>
 
   </div>
 

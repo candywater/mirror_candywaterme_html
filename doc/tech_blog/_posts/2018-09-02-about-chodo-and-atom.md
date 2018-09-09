@@ -6,7 +6,9 @@ tags: choco, xray, atom, editor, memo
 category: tech
 ---
 
-## choco安装windows的更新
+近期的一些小事的杂记。
+
+## 1.choco竟然会安装windows的更新
 
 今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。  
 
@@ -45,7 +47,7 @@ Installed:
 我在choco的主页这里（https://chocolatey.org/packages?q=WindowsUpdate）发现，原来有关windows update的包，也只有4个而已。  
 很显然我要失望了，并不能把choco作为升级代理工具了XD  
 
-## 使用atom时输入法卡顿
+## 2.使用atom时输入法卡顿问题
 
 首先我使用的是双拼输入法，是win10自带的微软双拼输入法。  
 这个输入法本身就有些卡顿（不知道为什么)  
@@ -58,7 +60,7 @@ Installed:
 不过很显然这个方法对我来说没有什么用。  
 只好查找下一个editor试试看看咯。
 
-## markdown在atom中末尾的空格会被删除
+## 3.markdown在atom中末尾的单个空格会被删除
 
 众所周知markdown文件在末尾的单个空格意味着改行。  
 我查了一下网上给出的查看whitespace这个package的建议  
@@ -67,7 +69,7 @@ Installed:
 
 [1][atom自动删除行末空格行？ - Atom & Sublime Text - 前端技术分享论坛](www.phpvar.com/bbs/forum.php?mod=viewthread&tid=125)
 
-## atom的替代选项 - xray ？
+## 4.atom的未来替代选项 - xray ？
 
 github在开发完atom之后，貌似又要开发xray。  
 这个消息很早就看过了，只不过记不住它的名字。  
@@ -84,7 +86,7 @@ github在开发完atom之后，貌似又要开发xray。
 啊...还有好长的路啊...不过看起来他们使用WEBGL来做，感觉好厉害。。。  
 （关于使用WEBGL的笔记：https://github.com/atom/xray/blob/master/docs/updates/2018_03_05.md）
 
-## 关于新vcs memo
+## 5.关于新世代vcs -- memo
 
 关于这个新的vcs(version control system)，memo，大致看了一下它的说明。  
 它主张有以下4个特性(加上我的翻译)

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: webpack的初步学习笔记(2)
+title: webpack的初步学习笔记(2)关于babel
 date: 2018-09-04 +0900
-tags: webpack, js, javascript, npm, nodejs
+tags: webpack, js, javascript, npm, nodejs, babel
 category: tech
 ---
 

@@ -1,4 +1,117 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-09-06T14:23:19+08:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">一个简单的nodejs小型图片下载器</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img.html" rel="alternate" type="text/html" title="一个简单的nodejs小型图片下载器" /><published>2018-09-05T00:00:00+08:00</published><updated>2018-09-05T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img.html">&lt;h2 id=&quot;缘由&quot;&gt;缘由&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.8.3">Jekyll</generator><link href="http://localhost:4000/blog/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/blog/" rel="alternate" type="text/html" /><updated>2018-09-09T17:06:13+08:00</updated><id>http://localhost:4000/blog/</id><title type="html">Candy Water</title><subtitle>Welcome to Candy Water's world!!</subtitle><entry><title type="html">关于html的form元素的submit()的一点小问题</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/09/html-form-button.html" rel="alternate" type="text/html" title="关于html的form元素的submit()的一点小问题" /><published>2018-09-09T00:00:00+08:00</published><updated>2018-09-09T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/09/html-form-button</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/09/html-form-button.html">&lt;p&gt;nodejs学习中，碰到这样的一段有趣的代码。 
+这里是html部分。&lt;/p&gt;
+&lt;div class=&quot;language-html highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;  &lt;span class=&quot;nt&quot;&gt;&amp;lt;form&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;action=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;&quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class=&quot;nt&quot;&gt;&amp;lt;input&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;id=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;m&quot;&lt;/span&gt; &lt;span class=&quot;na&quot;&gt;autocomplete=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;off&quot;&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;/&amp;gt;&amp;lt;button&amp;gt;&lt;/span&gt;Send&lt;span class=&quot;nt&quot;&gt;&amp;lt;/button&amp;gt;&lt;/span&gt;
+  &lt;span class=&quot;nt&quot;&gt;&amp;lt;/form&amp;gt;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;这里是js的部分&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;//$('form').submit(do_something);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;我遇到了几个问题，笑笑，我把解决他们的思路记录下来。&lt;/p&gt;
+
+&lt;p&gt;首先我疑惑的是，这个button上面也没有任何”submit”的标识，究竟为什么点回车or点那个button，就可以做do_something这个函数里面的东西？&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;&amp;lt;form&amp;gt;里面的&amp;lt;button&amp;gt;究竟为什么可以充当&amp;lt;input type=&quot;submit&quot;&amp;gt;?&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;我觉得这个太不可思议，太不科学了，这一点也不编程。&lt;br /&gt;
+我开始在mdn的海洋中寻找。&lt;br /&gt;
+终于让我找到这样的一句话。[1]&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;if there’s only one &amp;lt;button&amp;gt; inside the &amp;lt;form&amp;gt;, that button will be treated as the “submit” button.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;原来是只有一个button的话，那么就默认当作submit处理= =&lt;br /&gt;
+这个确实方便，确有点玄幻，笑笑。毕竟真的是一个不好的习惯呢，笑笑&lt;/p&gt;
+
+&lt;p&gt;接下来我就产生了新的疑问。&lt;br /&gt;
+因为我是一个鉴定的摒弃jQuery病的晚期患者（虽然我自己的网站的许多部件基本就是用jQuery写的）&lt;br /&gt;
+这个东西如果不用jQuery写应该怎么写。&lt;/p&gt;
+
+&lt;p&gt;那么首先问题来了，&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;ol&gt;
+      &lt;li&gt;重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？&lt;br /&gt;
+我找到了这样的资料[6]:&lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;jQuery certainly doesn’t help us here. The code follows the same intuitive syntax if we want to trigger some other DOM events, such as focus and blur, or submit on a &amp;lt;form&amp;gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;也就是说，jQuery这里调用的其实是浏览器本身就已经提供的API，用jQuery写不过是加了一层jQuery的皮，事实上是很没有效率的一种行为。&lt;/p&gt;
+
+&lt;p&gt;哦 我懂了 那好像把下面这个重写&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;form&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;submit&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;p&gt;就行了吧？或者像jQuery一样把他的parameter带入一个自己想要override的函数就ok了吧？&lt;/p&gt;
+
+&lt;p&gt;事实上果断被现实狠生生的打了脸。 &lt;br /&gt;
+根据w3的标准文档[5]，form这个元素的submit是不可以像jQuery[4]一样拥有parameter的，然后我强行把submit重写似乎也不被允许 = = ||&lt;/p&gt;
+
+&lt;p&gt;卡住了。&lt;/p&gt;
+
+&lt;p&gt;等等，让我缓一缓。（我缓了一个下午，在仔细的读各种文档）&lt;/p&gt;
+
+&lt;p&gt;最后在重读[2]的时候，里面有一句话引起了我的注意：&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;When invoking this method directly, no submit event is raised (in particular, the form’s onsubmit event handler is not run),  and constraint validation is not triggered either.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;在基于Gecko的浏览器中，调用该方法后，表单的 onsubmit 事件句柄(比如,onsubmit=”return false;”)不会执行。不能保证由其一定会被 HTML 用户代理调用。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;英文和中文的有些许不一样。&lt;br /&gt;
+不过却提醒了我，我应该写的是onsubmit()这个函数，准确的说是事件….&lt;/p&gt;
+
+&lt;p&gt;所以准确的写法是&lt;/p&gt;
+&lt;div class=&quot;language-js highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;document&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;querySelector&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;form&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;onsubmit&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;what_u_really_want_todo&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;what_u_really_want_todo&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;do_something&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;false&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;这里的&lt;code class=&quot;highlighter-rouge&quot;&gt;return false&lt;/code&gt;的作用是防止页面刷新。一旦点了按钮页面不在刷新，就说明这个成功了。&lt;/p&gt;
+
+&lt;p&gt;那么神奇的来了，这个submit()到底有什么用…&lt;br /&gt;
+根据[7]，这个疑似是历史遗留问题….我的天，锅又甩给历史了么….&lt;/p&gt;
+
+&lt;p&gt;这个邮件中有这样的文字&lt;/p&gt;
+&lt;blockquote&gt;
+  &lt;blockquote&gt;
+    &lt;p&gt;submit
+    Submits the form. It performs the same action as a submit button.&lt;/p&gt;
+  &lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;I don’t think the last sentence is correct. Using a submit input will 
+trigger onsubmit. The submit method will not.&lt;br /&gt;
+by Filipus Klutiero&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;像使用jQuery的人也会有这个疑问[8]…&lt;/p&gt;
+
+&lt;p&gt;这个锅，历史你背定了，不怪我哦…XD&lt;/p&gt;
+
+&lt;p&gt;[1]&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/submit&quot;&gt;MDN &amp;lt;input type=&quot;submit&quot;&amp;gt;&lt;/a&gt;&lt;br /&gt;
+[2]&lt;a href=&quot;https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLFormElement/submit&quot;&gt;MDN form.submit&lt;/a&gt;&lt;br /&gt;
+[3]&lt;a href=&quot;https://developer.mozilla.org/en-US/docs/Web/HTML/Element/form&quot;&gt;MDN &amp;lt;form&amp;gt;&lt;/a&gt;&lt;br /&gt;
+[4]&lt;a href=&quot;https://api.jquery.com/submit/&quot;&gt;jQuery Doc .submit()&lt;/a&gt;&lt;br /&gt;
+[5]&lt;a href=&quot;https://www.w3.org/TR/DOM-Level-2-HTML/html.html#ID-76767676&quot;&gt;W3 1. Document Object Model HTML&lt;/a&gt;&lt;br /&gt;
+[6]&lt;a href=&quot;https://blog.garstasio.com/you-dont-need-jquery/events/&quot;&gt;You Don’t Need jQuery!&lt;/a&gt;&lt;br /&gt;
+[7]&lt;a href=&quot;http://lists.w3.org/Archives/Public/www-dom/2012JanMar/0011.html&quot;&gt;DOM Level 2 HTML: Note about onsubmit is misplaced in HTMLFormElement spec (in enctype attribute rather than in submit method) (was Re: Minor formatting error in HTMLFormElement spec)&lt;/a&gt;&lt;br /&gt;
+[8]&lt;a href=&quot;https://bugs.jquery.com/ticket/3115&quot;&gt;jQuery #3115 CLOSED BUG (WONTFIX)&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="html5" /><summary type="html">nodejs学习中，碰到这样的一段有趣的代码。 这里是html部分。 &amp;lt;form action=&quot;&quot;&amp;gt; &amp;lt;input id=&quot;m&quot; autocomplete=&quot;off&quot; /&amp;gt;&amp;lt;button&amp;gt;Send&amp;lt;/button&amp;gt; &amp;lt;/form&amp;gt; 这里是js的部分 //$('form').submit(do_something); 我遇到了几个问题，笑笑，我把解决他们的思路记录下来。 首先我疑惑的是，这个button上面也没有任何”submit”的标识，究竟为什么点回车or点那个button，就可以做do_something这个函数里面的东西？ &amp;lt;form&amp;gt;里面的&amp;lt;button&amp;gt;究竟为什么可以充当&amp;lt;input type=&quot;submit&quot;&amp;gt;? 我觉得这个太不可思议，太不科学了，这一点也不编程。 我开始在mdn的海洋中寻找。 终于让我找到这样的一句话。[1] if there’s only one &amp;lt;button&amp;gt; inside the &amp;lt;form&amp;gt;, that button will be treated as the “submit” button. 原来是只有一个button的话，那么就默认当作submit处理= = 这个确实方便，确有点玄幻，笑笑。毕竟真的是一个不好的习惯呢，笑笑 接下来我就产生了新的疑问。 因为我是一个鉴定的摒弃jQuery病的晚期患者（虽然我自己的网站的许多部件基本就是用jQuery写的） 这个东西如果不用jQuery写应该怎么写。 那么首先问题来了， 重写submit()这个部分jQuery是怎么实现的？如何逃离jQuery？ 我找到了这样的资料[6]: jQuery certainly doesn’t help us here. The code follows the same intuitive syntax if we want to trigger some other DOM events, such as focus and blur, or submit on a &amp;lt;form&amp;gt; 也就是说，jQuery这里调用的其实是浏览器本身就已经提供的API，用jQuery写不过是加了一层jQuery的皮，事实上是很没有效率的一种行为。 哦 我懂了 那好像把下面这个重写 document.querySelector(&quot;form&quot;).submit() 就行了吧？或者像jQuery一样把他的parameter带入一个自己想要override的函数就ok了吧？ 事实上果断被现实狠生生的打了脸。 根据w3的标准文档[5]，form这个元素的submit是不可以像jQuery[4]一样拥有parameter的，然后我强行把submit重写似乎也不被允许 = = || 卡住了。 等等，让我缓一缓。（我缓了一个下午，在仔细的读各种文档） 最后在重读[2]的时候，里面有一句话引起了我的注意： When invoking this method directly, no submit event is raised (in particular, the form’s onsubmit event handler is not run), and constraint validation is not triggered either. 在基于Gecko的浏览器中，调用该方法后，表单的 onsubmit 事件句柄(比如,onsubmit=”return false;”)不会执行。不能保证由其一定会被 HTML 用户代理调用。 英文和中文的有些许不一样。 不过却提醒了我，我应该写的是onsubmit()这个函数，准确的说是事件…. 所以准确的写法是 document.querySelector(&quot;form&quot;).onsubmit = what_u_really_want_todo var what_u_really_want_todo = () =&amp;gt; {do_something; return false;} 这里的return false的作用是防止页面刷新。一旦点了按钮页面不在刷新，就说明这个成功了。 那么神奇的来了，这个submit()到底有什么用… 根据[7]，这个疑似是历史遗留问题….我的天，锅又甩给历史了么…. 这个邮件中有这样的文字 submit Submits the form. It performs the same action as a submit button. I don’t think the last sentence is correct. Using a submit input will trigger onsubmit. The submit method will not. by Filipus Klutiero 像使用jQuery的人也会有这个疑问[8]… 这个锅，历史你背定了，不怪我哦…XD [1]MDN &amp;lt;input type=&quot;submit&quot;&amp;gt; [2]MDN form.submit [3]MDN &amp;lt;form&amp;gt; [4]jQuery Doc .submit() [5]W3 1. Document Object Model HTML [6]You Don’t Need jQuery! [7]DOM Level 2 HTML: Note about onsubmit is misplaced in HTMLFormElement spec (in enctype attribute rather than in submit method) (was Re: Minor formatting error in HTMLFormElement spec) [8]jQuery #3115 CLOSED BUG (WONTFIX)</summary></entry><entry><title type="html">一个简单的nodejs小型图片下载器</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img.html" rel="alternate" type="text/html" title="一个简单的nodejs小型图片下载器" /><published>2018-09-05T00:00:00+08:00</published><updated>2018-09-05T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/05/a-downloader-for-img.html">&lt;h2 id=&quot;缘由&quot;&gt;缘由&lt;/h2&gt;
 &lt;p&gt;因为自己想看把一个网站的页面的图片抓下来，而且图片的数量比较多，用wget会抓到许多没用的东西，所以决定写一个小东西来抓包。&lt;/p&gt;
 
 &lt;h2 id=&quot;requirement&quot;&gt;requirement&lt;/h2&gt;
@@ -127,7 +240,9 @@ global.you_want_to_use_outside_too  = you_want_to_use_outside_too
 同时，为了通过eslint，我决定不使用&lt;code class=&quot;highlighter-rouge&quot;&gt;global&lt;/code&gt;。&lt;/p&gt;
 
 &lt;p&gt;[1]&lt;a href=&quot;https://qiita.com/homahi/items/305f689506c9a1c66810&quot;&gt;webpackでTypeScriptからコンパイルしたJavaScriptの関数をうまく呼び出せない。&lt;/a&gt;&lt;br /&gt;
-[2]&lt;a href=&quot;https://stackoverflow.com/questions/37656592/define-global-variable-with-webpack&quot;&gt;Define global variable with webpack&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="webpack," /><category term="js," /><category term="javascript," /><category term="npm," /><category term="nodejs" /><summary type="html">解除了一下webpack。以前就想接触一下，不过并没有他们说的那么简单。 撕逼乎上有人说，这就是前端的人不懂后端，所以webpack根本玩不明白。这东西就和makefile一样一样的之乎者也。 昨天总算弄懂了。其实还是makefile比较直观 = = 虽然我每次都要看一下makefile的说明才能写得出来XD 如何在网页中调用bundle文件中的函数 很简单，就是把那个函数全域化。 function you_want_to_use_outside() { } var you_want_to_use_outside_too = () =&amp;gt; {console.log();}; window.you_want_to_use_outside = you_want_to_use_outside global.you_want_to_use_outside_too = you_want_to_use_outside_too 是不是有点太简单？ 在webpack中，global会被自动转换成window。 我之前思考的是另一个问题。 这个东西会不会不安全? 因为我还蛮想用export这个东西的XD 不过在[2]中的看到了好多种方法，想了想，还是选择了最简单的这个window。 同时，为了通过eslint，我决定不使用global。 [1]webpackでTypeScriptからコンパイルしたJavaScriptの関数をうまく呼び出せない。 [2]Define global variable with webpack</summary></entry><entry><title type="html">近期杂记 - 关于editor的种种</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom.html" rel="alternate" type="text/html" title="近期杂记 - 关于editor的种种" /><published>2018-09-02T00:00:00+08:00</published><updated>2018-09-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom.html">&lt;h2 id=&quot;choco安装windows的更新&quot;&gt;choco安装windows的更新&lt;/h2&gt;
+[2]&lt;a href=&quot;https://stackoverflow.com/questions/37656592/define-global-variable-with-webpack&quot;&gt;Define global variable with webpack&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="webpack," /><category term="js," /><category term="javascript," /><category term="npm," /><category term="nodejs" /><summary type="html">解除了一下webpack。以前就想接触一下，不过并没有他们说的那么简单。 撕逼乎上有人说，这就是前端的人不懂后端，所以webpack根本玩不明白。这东西就和makefile一样一样的之乎者也。 昨天总算弄懂了。其实还是makefile比较直观 = = 虽然我每次都要看一下makefile的说明才能写得出来XD 如何在网页中调用bundle文件中的函数 很简单，就是把那个函数全域化。 function you_want_to_use_outside() { } var you_want_to_use_outside_too = () =&amp;gt; {console.log();}; window.you_want_to_use_outside = you_want_to_use_outside global.you_want_to_use_outside_too = you_want_to_use_outside_too 是不是有点太简单？ 在webpack中，global会被自动转换成window。 我之前思考的是另一个问题。 这个东西会不会不安全? 因为我还蛮想用export这个东西的XD 不过在[2]中的看到了好多种方法，想了想，还是选择了最简单的这个window。 同时，为了通过eslint，我决定不使用global。 [1]webpackでTypeScriptからコンパイルしたJavaScriptの関数をうまく呼び出せない。 [2]Define global variable with webpack</summary></entry><entry><title type="html">近期杂记 - 关于editor的种种</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom.html" rel="alternate" type="text/html" title="近期杂记 - 关于editor的种种" /><published>2018-09-02T00:00:00+08:00</published><updated>2018-09-02T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/09/02/about-chodo-and-atom.html">&lt;p&gt;近期的一些小事的杂记。&lt;/p&gt;
+
+&lt;h2 id=&quot;1choco竟然会安装windows的更新&quot;&gt;1.choco竟然会安装windows的更新&lt;/h2&gt;
 
 &lt;p&gt;今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。&lt;/p&gt;
 
@@ -164,7 +279,7 @@ Installed:
 我在choco的主页这里（https://chocolatey.org/packages?q=WindowsUpdate）发现，原来有关windows update的包，也只有4个而已。&lt;br /&gt;
 很显然我要失望了，并不能把choco作为升级代理工具了XD&lt;/p&gt;
 
-&lt;h2 id=&quot;使用atom时输入法卡顿&quot;&gt;使用atom时输入法卡顿&lt;/h2&gt;
+&lt;h2 id=&quot;2使用atom时输入法卡顿问题&quot;&gt;2.使用atom时输入法卡顿问题&lt;/h2&gt;
 
 &lt;p&gt;首先我使用的是双拼输入法，是win10自带的微软双拼输入法。&lt;br /&gt;
 这个输入法本身就有些卡顿（不知道为什么)&lt;br /&gt;
@@ -177,7 +292,7 @@ Installed:
 不过很显然这个方法对我来说没有什么用。&lt;br /&gt;
 只好查找下一个editor试试看看咯。&lt;/p&gt;
 
-&lt;h2 id=&quot;markdown在atom中末尾的空格会被删除&quot;&gt;markdown在atom中末尾的空格会被删除&lt;/h2&gt;
+&lt;h2 id=&quot;3markdown在atom中末尾的单个空格会被删除&quot;&gt;3.markdown在atom中末尾的单个空格会被删除&lt;/h2&gt;
 
 &lt;p&gt;众所周知markdown文件在末尾的单个空格意味着改行。&lt;br /&gt;
 我查了一下网上给出的查看whitespace这个package的建议&lt;br /&gt;
@@ -186,7 +301,7 @@ Installed:
 
 &lt;p&gt;[1]&lt;a href=&quot;www.phpvar.com/bbs/forum.php?mod=viewthread&amp;amp;tid=125&quot;&gt;atom自动删除行末空格行？ - Atom &amp;amp; Sublime Text - 前端技术分享论坛&lt;/a&gt;&lt;/p&gt;
 
-&lt;h2 id=&quot;atom的替代选项---xray-&quot;&gt;atom的替代选项 - xray ？&lt;/h2&gt;
+&lt;h2 id=&quot;4atom的未来替代选项---xray-&quot;&gt;4.atom的未来替代选项 - xray ？&lt;/h2&gt;
 
 &lt;p&gt;github在开发完atom之后，貌似又要开发xray。&lt;br /&gt;
 这个消息很早就看过了，只不过记不住它的名字。&lt;br /&gt;
@@ -205,7 +320,7 @@ To allow files to be associated with editable content, we’re adapting the buff
 &lt;p&gt;啊…还有好长的路啊…不过看起来他们使用WEBGL来做，感觉好厉害。。。&lt;br /&gt;
 （关于使用WEBGL的笔记：https://github.com/atom/xray/blob/master/docs/updates/2018_03_05.md）&lt;/p&gt;
 
-&lt;h2 id=&quot;关于新vcs-memo&quot;&gt;关于新vcs memo&lt;/h2&gt;
+&lt;h2 id=&quot;5关于新世代vcs--memo&quot;&gt;5.关于新世代vcs – memo&lt;/h2&gt;
 
 &lt;p&gt;关于这个新的vcs(version control system)，memo，大致看了一下它的说明。&lt;br /&gt;
 它主张有以下4个特性(加上我的翻译)&lt;/p&gt;
@@ -245,7 +360,7 @@ git的解决方案是…干脆不管XD  merge的时候再说XD&lt;/p&gt;
 
 &lt;p&gt;继续读，还真的是一个云服务，似乎是一个和git有兼容性的这个一个云服务。期待后续吧。&lt;/p&gt;
 
-&lt;p&gt;[2]&lt;a href=&quot;https://github.com/atom/xray/blob/master/memo/README.md&quot;&gt;Memo: Operation-based version control&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="choco," /><category term="xray," /><category term="atom," /><category term="editor," /><category term="memo" /><summary type="html">choco安装windows的更新 今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。 $ choco install neovim Chocolatey v0.10.11 Installing the following packages: neovim By installing you accept licenses for the packages. Progress: Downloading vcredist2015 14.0.24215.20170201... 100% Progress: Downloading vcredist140 14.12.25810... 100% Progress: Downloading KB3033929 1.0.3... 100% Progress: Downloading chocolatey-windowsupdate.extension 1.0.2... 100% Progress: Downloading KB3035131 1.0.1... 100% Progress: Downloading KB2919355 1.0.20160915... 100% Progress: Downloading KB2919442 1.0.20160915... 100% Progress: Downloading KB2999226 1.0.20170509... 100% Progress: Downloading neovim 0.3.1... 100% $ Chocolatey installed 9/9 packages. See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log). Installed: - kb2919355 v1.0.20160915 - kb3033929 v1.0.3 - kb2999226 v1.0.20170509 - vcredist2015 v14.0.24215.20170201 - kb2919442 v1.0.20160915 - vcredist140 v14.12.25810 - neovim v0.3.1 - kb3035131 v1.0.1 - chocolatey-windowsupdate.extension v1.0.2 说实话非常有趣。 我在choco的主页这里（https://chocolatey.org/packages?q=WindowsUpdate）发现，原来有关windows update的包，也只有4个而已。 很显然我要失望了，并不能把choco作为升级代理工具了XD 使用atom时输入法卡顿 首先我使用的是双拼输入法，是win10自带的微软双拼输入法。 这个输入法本身就有些卡顿（不知道为什么) 在使用atom的时候，比如换行，比如切换到英文，比如鼠标把光标移走，比如删除输入过的文字，都有概率会卡顿。 具体表现为，要输入大约10多个字母之后输入法才会启动，不然什么东西都不显示，什么东西都打不出来。 唯一规避的方式只有连续按两次shift = =|| 也是一个奇葩的bug了。 在网上找到方法说，安装中文包会解决。 不过很显然这个方法对我来说没有什么用。 只好查找下一个editor试试看看咯。 markdown在atom中末尾的空格会被删除 众所周知markdown文件在末尾的单个空格意味着改行。 我查了一下网上给出的查看whitespace这个package的建议 发现里面的设定是如果在markdown文件中，有2个空格就不会被删除。 嗯，那就用两个空格吧！ [1]atom自动删除行末空格行？ - Atom &amp;amp; Sublime Text - 前端技术分享论坛 atom的替代选项 - xray ？ github在开发完atom之后，貌似又要开发xray。 这个消息很早就看过了，只不过记不住它的名字。 想说虽然正在开发中，不过用一下看看吧！看到没有release，同时又没有makefile = =|| 算了算了，好像用不了的样子（自我安慰） 那我就不用了！ 而且看他的2018 Q3的目标，竟然是version control system = = 我了个去，好吧好吧，敬请期待。 他好像真的是用不了，我看它的报告（https://github.com/atom/xray/blob/master/docs/updates/2018_08_28.md） 里面说好像下一步要做buffer= = The file support added last week assumes that all files are empty. To allow files to be associated with editable content, we’re adapting the buffer module from xray_core to work with Memo’s new B-tree. 啊…还有好长的路啊…不过看起来他们使用WEBGL来做，感觉好厉害。。。 （关于使用WEBGL的笔记：https://github.com/atom/xray/blob/master/docs/updates/2018_03_05.md） 关于新vcs memo 关于这个新的vcs(version control system)，memo，大致看了一下它的说明。 它主张有以下4个特性(加上我的翻译) Continuous persistence 不间断的可持续性。所有的更改可以在不commit的情况下上传倒服务器，所以你的同事可以在另一台机器上继续你的工作。也可以在这个文件的历史之中擦除或者再现某一个历史纪录。 Live branches 实时的branch。只要你连接到网络，所有的branch的最新情报会实时更新。编辑每一个branch的复制品的时候会自动同步，而省去手动更改confict（冲突）的烦恼。 Persistent annotations 不间断的注解。在最新版本的代码中，创建永久链接给每一块代码，即便代码已经被编辑过，都指向同一块逻辑区域。（这个不是太懂） Non-linear history 非线性的历史。undo或者redo在某一特定区域。Group changes into arbitrary layers that can be dynamically toggled.（这句话每一个词我都懂，但是合在一起不知道什么意思） 这个的大概意思，应该是做一个类似于google doc的同时编辑的一个vcs版本啊。 不过这个有几个难题，第一是网络的带宽问题，第二是网络的延迟问题，第三是同时编辑同一文件的冲突问题。 第三最难解决，第一第二都是bottleneck而已。或者说，第一第二在内网的环境下，可能不算是问题。 google doc能解决第三的原因在于它是在server端提供的服务。然后如果代码是在本地端的话，这个我认为除非出现量子网络，不然极难解决。 记得svn的解决方案是lock…锁定… git的解决方案是…干脆不管XD merge的时候再说XD 继续读，还真的是一个云服务，似乎是一个和git有兼容性的这个一个云服务。期待后续吧。 [2]Memo: Operation-based version control</summary></entry><entry><title type="html">Error when installing ios-deploy via npm</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html" rel="alternate" type="text/html" title="Error when installing ios-deploy via npm" /><published>2018-08-24T00:00:00+08:00</published><updated>2018-08-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html">&lt;p&gt;when I install ios-deploy via npm&lt;/p&gt;
+&lt;p&gt;[2]&lt;a href=&quot;https://github.com/atom/xray/blob/master/memo/README.md&quot;&gt;Memo: Operation-based version control&lt;/a&gt;&lt;/p&gt;</content><author><name></name></author><category term="tech" /><category term="choco," /><category term="xray," /><category term="atom," /><category term="editor," /><category term="memo" /><summary type="html">近期的一些小事的杂记。 1.choco竟然会安装windows的更新 今天安装nvim的时候，发现一个很有趣的事情，chodo顺便帮我把一些windows的更新也安装了。 $ choco install neovim Chocolatey v0.10.11 Installing the following packages: neovim By installing you accept licenses for the packages. Progress: Downloading vcredist2015 14.0.24215.20170201... 100% Progress: Downloading vcredist140 14.12.25810... 100% Progress: Downloading KB3033929 1.0.3... 100% Progress: Downloading chocolatey-windowsupdate.extension 1.0.2... 100% Progress: Downloading KB3035131 1.0.1... 100% Progress: Downloading KB2919355 1.0.20160915... 100% Progress: Downloading KB2919442 1.0.20160915... 100% Progress: Downloading KB2999226 1.0.20170509... 100% Progress: Downloading neovim 0.3.1... 100% $ Chocolatey installed 9/9 packages. See the log for details (C:\ProgramData\chocolatey\logs\chocolatey.log). Installed: - kb2919355 v1.0.20160915 - kb3033929 v1.0.3 - kb2999226 v1.0.20170509 - vcredist2015 v14.0.24215.20170201 - kb2919442 v1.0.20160915 - vcredist140 v14.12.25810 - neovim v0.3.1 - kb3035131 v1.0.1 - chocolatey-windowsupdate.extension v1.0.2 说实话非常有趣。 我在choco的主页这里（https://chocolatey.org/packages?q=WindowsUpdate）发现，原来有关windows update的包，也只有4个而已。 很显然我要失望了，并不能把choco作为升级代理工具了XD 2.使用atom时输入法卡顿问题 首先我使用的是双拼输入法，是win10自带的微软双拼输入法。 这个输入法本身就有些卡顿（不知道为什么) 在使用atom的时候，比如换行，比如切换到英文，比如鼠标把光标移走，比如删除输入过的文字，都有概率会卡顿。 具体表现为，要输入大约10多个字母之后输入法才会启动，不然什么东西都不显示，什么东西都打不出来。 唯一规避的方式只有连续按两次shift = =|| 也是一个奇葩的bug了。 在网上找到方法说，安装中文包会解决。 不过很显然这个方法对我来说没有什么用。 只好查找下一个editor试试看看咯。 3.markdown在atom中末尾的单个空格会被删除 众所周知markdown文件在末尾的单个空格意味着改行。 我查了一下网上给出的查看whitespace这个package的建议 发现里面的设定是如果在markdown文件中，有2个空格就不会被删除。 嗯，那就用两个空格吧！ [1]atom自动删除行末空格行？ - Atom &amp;amp; Sublime Text - 前端技术分享论坛 4.atom的未来替代选项 - xray ？ github在开发完atom之后，貌似又要开发xray。 这个消息很早就看过了，只不过记不住它的名字。 想说虽然正在开发中，不过用一下看看吧！看到没有release，同时又没有makefile = =|| 算了算了，好像用不了的样子（自我安慰） 那我就不用了！ 而且看他的2018 Q3的目标，竟然是version control system = = 我了个去，好吧好吧，敬请期待。 他好像真的是用不了，我看它的报告（https://github.com/atom/xray/blob/master/docs/updates/2018_08_28.md） 里面说好像下一步要做buffer= = The file support added last week assumes that all files are empty. To allow files to be associated with editable content, we’re adapting the buffer module from xray_core to work with Memo’s new B-tree. 啊…还有好长的路啊…不过看起来他们使用WEBGL来做，感觉好厉害。。。 （关于使用WEBGL的笔记：https://github.com/atom/xray/blob/master/docs/updates/2018_03_05.md） 5.关于新世代vcs – memo 关于这个新的vcs(version control system)，memo，大致看了一下它的说明。 它主张有以下4个特性(加上我的翻译) Continuous persistence 不间断的可持续性。所有的更改可以在不commit的情况下上传倒服务器，所以你的同事可以在另一台机器上继续你的工作。也可以在这个文件的历史之中擦除或者再现某一个历史纪录。 Live branches 实时的branch。只要你连接到网络，所有的branch的最新情报会实时更新。编辑每一个branch的复制品的时候会自动同步，而省去手动更改confict（冲突）的烦恼。 Persistent annotations 不间断的注解。在最新版本的代码中，创建永久链接给每一块代码，即便代码已经被编辑过，都指向同一块逻辑区域。（这个不是太懂） Non-linear history 非线性的历史。undo或者redo在某一特定区域。Group changes into arbitrary layers that can be dynamically toggled.（这句话每一个词我都懂，但是合在一起不知道什么意思） 这个的大概意思，应该是做一个类似于google doc的同时编辑的一个vcs版本啊。 不过这个有几个难题，第一是网络的带宽问题，第二是网络的延迟问题，第三是同时编辑同一文件的冲突问题。 第三最难解决，第一第二都是bottleneck而已。或者说，第一第二在内网的环境下，可能不算是问题。 google doc能解决第三的原因在于它是在server端提供的服务。然后如果代码是在本地端的话，这个我认为除非出现量子网络，不然极难解决。 记得svn的解决方案是lock…锁定… git的解决方案是…干脆不管XD merge的时候再说XD 继续读，还真的是一个云服务，似乎是一个和git有兼容性的这个一个云服务。期待后续吧。 [2]Memo: Operation-based version control</summary></entry><entry><title type="html">Error when installing ios-deploy via npm</title><link href="http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html" rel="alternate" type="text/html" title="Error when installing ios-deploy via npm" /><published>2018-08-24T00:00:00+08:00</published><updated>2018-08-24T00:00:00+08:00</updated><id>http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error</id><content type="html" xml:base="http://localhost:4000/blog/tech_blog/tech/2018/08/24/npm-ios-deploy-error.html">&lt;p&gt;when I install ios-deploy via npm&lt;/p&gt;
 &lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;npm install -g ios-deploy
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;I got an error below&lt;/p&gt;
@@ -557,15 +672,4 @@ Lvv2.com
 
 &lt;p&gt;一幕铁网，如同细胞膜，有选择性的过滤。
 从天而降。
-由不得你出不出去。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">许久不登陆lofter。 这次是为了要一个图片的版权。</summary></entry><entry><title type="html">习惯</title><link href="http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs.html" rel="alternate" type="text/html" title="习惯" /><published>2018-06-09T00:00:00+08:00</published><updated>2018-06-09T00:00:00+08:00</updated><id>http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs</id><content type="html" xml:base="http://localhost:4000/blog/essay_blog/essay/2018/06/09/Customs.html">&lt;p&gt;我发现这都是一种习惯。
-习惯没事闲下来画个画。
-习惯没事编个程。
-习惯没事拿起笔记本，开始写日记。&lt;/p&gt;
-
-&lt;p&gt;网上有一句话，叫什么，成功是种习惯。还是优秀是种习惯了的。
-都对，都说的通。&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&quot;/assets/stills/blog/20180609/IMG_2131.jpg&quot; alt=&quot;i'm lucky, i'm living, now&quot; /&gt;
-&lt;br /&gt;photo by candywater, 2018/March/20th&lt;/p&gt;
-
-&lt;p&gt;废话不多说，我去画几幅画，然后去寻早饭食了。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">我发现这都是一种习惯。 习惯没事闲下来画个画。 习惯没事编个程。 习惯没事拿起笔记本，开始写日记。</summary></entry></feed>
+由不得你出不出去。&lt;/p&gt;</content><author><name></name></author><category term="essay" /><summary type="html">许久不登陆lofter。 这次是为了要一个图片的版权。</summary></entry></feed>
