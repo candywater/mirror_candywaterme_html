@@ -533,4 +533,8 @@ by 陈一发 @20170804的直播 谈及一快递员欲追求某拉拉
 还是那句话嘛，没有人把整个国家的前途是寄托在别人的善意上面。所以自己该准备的要准备啊。
 by 柯P @20180820
 
+Sam:Why do I and everyone love pick people who treat us like we are nothing?
+Charlie:We accept the love we think we deserve.
+--The Perks of Being a Wallflower (the Movie)
+
 "  &nbsp;  "
