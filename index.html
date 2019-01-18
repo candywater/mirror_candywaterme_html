@@ -32,7 +32,6 @@
 
       gtag('config', 'UA-114140274-1');
     </script>
-
   </head>
 
   <body>
@@ -40,16 +39,16 @@
     <div class="container" id="main">
       <div class="row">
         <div class="col-1 sidebar">
-          <div class="btn0"></div>
-          <div class="btn1"></div>
-          <div class="btn2"></div>
-          <div class="btn3"></div>
-          <div class="btn4"></div>
-          <div class="btn5"></div>
-          <div class="btn6"></div>
-          <div class="btn7"></div>
-          <div class="btn8"></div>
-          <div class="btn9"></div>
+          <!--div class="btn0" onclick="changebgi(this)"></div-->
+          <div class="btn1" onclick="changebgi(this)"></div>
+          <div class="btn2" onclick="changebgi(this)"></div>
+          <!--div class="btn3" onclick="changebgi(this)"></div-->
+          <div class="btn4" onclick="changebgi(this)"></div>
+          <div class="btn5" onclick="changebgi(this)"></div>
+          <div class="btn6" onclick="changebgi(this)"></div>
+          <div class="btn7" onclick="changebgi(this)"></div>
+          <div class="btn8" onclick="changebgi(this)"></div>
+          <div class="btn9" onclick="changebgi(this)"></div>
         </div>
         <div class="col-md-7 col-7">
           <br>
@@ -93,4 +92,13 @@
     </div>
 
   </body>
+  <script>
+    var a;
+    function changebgi(ele){
+      document.body.style.background = getComputedStyle(ele)["background-image"]
+      a = ele;
+      console.log(ele)
+    }
+  </script>
+
 </html>
