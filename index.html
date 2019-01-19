@@ -18,11 +18,6 @@
     <link rel="icon" type="image/png" href="/favicon.png" size="32x32">
     <link rel="icon" type="image/png" href="/favicon192x192.png" size="192x192">
     <link rel="apple-touch-icon-precomposed" href="/favicon192x192.png">
-    <style>
-      body{
-        background: url("/assets/stills/main_page/iTunes_about_page.jpg");
-      }
-    </style>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114140274-1"></script>
     <script>
@@ -38,7 +33,8 @@
     <br>
     <div class="container" id="main">
       <div class="row">
-        <div class="col-1 sidebar">
+        <div class="col-md-1 col-12 sidebar">
+          <div style="display: none;">
           <!--div class="btn0" onclick="changebgi(this)"></div-->
           <div class="btn1" onclick="changebgi(this)"></div>
           <div class="btn2" onclick="changebgi(this)"></div>
@@ -49,6 +45,7 @@
           <div class="btn7" onclick="changebgi(this)"></div>
           <div class="btn8" onclick="changebgi(this)"></div>
           <div class="btn9" onclick="changebgi(this)"></div>
+          </div>
         </div>
         <div class="col-md-7 col-7">
           <br>
@@ -93,8 +90,8 @@
 
   </body>
   <script>
-    function changebgi(ele){
-      //document.body.style.background = getComputedStyle(ele)["background-image"]
+    function changebgi(el){
+      document.body.style.background = getComputedStyle(el)["background-image"]
     }
   </script>
 

@@ -3,6 +3,28 @@
   margin-top: 10%;
 }
 
+body{
+  /*https://codepen.io/P1N2O/pen/pyBNzX*/
+  /*background: linear-gradient(-45deg, rgb(179, 108, 87), rgba(184, 50, 101, 0.582), rgb(10, 117, *156), rgba(50, 168, 141, 0.534));*/
+  /*linear-gradient(-45deg, rgb(87, 44, 31), rgb(83, 10, 38), rgb(11, 75, 99), rgba(17, 100, 81, 0.534))*/
+  background: linear-gradient(-45deg, rgb(87, 44, 31),  rgb(11, 75, 99), rgba(17, 100, 81, 0.534)),
+              linear-gradient(127deg, rgb(87, 44, 31),  rgb(11, 75, 99), rgba(17, 100, 81, 0.534));
+	background-size: 400% 400%;
+  animation: Gradient 25s ease infinite;
+}
+
+@keyframes Gradient {
+	0% {
+		background-position: 0% 50%
+	}
+  50%{
+		background-position: 100% 50%
+  }
+	100% {
+		background-position: 0% 50%
+	}
+}
+
 .card{
   background-color: rgba(245, 245, 245, 0.4);
   margin-left: 1em;
