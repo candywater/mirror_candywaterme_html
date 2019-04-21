@@ -1,3 +1,5 @@
+@import url(lib/node_modules/animate.css/animate.min.css);
+@import url(lib/node_modules/bootstrap/dist/css/bootstrap.min.css);
 #main {
   background-color: rgba(245, 245, 245, 0.4);
   margin-top: 10%; }
