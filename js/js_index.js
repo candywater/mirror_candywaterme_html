@@ -6,7 +6,6 @@ var profile_flag = false;
 //words of slide_down_words
 var slide_down_words = ['happy a new day!'];
 
-  console.log("test")
 jQuery(function(){
   //i dont why, but i cannot write this req with jQuery..... = =
   get_serifs();
