@@ -1,3 +1,4 @@
+import "jquery"
 
 jQuery(function(){
   jQuery("body").append(jQuery("<br>"));

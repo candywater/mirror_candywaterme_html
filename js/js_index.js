@@ -1,3 +1,4 @@
+import "jquery"
 import "./copyleft.js"
 
 var profile_flag = false;
@@ -5,6 +6,7 @@ var profile_flag = false;
 //words of slide_down_words
 var slide_down_words = ['happy a new day!'];
 
+  console.log("test")
 jQuery(function(){
   //i dont why, but i cannot write this req with jQuery..... = =
   get_serifs();
@@ -58,7 +60,7 @@ function show_or_hide(){
 }
 
 //DEBUG
-export function show_all(){
+global.show_all = function(){
   let tmp = jQuery("#slide_down_words").html("");
   for(let i = 0; i < slide_down_words.length; ++i){
     let tmp = jQuery("#slide_down_words").html();
@@ -69,7 +71,7 @@ export function show_all(){
 }
 
 //DEBUG
-export function show_num(num){
+global.show_num = function(num){
   jQuery("#about_profile").fadeIn();
   jQuery("#below_about_profile").fadeIn();
   jQuery("#slide_down_words").html( ("" + num + ": &nbsp;<br>") + slide_down_words[num]);
