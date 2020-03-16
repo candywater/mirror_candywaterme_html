@@ -1,4 +1,4 @@
-import "jquery"
+// import "jquery"
 import "./copyleft.js"
 
 var profile_flag = false;

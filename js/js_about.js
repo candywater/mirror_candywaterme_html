@@ -1,4 +1,4 @@
-import "jquery"
+// import "jquery"
 import "./copyleft.js"
 
 var meow_flag = false;

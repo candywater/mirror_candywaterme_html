@@ -11,10 +11,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      "jquery" : ("../" + "node_modules/jquery/src/jquery"),
-      "tether" : ("../" + "node_modules/tether/dist/js/tether.js"),
-      "bootstrap" : ("../" + "node_modules/bootstrap/dist/js/bootstrap"),
-      "popper" : ("../" + "node_modules/popper.js/dist/poppert.js"),
+      // "jquery" : ("../" + "node_modules/jquery/src/jquery"),
+      // "tether" : ("../" + "node_modules/tether/dist/js/tether.js"),
+      // "bootstrap" : ("../" + "node_modules/bootstrap/dist/js/bootstrap"),
+      // "popper" : ("../" + "node_modules/popper.js/dist/poppert.js"),
     }
   },
   module: {
