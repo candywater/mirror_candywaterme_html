@@ -22,5 +22,5 @@ module.exports = {
       { test: /\.js$/, exclude: /node_modules/, loader: "babel-loader" }
     ]
   },
-  mode: 'development',
+  mode: 'production',
 };
