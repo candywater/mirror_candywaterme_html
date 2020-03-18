@@ -1,32 +1,37 @@
 // import "jquery"
 import "./copyleft.js"
-import { ready } from "./common.js";
+import { ready, add_hide_cls, remove_hide_cls } from "./common.js";
 
 var meow_flag = false;
 var credit_info_flag = false;
 var about = (function(){
-  jQuery("#meow").hide();
-  jQuery("#credit_info").hide();
+  add_hide_cls("#meow")
+  add_hide_cls("#credit_info")
 
-  jQuery("#profile_photo").click(function(){
-    meow_flag = !meow_flag;
-    if(meow_flag)
-      jQuery("#meow").show();
-    else {
-      jQuery("#meow").hide();
-    }
-    //jQuery("#meow").animate({left:"250px"})
-  })
-
-  jQuery("#credit").click(function(){
-    credit_info_flag = !credit_info_flag;
-    if(credit_info_flag)
-      jQuery("#credit_info").show();
-    else {
-      jQuery("#credit_info").hide();
-    }
-
-  })
+  var profile_photo = document.querySelector("#profile_photo")
+  var credit = document.querySelector("#credit")
+  profile_photo.addEventListener("click", profile_photo_click_eventhandler)
+  credit.addEventListener("click", credit_click_eventhandler)
 })
+
+var profile_photo_click_eventhandler = function(){
+  meow_flag = !meow_flag;
+  if(meow_flag)
+    remove_hide_cls("#meow")
+  else {
+    add_hide_cls("#meow")
+  }
+}
+
+var credit_click_eventhandler = function(){
+  credit_info_flag = !credit_info_flag;
+  if(credit_info_flag)
+    remove_hide_cls("#credit_info").show();
+  else {
+    add_hide_cls("#credit_info").hide();
+  }
+
+}
+
 
 ready(about);
