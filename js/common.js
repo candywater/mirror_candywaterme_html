@@ -9,7 +9,7 @@ export function ready(fn) {
 }
 
 //https://github.com/daneden/animate.css
-function animateCSS(element, animationName, callback) {
+export function animateCSS(element, animationName, callback) {
     const node = document.querySelector(element)
     node.classList.add('animated', animationName)
 
@@ -21,4 +21,34 @@ function animateCSS(element, animationName, callback) {
     }
 
     node.addEventListener('animationend', handleAnimationEnd)
+}
+
+export function animateCSSFaster(element, animationName, callback) {
+    const node = document.querySelector(element)
+    node.classList.add('animated', animationName, "faster")
+
+    function handleAnimationEnd() {
+        node.classList.remove('animated', animationName, "faster")
+        node.removeEventListener('animationend', handleAnimationEnd)
+
+        if (typeof callback === 'function') callback()
+    }
+
+    node.addEventListener('animationend', handleAnimationEnd)
+}
+
+export function add_hide_cls(element){
+  const node = document.querySelector(element)
+  if(node) 
+    node.classList.add('hide')
+  else
+    console.log("could not find node! add")
+}
+
+export function remove_hide_cls(element){
+  const node = document.querySelector(element)
+  if(node) 
+    node.classList.remove('hide')
+  else
+    console.log("could not find node! remove")
 }

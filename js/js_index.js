@@ -1,18 +1,21 @@
 // import "jquery"
 import "./copyleft.js"
-import { ready } from "./common.js";
+import {ready, animateCSS, animateCSSFaster, add_hide_cls, remove_hide_cls} from "./common.js";
+
+const about_prof = "#about_profile"
+const below_prof = "#below_about_profile"
 
 var profile_flag = false;
-//jQuery("#profile_photo").trigger("click");
 //words of slide_down_words
 var slide_down_words = ['happy a new day!'];
 
 var index=(function(){
-  //i dont why, but i cannot write this req with jQuery..... = =
   get_serifs();
 
-  jQuery("#below_about_profile").hide();
-  jQuery("#profile_photo").click(show_or_hide);
+  // jQuery("#below_about_profile").hide();
+  // jQuery("#profile_photo").click(show_or_hide);
+  var photo = document.querySelector("#profile_photo")
+  photo.addEventListener("click", show_or_hide);
 });
 
 function get_serifs(){
@@ -44,19 +47,45 @@ function split_serifs(str){
 }
 
 function show_or_hide(){
+  var about = document.querySelector(about_prof)
+  var below = document.querySelector(below_prof)
+  var anime = "animated"
+  if(about.className.indexOf(anime) >= 0|| below.className.indexOf(anime) >= 0){
+    if(profile_flag){ show_quote(false) }
+    return;
+  }
   profile_flag = !profile_flag;
   if(!profile_flag){
-    jQuery("#about_profile").slideUp();
-    jQuery("#below_about_profile").slideUp();
+    hide_quote()
   }
   else {
+    show_quote(true)
+  }
+}
+
+function show_quote(hasAnimation){
+  const slide_down = "#slide_down_words"
+  const animation = "fadeInDown"
+  let rand = get_randam_number()
+  document.querySelector(slide_down).innerHTML = ( ("" + rand + ": &nbsp;<br>") + slide_down_words[rand]);
+  if(hasAnimation){
+    remove_hide_cls(about_prof)
+    remove_hide_cls(below_prof)
+    animateCSSFaster(about_prof, animation)
+    animateCSSFaster(below_prof, animation)
+  }
+}
+function hide_quote(){
+  const animation = "fadeOutUp"
+  animateCSS(about_prof, animation, ()=>add_hide_cls(about_prof))
+  animateCSS(below_prof, animation, ()=>add_hide_cls(below_prof)) 
+}
+
+function get_randam_number(){
     let rand = Math.random() * 10000;
     rand = rand.toFixed(0) % slide_down_words.length;
     console.log("[" + rand + "/" + slide_down_words.length + "]");
-    jQuery("#about_profile").fadeIn();
-    jQuery("#below_about_profile").fadeIn();
-    jQuery("#slide_down_words").html( ("" + rand + ": &nbsp;<br>") + slide_down_words[rand]);
-  }
+    return rand
 }
 
 //DEBUG
