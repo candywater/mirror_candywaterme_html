@@ -2,23 +2,21 @@
 import { ready } from "./common";
 
 var copyleft = function(){
-  jQuery("body").append(jQuery("<br>"));
+  var body = document.querySelector("body")
+  body.innerHTML += (("<br>"));
 
-  let block = jQuery('<p id="copyleft_block"></p>');
-  jQuery("body").append(block);
-  block.css({
-    "text-align" : "right"
-  });
+  let block = document.createElement("p")
+  block.id = 'copyleft_block'
+  block.style = 'text-align:right'
 
-  let copyleft_str = jQuery('<span id="copyleft"></span>').html('&copy;copyleft, by candy water&nbsp;');
-  block.append(copyleft_str);
-  copyleft_str.css({
-    "background-color" : "rgba(254,254,254,0.4)"
-  });
-  copyleft_str.click(function(){
-    window.location = ("http://candy-water.com/about");
-  })
+  body.appendChild(block);
 
+  let copyleft = document.createElement("span")
+  copyleft.id = "copyleft"
+  copyleft.style = "background-color:rgba(254,254,254,0.4);"
+  copyleft.innerHTML = "&copy;copyleft, by candy water&nbsp;"
+  block.appendChild(copyleft);
+  copyleft.addEventListener("click", ()=>window.location = ("http://candy-water.com/about"))
 }
 
 ready(copyleft);
