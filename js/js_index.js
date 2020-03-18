@@ -88,20 +88,25 @@ function get_randam_number(){
 
 //DEBUG
 global.show_all = function(){
-  let tmp = jQuery("#slide_down_words").html("");
+  const animation = "fadeOutUp"
+  var slide_down = document.querySelector("#slide_down_words")
   for(let i = 0; i < slide_down_words.length; ++i){
-    let tmp = jQuery("#slide_down_words").html();
-    jQuery("#slide_down_words").html(tmp + "" + i + ":" +　slide_down_words[i] + "\<br\>\<br\>");
-    jQuery("#about_profile").fadeIn();
-    jQuery("#below_about_profile").fadeIn();
+    slide_down.innerHTML += ("" + i + ":" +　slide_down_words[i] + "\<br\>\<br\>");
+    remove_hide_cls(about_prof)
+    remove_hide_cls(below_prof)
+    animateCSSFaster(about_prof, animation)
+    animateCSSFaster(below_prof, animation)
   }
 }
 
 //DEBUG
 global.show_num = function(num){
-  jQuery("#about_profile").fadeIn();
-  jQuery("#below_about_profile").fadeIn();
-  jQuery("#slide_down_words").html( ("" + num + ": &nbsp;<br>") + slide_down_words[num]);
+  const animation = "fadeInDown"
+  remove_hide_cls(about_prof)
+  remove_hide_cls(below_prof)
+  animateCSSFaster(about_prof, animation)
+  animateCSSFaster(below_prof, animation)
+  document.querySelector("#slide_down_words").innerHTML = ( ("" + num + ": &nbsp;<br>") + slide_down_words[num]);
   console.debug("[" + num + "/" + slide_down_words.length + "]");
 }
 
