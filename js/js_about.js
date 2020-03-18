@@ -26,9 +26,9 @@ var profile_photo_click_eventhandler = function(){
 var credit_click_eventhandler = function(){
   credit_info_flag = !credit_info_flag;
   if(credit_info_flag)
-    remove_hide_cls("#credit_info").show();
+    remove_hide_cls("#credit_info")
   else {
-    add_hide_cls("#credit_info").hide();
+    add_hide_cls("#credit_info")
   }
 
 }
