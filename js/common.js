@@ -1,4 +1,3 @@
-
 //http://youmightnotneedjquery.com/
 export function ready(fn) {
   if (document.readyState != 'loading'){

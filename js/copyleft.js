@@ -1,5 +1,5 @@
 // import "jquery"
-import { ready } from "./common";
+import { ready } from "./common.js";
 
 var copyleft = function(){
   var body = document.querySelector("body")
