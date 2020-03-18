@@ -1,7 +1,10 @@
 @charset "utf-8";
 
 @import 
-  "/node_modules/animate.css/animate.min.css",
+  // "/node_modules/animate.css/animate.min.css",
+  "/node_modules/animate.css/source/_base.css",
+  "/node_modules/animate.css/source/fading_entrances/fadeInDown.css",
+  "/node_modules/animate.css/source/fading_exits/fadeOutUp.css",
   "/node_modules/bootstrap/dist/css/bootstrap.min.css",
   "mainpage.scss";
 

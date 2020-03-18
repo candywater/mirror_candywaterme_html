@@ -12,8 +12,6 @@ var slide_down_words = ['happy a new day!'];
 var index=(function(){
   get_serifs();
 
-  // jQuery("#below_about_profile").hide();
-  // jQuery("#profile_photo").click(show_or_hide);
   var photo = document.querySelector("#profile_photo")
   photo.addEventListener("click", show_or_hide);
 });
