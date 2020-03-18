@@ -9,7 +9,7 @@ var about = (function(){
   add_hide_cls("#credit_info")
 
   var profile_photo = document.querySelector("#profile_photo")
-  var credit = document.querySelector("#credit")
+  var credit = document.querySelector("#credit_info")
   profile_photo.addEventListener("click", profile_photo_click_eventhandler)
   credit.addEventListener("click", credit_click_eventhandler)
 })
