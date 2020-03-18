@@ -1,6 +1,7 @@
 // import "jquery"
+import { ready } from "./common";
 
-jQuery(function(){
+var copyleft = function(){
   jQuery("body").append(jQuery("<br>"));
 
   let block = jQuery('<p id="copyleft_block"></p>');
@@ -18,4 +19,6 @@ jQuery(function(){
     window.location = ("http://candy-water.com/about");
   })
 
-});
+}
+
+ready(copyleft);

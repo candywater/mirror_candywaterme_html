@@ -1,12 +1,13 @@
 // import "jquery"
 import "./copyleft.js"
+import { ready } from "./common.js";
 
 var profile_flag = false;
 //jQuery("#profile_photo").trigger("click");
 //words of slide_down_words
 var slide_down_words = ['happy a new day!'];
 
-jQuery(function(){
+var index=(function(){
   //i dont why, but i cannot write this req with jQuery..... = =
   get_serifs();
 
@@ -76,3 +77,5 @@ global.show_num = function(num){
   jQuery("#slide_down_words").html( ("" + num + ": &nbsp;<br>") + slide_down_words[num]);
   console.debug("[" + num + "/" + slide_down_words.length + "]");
 }
+
+ready(index)

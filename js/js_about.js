@@ -1,9 +1,10 @@
 // import "jquery"
 import "./copyleft.js"
+import { ready } from "./common.js";
 
 var meow_flag = false;
 var credit_info_flag = false;
-jQuery(function(){
+var about = (function(){
   jQuery("#meow").hide();
   jQuery("#credit_info").hide();
 
@@ -26,6 +27,6 @@ jQuery(function(){
     }
 
   })
-
-
 })
+
+ready(about);
