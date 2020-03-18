@@ -10,8 +10,10 @@ var about = (function(){
 
   var profile_photo = document.querySelector("#profile_photo")
   var credit = document.querySelector("#credit_info")
-  profile_photo.addEventListener("click", profile_photo_click_eventhandler)
-  credit.addEventListener("click", credit_click_eventhandler)
+  if(profile_photo)
+    profile_photo.addEventListener("click", profile_photo_click_eventhandler)
+  if(credit)
+    credit.addEventListener("click", credit_click_eventhandler)
 })
 
 var profile_photo_click_eventhandler = function(){
