@@ -8,6 +8,8 @@ const below_prof = "#below_about_profile"
 var profile_flag = false;
 //words of slide_down_words
 var slide_down_words = ['happy a new day!'];
+const animation_fade_in = "fadeIn"
+const animation_fade_out = "fadeOutUp"
 
 var index=(function(){
   get_serifs();
@@ -63,7 +65,7 @@ function show_or_hide(){
 
 function show_quote(hasAnimation){
   const slide_down = "#slide_down_words"
-  const animation = "fadeInDown"
+  const animation = animation_fade_in
   let rand = get_randam_number()
   document.querySelector(slide_down).innerHTML = ( ("" + rand + ": &nbsp;<br>") + slide_down_words[rand]);
   if(hasAnimation){
@@ -74,7 +76,7 @@ function show_quote(hasAnimation){
   }
 }
 function hide_quote(){
-  const animation = "fadeOutUp"
+  const animation = animation_fade_out
   animateCSS(about_prof, animation, ()=>add_hide_cls(about_prof))
   animateCSS(below_prof, animation, ()=>add_hide_cls(below_prof)) 
 }
@@ -88,7 +90,7 @@ function get_randam_number(){
 
 //DEBUG
 global.show_all = function(){
-  const animation = "fadeOutUp"
+  const animation = animation_fade_out
   var slide_down = document.querySelector("#slide_down_words")
   for(let i = 0; i < slide_down_words.length; ++i){
     slide_down.innerHTML += ("" + i + ":" +　slide_down_words[i] + "\<br\>\<br\>");
@@ -101,7 +103,7 @@ global.show_all = function(){
 
 //DEBUG
 global.show_num = function(num){
-  const animation = "fadeInDown"
+  const animation = animation_fade_in
   remove_hide_cls(about_prof)
   remove_hide_cls(below_prof)
   animateCSSFaster(about_prof, animation)
