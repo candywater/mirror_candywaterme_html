@@ -8,6 +8,7 @@
     "bootstrap": "^4.0.0-alpha.6",
     "jquery": "^3.4.1",
     "popper.js": "^1.15.0",
+    "sass": "^1.26.3",
     "showdown": "^1.9.0",
     "tether": "^1.4.3",
     "tik-tok": "^0.1.1",
