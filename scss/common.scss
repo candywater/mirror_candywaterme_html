@@ -4,8 +4,8 @@
 @use "../node_modules/animate.css/source/_base.css";
 @use "../node_modules/animate.css/source/fading_entrances/fadeIn.css";
 @use "../node_modules/animate.css/source/fading_exits/fadeOutUp.css";
-@use "mainpage";
-@use "icons";
+@use "mainpage.scss";
+@use "icons.scss";
 
 @import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
