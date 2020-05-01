@@ -1,11 +1,11 @@
 @charset "utf-8";
 
 // "../node_modules/animate.css/animate.min.css",
-@use "../node_modules/animate.css/source/_base.css";
-@use "../node_modules/animate.css/source/fading_entrances/fadeIn.css";
-@use "../node_modules/animate.css/source/fading_exits/fadeOutUp.css";
-@use "mainpage.scss";
-@use "icons.scss";
+@import "../node_modules/animate.css/source/_base.css";
+@import "../node_modules/animate.css/source/fading_entrances/fadeIn.css";
+@import "../node_modules/animate.css/source/fading_exits/fadeOutUp.css";
+@import "mainpage";
+@import "icons";
 
 @import "/node_modules/bootstrap/dist/css/bootstrap.min.css";
 
