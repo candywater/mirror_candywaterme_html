@@ -31,6 +31,6 @@ function webpackTask(){
 //   sass: sass,
 //   webpack: webpack,
 // } 
-exports.default = defaultTask
+exports.default = gulp.parallel(sassTask, webpackTask)
 exports.sass = sassTask
 exports.webpack = webpackTask
