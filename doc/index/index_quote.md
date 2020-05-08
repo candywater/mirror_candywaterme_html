@@ -659,4 +659,18 @@ by Darren Shan 《ロード・ロス》ダービッシュ
 从而使自己能够独立判断
 --胡适在康奈尔大学听到的，1910
 
+Sometimes awful things have their own kind of beauty.
+
+I know these will all be stories someday.
+And our pictures will become old photographs.
+And we'll all become somebody's mom or dad.
+But right now these moments are not stories.
+This is happening.
+I am here.
+And I am looking at her.
+I can see it.
+This one moment when you know you're not a sad story.
+You are alive.
+--Movie The Perks of Being a Wallflower
+
 "  &nbsp;  "
