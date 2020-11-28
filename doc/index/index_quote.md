@@ -673,4 +673,7 @@ This one moment when you know you're not a sad story.
 You are alive.
 --Movie The Perks of Being a Wallflower
 
+无论怎么穿越时空都不能让不爱你的人爱上你。
+--Movie About Time 电影《时空恋旅人》
+
 "  &nbsp;  "
