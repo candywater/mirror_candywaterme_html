@@ -63,7 +63,7 @@
 
   {#if show_quote}
     <div class="card card-outline-secondary" id="about_profile">
-      <span id="slide_down_words" class="animate__animated animate__fadeIn">
+      <span class="slide_down_words animate__animated animate__fadeIn">
         {@html quote_list[getRandomInt(0, quote_list.length - 1)]}
       </span>
     </div>
@@ -76,6 +76,7 @@
 
 .profile{
   max-width: 23rem;
+  // max-height: 30rem;
   .figure{
     img{
       width: 13rem;
@@ -87,6 +88,10 @@
   }
   .real-rounded-circle{
     border-radius: 10em ;
+  }
+  .slide_down_words{
+    // max-height: 10rem;
+    // overflow-y: scroll;
   }
 }
 
