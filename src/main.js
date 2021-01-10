@@ -1,10 +1,11 @@
-import App from './index.svelte';
+import Index from './router.svelte'
 
-const app = new App({
+const app = new Index({
 	target: document.body,
 	props: {
 		// name: 'world'
 	}
 });
+
 
 export default app;
