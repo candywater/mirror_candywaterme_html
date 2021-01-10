@@ -1,23 +1,31 @@
 
 <!-- <script context="module">
   //https://stackoverflow.com/questions/63044344/api-requests-in-svelte
+  // import profile from "/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
 </script> -->
 
 <script>
-  // import profile from "/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
-
   import {getRandomInt} from "../common/common"
+
+  const MY_NAME = "Candy Water"
+  const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
 
   const DEFAULT_QUOTE = "happy a new day!"
   const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
   
   export let quote_url 
   export let quote_list 
+  export let my_description
 
   let show_quote = false;
 
-  console.log(quote_list)
-  if(!quote_list){
+  OnLoad();
+
+  function OnLoad(){
+    if(!my_description)
+      my_description = MY_DESCRIPTION_DEFAULT
+    if(quote_list)
+      return;
     quote_list = split_serifs(DEFAULT_QUOTE);
     if(quote_url)
       fetch_quote(quote_url)
@@ -52,14 +60,14 @@
   <br>
   <div class="figure">
     <img src="/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
-        class=" real-rounded-circle figure-img img-thumbnail text-center " 
+        class="real-rounded-circle figure-img img-thumbnail text-center " 
         alt="profile" id="profile_photo"
         title="why not try clicking this?"
         on:click="{OnImgClick}"
         >
-    <p class="text-center">Candy&nbsp;Water</p>
+    <p class="text-center">{MY_NAME}</p>
   </div>
-  <p class="blockquote">Full stack engineer, amateur content creator.</p>
+  <p class="blockquote">{my_description}</p>
 
   {#if show_quote}
     <div class="card card-outline-secondary" id="about_profile">
@@ -75,7 +83,8 @@
 <style lang="scss">
 
 .profile{
-  max-width: 23rem;
+  // max-width: 23rem;
+  width: 23rem;
   // max-height: 30rem;
   .figure{
     img{
