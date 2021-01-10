@@ -1,10 +1,11 @@
 .DS_Store
 .vscode
 .vs
-node_modules/
 css/
 .sass-cache/
 dist/
+/node_modules/
+/public/build/
 
 # Logs
 logs
