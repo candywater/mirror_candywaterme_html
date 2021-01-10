@@ -1,10 +1,11 @@
 <script>
-  import Nav from './components/Nav.svelte';
+  import "bootstrap/dist/css/bootstrap.min.css"
+  import "animate.css/animate.compat.css"
 
-  export let segment;
+  import Nav from './components/Nav.svelte';
 </script>
 
-<Nav {segment}/>
+<Nav/>
 <main>
   <slot></slot>
 </main>

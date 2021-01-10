@@ -6,8 +6,6 @@ import Profile from "./components/Profile.svelte"
 import MainMenu from "./components/MainMenu.svelte"
 import Copyleft from "./components/Copyleft.svelte"
 
-import "bootstrap/dist/css/bootstrap.min.css"
-import "animate.css/animate.compat.css"
 
 </script>
 
@@ -23,9 +21,7 @@ import "animate.css/animate.compat.css"
       <MainMenu></MainMenu>
     </div>
     <div class="profile-block">
-      <Profile 
-        quote_url = {""}
-        />
+      <Profile quote_url = {""} />
     </div>
   </div>
   <div class="container copyleft-block">

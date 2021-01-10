@@ -1,6 +1,32 @@
 <script>
-  export let segment;
+  // export let segment;
+  import switcher from "../router.svelte"
+  let segment = switcher;
+
+  console.log(segment)
+
 </script>
+
+<nav>
+  <ul>
+    <li><a class="btn" 
+      aria-current="{segment === undefined ? 'page' : undefined}" 
+      href=".">home</a></li>
+    <li><a class="btn" 
+      aria-current="{segment === 'about' ? 'page' : undefined}" 
+      href="about">about</a></li>
+
+    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
+         the blog data when we hover over the link or tap it on a touchscreen -->
+    <li><a class="btn" rel=prefetch 
+      aria-current="{segment === 'essay' ? 'page' : undefined}" 
+      href="essay">essay</a></li>
+    <li><a class="btn" rel=prefetch 
+      aria-current="{segment === 'tech' ? 'page' : undefined}" 
+      href="tech">blog</a></li>
+  </ul>
+</nav>
+
 
 <style>
   nav {
@@ -67,14 +93,3 @@ a:visited {
 
 </style>
 
-<nav>
-  <ul>
-    <li><a class="btn" aria-current="{segment === undefined ? 'page' : undefined}" href=".">home</a></li>
-    <li><a class="btn" aria-current="{segment === 'about' ? 'page' : undefined}" href="about">about</a></li>
-
-    <!-- for the blog link, we're using rel=prefetch so that Sapper prefetches
-         the blog data when we hover over the link or tap it on a touchscreen -->
-    <li><a class="btn" rel=prefetch aria-current="{segment === 'essay' ? 'page' : undefined}" href="essay">essay</a></li>
-    <li><a class="btn" rel=prefetch aria-current="{segment === 'tech' ? 'page' : undefined}" href="tech">blog</a></li>
-  </ul>
-</nav>

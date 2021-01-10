@@ -6,16 +6,21 @@ import Index from './index.svelte';
 import About from './about.svelte';
 import Project from './index.svelte';
 
-const INDEX = "index"
-const ABOUT = "about"
-const PROJECT = "project"
 
-let switcher = INDEX
+export const INDEX = "index"
+export const ABOUT = "about"
+export const PROJECT = "project"
 
-page('/', ()=>{switcher = INDEX})
-page('/about', ()=>{switcher = ABOUT})
-page('/project', ()=>{switcher = PROJECT})
+export let switcher = INDEX
+
+page('/', ()=>{change_switcher(INDEX)})
+page('/about', ()=>{change_switcher(ABOUT)})
+page('/project', ()=>{change_switcher(PROJECT)})
 page()
+
+function change_switcher(pagename){
+  switcher = pagename
+}
 
 </script>
 
