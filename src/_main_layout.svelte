@@ -6,6 +6,8 @@ import Profile from "./components/Profile.svelte"
 import MainMenu from "./components/MainMenu.svelte"
 import Copyleft from "./components/Copyleft.svelte"
 
+export let quote_url 
+export let quote_list 
 
 </script>
 
@@ -21,7 +23,10 @@ import Copyleft from "./components/Copyleft.svelte"
       <MainMenu></MainMenu>
     </div>
     <div class="profile-block">
-      <Profile quote_url = {""} />
+      <Profile 
+        quote_url = {quote_url} 
+        quote_list={quote_list}
+      />
     </div>
   </div>
   <div class="container copyleft-block">

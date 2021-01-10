@@ -9,13 +9,21 @@
   import {getRandomInt} from "../common/common"
 
   const DEFAULT_QUOTE = "happy a new day!"
-  const quote_url = "/doc/index/index_quote.md"
+  const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
+  
+  export let quote_url 
+  export let quote_list 
 
   let show_quote = false;
 
-  let quote_list = split_serifs(DEFAULT_QUOTE);
-
-  fetch_quote(quote_url)
+  console.log(quote_list)
+  if(!quote_list){
+    quote_list = split_serifs(DEFAULT_QUOTE);
+    if(quote_url)
+      fetch_quote(quote_url)
+    else
+      fetch_quote(DEFAULT_QUOTE_URL)
+  }
 
   function split_serifs(str){
     str = str.split(/(?:\r\n){2,}/g);
@@ -27,8 +35,10 @@
 
   async function fetch_quote(url){
     let result = await fetch(url);
-    let text = await result.text();
-    quote_list = split_serifs(text);
+    if(result.ok){
+      let text = await result.text();
+      quote_list = split_serifs(text);
+    }
   }
 
   function OnImgClick(e){
@@ -65,7 +75,7 @@
 <style lang="scss">
 
 .profile{
-  max-width: 21rem;
+  max-width: 23rem;
   .figure{
     img{
       width: 13rem;

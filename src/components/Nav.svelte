@@ -3,7 +3,7 @@
   import switcher from "../router.svelte"
   let segment = switcher;
 
-  console.log(segment)
+  // console.log(segment)
 
 </script>
 
