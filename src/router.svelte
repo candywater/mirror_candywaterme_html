@@ -4,7 +4,7 @@ import page from "page.js"
   
 import Index from './index.svelte';
 import About from './about.svelte';
-import Project from './index.svelte';
+import Project from './project.svelte';
 
 
 export const INDEX = "index"
