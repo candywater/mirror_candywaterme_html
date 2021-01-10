@@ -1,6 +1,6 @@
 <script>
   import "bootstrap/dist/css/bootstrap.min.css"
-  import "animate.css/animate.compat.css"
+  import "animate.css/animate.min.css"
 
   import Nav from './components/Nav.svelte';
 </script>
@@ -11,6 +11,10 @@
 </main>
 
 <style lang="scss">
+
+// @use "bootstrap/dist/css/bootstrap.min.css";
+// @use "animate.css/animate.min.css";
+
 :global(body){
   /*https://codepen.io/P1N2O/pen/pyBNzX*/
   background: linear-gradient(-45deg, rgb(179, 108, 87), rgba(155, 44, 44, 0.637), rgb(19, 90, 116), rgba(29, 104, 86, 0.534)),
