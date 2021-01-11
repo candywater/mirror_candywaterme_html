@@ -53,6 +53,7 @@ $white-background : rgba(245, 245, 245, 0.3);
     }
     .profile-block{
       margin-left: 0rem;
+      width: 30rem;
     }
   }
   @media (min-width: $size2){
@@ -61,6 +62,7 @@ $white-background : rgba(245, 245, 245, 0.3);
     }
     .profile-block{
       margin-left: 1rem;
+      width: 30rem;
     }
   }
   @media (min-width: $size3){
@@ -69,6 +71,7 @@ $white-background : rgba(245, 245, 245, 0.3);
     }
     .profile-block{
       margin-left: 2rem;
+      width: 30rem;
     }
   }
   @media (min-width: $size4){
@@ -77,6 +80,7 @@ $white-background : rgba(245, 245, 245, 0.3);
     }
     .profile-block{
       margin-left: 3rem;
+      width: 30rem;
     }
   }
 }
