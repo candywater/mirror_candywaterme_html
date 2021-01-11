@@ -9,28 +9,28 @@
 
   const MY_NAME = "Candy Water"
   const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
-
   const DEFAULT_QUOTE = "happy a new day!"
   const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
   
   export let quote_url 
   export let quote_list 
-  export let my_description
+  export let description
 
   let show_quote = false;
 
   OnLoad();
 
   function OnLoad(){
-    if(!my_description)
-      my_description = MY_DESCRIPTION_DEFAULT
-    if(quote_list)
-      return;
-    quote_list = split_serifs(DEFAULT_QUOTE);
-    if(quote_url)
-      fetch_quote(quote_url)
-    else
-      fetch_quote(DEFAULT_QUOTE_URL)
+    if(!description)
+      description = MY_DESCRIPTION_DEFAULT
+
+    if(!quote_list){
+      quote_list = split_serifs(DEFAULT_QUOTE);
+      if(quote_url)
+        fetch_quote(quote_url)
+      else
+        fetch_quote(DEFAULT_QUOTE_URL)
+    }
   }
 
   function split_serifs(str){
@@ -67,7 +67,7 @@
         >
     <p class="text-center">{MY_NAME}</p>
   </div>
-  <p class="blockquote">{my_description}</p>
+  <p class="blockquote">{description}</p>
 
   {#if show_quote}
     <div class="card card-outline-secondary" id="about_profile">
@@ -84,7 +84,7 @@
 
 .profile{
   // max-width: 23rem;
-  width: 23rem;
+  // width: 23rem;
   // max-height: 30rem;
   .figure{
     img{
