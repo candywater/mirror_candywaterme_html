@@ -7,6 +7,7 @@
 <script>
   import {getRandomInt} from "../common/common"
   import ProjectList from "./ProjectList.svelte"
+  import AboutMe from "./AboutMe.svelte"
 
   const MY_NAME = "Candy Water"
   const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
@@ -18,6 +19,7 @@
   export let description
 
   export let isProject
+  export let isAbout
 
   let show_quote = false;
 
@@ -71,10 +73,13 @@
     <p class="text-center">{MY_NAME}</p>
   </div>
   <p class="blockquote">
-    {@html description}
+    {description}
   </p>
   {#if isProject}
     <ProjectList></ProjectList>
+  {/if}
+  {#if isAbout}
+    <AboutMe></AboutMe>
   {/if}
 
   {#if show_quote && !isProject}

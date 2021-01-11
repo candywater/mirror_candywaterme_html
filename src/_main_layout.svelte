@@ -11,6 +11,7 @@ export let quote_list
 export let description  
 
 export let isProject
+export let isAbout
 
 </script>
 
@@ -31,6 +32,7 @@ export let isProject
         quote_list={quote_list}
         description ={description}
         isProject = {isProject}
+        isAbout = {isAbout}
       />
     </div>
   </div>
