@@ -1,5 +1,6 @@
 <script>
-  import "bootstrap/dist/css/bootstrap.min.css"
+  // import "bootstrap/dist/css/bootstrap.min.css"
+  import "bootstrap/dist/css/bootstrap-grid.min.css"
   import "animate.css/animate.min.css"
 
   import Nav from './components/Nav.svelte';
@@ -12,7 +13,9 @@
 <style lang="scss">
 
 // @use "bootstrap/dist/css/bootstrap.min.css";
+// @use "bootstrap/dist/css/bootstrap-grid.min.css";
 // @use "animate.css/animate.min.css";
+
 
 :global(body){
   /*https://codepen.io/P1N2O/pen/pyBNzX*/
@@ -39,4 +42,6 @@
     background-position: 0% 50%
   }
 }
+
+
 </style>
