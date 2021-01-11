@@ -6,6 +6,7 @@
 
 <script>
   import {getRandomInt} from "../common/common"
+  import ProjectList from "./ProjectList.svelte"
 
   const MY_NAME = "Candy Water"
   const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
@@ -15,6 +16,8 @@
   export let quote_url 
   export let quote_list 
   export let description
+
+  export let isProject
 
   let show_quote = false;
 
@@ -67,9 +70,14 @@
         >
     <p class="text-center">{MY_NAME}</p>
   </div>
-  <p class="blockquote">{description}</p>
+  <p class="blockquote">
+    {@html description}
+  </p>
+  {#if isProject}
+    <ProjectList></ProjectList>
+  {/if}
 
-  {#if show_quote}
+  {#if show_quote && !isProject}
     <div class="card card-outline-secondary" id="about_profile">
       <span class="slide_down_words animate__animated animate__fadeIn">
         {@html quote_list[getRandomInt(0, quote_list.length - 1)]}

@@ -11,6 +11,5 @@ const quote_list = ["happy a new day!"]
 </svelte:head>
 
 <Main 
-  quote_url={quote_url}
   quote_list={quote_list}
 ></Main>

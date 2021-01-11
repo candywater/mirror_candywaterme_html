@@ -8,7 +8,9 @@ import Copyleft from "./components/Copyleft.svelte"
 
 export let quote_url 
 export let quote_list 
-export let my_description  
+export let description  
+
+export let isProject
 
 </script>
 
@@ -27,7 +29,8 @@ export let my_description
       <Profile 
         quote_url = {quote_url} 
         quote_list={quote_list}
-        my_description ={my_description}
+        description ={description}
+        isProject = {isProject}
       />
     </div>
   </div>
