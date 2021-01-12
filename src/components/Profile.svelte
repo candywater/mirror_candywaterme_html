@@ -10,18 +10,20 @@
   const ANIMATED_IN = "animated bounceIn"
   const ANIMATED_OUT= "animated bounceOut"
   
-  export let quote_url 
-  export let quote_list 
-  export let description
 
-  export let isProject
-  export let isAbout
 </script>
 
 <script>
   import {getRandomInt} from "../common/common"
   import ProjectList from "./ProjectList.svelte"
   import AboutMe from "./AboutMe.svelte"
+
+  export let quote_url 
+  export let quote_list 
+  export let description
+
+  export let isProject
+  export let isAbout
 
   let show_quote = false;
   let show_animation = ANIMATED_IN
@@ -121,6 +123,7 @@
   }
   .about_profile{
     padding: 0.5rem;
+    margin: 0rem 0rem 0.5rem 0rem;
   }
 }
 
