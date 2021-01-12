@@ -1,6 +1,6 @@
 <script>
 // import "bootstrap/dist/css/bootstrap.min.css"
-import "bootstrap/dist/css/bootstrap-grid.min.css"
+// import "bootstrap/dist/css/bootstrap-grid.min.css"
 // import "animate.css/animate.min.css"
 import 'animate.css/source/_vars.css';
 import 'animate.css/source/_base.css';
@@ -8,8 +8,8 @@ import 'animate.css/source/_base.css';
 /* Bouncing entrances  */
 import 'animate.css/source/bouncing_entrances/bounceIn.css';
 
+import Nav from './components/Nav.svelte';
 
-  import Nav from './components/Nav.svelte';
 </script>
 
 <main>
@@ -46,6 +46,12 @@ import 'animate.css/source/bouncing_entrances/bounceIn.css';
   100% {
     background-position: 0% 50%
   }
+}
+
+main{
+  max-width: 56rem;
+  position: relative;
+  margin: 0 auto;
 }
 
 

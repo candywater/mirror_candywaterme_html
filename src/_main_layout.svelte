@@ -91,7 +91,7 @@ $white-background : rgba(245, 245, 245, 0.3);
 }
 
 .main{
-  margin-top: 7% ;
+  margin-top: 11% ;
   padding: 1rem 0.5rem;
   background-color: $white-background;
   display: flex;
