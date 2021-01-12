@@ -6,6 +6,9 @@
   const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
   const DEFAULT_QUOTE = "happy a new day!"
   const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
+
+  const ANIMATED_IN = "animated bounceIn"
+  const ANIMATED_OUT= "animated bounceOut"
   
   export let quote_url 
   export let quote_list 
@@ -21,6 +24,7 @@
   import AboutMe from "./AboutMe.svelte"
 
   let show_quote = false;
+  let show_animation = ANIMATED_IN
 
   OnLoad();
 
@@ -54,7 +58,7 @@
   }
 
   function OnImgClick(e){
-    show_quote = !show_quote;
+    show_quote = !show_quote
   }
 
 </script>
@@ -83,7 +87,7 @@
 
   {#if show_quote && !isProject}
     <div class="card card-outline-secondary about_profile">
-      <span class="slide_down_words animated bounceIn">
+    <span class="slide_down_words {show_animation}">
         {@html quote_list[getRandomInt(0, quote_list.length - 1)]}
       </span>
     </div>
