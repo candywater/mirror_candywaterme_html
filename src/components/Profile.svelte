@@ -1,14 +1,7 @@
 
-<!-- <script context="module">
+<script context="module">
   //https://stackoverflow.com/questions/63044344/api-requests-in-svelte
   // import profile from "/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
-</script> -->
-
-<script>
-  import {getRandomInt} from "../common/common"
-  import ProjectList from "./ProjectList.svelte"
-  import AboutMe from "./AboutMe.svelte"
-
   const MY_NAME = "Candy Water"
   const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
   const DEFAULT_QUOTE = "happy a new day!"
@@ -20,6 +13,12 @@
 
   export let isProject
   export let isAbout
+</script>
+
+<script>
+  import {getRandomInt} from "../common/common"
+  import ProjectList from "./ProjectList.svelte"
+  import AboutMe from "./AboutMe.svelte"
 
   let show_quote = false;
 
@@ -65,7 +64,7 @@
   <br>
   <div class="figure">
     <img src="/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
-        class="real-rounded-circle figure-img img-thumbnail text-center " 
+        class="real-rounded-circle figure-img img-thumbnail text-center animated bounceIn" 
         alt="profile" id="profile_photo"
         title="why not try clicking this?"
         on:click="{OnImgClick}"
@@ -83,8 +82,8 @@
   {/if}
 
   {#if show_quote && !isProject}
-    <div class="card card-outline-secondary" id="about_profile">
-      <span class="slide_down_words animate__animated animate__fadeIn">
+    <div class="card card-outline-secondary about_profile">
+      <span class="slide_down_words animated bounceIn">
         {@html quote_list[getRandomInt(0, quote_list.length - 1)]}
       </span>
     </div>
@@ -99,6 +98,7 @@
   // max-width: 23rem;
   // width: 23rem;
   // max-height: 30rem;
+  margin: 0rem 1rem;
   .figure{
     img{
       width: 13rem;
@@ -114,6 +114,9 @@
   .slide_down_words{
     // max-height: 10rem;
     // overflow-y: scroll;
+  }
+  .about_profile{
+    padding: 0.5rem;
   }
 }
 

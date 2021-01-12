@@ -1,7 +1,16 @@
 <script>
-  // import "bootstrap/dist/css/bootstrap.min.css"
-  import "bootstrap/dist/css/bootstrap-grid.min.css"
-  import "animate.css/animate.min.css"
+// import "bootstrap/dist/css/bootstrap.min.css"
+import "bootstrap/dist/css/bootstrap-grid.min.css"
+// import "animate.css/animate.min.css"
+import 'animate.css/source/_vars.css';
+import 'animate.css/source/_base.css';
+
+/* Bouncing entrances  */
+import 'animate.css/source/bouncing_entrances/bounceIn.css';
+import 'animate.css/source/bouncing_entrances/bounceInDown.css';
+import 'animate.css/source/bouncing_entrances/bounceInLeft.css';
+import 'animate.css/source/bouncing_entrances/bounceInRight.css';
+import 'animate.css/source/bouncing_entrances/bounceInUp.css';
 
   import Nav from './components/Nav.svelte';
 </script>
@@ -15,7 +24,6 @@
 // @use "bootstrap/dist/css/bootstrap.min.css";
 // @use "bootstrap/dist/css/bootstrap-grid.min.css";
 // @use "animate.css/animate.min.css";
-
 
 :global(body){
   /*https://codepen.io/P1N2O/pen/pyBNzX*/
