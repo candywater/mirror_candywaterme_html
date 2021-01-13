@@ -2,9 +2,11 @@
 // import "bootstrap/dist/css/bootstrap.min.css"
 // import "bootstrap/dist/css/bootstrap-grid.min.css"
 // import "animate.css/animate.min.css"
-// import 'animate.css/source/_vars.css';
-// import 'animate.css/source/_base.css';
-// import 'animate.css/source/bouncing_entrances/bounceIn.css';
+import 'animate.css/source/_vars.css';
+import 'animate.css/source/_base.css';
+
+/* Bouncing entrances  */
+import 'animate.css/source/bouncing_entrances/bounceIn.css';
 
 import Nav from './components/Nav.svelte';
 
@@ -16,9 +18,6 @@ import Nav from './components/Nav.svelte';
 
 <style lang="scss">
 
-@use 'animate.css/source/_vars.css';
-@use 'animate.css/source/_base.css';
-@use 'animate.css/source/bouncing_entrances/bounceIn.css';
 // @use "bootstrap/dist/css/bootstrap.min.css";
 // @use "bootstrap/dist/css/bootstrap-grid.min.css";
 // @use "animate.css/animate.min.css";
