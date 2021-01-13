@@ -23,7 +23,7 @@
 <br/>
 
 <div class="inline" id="credit">
-  <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="creativ common license" style="border-width:0" src="/assets/logos/cc/by_4.0.png" /></a> for technique, <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="creativ common license" style="border-width:0" src="/assets/logos/cc/by_nc_sa_4.0.png" /></a> for arts. Click <a href="#" 
+  <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="creativ common license" style="border-width:0" src="/assets/logos/cc/by_4.0.png" /></a> for technique, <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="creativ common license" style="border-width:0" src="/assets/logos/cc/by_nc_sa_4.0.png" /></a> for arts. Click <a href={"#"} 
     on:click="{OnImgClick}"
   > Here </a> For More. 
 </div>
@@ -194,25 +194,25 @@ $icon-aboutme: (
   transform: scale(2);
   transform-origin: top left;
 
-  &.is-small {
-    margin: 0;
-    // 1px
-    transform: scale(1);
-  }
+  // &.is-small {
+  //   margin: 0;
+  //   // 1px
+  //   transform: scale(1);
+  // }
 
-  &.is-medium {
-    margin-right: $icon-size * 2;
-    margin-bottom: $icon-size * 2;
-    // 3px
-    transform: scale(3);
-  }
+  // &.is-medium {
+  //   margin-right: $icon-size * 2;
+  //   margin-bottom: $icon-size * 2;
+  //   // 3px
+  //   transform: scale(3);
+  // }
 
-  &.is-large {
-    margin-right: $icon-size * 3;
-    margin-bottom: $icon-size * 3;
-    // 4px
-    transform: scale(4);
-  }
+  // &.is-large {
+  //   margin-right: $icon-size * 3;
+  //   margin-bottom: $icon-size * 3;
+  //   // 4px
+  //   transform: scale(4);
+  // }
   
   &::before {
     position: absolute;
