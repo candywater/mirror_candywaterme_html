@@ -1,16 +1,26 @@
 
+<script>
+
+  const essay = "/blog/essay"
+  const tech = "/blog/tech"
+  const project = "/project"
+  const about = "/about"
+  const index = "/"
+
+</script>
 
 <div class="main-menu">
 
-  <a href="/blog/essay" role="button" class="btn btn-light btn-lg" name="button" id="blog_btn" >Essay</a>
-  <a href="/blog/tech" role="button" class="btn btn-primary btn-lg" name="button" id="blog_btn" >Tech</a>
-  <a href="/project" role="button" class="btn btn-success btn-lg" name="button" id="project_btn" >Project</a>
-  <a href="/about" role="button" class="btn btn-danger btn-lg" name="button" id="about_btn" >About</a>
-  <a href="/" role="button" class="btn btn-warning btn-lg" name="button" id="main_btn" >Main</a>
+  <a href="/blog/essay" role="button" class="btn btn-light btn-lg " name="button" id="blog_btn" >Essay</a>
+  <a href="/blog/tech" role="button" class="btn btn-primary btn-lg " name="button" id="blog_btn" >Tech</a>
+  <a href="/project" role="button" class="btn btn-success btn-lg " name="button" id="project_btn" >Project</a>
+  <a href="/about" role="button" class="btn btn-danger btn-lg " name="button" id="about_btn" >About</a>
+  <a href="/" role="button" class="btn btn-warning btn-lg " name="button" id="main_btn" >Main</a>
 
 </div>
 
 <style lang="scss">
+
 //from bootstrap
 @import "bootstrap/scss/mixins/_gradients.scss";
 @import "bootstrap/scss/mixins/_box-shadow.scss";

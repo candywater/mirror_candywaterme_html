@@ -1,14 +1,11 @@
 <script>
-// import "bootstrap/dist/css/bootstrap.min.css"
-// import "bootstrap/dist/css/bootstrap-grid.min.css"
-// import "animate.css/animate.min.css"
+// import 'animate.css/animate.min.css'
 import 'animate.css/source/_vars.css';
 import 'animate.css/source/_base.css';
 
 /* Bouncing entrances  */
 import 'animate.css/source/bouncing_entrances/bounceIn.css';
-
-import Nav from './components/Nav.svelte';
+import 'animate.css/source/attention_seekers/jello.css';
 
 </script>
 
@@ -17,11 +14,6 @@ import Nav from './components/Nav.svelte';
 </main>
 
 <style lang="scss">
-
-// @use "bootstrap/dist/css/bootstrap.min.css";
-// @use "bootstrap/dist/css/bootstrap-grid.min.css";
-// @use "animate.css/animate.min.css";
-
 :global(body){
   /*https://codepen.io/P1N2O/pen/pyBNzX*/
   background: linear-gradient(-45deg, rgb(179, 108, 87), rgba(155, 44, 44, 0.637), rgb(19, 90, 116), rgba(29, 104, 86, 0.534)),

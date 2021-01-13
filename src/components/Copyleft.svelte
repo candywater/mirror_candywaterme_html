@@ -1,4 +1,8 @@
 
+<script>
+  const animation = "animated jello"
+</script>
+
 <p class="copyleft">
   <span>&copy;Copyleft, by candywater</span>
 </p>
