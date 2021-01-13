@@ -30,8 +30,4 @@
 .main-menu{
   width: 7rem;
 }
-
-
-
-
 </style>

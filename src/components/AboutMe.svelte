@@ -8,14 +8,14 @@
 
 
 <span class="">
-    <a href="https://github.com/candywater">
-      <div class="nes-icon github"></div>
-    </a>
-    <a href="https://twitter.com/candywater1">
-      <div class="nes-icon twitter"></div>
-    </a>
-    <a href="https://about.me/candywater">
-      <div class="nes-icon aboutme"></div>
+  <a href="https://github.com/candywater">
+    <div class="nes-icon github"></div>
+  </a>
+  <a href="https://twitter.com/candywater1">
+    <div class="nes-icon twitter"></div>
+  </a>
+  <a href="https://about.me/candywater">
+    <div class="nes-icon aboutme"></div>
   </a>
 </span>
 
@@ -30,25 +30,22 @@
 
 
 {#if show_quote}
-<div class="inline" id="credit_info">
-Most techinical articles, in this site by <a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about" property="cc:attributionName" rel="cc:attributionURL">Candy Water</a>
- is under this <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>.
- <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="/assets/logos/cc/small_by_4.0.png" /></a>
+  <div class="inline" id="credit_info">
+  Most techinical articles, in this site by <a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about" property="cc:attributionName" rel="cc:attributionURL">Candy Water</a>
+  is under this <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">License</a>.
+  <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="/assets/logos/cc/small_by_4.0.png" /></a>
 
- <br>
-And most artwork, like essays and some visual works, in this site by <a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about" property="cc:attributionName" rel="cc:attributionURL">candy water</a>
-  is under this <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">License</a>.
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="/assets/logos/cc/small_by_nc_sa_4.0.png" /></a>
-<br>
-And for all code projects, read the license of that work, plz.
-</div>
-
+  <br>
+  And most artwork, like essays and some visual works, in this site by <a xmlns:cc="http://creativecommons.org/ns#" href="http://candy-water.com/about" property="cc:attributionName" rel="cc:attributionURL">candy water</a>
+    is under this <a rel="license" href="http://creativecommons.org/licenses/by-nc-nd/4.0/">License</a>.
+      <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="/assets/logos/cc/small_by_nc_sa_4.0.png" /></a>
+  <br>
+  And for all code projects, read the license of that work, plz.
+  </div>
 {/if}
 
 <style lang="scss">
-
-
-  //https://github.com/nostalgic-css/NES.css
+//https://github.com/nostalgic-css/NES.css
 /**
 MIT License
 Copyright (c) 2018 B.C.Rikko <https://github.com/BcRikko>
