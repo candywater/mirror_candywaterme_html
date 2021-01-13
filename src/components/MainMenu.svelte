@@ -507,32 +507,32 @@
 .btn-check:checked + .btn-outline-dark:focus, .btn-check:active + .btn-outline-dark:focus, .btn-outline-dark:active:focus, .btn-outline-dark.active:focus, .btn-outline-dark.dropdown-toggle.show:focus {
   box-shadow: 0 0 0 0.25rem rgba(33, 37, 41, 0.5);
 }
-// .btn-outline-dark:disabled, .btn-outline-dark.disabled {
-//   color: #212529;
-//   background-color: transparent;
-// }
+.btn-outline-dark:disabled, .btn-outline-dark.disabled {
+  color: #212529;
+  background-color: transparent;
+}
 
-// .btn-link {
-//   font-weight: 400;
-//   color: #0d6efd;
-//   text-decoration: underline;
-// }
-// .btn-link:hover {
-//   color: #0a58ca;
-// }
-// .btn-link:disabled, .btn-link.disabled {
-//   color: #6c757d;
-// }
+.btn-link {
+  font-weight: 400;
+  color: #0d6efd;
+  text-decoration: underline;
+}
+.btn-link:hover {
+  color: #0a58ca;
+}
+.btn-link:disabled, .btn-link.disabled {
+  color: #6c757d;
+}
 
-// .btn-lg, .btn-group-lg > .btn {
-//   padding: 0.5rem 1rem;
-//   font-size: 1.25rem;
-//   border-radius: 0.3rem;
-// }
+.btn-lg, .btn-group-lg > .btn {
+  padding: 0.5rem 1rem;
+  font-size: 1.25rem;
+  border-radius: 0.3rem;
+}
 
-// .btn-sm, .btn-group-sm > .btn {
-//   padding: 0.25rem 0.5rem;
-//   font-size: 0.875rem;
-//   border-radius: 0.2rem;
-// }
+.btn-sm, .btn-group-sm > .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.875rem;
+  border-radius: 0.2rem;
+}
 </style>
