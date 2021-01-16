@@ -23,11 +23,13 @@
   const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
 
   let show_quote = false
+  let quote = ""
   
   OnLoad();
 
   function OnImgClick(e){
     show_quote = !show_quote
+    quote = get_random_quote(quote_list)
   }
 
   function OnLoad(){
@@ -86,7 +88,7 @@
     <AboutMe></AboutMe>
   {/if}
   {#if $path == INDEX}
-    <QuoteDisplay quote={get_random_quote(quote_list)} {show_quote}></QuoteDisplay>
+    <QuoteDisplay {quote} {show_quote}></QuoteDisplay>
   {/if}
 </div>
 
