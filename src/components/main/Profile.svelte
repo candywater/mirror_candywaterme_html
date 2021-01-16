@@ -87,7 +87,7 @@
   {/if}
 
   {#if show_quote && $path == INDEX}
-    <div class="card card-outline-secondary about_profile">
+    <div class="card about_profile rounded-md">
     <span class="slide_down_words {show_animation}">
         {@html quote_list[getRandomInt(0, quote_list.length - 1)]}
       </span>
@@ -100,9 +100,6 @@
 <style lang="scss">
 
 .profile{
-  // max-width: 23rem;
-  // width: 23rem;
-  // max-height: 30rem;
   margin: 0rem 1rem;
   .figure{
     img{
@@ -117,8 +114,6 @@
     border-radius: 10em ;
   }
   .slide_down_words{
-    // max-height: 10rem;
-    // overflow-y: scroll;
   }
   .about_profile{
     padding: 0.5rem;
