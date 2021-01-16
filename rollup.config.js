@@ -46,12 +46,12 @@ export default {
 			},
 			preprocess: preprocess(),
 			// do not check css
-			onwarn: (warning, handler) => {
-        const { code, frame } = warning;
-        if (code === "css-unused-selector")
-            return;
-        handler(warning);
-    	},
+			// onwarn: (warning, handler) => {
+      //   const { code, frame } = warning;
+      //   if (code === "css-unused-selector")
+      //       return;
+      //   handler(warning);
+    	// },
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
