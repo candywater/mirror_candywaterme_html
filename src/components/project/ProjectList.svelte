@@ -2,26 +2,30 @@
 
 <script>
   let list = [
-    // ["https://candywater.xyz/android-download", "九阴计算器apk"],
-    // ["https://candywater.xyz", "九阴计算器"]
+     ["https://candywater.xyz/android-download", "九阴计算器apk"],
+     ["https://candywater.xyz", "九阴计算器"]
   ]
 
   let list_type = [
-    "list-group-item-primary",
-    "list-group-item-secondary",
-    "list-group-item-success",
-    "list-group-item-danger",
-    "list-group-item-warning",
-    "list-group-item-info",
-    "list-group-item-light",
-    "list-group-item-dark",
+    "bg-gray-300 hover:bg-gray-500 text-black rounded"
   ]
 
 </script>
 
 
-<div class="list-group">
+<ol class="list-disc">
   {#each list as item, i}
-    <a href={item[0]} class="list-group-item list-group-item-action {list_type[i%list_type.length]}">{item[1]}</a>
+    <li>
+      <a href={item[0]} class="{list_type[i%list_type.length]}">{item[1]}</a>
+    </li>
   {/each}
-</div>
+</ol>
+
+<style>
+  li{
+    margin: 0.1rem 0.1rem;
+    padding: 0.1rem 0.2rem;
+  }
+
+
+</style>
