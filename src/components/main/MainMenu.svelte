@@ -8,7 +8,7 @@
   const about = "/about"
   const index = "/"
   
-  const basicstyle = "text-white rounded" //  = "border border-light-blue-500 border-opacity-5"
+  const basicstyle = "text-white rounded shadow" //  = "border border-light-blue-500 border-opacity-5"
   const border = "border border-indigo-500"
 
   const button_style_1 = `${basicstyle} ${border} bg-blue-500 hover:bg-blue-700 `
