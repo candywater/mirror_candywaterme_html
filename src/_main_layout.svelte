@@ -24,11 +24,7 @@ export let description
       <MainMenu></MainMenu>
     </div>
     <div class="profile-block">
-      <Profile 
-        quote_url = {quote_url} 
-        quote_list={quote_list}
-        description ={description}
-      />
+      <Profile {quote_url} {quote_list} {description} />
     </div>
   </div>
   <div class="container copyleft-block">
