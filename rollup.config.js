@@ -44,7 +44,11 @@ export default {
 				// enable run-time checks when not in production
 				dev: !production
 			},
-			preprocess: preprocess(),
+			preprocess: preprocess({
+				defaults: {
+					style: "scss",
+				}
+			}),
 			// do not check css
 			// onwarn: (warning, handler) => {
       //   const { code, frame } = warning;
