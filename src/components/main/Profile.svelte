@@ -43,20 +43,20 @@
     }
   }
 
-  function split_serifs(str){
-    str = str.split(/(?:\r\n){2,}/g);
-    for(var ele in str ){
-      str[ele] = str[ele].replace(/(?:\r\n)/g, "<br>");
-    } 
-    return str;
-  }
-
   async function fetch_quote(url){
     let result = await fetch(url);
     if(result.ok){
       let text = await result.text();
       quote_list = split_serifs(text);
     }
+  }
+
+  function split_serifs(str){
+    str = str.split(/(?:\r\n){2,}/g);
+    for(var ele in str ){
+      str[ele] = str[ele].replace(/(?:\r\n)/g, "<br>");
+    } 
+    return str;
   }
 
   function get_random_quote(list){
