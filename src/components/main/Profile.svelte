@@ -3,31 +3,32 @@
   //https://stackoverflow.com/questions/63044344/api-requests-in-svelte
   // import profile from "/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
   const MY_NAME = "Candy Water"
-  const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
-  const DEFAULT_QUOTE = "happy a new day!"
-  const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
-
-  const ANIMATED_IN = "animated bounceIn"
-  const ANIMATED_OUT= "animated bounceOut"
-  
-  import {path, INDEX, ABOUT, PROJECT} from "../../store/path"
-
 </script>
 
 <script>
 
   import {getRandomInt} from "../../common/common.js"
+  import {path, INDEX, ABOUT, PROJECT} from "../../store/path"
   import ProjectList from "../project/ProjectList.svelte"
   import AboutMe from "../about/AboutMe.svelte"
+  import QuoteDisplay  from "../index/QuoteDisplay.svelte"
 
   export let quote_url 
   export let quote_list 
   export let description
 
-  let show_quote = false;
-  let show_animation = ANIMATED_IN
+  const PROFILE_IMG_URL = "/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
+  const DEFAULT_QUOTE = "happy a new day!"
+  const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
+  const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
 
+  let show_quote = false
+  
   OnLoad();
+
+  function OnImgClick(e){
+    show_quote = !show_quote
+  }
 
   function OnLoad(){
     if(!description)
@@ -58,17 +59,16 @@
     }
   }
 
-  function OnImgClick(e){
-    show_quote = !show_quote
+  function get_random_quote(list){
+    return list[getRandomInt(0, list.length - 1)]
   }
-
 </script>
 
 
 <div class="profile">
   <br>
   <div class="figure">
-    <img src="/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
+    <img src={PROFILE_IMG_URL}
         class="real-rounded-circle animated bounceIn" 
         alt="profile" id="profile_photo"
         title="why not try clicking this?"
@@ -85,16 +85,9 @@
   {#if $path == ABOUT}
     <AboutMe></AboutMe>
   {/if}
-
-  {#if show_quote && $path == INDEX}
-    <div class="card about_profile rounded-md">
-    <span class="slide_down_words {show_animation}">
-        {@html quote_list[getRandomInt(0, quote_list.length - 1)]}
-      </span>
-    </div>
+  {#if $path == INDEX}
+    <QuoteDisplay quote={get_random_quote(quote_list)} {show_quote}></QuoteDisplay>
   {/if}
-
-
 </div>
 
 <style lang="scss">
@@ -106,18 +99,11 @@
       width: 13rem;
     }
   }
-  .card{
-    background-color: rgba(245, 245, 245, 0.4);
-    margin: 0rem 2rem 0rem 1rem;
-  }
+
   .real-rounded-circle{
     border-radius: 10em ;
   }
   .slide_down_words{
-  }
-  .about_profile{
-    padding: 0.5rem;
-    margin: 0rem 0rem 0.5rem 0rem;
   }
 }
 
