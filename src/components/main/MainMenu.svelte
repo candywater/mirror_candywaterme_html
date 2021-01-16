@@ -7,11 +7,15 @@
   const about = "/about"
   const index = "/"
 
-  const button_style_1 = "bg-blue-500 hover:bg-blue-700 text-white rounded"
-  const button_style_2 = "bg-indigo-500 hover:bg-indigo-700 text-white rounded"
-  const button_style_3 = "bg-purple-500 hover:bg-purple-700 text-white rounded"
-  const button_style_4 = "bg-yellow-500 hover:bg-yellow-700 text-white rounded"
-  const button_style_5 = "bg-red-500 hover:bg-red-700 text-white rounded"
+  const basicstyle = "text-white rounded"
+  // const border = "border border-light-blue-500 border-opacity-5"
+  const border = "border border-indigo-500"
+
+  const button_style_1 = `bg-blue-500 hover:bg-blue-700 ${basicstyle} ${border}`
+  const button_style_2 = `bg-indigo-500 hover:bg-indigo-700 ${basicstyle} ${border}`
+  const button_style_3 = `bg-purple-500 hover:bg-purple-700 ${basicstyle} ${border}`
+  const button_style_4 = `bg-yellow-500 hover:bg-yellow-700 ${basicstyle} ${border}`
+  const button_style_5 = `bg-red-500 hover:bg-red-700 ${basicstyle} ${border}`
 
 </script>
 
