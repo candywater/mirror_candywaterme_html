@@ -4,7 +4,9 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start": "sirv public --single"
+    "start": "sirv public --single",
+    "build:tailwind": "NODE_ENV=production npx postcss node_modules/tailwindcss/dist/tailwind.min.css -o public/build/tailwincss.css",
+    "dev:tailwind": "npx postcss node_modules/tailwindcss/dist/tailwind.css -o public/build/tailwincss.css"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
@@ -20,10 +22,11 @@
     "svelte-preprocess": "^4.6.1"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^3.1.3",
     "animate.css": "^4.1.1",
     "bootstrap": "^5.0.0-beta1",
     "page.js": "^4.13.3",
-    "postcss": "^8.2.4",
+    "postcss-cli": "^8.3.1",
     "sirv-cli": "^1.0.0",
     "tailwindcss": "^2.0.2"
   }
