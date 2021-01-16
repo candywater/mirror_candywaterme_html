@@ -7,12 +7,17 @@ import MainMenu from "./components/main/MainMenu.svelte"
 import Copyleft from "./components/main/Copyleft.svelte"
 
 import ConfigGear from "./components/main/config/ConfigGear.svelte"
+import ConfigPanel from "./components/main/config/ConfigPanel.svelte"
 
 export let quote_url 
 export let quote_list 
 export let description  
 
 let show_panel = false;
+
+function on_click(){
+  show_panel = !show_panel
+}
 
 </script>
 
@@ -30,9 +35,12 @@ let show_panel = false;
     <div class="profile-block">
       <Profile {quote_url} {quote_list} {description} />
     </div>
-    <div class="config-block">
+    <div class="config-block z-10" on:click={on_click}>
       <ConfigGear></ConfigGear>
     </div>
+    {#if show_panel}
+      <ConfigPanel></ConfigPanel>
+    {/if}
   </div>
   <div class="container copyleft-block">
     <Copyleft></Copyleft>
@@ -46,7 +54,6 @@ $white-background : rgba(245, 245, 245, 0.3);
 
 .main{
   margin-top: 11% ;
-  padding: 1rem 0.5rem;
   background-color: $white-background;
   display: flex;
   justify-content:center;
