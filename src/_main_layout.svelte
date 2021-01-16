@@ -6,6 +6,8 @@ import Profile from "./components/main/Profile.svelte"
 import MainMenu from "./components/main/MainMenu.svelte"
 import Copyleft from "./components/main/Copyleft.svelte"
 
+import ConfigPanel from "./components/main/ConfigPanel.svelte"
+
 export let quote_url 
 export let quote_list 
 export let description  
@@ -25,6 +27,9 @@ export let description
     </div>
     <div class="profile-block">
       <Profile {quote_url} {quote_list} {description} />
+    </div>
+    <div class="config-block">
+      <ConfigPanel></ConfigPanel>
     </div>
   </div>
   <div class="container copyleft-block">
@@ -46,6 +51,11 @@ $white-background : rgba(245, 245, 245, 0.3);
   align-items: flex-start;
   .mainmenu-block{
     margin: 1rem 1rem;
+  }
+  .config-block{
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
   }
 }
 
