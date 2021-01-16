@@ -9,3 +9,5 @@ or
 - 删掉无用的css
 - 增加可以取得的quote的数量
 - 增加可以修改背景的按钮
+- 增加可以获取quote的种类
+- 使用tailwindcss
