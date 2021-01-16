@@ -2,7 +2,7 @@
   "name": "site-svelte-app",
   "version": "1.0.0",
   "scripts": {
-    "build": "rollup -c",
+    "build": "yarn run dev:tailwind && rollup -c",
     "dev": "rollup -c -w",
     "start": "sirv public --single",
     "build:tailwind": "NODE_ENV=production npx postcss node_modules/tailwindcss/dist/tailwind.min.css -o public/build/tailwincss.css",
