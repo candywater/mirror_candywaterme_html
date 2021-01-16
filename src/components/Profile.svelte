@@ -14,6 +14,10 @@
 </script>
 
 <script>
+  import {path, INDEX, ABOUT, PROJECT} from "../store/path"
+  let switcher = INDEX;
+  const unsubscribe = path.subscribe(val => switcher = val)
+
   import {getRandomInt} from "../common/common"
   import ProjectList from "./ProjectList.svelte"
   import AboutMe from "./AboutMe.svelte"
@@ -21,9 +25,6 @@
   export let quote_url 
   export let quote_list 
   export let description
-
-  export let isProject
-  export let isAbout
 
   let show_quote = false;
   let show_animation = ANIMATED_IN
@@ -80,14 +81,14 @@
   <p class="blockquote">
     {description}
   </p>
-  {#if isProject}
+  {#if switcher == PROJECT}
     <ProjectList></ProjectList>
   {/if}
-  {#if isAbout}
+  {#if switcher == ABOUT}
     <AboutMe></AboutMe>
   {/if}
 
-  {#if show_quote && !isProject}
+  {#if show_quote && switcher == INDEX}
     <div class="card card-outline-secondary about_profile">
     <span class="slide_down_words {show_animation}">
         {@html quote_list[getRandomInt(0, quote_list.length - 1)]}

@@ -11,5 +11,4 @@
 
 <Main 
   description = {description}
-  isProject = {true}
 />

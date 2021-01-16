@@ -6,12 +6,11 @@ import Index from './index.svelte';
 import About from './about.svelte';
 import Project from './project.svelte';
 
+import {path, INDEX, ABOUT, PROJECT} from "./store/path"
 
-export const INDEX = "index"
-export const ABOUT = "about"
-export const PROJECT = "project"
+let switcher = INDEX;
 
-export let switcher = INDEX
+const unsubscribe = path.subscribe(val => switcher = val)
 
 page('/', ()=>{change_switcher(INDEX)})
 page('/about', ()=>{change_switcher(ABOUT)})
@@ -19,7 +18,7 @@ page('/project', ()=>{change_switcher(PROJECT)})
 page()
 
 function change_switcher(pagename){
-  switcher = pagename
+  path.set(pagename)
 }
 
 </script>

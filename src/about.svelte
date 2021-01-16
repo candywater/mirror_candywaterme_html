@@ -13,5 +13,4 @@ const quote_list = ["happy a new day!"]
 <Main 
   quote_list={quote_list}
   description=""
-  isAbout ={true}
 ></Main>

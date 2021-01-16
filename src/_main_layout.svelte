@@ -10,9 +10,6 @@ export let quote_url
 export let quote_list 
 export let description  
 
-export let isProject
-export let isAbout
-
 </script>
 
 <svelte:head>
@@ -31,8 +28,6 @@ export let isAbout
         quote_url = {quote_url} 
         quote_list={quote_list}
         description ={description}
-        isProject = {isProject}
-        isAbout = {isAbout}
       />
     </div>
   </div>
