@@ -10,13 +10,11 @@
   const ANIMATED_IN = "animated bounceIn"
   const ANIMATED_OUT= "animated bounceOut"
   
+  import {path, INDEX, ABOUT, PROJECT} from "../../store/path"
 
 </script>
 
 <script>
-  import {path, INDEX, ABOUT, PROJECT} from "../../store/path.js"
-  let switcher = INDEX;
-  const unsubscribe = path.subscribe(val => switcher = val)
 
   import {getRandomInt} from "../../common/common.js"
   import ProjectList from "../project/ProjectList.svelte"
@@ -81,14 +79,14 @@
   <p class="blockquote">
     {description}
   </p>
-  {#if switcher == PROJECT}
+  {#if $path == PROJECT}
     <ProjectList></ProjectList>
   {/if}
-  {#if switcher == ABOUT}
+  {#if $path == ABOUT}
     <AboutMe></AboutMe>
   {/if}
 
-  {#if show_quote && switcher == INDEX}
+  {#if show_quote && $path == INDEX}
     <div class="card card-outline-secondary about_profile">
     <span class="slide_down_words {show_animation}">
         {@html quote_list[getRandomInt(0, quote_list.length - 1)]}
