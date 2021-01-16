@@ -14,13 +14,13 @@
 </script>
 
 <script>
-  import {path, INDEX, ABOUT, PROJECT} from "../store/path"
+  import {path, INDEX, ABOUT, PROJECT} from "../../store/path.js"
   let switcher = INDEX;
   const unsubscribe = path.subscribe(val => switcher = val)
 
-  import {getRandomInt} from "../common/common"
-  import ProjectList from "./ProjectList.svelte"
-  import AboutMe from "./AboutMe.svelte"
+  import {getRandomInt} from "../../common/common.js"
+  import ProjectList from "../project/ProjectList.svelte"
+  import AboutMe from "../about/AboutMe.svelte"
 
   export let quote_url 
   export let quote_list 
