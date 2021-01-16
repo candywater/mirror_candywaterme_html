@@ -6,7 +6,7 @@
     "dev": "yarn run dev:tailwind && rollup -c -w",
     "start": "sirv public --single",
     "build:tailwind": "NODE_ENV=production npx postcss node_modules/tailwindcss/dist/tailwind.min.css -o public/build/tailwincss.css",
-    "dev:tailwind": "npx postcss node_modules/tailwindcss/dist/tailwind.css -o public/build/tailwincss.css"
+    "dev:tailwind": "cp node_modules/tailwindcss/dist/tailwind.css public/build/tailwincss.css"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^16.0.0",
