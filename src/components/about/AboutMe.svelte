@@ -45,6 +45,13 @@
 {/if}
 
 <style lang="scss">
+
+.inline{
+  img{
+    display: inline;
+  }
+}
+
 //https://github.com/nostalgic-css/NES.css
 /**
 MIT License
