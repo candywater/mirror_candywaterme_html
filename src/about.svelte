@@ -2,6 +2,8 @@
 <script>
 import Main from "./_main_layout.svelte";
 
+
+const description = ""
 const quote_url = ""
 const quote_list = ["happy a new day!"]
 </script>
@@ -10,7 +12,4 @@ const quote_list = ["happy a new day!"]
   <title>This a my small profile</title>
 </svelte:head>
 
-<Main 
-  quote_list={quote_list}
-  description=""
-></Main>
+<Main {quote_url} {quote_list} {description}></Main>
