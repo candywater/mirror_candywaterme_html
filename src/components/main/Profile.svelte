@@ -71,7 +71,7 @@
   <br>
   <div class="figure">
     <img src="/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
-        class="real-rounded-circle figure-img img-thumbnail text-center animated bounceIn" 
+        class="real-rounded-circle animated bounceIn" 
         alt="profile" id="profile_photo"
         title="why not try clicking this?"
         on:click="{OnImgClick}"
