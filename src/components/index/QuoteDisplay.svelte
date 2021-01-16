@@ -1,21 +1,16 @@
 <script>
-
-    
-
   export let quote 
   export let show_quote
   
   const ANIMATED_IN = "animated bounceIn"
 
   let show_animation = ANIMATED_IN
-
-
 </script>
 
 
 {#if show_quote}
   <div class="card about_profile rounded-md">
-  <span class="slide_down_words {show_animation}">
+    <span class="slide_down_words {show_animation}">
       {@html quote}
     </span>
   </div>
@@ -28,6 +23,6 @@
   }
   .card{
     background-color: rgba(245, 245, 245, 0.4);
-    margin: 0rem 2rem 0rem 1rem;
+    margin: 1rem 1rem 1rem 1rem;
   }
 </style>
