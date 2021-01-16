@@ -6,11 +6,13 @@ import Profile from "./components/main/Profile.svelte"
 import MainMenu from "./components/main/MainMenu.svelte"
 import Copyleft from "./components/main/Copyleft.svelte"
 
-import ConfigPanel from "./components/main/ConfigPanel.svelte"
+import ConfigGear from "./components/main/config/ConfigGear.svelte"
 
 export let quote_url 
 export let quote_list 
 export let description  
+
+let show_panel = false;
 
 </script>
 
@@ -29,7 +31,7 @@ export let description
       <Profile {quote_url} {quote_list} {description} />
     </div>
     <div class="config-block">
-      <ConfigPanel></ConfigPanel>
+      <ConfigGear></ConfigGear>
     </div>
   </div>
   <div class="container copyleft-block">
