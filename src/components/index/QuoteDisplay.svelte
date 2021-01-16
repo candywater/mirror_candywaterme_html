@@ -1,6 +1,5 @@
 <script>
 
-  import {getRandomInt} from "../../common/common.js"
     
 
   export let quote 
