@@ -71,7 +71,7 @@
   <br>
   <div class="figure">
     <img src={PROFILE_IMG_URL}
-        class="real-rounded-circle animated bounceIn" 
+        class="real-rounded-circle animated bounceIn border-double border-4 border-light-blue-500" 
         alt="profile" id="profile_photo"
         title="why not try clicking this?"
         on:click="{OnImgClick}"
