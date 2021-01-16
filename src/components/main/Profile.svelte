@@ -105,8 +105,6 @@
   .real-rounded-circle{
     border-radius: 10em ;
   }
-  .slide_down_words{
-  }
 }
 
 
