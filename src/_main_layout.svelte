@@ -6,8 +6,10 @@ import Profile from "./components/main/Profile.svelte"
 import MainMenu from "./components/main/MainMenu.svelte"
 import Copyleft from "./components/main/Copyleft.svelte"
 
-import ConfigGear from "./components/main/config/ConfigGear.svelte"
-import ConfigPanel from "./components/main/config/ConfigPanel.svelte"
+import ConfigGear from "./components/main/configPanel/ConfigGear.svelte"
+import ConfigPanel from "./components/main/configPanel/ConfigPanel.svelte"
+
+import FakePanel from "./components/common/FakePanel.svelte"
 
 export let quote_url 
 export let quote_list 
@@ -26,8 +28,13 @@ function on_click(){
 </svelte:head>
 
 
-<Layout>
+{#if show_panel}
+  <div on:click={on_click}>
+    <FakePanel> </FakePanel>
+  </div>
+{/if}
 
+<Layout>
   <div class="container main">
     <div class="mainmenu-block">
       <MainMenu></MainMenu>
@@ -45,7 +52,6 @@ function on_click(){
   <div class="container copyleft-block">
     <Copyleft></Copyleft>
   </div>
-
 </Layout>
 
 <style lang="scss">
