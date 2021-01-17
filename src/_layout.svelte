@@ -1,6 +1,4 @@
 <script>
-import {panel_background_color} from "./store/config"
-
 // import 'animate.css/animate.min.css'
 import 'animate.css/source/_vars.css';
 import 'animate.css/source/_base.css';
@@ -11,7 +9,7 @@ import 'animate.css/source/attention_seekers/jello.css';
 
 </script>
 
-<main style="background-color: {$panel_background_color}">
+<main>
   <slot></slot>
 </main>
 

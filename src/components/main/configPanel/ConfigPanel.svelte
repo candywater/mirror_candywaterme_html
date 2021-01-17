@@ -1,6 +1,5 @@
 <script>
 
-import {panel_background_color} from "../../../store/config"
 // import {hex2RGB} from "../../../common/common"
 
 const btn_style = "btn bg-blue-500 hover:bg-blue-700"
@@ -9,8 +8,7 @@ const btn_style = "btn bg-blue-500 hover:bg-blue-700"
 
 <div class="panel">
   <div>
-    <label>Panel Color Picker</label>
-    <input type="color" bind:value={$panel_background_color} />
+    <p>I'm coding this part !</p>
   </div>
 </div>
 
