@@ -2326,7 +2326,7 @@ supports-color@^7.0.0, supports-color@^7.1.0:
 
 svelte-color@candywater/svelte-color:
   version "1.0.2"
-  resolved "https://codeload.github.com/candywater/svelte-color/tar.gz/0620b31f2c32a1b9a88d5ddab34dcb91eb054da9"
+  resolved "https://codeload.github.com/candywater/svelte-color/tar.gz/d44e658916f8e95a6b2a118a01123889c7af8d53"
   dependencies:
     tinycolor2 "^1.4.1"
 
