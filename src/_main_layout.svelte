@@ -28,11 +28,11 @@ function on_click(){
 </svelte:head>
 
 
-{#if show_panel}
+<!-- {#if show_panel}
   <div on:click={on_click}>
     <FakePanel> </FakePanel>
   </div>
-{/if}
+{/if} -->
 
 <Layout>
   <div class="container main">
@@ -42,12 +42,12 @@ function on_click(){
     <div class="profile-block">
       <Profile {quote_url} {quote_list} {description} />
     </div>
-    <div class="config-block z-10" on:click={on_click}>
+    <!-- <div class="config-block z-10" on:click={on_click}>
       <ConfigGear></ConfigGear>
     </div>
     {#if show_panel}
       <ConfigPanel></ConfigPanel>
-    {/if}
+    {/if} -->
   </div>
   <div class="container copyleft-block">
     <Copyleft></Copyleft>
@@ -67,11 +67,11 @@ $white-background : rgba(245, 245, 245, 0.3);
   .mainmenu-block{
     margin: 1rem 1rem;
   }
-  .config-block{
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
-  }
+  // .config-block{
+  //   position: absolute;
+  //   right: 1rem;
+  //   top: 1rem;
+  // }
 }
 
 @media screen {

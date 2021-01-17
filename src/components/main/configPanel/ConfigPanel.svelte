@@ -1,6 +1,6 @@
 <script>
 
-// import {hex2RGB} from "../../../common/common"
+// import ChromePicker from 'svelte-color/Chrome.svelte';
 
 const btn_style = "btn bg-blue-500 hover:bg-blue-700"
 
@@ -9,6 +9,7 @@ const btn_style = "btn bg-blue-500 hover:bg-blue-700"
 <div class="panel">
   <div>
     <p>I'm coding this part !</p>
+    <!-- <ChromePicker></ChromePicker> -->
   </div>
 </div>
 
@@ -26,13 +27,13 @@ const btn_style = "btn bg-blue-500 hover:bg-blue-700"
     div{
     }
   }
-  .btn{
-    display: block;
-    width: 7rem;
-    margin: 0.2rem 0rem;
-    padding: 0.5rem 0.7rem;
-    // font-size: 1.25rem;
-    text-align: center;
-    // font-weight: 400;
-  }
+  // .btn{
+  //   display: block;
+  //   width: 7rem;
+  //   margin: 0.2rem 0rem;
+  //   padding: 0.5rem 0.7rem;
+  //   // font-size: 1.25rem;
+  //   text-align: center;
+  //   // font-weight: 400;
+  // }
 </style>
