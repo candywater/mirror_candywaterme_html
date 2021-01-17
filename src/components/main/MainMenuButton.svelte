@@ -1,5 +1,5 @@
 <script>
-  import {path, INDEX, ABOUT, PROJECT} from "../../store/path"
+  import {path} from "../../store/path"
 
   export let style;
   export let href;

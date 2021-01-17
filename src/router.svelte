@@ -6,11 +6,13 @@ import Index from './index.svelte';
 import About from './about.svelte';
 import Project from './project.svelte';
 
-import {path, INDEX, ABOUT, PROJECT} from "./store/path"
+import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY} from "./store/path"
 
 page('/', ()=>{change_switcher(INDEX)})
 page('/about', ()=>{change_switcher(ABOUT)})
 page('/project', ()=>{change_switcher(PROJECT)})
+page('/blog/tech', ()=>{change_switcher(TECH)})
+page('/blog/essay', ()=>{change_switcher(ESSAY)})
 page()
 
 function change_switcher(pagename){
