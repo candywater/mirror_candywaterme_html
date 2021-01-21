@@ -1,5 +1,11 @@
 <svelte:head>
   <title>欢迎━(*｀∀´*)ノ亻!</title>
+  {#if show_blog && $path === TECH}
+    <link rel="preload" href="/blog/tech/" as="document">
+  {/if}
+  {#if show_blog && $path === ESSAY}
+    <link rel="preload" href="/blog/essay/" as="document">
+  {/if}
 </svelte:head>
 
 <script>
@@ -47,6 +53,7 @@ function OnAnimationEnd(){
   <slot></slot>
 </main>
 
+<!--because /blog/tech/ point different things between app and backend server, so, use this as a trick.-->
 {#if show_blog && $path === TECH}
   <iframe 
     title="Candy Water's Cyber Space"
