@@ -15,6 +15,7 @@ import 'animate.css/source/fading_exits/fadeOut.css';
 
 import { onDestroy } from 'svelte';
 import {is_hide_all_content} from "./store/config"
+import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY} from "./store/path"
 
 const HIDE_ANIMATION = "animated fadeOut faster"
 const SHOW_ANIMATION = "animated fadeIn faster"
@@ -46,7 +47,7 @@ function OnAnimationEnd(){
   <slot></slot>
 </main>
 
-{#if show_blog}
+{#if show_blog && $path === TECH}
   <iframe 
     title="Candy Water's Cyber Space"
     class={SHOW_ANIMATION}
@@ -56,8 +57,21 @@ function OnAnimationEnd(){
     width="100%" 
     height="100%" 
     scrolling="auto"
-    src="http://dev.candy.com/blog/tech/"></iframe>
+    src="/blog/tech/"></iframe>
 {/if}
+{#if show_blog && $path === ESSAY}
+  <iframe 
+    title="Candy Water's Cyber Space"
+    class={SHOW_ANIMATION}
+    frameborder="0" 
+    marginheight="0" 
+    marginwidth="0" 
+    width="100%" 
+    height="100%" 
+    scrolling="auto"
+    src="/blog/essay/"></iframe>
+{/if}
+
 
 
 <style global lang="scss">
