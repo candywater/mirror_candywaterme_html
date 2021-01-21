@@ -24,9 +24,14 @@ const unsubscribe = is_hide_all_content.subscribe(isHide => {
 });
 onDestroy(unsubscribe);
 
+function OnAnimationEnd(){
+  if($is_hide_all_content)
+    animation += " hide "
+}
+
 </script>
 
-<main class={animation}>
+<main class={animation} on:animationend={OnAnimationEnd}>
   <slot></slot>
 </main>
 
