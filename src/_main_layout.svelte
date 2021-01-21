@@ -23,10 +23,6 @@ function on_click(){
 
 </script>
 
-<svelte:head>
-  <title>欢迎━(*｀∀´*)ノ亻!</title>
-</svelte:head>
-
 
 <!-- {#if show_panel}
   <div on:click={on_click}>
