@@ -6,10 +6,13 @@ import 'animate.css/source/_base.css';
 /* Bouncing entrances  */
 import 'animate.css/source/bouncing_entrances/bounceIn.css';
 import 'animate.css/source/attention_seekers/jello.css';
+import "animate.css/animate.compat.css"
+
+import {hide_all_content} from "./store/config"
 
 </script>
 
-<main>
+<main class={$hide_all_content}>
   <slot></slot>
 </main>
 
