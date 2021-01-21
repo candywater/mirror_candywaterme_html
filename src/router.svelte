@@ -14,8 +14,8 @@ import {is_hide_all_content} from "./store/config"
 page('/', ()=>{change_switcher(INDEX)})
 page('/about', ()=>{change_switcher(ABOUT)})
 page('/project', ()=>{change_switcher(PROJECT)})
-page('/blog/tech', ()=>{change_switcher(TECH)})
-page('/blog/essay', ()=>{change_switcher(ESSAY)})
+// page('/blog/tech', ()=>{change_switcher(TECH)})
+// page('/blog/essay', ()=>{change_switcher(ESSAY)})
 page()
 
 function change_switcher(pagename){
