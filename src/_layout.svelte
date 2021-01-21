@@ -31,18 +31,18 @@ onDestroy(unsubscribe);
 </main>
 
 
-<style lang="scss">
-:global(body){
+<style global lang="scss">
+body{
   /*https://codepen.io/P1N2O/pen/pyBNzX*/
   background: linear-gradient(-45deg, rgb(179, 108, 87), rgba(155, 44, 44, 0.637), rgb(19, 90, 116), rgba(29, 104, 86, 0.534)),
               linear-gradient(127deg, rgb(87, 44, 31),  rgb(11, 75, 99), rgba(17, 100, 81, 0.534));
   background-size: 400% 400%;
   animation: Gradient 25s ease infinite;
 }
-:global(.hide){
+.hide{
   display: none !important;
 }
-:global(.show){
+.show{
   display: block !important;
 }
 
