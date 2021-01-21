@@ -33,15 +33,20 @@
   }
 
   function OnLoad(){
-    if(!description)
+    if(!description){
       description = MY_DESCRIPTION_DEFAULT
-
-    if(!quote_list){
+    }
+    if(quote_list){
+      return
+    }
+    else{
       quote_list = split_serifs(DEFAULT_QUOTE);
-      if(quote_url)
-        fetch_quote(quote_url)
-      else
-        fetch_quote(DEFAULT_QUOTE_URL)
+    }
+    if(quote_url){
+      fetch_quote(quote_url)
+    }
+    else{
+      fetch_quote(DEFAULT_QUOTE_URL)
     }
   }
 

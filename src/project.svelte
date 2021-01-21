@@ -2,7 +2,7 @@
   import Main from "./_main_layout.svelte";
 
   const quote_url = ""
-  const quote_list = "" //["meow!"]
+  const quote_list = ["meow!"]
   const description = `My side work list`
 </script>
 
