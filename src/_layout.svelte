@@ -8,13 +8,28 @@ import 'animate.css/source/bouncing_entrances/bounceIn.css';
 import 'animate.css/source/attention_seekers/jello.css';
 import "animate.css/animate.compat.css"
 
-import {hide_all_content} from "./store/config"
+import { onDestroy } from 'svelte';
+import {is_hide_all_content} from "./store/config"
+
+const HIDE_ANIMATION = "animated fadeOut"
+let animation = ""
+
+const unsubscribe = is_hide_all_content.subscribe(isHide => {
+  if(isHide){
+    animation = HIDE_ANIMATION
+  }
+  else{
+    animation = ""
+  }
+});
+onDestroy(unsubscribe);
 
 </script>
 
-<main class={$hide_all_content}>
+<main class={animation}>
   <slot></slot>
 </main>
+
 
 <style lang="scss">
 :global(body){

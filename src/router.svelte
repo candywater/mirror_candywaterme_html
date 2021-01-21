@@ -9,7 +9,7 @@ import Tech from './tech.svelte';
 import Essay from './essay.svelte';
 
 import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY} from "./store/path"
-import {hide_all_content} from "./store/config"
+import {is_hide_all_content} from "./store/config"
 
 page('/', ()=>{change_switcher(INDEX)})
 page('/about', ()=>{change_switcher(ABOUT)})
@@ -21,9 +21,9 @@ page()
 function change_switcher(pagename){
   path.set(pagename)
   if(pagename === TECH || pagename === ESSAY)
-    $hide_all_content = "animated fadeOut"
+    $is_hide_all_content = true
   else
-    $hide_all_content = ""
+    $is_hide_all_content = false
 }
 
 </script>
