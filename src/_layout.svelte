@@ -1,10 +1,10 @@
 <svelte:head>
   <title>欢迎━(*｀∀´*)ノ亻!</title>
   {#if $path === TECH}
-    <link rel="preload" href="/blog/tech/" as="document">
+    <link rel="preload" href={TECH_PATH} as="document">
   {/if}
   {#if $path === ESSAY}
-    <link rel="preload" href="/blog/essay/" as="document">
+    <link rel="preload" href={ESSAY_PATH} as="document">
   {/if}
 </svelte:head>
 
@@ -21,12 +21,11 @@ import 'animate.css/source/fading_exits/fadeOut.css';
 
 import { onDestroy } from 'svelte';
 import {is_hide_all_content} from "./store/config"
-import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY} from "./store/path"
+import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "./store/path"
 
 const HIDE_ANIMATION = "animated fadeOut faster"
-const SHOW_ANIMATION = "animated fadeIn faster"
+// const SHOW_ANIMATION = "animated fadeIn faster"
 let fadeOutAnimation = ""
-// it seems that... no need to delete show animation after animationEnd
 // let fadeInAnimation = ""
 
 const unsubscribe = is_hide_all_content.subscribe(isHide => {
@@ -43,9 +42,9 @@ function OnAnimationEnd(){
   if($is_hide_all_content){
     fadeOutAnimation = "hide";
     if($path === TECH)
-      window.location = "/blog/tech/"
+      window.location = TECH_PATH
     if($path === ESSAY)
-      window.location = "/blog/essay/"
+      window.location = ESSAY_PATH
   }
 }
 

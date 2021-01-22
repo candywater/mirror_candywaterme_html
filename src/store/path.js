@@ -7,3 +7,10 @@ export const PROJECT = "project"
 export const ESSAY = "essay"
 export const TECH = "tech"
 export const path = writable(INDEX);
+
+
+export const ESSAY_PATH = "/blog/essay"
+export const TECH_PATH = "/blog/tech"
+export const PROJECT_PATH = "/project"
+export const ABOUT_PATH = "/about"
+export const INDEX_PATH = "/"

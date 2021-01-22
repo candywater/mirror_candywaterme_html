@@ -9,13 +9,14 @@ import Tech from './tech.svelte';
 import Essay from './essay.svelte';
 
 import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY} from "./store/path"
+import {INDEX_PATH, ABOUT_PATH, PROJECT_PATH, TECH_PATH, ESSAY_PATH} from "./store/path"
 import {is_hide_all_content} from "./store/config"
 
-page('/', ()=>{change_switcher(INDEX)})
-page('/about', ()=>{change_switcher(ABOUT)})
-page('/project', ()=>{change_switcher(PROJECT)})
-page('/blog/tech', ()=>{change_switcher(TECH)})
-page('/blog/essay', ()=>{change_switcher(ESSAY)})
+page(INDEX_PATH, ()=>{change_switcher(INDEX)})
+page(ABOUT_PATH, ()=>{change_switcher(ABOUT)})
+page(PROJECT_PATH, ()=>{change_switcher(PROJECT)})
+page(TECH_PATH, ()=>{change_switcher(TECH)})
+page(ESSAY_PATH, ()=>{change_switcher(ESSAY)})
 page()
 
 function change_switcher(pagename){
