@@ -23,14 +23,27 @@ import { onDestroy } from 'svelte';
 import {is_hide_all_content} from "./store/config"
 import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "./store/path"
 
-const HIDE_ANIMATION = "animated fadeOut faster"
+const HIDE_ANIMATION = "animated fadeOut"
 // const SHOW_ANIMATION = "animated fadeIn faster"
 let fadeOutAnimation = ""
 // let fadeInAnimation = ""
 
+/**
+ * default 1s
+ * animate__slow 	2s
+ * animate__slower 	3s
+ * animate__fast 	800ms
+ * animate__faster 	500ms
+ */
 const unsubscribe = is_hide_all_content.subscribe(isHide => {
   if(isHide){
     fadeOutAnimation = HIDE_ANIMATION
+    setTimeout(()=>{
+      if($path === TECH)
+        window.location = TECH_PATH
+      if($path === ESSAY)
+        window.location = ESSAY_PATH
+    }, 300)
   }
   else{
     fadeOutAnimation = ""
@@ -41,10 +54,6 @@ onDestroy(unsubscribe);
 function OnAnimationEnd(){
   if($is_hide_all_content){
     fadeOutAnimation = "hide";
-    if($path === TECH)
-      window.location = TECH_PATH
-    if($path === ESSAY)
-      window.location = ESSAY_PATH
   }
 }
 
