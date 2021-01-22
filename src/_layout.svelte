@@ -65,16 +65,6 @@ function OnAnimationEnd(){
 
 
 <style global lang="scss">
-//https://www.geeksforgeeks.org/how-to-set-fullscreen-iframe/
-// make html has scroll bar
-html
-{
- /* margin: 0px;  */
- padding: 0px; 
- /* height: 100%; 
- border: none; */
-}
-
 body{
   /*idea: https://codepen.io/P1N2O/pen/pyBNzX*/
   background: linear-gradient(-45deg, rgb(179, 108, 87), rgba(155, 44, 44, 0.637), rgb(19, 90, 116), rgba(29, 104, 86, 0.534)),
