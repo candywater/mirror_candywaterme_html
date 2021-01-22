@@ -12,10 +12,12 @@ const btn_style = "btn bg-blue-500 hover:bg-blue-700"
       <span class="bullet bullet-green"></span>
       <span class="title">~/candy-water/config/index.js</span>
     </div>
-    <blockquote>
-      I'm coding this part !
-    </blockquote>
-    <div class="terminal-prompt">
+    <div class="window">
+      <blockquote>
+        I'm coding this part !
+      </blockquote>
+      <div class="terminal-prompt">
+      </div>
     </div>
   </div>
 </div>
@@ -33,12 +35,11 @@ $white-background : rgba(156, 163, 175, 0.7);
   width: 100%;
   height: 100%;
   padding: 1rem;
-  display: grid;
   .header{
     background: #e8e8e8;
     border-radius: 4px 4px 0 0;
     padding: 3px 1rem;
-    height: 2rem;
+    // height: 2rem;
     .bullet{
       height: 11px;
       width: 11px;
@@ -57,6 +58,10 @@ $white-background : rgba(156, 163, 175, 0.7);
     .bullet-green{
       background: #5bcc8b;;
     }
+  }
+  .window{
+    background-color: rgba(8, 8, 8, 0.5);
+    height: 100%;
   }
 }
 
