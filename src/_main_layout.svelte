@@ -39,7 +39,8 @@ function on_click(){
       <Profile {quote_url} {quote_list} {description} />
     </div>
     <div class="config-block z-10" 
-      on:click={on_click}>
+      on:click={on_click}
+    >
       <ConfigGear></ConfigGear>
     </div>
     {#if show_panel}
