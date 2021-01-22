@@ -1,9 +1,9 @@
 <svelte:head>
   <title>欢迎━(*｀∀´*)ノ亻!</title>
-  {#if show_blog && $path === TECH}
+  {#if $path === TECH}
     <link rel="preload" href="/blog/tech/" as="document">
   {/if}
-  {#if show_blog && $path === ESSAY}
+  {#if $path === ESSAY}
     <link rel="preload" href="/blog/essay/" as="document">
   {/if}
 </svelte:head>
@@ -16,7 +16,7 @@ import 'animate.css/source/_base.css';
 /* Bouncing entrances  */
 import 'animate.css/source/bouncing_entrances/bounceIn.css';
 import 'animate.css/source/attention_seekers/jello.css';
-import 'animate.css/source/fading_entrances/fadeIn.css';
+// import 'animate.css/source/fading_entrances/fadeIn.css';
 import 'animate.css/source/fading_exits/fadeOut.css';
 
 import { onDestroy } from 'svelte';
@@ -28,7 +28,6 @@ const SHOW_ANIMATION = "animated fadeIn faster"
 let fadeOutAnimation = ""
 // it seems that... no need to delete show animation after animationEnd
 // let fadeInAnimation = ""
-let show_blog = false
 
 const unsubscribe = is_hide_all_content.subscribe(isHide => {
   if(isHide){
@@ -42,8 +41,11 @@ onDestroy(unsubscribe);
 
 function OnAnimationEnd(){
   if($is_hide_all_content){
-    fadeOutAnimation += " hide ";
-    show_blog = true;
+    fadeOutAnimation = "hide";
+    if($path === TECH)
+      window.location = "/blog/tech/"
+    if($path === ESSAY)
+      window.location = "/blog/essay/"
   }
 }
 
@@ -52,33 +54,6 @@ function OnAnimationEnd(){
 <main class={fadeOutAnimation} on:animationend={OnAnimationEnd}>
   <slot></slot>
 </main>
-
-<!--because /blog/tech/ point different things between app and backend server, so, use this as a trick.-->
-{#if show_blog && $path === TECH}
-  <iframe 
-    title="Candy Water's Cyber Space"
-    class={SHOW_ANIMATION}
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0" 
-    width="100%" 
-    height="100%" 
-    scrolling="auto"
-    src="/blog/tech/"></iframe>
-{/if}
-{#if show_blog && $path === ESSAY}
-  <iframe 
-    title="Candy Water's Cyber Space"
-    class={SHOW_ANIMATION}
-    frameborder="0" 
-    marginheight="0" 
-    marginwidth="0" 
-    width="100%" 
-    height="100%" 
-    scrolling="auto"
-    src="/blog/essay/"></iframe>
-{/if}
-
 
 
 <style global lang="scss">
