@@ -60,8 +60,10 @@ $white-background : rgba(156, 163, 175, 0.7);
     }
   }
   .window{
+    padding: 0.5rem;
     background-color: rgba(8, 8, 8, 0.5);
     height: 100%;
+    color: #e8e8e8;
   }
 }
 
