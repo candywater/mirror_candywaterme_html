@@ -17,7 +17,7 @@ import 'animate.css/source/_base.css';
 /* Bouncing entrances  */
 import 'animate.css/source/bouncing_entrances/bounceIn.css';
 import 'animate.css/source/attention_seekers/jello.css';
-// import 'animate.css/source/fading_entrances/fadeIn.css';
+import 'animate.css/source/fading_entrances/fadeIn.css';
 import 'animate.css/source/fading_exits/fadeOut.css';
 
 import { onDestroy } from 'svelte';

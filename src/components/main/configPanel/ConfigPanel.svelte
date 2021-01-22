@@ -8,7 +8,7 @@ function on_close_click(){
 
 </script>
 
-<div class="panel">
+<div class="panel animated fadeIn faster">
   <div class="terminal">
     <div class="header">
       <span class="bullet bullet-red" on:click={on_close_click}></span>
