@@ -11,20 +11,20 @@ import ConfigPanel from "./components/main/configPanel/ConfigPanel.svelte"
 
 import FakePanel from "./components/common/FakePanel.svelte"
 
+import {show_config_panel} from "./store/config"
+
 export let quote_url 
 export let quote_list 
 export let description  
 
-let show_panel = false;
-
 function on_click(){
-  show_panel = !show_panel
+  $show_config_panel = !$show_config_panel
 }
 
 </script>
 
 
-{#if show_panel}
+{#if $show_config_panel}
   <div on:click={on_click}>
     <FakePanel> </FakePanel>
   </div>
@@ -43,7 +43,7 @@ function on_click(){
     >
       <ConfigGear></ConfigGear>
     </div>
-    {#if show_panel}
+    {#if $show_config_panel}
       <ConfigPanel></ConfigPanel>
     {/if}
   </div>

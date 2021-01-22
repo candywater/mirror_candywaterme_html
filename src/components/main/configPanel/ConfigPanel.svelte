@@ -1,13 +1,17 @@
 <script>
 
-const btn_style = "btn bg-blue-500 hover:bg-blue-700"
+import {show_config_panel} from "../../../store/config"
+
+function on_close_click(){
+  $show_config_panel = false
+}
 
 </script>
 
 <div class="panel">
   <div class="terminal">
     <div class="header">
-      <span class="bullet bullet-red"></span>
+      <span class="bullet bullet-red" on:click={on_close_click}></span>
       <span class="bullet bullet-yellow"></span>
       <span class="bullet bullet-green"></span>
       <span class="title">~/candy-water/config/index.js</span>
