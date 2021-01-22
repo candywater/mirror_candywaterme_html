@@ -34,6 +34,7 @@ $white-background : rgba(156, 163, 175, 0.7);
   height: 100%;
   padding-bottom: 1.5rem;
 }
+//https://socket.io/
 .terminal{
   background-color: $white-background;
   width: 100%;
@@ -72,7 +73,7 @@ $white-background : rgba(156, 163, 175, 0.7);
 }
 
 //--primary-color: #1a95e0;
-
+//https://terminalcss.xyz/dark/#
 .terminal-prompt {
   position: relative;
   white-space: nowrap;
