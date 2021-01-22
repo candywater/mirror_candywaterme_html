@@ -9,6 +9,7 @@
 </svelte:head>
 
 <script>
+// import 'terminal.css/lib/terminal.css'
 // import 'animate.css/animate.min.css'
 import 'animate.css/source/_vars.css';
 import 'animate.css/source/_base.css';
