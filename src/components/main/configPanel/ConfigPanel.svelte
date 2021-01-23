@@ -2,19 +2,13 @@
 
 import {show_config_panel} from "../../../store/config"
 
-let show_cursor = true
 let console_info = `type :help to show commands. \n`
 let input_value = ""
 
 function on_close_click(){
   $show_config_panel = false
 }
-function on_prompt_focus(){
-  show_cursor = false;
-}
-function on_prompt_leave(){
-  show_cursor = true;
-}
+
 function on_key_down(e){
   if(e.key === "Enter"){
     console_info += input_value // include enter(\n)
@@ -36,13 +30,7 @@ function on_key_down(e){
       <pre>
         {console_info}
       </pre>
-      <div class="terminal-prompt" 
-        on:focusin={on_prompt_focus}
-        on:focusout={on_prompt_leave}
-      >
-        {#if show_cursor}
-          <span class="terminal-cursor"></span>
-        {/if}
+      <div class="terminal-prompt" >
           <textarea class="cli" rows="1" on:keyup={on_key_down} bind:value={input_value} autofocus></textarea>
       </div>
     </div>
@@ -117,25 +105,5 @@ $white-background : rgba(156, 163, 175, 0.7);
 .terminal-prompt::before {
   content: ">";
 }
-
-.terminal-cursor::before{
-  content: "";
-  animation: cursor 800ms infinite;
-  background: #1a95e0;
-  border-radius: 0;
-  display: inline-block;
-  height: 1em;
-  margin-left: 0.2em;
-  width: 3px;
-  bottom: -2px;
-  position: relative;
-}
-
-@keyframes cursor {
-  0% { opacity: 0; } 
-  50% { opacity: 1; } 
-  to { opacity: 0; }
-}
-
 
 </style>
