@@ -31,6 +31,7 @@ function on_key_down(e){
         {console_info}
       </pre>
       <div class="terminal-prompt" >
+          <!-- svelte-ignore a11y-autofocus -->
           <textarea class="cli" rows="1" on:keyup={on_key_down} bind:value={input_value} autofocus></textarea>
       </div>
     </div>
