@@ -70,7 +70,7 @@ function console_command(input){
       </pre>
       <div class="terminal-prompt" >
           <!-- svelte-ignore a11y-autofocus -->
-          <textarea class="cli" rows="1" on:keyup={on_key_down} bind:value={input_value} autofocus></textarea>
+          <textarea class="cli" rows="2" on:keyup={on_key_down} bind:value={input_value} autofocus></textarea>
       </div>
     </div>
   </div>
