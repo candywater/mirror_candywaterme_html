@@ -12,7 +12,8 @@ const ABOUT_INFO = `this is a console by candy water. ver 0.0.1
 `
 const EXIT_INFO = `have a nice day!
 `
-
+const ERROR_INFO = `command not found. Type :help for help.
+`
 
 let console_info = `type :help to show commands. \n`
 let input_value = ""
@@ -48,6 +49,7 @@ function console_command(input){
       }, 300);
       break;
     default:
+      console_info += ERROR_INFO
       break;
   }
 }
