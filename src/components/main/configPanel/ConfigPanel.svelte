@@ -2,6 +2,18 @@
 
 import {show_config_panel} from "../../../store/config"
 
+const HELP_INFO = `HELP INFO
+type following commands to use console.
+:help help
+:about about this console
+:exit exit console
+`
+const ABOUT_INFO = `this is a console by candy water. ver 0.0.1
+`
+const EXIT_INFO = `have a nice day!
+`
+
+
 let console_info = `type :help to show commands. \n`
 let input_value = ""
 
@@ -11,8 +23,32 @@ function on_close_click(){
 
 function on_key_down(e){
   if(e.key === "Enter"){
-    console_info += input_value // include enter(\n)
+    console_info += "> " + input_value // include enter(\n)
+    console_command(input_value)
     input_value = ""
+  }
+}
+
+function console_command(input){
+  let str = input.trim();
+  switch (str) {
+    case ":help":
+    case "help":
+      console_info += HELP_INFO
+      break;
+    case ":about":
+    case "about":
+      console_info += ABOUT_INFO 
+      break;
+    case ":exit":
+    case "exit":
+      console_info += EXIT_INFO
+      setTimeout(() => {
+        $show_config_panel = false;
+      }, 300);
+      break;
+    default:
+      break;
   }
 }
 
