@@ -46,7 +46,7 @@ function console_command(input){
       console_info += EXIT_INFO
       setTimeout(() => {
         $show_config_panel = false;
-      }, 300);
+      }, 350);
       break;
     default:
       console_info += ERROR_INFO
@@ -121,6 +121,9 @@ $white-background : rgba(156, 163, 175, 0.7);
   background-color: rgba(8, 8, 8, 0.5);
   height: 100%;
   color: #e8e8e8;
+  pre{
+    font-family: consolas,monospace;
+  }
 }
 
 //--primary-color: #1a95e0;
@@ -144,6 +147,7 @@ $white-background : rgba(156, 163, 175, 0.7);
   }
 }
 .terminal-prompt::before {
+  font-family: consolas,monospace;
   content: ">";
 }
 
