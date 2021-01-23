@@ -78,6 +78,7 @@ $white-background : rgba(156, 163, 175, 0.7);
   }
 }
 .window{
+  overflow-y: scroll;
   padding: 0.5rem;
   background-color: rgba(8, 8, 8, 0.5);
   height: 100%;
@@ -90,6 +91,7 @@ $white-background : rgba(156, 163, 175, 0.7);
   display: flex;
   //https://jsconsole.com/
   .cli{
+    overflow-y: hidden;
     padding-left: 0.3rem;
     color: #dedede;
     resize: none;
