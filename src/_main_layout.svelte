@@ -57,7 +57,7 @@ function on_click(){
 $white-background : rgba(245, 245, 245, 0.3);
 
 .main{
-  margin-top: 11% ;
+  margin-top: 30% ;
   background-color: $white-background;
   display: flex;
   justify-content:center;
