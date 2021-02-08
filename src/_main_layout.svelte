@@ -73,11 +73,25 @@ $white-background : rgba(245, 245, 245, 0.3);
 }
 
 @media screen {
+  /**
+  16:9
+  640x360
+  1280x720
+  1366x768
+  1600x900
+  1920x1080
+  2048x1152
+  2560x4110
+  3840x2160
+  */
   $size0 : 0px;
   $size1 : 576px;
   $size2 : 768px;
   $size3 : 992px;
   $size4 : 1200px;
+  $size5 : 1700px;
+  $size6 : 2200px;
+  $size7 : 2700px;
 
   @media (min-width: $size0){
     .main, .copyleft-block{
@@ -123,6 +137,21 @@ $white-background : rgba(245, 245, 245, 0.3);
     .profile-block{
       margin-left: 3rem;
       width: 30rem;
+    }
+  }
+  @media (min-width: $size5){
+    .main, .copyleft-block{
+      max-width: 60rem;
+    }
+  }
+  @media (min-width: $size6){
+    .main, .copyleft-block{
+      max-width: 80rem;
+    }
+  }
+  @media (min-width: $size7){
+    .main, .copyleft-block{
+      max-width: 100rem;
     }
   }
 }
