@@ -3,7 +3,8 @@
 <script>
   let list = [
      ["https://candywater.xyz/android-download", "九阴计算器apk"],
-     ["https://candywater.xyz", "九阴计算器"]
+     ["https://candywater.xyz", "九阴计算器"],
+     ["#", "discord chat bot"],
   ]
 
   let list_type = [
