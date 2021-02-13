@@ -36,7 +36,9 @@ function on_click(){
       <MainMenu></MainMenu>
     </div>
     <div class="profile-block">
-      <Profile {quote_url} {quote_list} {description} />
+      <Profile {quote_url} {quote_list} {description} >
+        <slot></slot>
+      </Profile>
     </div>
     <div class="config-block z-10" 
       on:click={on_click}

@@ -9,10 +9,7 @@
 
   import {getRandomInt} from "../../common/common.js"
   import {path, INDEX, ABOUT, PROJECT} from "../../store/path"
-  import ProjectList from "../project/ProjectList.svelte"
-  import AboutMe from "../about/AboutMe.svelte"
   import QuoteDisplay  from "../index/QuoteDisplay.svelte"
-
   export let quote_url 
   export let quote_list 
   export let description
@@ -86,12 +83,8 @@
   <p class="blockquote">
     {description}
   </p>
-  {#if $path == PROJECT}
-    <ProjectList></ProjectList>
-  {/if}
-  {#if $path == ABOUT}
-    <AboutMe></AboutMe>
-  {/if}
+  <slot>
+  </slot>
   {#if $path == INDEX}
     <QuoteDisplay {quote} {show_quote}></QuoteDisplay>
   {/if}
