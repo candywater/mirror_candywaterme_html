@@ -32,22 +32,25 @@ function on_click(){
 
 <Layout>
   <div class="container main">
+
     <div class="mainmenu-block">
       <MainMenu></MainMenu>
     </div>
+
     <div class="profile-block">
       <Profile {quote_url} {quote_list} {description} >
         <slot></slot>
       </Profile>
     </div>
-    <div class="config-block z-10" 
-      on:click={on_click}
-    >
+
+    <div class="config-block z-10" on:click={on_click}>
       <ConfigGear></ConfigGear>
     </div>
+
     {#if $show_config_panel}
       <ConfigPanel></ConfigPanel>
     {/if}
+    
   </div>
   <div class="container copyleft-block">
     <Copyleft></Copyleft>

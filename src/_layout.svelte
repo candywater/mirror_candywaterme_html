@@ -9,8 +9,6 @@
 </svelte:head>
 
 <script>
-// import 'terminal.css/lib/terminal.css'
-// import 'animate.css/animate.min.css'
 import 'animate.css/source/_vars.css';
 import 'animate.css/source/_base.css';
 
@@ -25,9 +23,7 @@ import {is_hide_all_content} from "./store/config"
 import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "./store/path"
 
 const HIDE_ANIMATION = "animated fadeOut"
-// const SHOW_ANIMATION = "animated fadeIn faster"
 let fadeOutAnimation = ""
-// let fadeInAnimation = ""
 
 /**
  * default 1s

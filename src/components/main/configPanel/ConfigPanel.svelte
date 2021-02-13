@@ -151,24 +151,4 @@ $white-background : rgba(156, 163, 175, 0.7);
   content: ">";
 }
 
-// .terminal-cursor::before{
-//   content: "";
-//   animation: cursor 800ms infinite;
-//   background: #1a95e0;
-//   border-radius: 0;
-//   display: inline-block;
-//   height: 1em;
-//   margin-left: 0.2em;
-//   width: 3px;
-//   bottom: -2px;
-//   position: relative;
-// }
-
-// @keyframes cursor {
-//   0% { opacity: 0; } 
-//   50% { opacity: 1; } 
-//   to { opacity: 0; }
-// }
-
-
 </style>
