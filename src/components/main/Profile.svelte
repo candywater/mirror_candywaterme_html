@@ -22,14 +22,14 @@
   let show_quote = false
   let quote = ""
   
-  OnLoad();
+  onLoad();
 
   function OnImgClick(e){
     show_quote = !show_quote
-    quote = get_random_quote(quote_list)
+    quote = getRandomQuote(quote_list)
   }
 
-  function OnLoad(){
+  function onLoad(){
     if(!description){
       description = MY_DESCRIPTION_DEFAULT
     }
@@ -37,25 +37,25 @@
       return
     }
     else{
-      quote_list = split_serifs(DEFAULT_QUOTE);
+      quote_list = splitSerifs(DEFAULT_QUOTE);
     }
     if(quote_url){
-      fetch_quote(quote_url)
+      fetchQuote(quote_url)
     }
     else{
-      fetch_quote(DEFAULT_QUOTE_URL)
+      fetchQuote(DEFAULT_QUOTE_URL)
     }
   }
 
-  async function fetch_quote(url){
+  async function fetchQuote(url){
     let result = await fetch(url);
     if(result.ok){
       let text = await result.text();
-      quote_list = split_serifs(text);
+      quote_list = splitSerifs(text);
     }
   }
 
-  function split_serifs(str){
+  function splitSerifs(str){
     str = str.split(/(?:\r\n){2,}/g);
     for(var ele in str ){
       str[ele] = str[ele].replace(/(?:\r\n)/g, "<br>");
@@ -63,7 +63,7 @@
     return str;
   }
 
-  function get_random_quote(list){
+  function getRandomQuote(list){
     return list[getRandomInt(0, list.length - 1)]
   }
 </script>

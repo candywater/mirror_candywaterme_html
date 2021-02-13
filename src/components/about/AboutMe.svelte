@@ -1,7 +1,7 @@
 <script>
   let show_quote = false;
 
-  function OnImgClick(e){
+  function onImgClick(e){
     show_quote = !show_quote;
   }
 </script>
@@ -24,7 +24,7 @@
 
 <div class="inline" id="credit">
   <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by/4.0/"><img alt="creativ common license" style="border-width:0" src="/assets/logos/cc/by_4.0.png" /></a> for technique, <a rel="license" target="_blank" href="http://creativecommons.org/licenses/by-nc-sa/4.0/"><img alt="creativ common license" style="border-width:0" src="/assets/logos/cc/by_nc_sa_4.0.png" /></a> for arts. Click <a href={"#"} 
-    on:click="{OnImgClick}"
+    on:click="{onImgClick}"
   > Here </a> For More. 
 </div>
 

@@ -52,7 +52,7 @@ const unsubscribe = is_hide_all_content.subscribe(isHide => {
 });
 onDestroy(unsubscribe);
 
-function OnAnimationEnd(){
+function onAnimationEnd(){
   if($is_hide_all_content){
     fadeOutAnimation = "hide";
   }
@@ -60,7 +60,7 @@ function OnAnimationEnd(){
 
 </script>
 
-<main class={fadeOutAnimation} on:animationend={OnAnimationEnd}>
+<main class={fadeOutAnimation} on:animationend={onAnimationEnd}>
   <slot></slot>
 </main>
 

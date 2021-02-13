@@ -18,19 +18,19 @@ const ERROR_INFO = `command not found. Type :help for help.
 let console_info = `type :help to show commands. \n`
 let input_value = ""
 
-function on_close_click(){
+function onCloseClick(){
   $show_config_panel = false
 }
 
-function on_key_down(e){
+function onKeyDown(e){
   if(e.key === "Enter"){
     console_info += "> " + input_value // include enter(\n)
-    console_command(input_value)
+    consoleCommand(input_value)
     input_value = ""
   }
 }
 
-function console_command(input){
+function consoleCommand(input){
   let str = input.trim();
   switch (str) {
     case ":help":
@@ -59,7 +59,7 @@ function console_command(input){
 <div class="panel animated fadeIn faster">
   <div class="terminal">
     <div class="header">
-      <span class="bullet bullet-red" on:click={on_close_click}></span>
+      <span class="bullet bullet-red" on:click={onCloseClick}></span>
       <span class="bullet bullet-yellow"></span>
       <span class="bullet bullet-green"></span>
       <span class="title">~/candy-water/config/index.js</span>
@@ -70,7 +70,7 @@ function console_command(input){
       </pre>
       <div class="terminal-prompt" >
           <!-- svelte-ignore a11y-autofocus -->
-          <textarea class="cli" rows="2" on:keyup={on_key_down} bind:value={input_value} autofocus></textarea>
+          <textarea class="cli" rows="2" on:keyup={onKeyDown} bind:value={input_value} autofocus></textarea>
       </div>
     </div>
   </div>
