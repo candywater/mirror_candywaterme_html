@@ -62,7 +62,7 @@ function on_click(){
 $white-background : rgba(245, 245, 245, 0.3);
 
 .main{
-  margin-top: 30% ;
+  margin-top: 5% ;
   background-color: $white-background;
   display: flex;
   justify-content:center;
@@ -97,6 +97,34 @@ $white-background : rgba(245, 245, 245, 0.3);
   $size5 : 1700px;
   $size6 : 2200px;
   $size7 : 2700px;
+
+  $height0: 0px;
+  $height1: 360px;
+  $height2: 720px;
+  $height3: 980px;
+  $height4: 2000px;
+
+
+  @media (min-height: $height1){
+    .main{
+      margin-top: 13%;
+    }
+  }
+  @media (min-height: $height2){
+    .main{
+      margin-top: 17%;
+    }
+  }
+  @media (min-height: $height3){
+    .main{
+      margin-top: 23%;
+    }
+  }
+  @media (min-height: $height4){
+    .main{
+      margin-top: 27%;
+    }
+  }
 
   @media (min-width: $size0){
     .main, .copyleft-block{
