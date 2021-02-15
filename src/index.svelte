@@ -7,4 +7,6 @@ const description = ""
 
 </script>
 
-<Main {quote_url} {quote_list} {description}></Main>
+<Main {quote_url} {quote_list} {description}>
+
+</Main>

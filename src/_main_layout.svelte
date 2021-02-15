@@ -26,7 +26,6 @@
 
   const DEFAULT_QUOTE = "happy a new day!"
   const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
-  const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
 
 
   let quote = ""
@@ -43,9 +42,6 @@
   }
 
   function onLoad(){
-    if(!description){
-      description = MY_DESCRIPTION_DEFAULT
-    }
     if(!quote_list){
       quote_list = splitSerifs(DEFAULT_QUOTE);
     }

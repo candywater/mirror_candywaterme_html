@@ -13,9 +13,18 @@
   export let description
 
   const PROFILE_IMG_URL = "/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
+  const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
+  
+  onLoad();
 
   function onImgClick(e){
     $show_quote = !$show_quote
+  }
+
+  function onLoad(){
+    if(!description){
+      description = MY_DESCRIPTION_DEFAULT
+    }
   }
 
 </script>
