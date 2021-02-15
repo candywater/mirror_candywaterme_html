@@ -39,17 +39,10 @@
   }
 
   function onLoad(){
-    if(!quote_list){
-      quote_list = splitSerifs(DEFAULT_QUOTE);
-    }
-    else{
-      return
-    }
-    if(!quote_url){
-      fetchQuote(DEFAULT_QUOTE_URL)
-    }
-    else{
-    }
+    if(!quote_list){ quote_list = splitSerifs(DEFAULT_QUOTE); }
+    else{ return }
+    if(!quote_url){ fetchQuote(DEFAULT_QUOTE_URL) }
+    else{ fetchQuote(quote_url) }
   }
 
   async function fetchQuote(url){
