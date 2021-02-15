@@ -69,7 +69,7 @@
     </div>
 
     <div class="profile-block">
-      <Profile {quote_url} {quote_list} {description} >
+      <Profile {description} >
         <slot>
           <!--index page-->
           <QuoteDisplay {quote} show_quote={$show_quote}></QuoteDisplay>

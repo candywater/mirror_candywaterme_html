@@ -8,8 +8,6 @@
 <script>
   import {show_quote} from "../../store/config"
 
-  export let quote_url 
-  export let quote_list 
   export let description
 
   const PROFILE_IMG_URL = "/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
