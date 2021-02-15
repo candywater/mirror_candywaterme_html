@@ -14,19 +14,16 @@
   import FakePanel from "./components/common/FakePanel.svelte"
 
 
-  import {show_config_panel} from "./store/config"
-  import {show_quote} from "./store/config"
+  import {show_config_panel, show_quote} from "./store/config"
 
-  import {getRandomInt} from "./common/common.js"
+  import {getRandomQuote, splitSerifs} from "./common/common.js"
 
   export let quote_url 
   export let quote_list 
   export let description  
 
-
   const DEFAULT_QUOTE = "happy a new day!"
   const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
-
 
   let quote = ""
   const unsubscribe = show_quote.subscribe(value => {
@@ -52,7 +49,6 @@
       fetchQuote(DEFAULT_QUOTE_URL)
     }
     else{
-      fetchQuote(quote_url)
     }
   }
 
@@ -62,18 +58,6 @@
       let text = await result.text();
       quote_list = splitSerifs(text);
     }
-  }
-
-  function splitSerifs(str){
-    str = str.split(/(?:\r\n){2,}/g);
-    for(var ele in str ){
-      str[ele] = str[ele].replace(/(?:\r\n)/g, "<br>");
-    } 
-    return str;
-  }
-
-  function getRandomQuote(list){
-    return list[getRandomInt(0, list.length - 1)]
   }
 </script>
 

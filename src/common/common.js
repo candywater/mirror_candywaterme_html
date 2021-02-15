@@ -22,3 +22,15 @@ export function hex2RGB (str){
     return Array.from(short, s => Number.parseInt(s, 16)).map(n => (n << 4) | n);
   }
 };
+
+export function getRandomQuote(list){
+  return list[getRandomInt(0, list.length - 1)]
+}
+
+export function splitSerifs(str){
+  str = str.split(/(?:\r\n){2,}/g);
+  for(var ele in str ){
+    str[ele] = str[ele].replace(/(?:\r\n)/g, "<br>");
+  } 
+  return str;
+}
