@@ -11,7 +11,6 @@
 
   import ConfigGear from "./components/main/configPanel/ConfigGear.svelte"
   import ConfigPanel from "./components/main/configPanel/ConfigPanel.svelte"
-
   import FakePanel from "./components/common/FakePanel.svelte"
 
 
@@ -47,17 +46,17 @@
     if(!description){
       description = MY_DESCRIPTION_DEFAULT
     }
-    if(quote_list){
-      return
-    }
-    else{
+    if(!quote_list){
       quote_list = splitSerifs(DEFAULT_QUOTE);
     }
-    if(quote_url){
-      fetchQuote(quote_url)
+    else{
+      return
+    }
+    if(!quote_url){
+      fetchQuote(DEFAULT_QUOTE_URL)
     }
     else{
-      fetchQuote(DEFAULT_QUOTE_URL)
+      fetchQuote(quote_url)
     }
   }
 
