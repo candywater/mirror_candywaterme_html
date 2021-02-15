@@ -1,26 +1,85 @@
 <script>
 
-import Layout from "./_layout.svelte"
+  import { onDestroy } from 'svelte';
 
-import Profile from "./components/main/Profile.svelte"
-import MainMenu from "./components/main/MainMenu.svelte"
-import Copyleft from "./components/main/Copyleft.svelte"
+  import Layout from "./_layout.svelte"
 
-import ConfigGear from "./components/main/configPanel/ConfigGear.svelte"
-import ConfigPanel from "./components/main/configPanel/ConfigPanel.svelte"
+  import Profile from "./components/main/Profile.svelte"
+  import MainMenu from "./components/main/MainMenu.svelte"
+  import Copyleft from "./components/main/Copyleft.svelte"
+  import QuoteDisplay  from "./components/index/QuoteDisplay.svelte"
 
-import FakePanel from "./components/common/FakePanel.svelte"
+  import ConfigGear from "./components/main/configPanel/ConfigGear.svelte"
+  import ConfigPanel from "./components/main/configPanel/ConfigPanel.svelte"
 
-import {show_config_panel} from "./store/config"
+  import FakePanel from "./components/common/FakePanel.svelte"
 
-export let quote_url 
-export let quote_list 
-export let description  
 
-function on_click(){
-  $show_config_panel = !$show_config_panel
-}
+  import {show_config_panel} from "./store/config"
+  import {show_quote} from "./store/config"
 
+  import {getRandomInt} from "./common/common.js"
+
+  export let quote_url 
+  export let quote_list 
+  export let description  
+
+
+  const DEFAULT_QUOTE = "happy a new day!"
+  const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
+  const MY_DESCRIPTION_DEFAULT = "Full stack engineer, amateur content creator."
+
+
+  let quote = ""
+  const unsubscribe = show_quote.subscribe(value => {
+    quote = getRandomQuote(quote_list)
+	});
+  onDestroy(unsubscribe);
+
+  
+  onLoad();
+
+  function on_click(){
+    $show_config_panel = !$show_config_panel
+  }
+
+  function onLoad(){
+    if(!description){
+      description = MY_DESCRIPTION_DEFAULT
+    }
+    if(quote_list){
+      return
+    }
+    else{
+      quote_list = splitSerifs(DEFAULT_QUOTE);
+    }
+    if(quote_url){
+      fetchQuote(quote_url)
+    }
+    else{
+      fetchQuote(DEFAULT_QUOTE_URL)
+    }
+  }
+
+  async function fetchQuote(url){
+    let result = await fetch(url);
+    if(result.ok){
+      let text = await result.text();
+      quote_list = splitSerifs(text);
+    }
+  }
+
+  function splitSerifs(str){
+    str = str.split(/(?:\r\n){2,}/g);
+    for(var ele in str ){
+      str[ele] = str[ele].replace(/(?:\r\n)/g, "<br>");
+    } 
+    return str;
+  }
+
+  function getRandomQuote(list){
+    return list[getRandomInt(0, list.length - 1)]
+  }
 </script>
 
 
@@ -39,7 +98,10 @@ function on_click(){
 
     <div class="profile-block">
       <Profile {quote_url} {quote_list} {description} >
-        <slot></slot>
+        <slot>
+          <!--index page-->
+          <QuoteDisplay {quote} show_quote={$show_quote}></QuoteDisplay>
+        </slot>
       </Profile>
     </div>
 
