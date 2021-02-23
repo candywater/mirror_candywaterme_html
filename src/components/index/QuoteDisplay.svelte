@@ -8,7 +8,7 @@
 </script>
 
 
-{#if show_quote}
+{#if show_quote && quote}
   <div class="card about_profile rounded-md">
     <span class="slide_down_words {show_animation}">
       {@html quote}

@@ -24,6 +24,7 @@ export function hex2RGB (str){
 };
 
 export function getRandomQuote(list){
+  if(!list) return ""
   return list[getRandomInt(0, list.length - 1)]
 }
 
