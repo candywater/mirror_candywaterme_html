@@ -10,7 +10,7 @@
   import QuoteDisplay  from "./components/index/QuoteDisplay.svelte"
 
   import ConfigGear from "./components/main/configPanel/ConfigGear.svelte"
-  import ConfigPanel from "./components/main/configPanel/ConfigPanel.svelte"
+  import Terminal from "svelte-terminal"
   import FakePanel from "./components/common/FakePanel.svelte"
 
 
@@ -82,7 +82,7 @@
     </div>
 
     {#if $show_config_panel}
-      <ConfigPanel></ConfigPanel>
+      <Terminal></Terminal>
     {/if}
     
   </div>
