@@ -82,7 +82,9 @@
     </div>
 
     {#if $show_config_panel}
+    <div class="absolute w-11/12 h-5/6">
       <Terminal></Terminal>
+    </div>
     {/if}
     
   </div>
