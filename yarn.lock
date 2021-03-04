@@ -2356,9 +2356,9 @@ svelte-preprocess@^4.6.1:
     detect-indent "^6.0.0"
     strip-indent "^3.0.0"
 
-svelte-terminal@candywater/svelte-terminal#main:
+svelte-terminal@candywater/svelte-terminal#master:
   version "1.0.0"
-  resolved "https://codeload.github.com/candywater/svelte-terminal/tar.gz/33306823196a5e72d7b0a4e85c8d2c9e63c529b6"
+  resolved "https://codeload.github.com/candywater/svelte-terminal/tar.gz/ebb646d12a8c884b63c13e113009013c436424aa"
 
 svelte@^3.0.0:
   version "3.31.2"

@@ -83,7 +83,7 @@
 
     {#if $show_config_panel}
     <div class="absolute w-11/12 h-5/6">
-      <Terminal></Terminal>
+      <Terminal exactClose={()=>{$show_config_panel = false}}></Terminal>
     </div>
     {/if}
     
