@@ -680,4 +680,12 @@ You are alive.
 “只要锁定自己的目标，人家要笑就让他去笑！打架也不见得非得动拳头！”
 --《海贼王·225话人的梦想·黑胡子》
 
+But the classy thing todo would've been to invite us up for some of that iced tea.
+--<House of Cards Season1-03>
+
+You don't want to work anywhere 
+you're not willing to get fired from, Zoe.
+Trading water's the same as drowning for people like you and me.
+--<House of Cards Season1-03>
+
 "  &nbsp;  "
