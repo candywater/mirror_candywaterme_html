@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/candywater
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://candywater.me
+  * I am candywater (https://keybase.io/candywater) on keybase.
+  * I have a public key ASBGdN0ubgv5wPE4aV_5gEfS5W9Jpa45owa_fCNeYig2Cwo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01204674dd2e6e0bf9c0f138695ff98047d2e56f49a5ae39a306bf7c235e6228360b0a",
+      "host": "keybase.io",
+      "kid": "01204674dd2e6e0bf9c0f138695ff98047d2e56f49a5ae39a306bf7c235e6228360b0a",
+      "uid": "964c7348e6ae49cbb49d622e5a5f1d19",
+      "username": "candywater"
+    },
+    "merkle_root": {
+      "ctime": 1615464575,
+      "hash": "d76fd5aa20873ef89b35943670c479f18e3d81cfc6ea583f9ea2f3424eec924efd494617f880d624d0c2f8001426764485fdfd73de7871ea9b5d5ca9692d11c1",
+      "hash_meta": "cce7f3902b364e4bf4bda8da016e0dc8ed26a6592086dfc091d4240e8bb24bd5",
+      "seqno": 19346430
+    },
+    "service": {
+      "entropy": "h3hR9Wup+p6xX/DHkpcmbgeJ",
+      "hostname": "candywater.me",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.2"
+  },
+  "ctime": 1615464600,
+  "expire_in": 504576000,
+  "prev": "a00ad84332c63f07c835b205a1a96eeda1857f58f9b3d2b1ebc42477835c36d0",
+  "seqno": 9,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgRnTdLm4L+cDxOGlf+YBH0uVvSaWuOaMGv3wjXmIoNgsKp3BheWxvYWTESpcCCcQgoArYQzLGPwfINbIFoalu7aGFf1j5s9Kx68Qkd4NcNtDEIA5FJ6S23ncXCxc6TpL/SCGj60C3Fe7nWXyUvXOiUmHoAgHCo3NpZ8RA5hGmXzHM5n05PzmKHaoyrSqPu7jneluJcuJ4UQHZnT6r0E0IXCx12GTOd6n1c0CyQW+UBzL6spyf1WQlxvbhAKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIK8pozyZGqy8q/+j9DzOzCfik9uyUG371+ysTBvY/OHDo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/candywater
+
+==================================================================
