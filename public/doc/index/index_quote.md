@@ -688,4 +688,7 @@ you're not willing to get fired from, Zoe.
 Trading water's the same as drowning for people like you and me.
 --<House of Cards Season1-03>
 
+おれは努力する天狗、森山です。
+--えびすじゃっぷ・森山＠『【本音でハシゴ酒】今年はありがとうございました。』20201231
+
 "  &nbsp;  "
