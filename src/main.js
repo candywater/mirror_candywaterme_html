@@ -1,6 +1,6 @@
-import Index from './router.svelte'
+import Router from './router.svelte'
 
-const app = new Index({
+const app = new Router({
 	target: document.body,
 	props: {
 		// name: 'world'
