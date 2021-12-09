@@ -1,6 +1,6 @@
 <script>
-  import Main from "./_main_layout.svelte";
-  import ProjectList from "./components/project/ProjectList.svelte"
+  import Main from "../template/_main_layout.svelte";
+  import ProjectList from "../components/project/ProjectList.svelte"
 
   const quote_url = ""
   const quote_list = ["meow!"]

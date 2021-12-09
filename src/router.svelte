@@ -2,11 +2,11 @@
 
 import page from "page.js"
   
-import Index from './index.svelte';
-import About from './about.svelte';
-import Project from './project.svelte';
-import Tech from './tech.svelte';
-import Essay from './essay.svelte';
+import Index from './pages/index.svelte';
+import About from './pages/about.svelte';
+import Project from './pages/project.svelte';
+import Tech from './pages/tech.svelte';
+import Essay from './pages/essay.svelte';
 
 import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY} from "./store/path"
 import {INDEX_PATH, ABOUT_PATH, PROJECT_PATH, TECH_PATH, ESSAY_PATH} from "./store/path"

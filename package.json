@@ -4,9 +4,11 @@
   "scripts": {
     "build": "yarn run build:tailwind && rollup -c",
     "dev": "yarn run dev:tailwind && rollup -c -w",
+    "dev:win": "yarn run dev:tailwind:win && rollup -c -w",
     "start": "sirv public --single",
     "build:tailwind": "NODE_ENV=production npx postcss node_modules/tailwindcss/dist/tailwind.min.css -o public/build/tailwincss.css",
-    "dev:tailwind": "cp node_modules/tailwindcss/dist/tailwind.css public/build/tailwincss.css"
+    "dev:tailwind": "cp node_modules/tailwindcss/dist/tailwind.css public/build/tailwincss.css",
+    "dev:tailwind:win": "copy node_modules\\tailwindcss\\dist\\tailwind.css public\\build\\tailwincss.css"
   },
   "devDependencies": {
     "@fullhuman/postcss-purgecss": "^4.0.0",

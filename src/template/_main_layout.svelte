@@ -1,22 +1,22 @@
 <script>
 
   import { onDestroy } from 'svelte';
+  import Terminal from "svelte-terminal"
 
   import Layout from "./_layout.svelte"
 
-  import Profile from "./components/main/Profile.svelte"
-  import MainMenu from "./components/main/MainMenu.svelte"
-  import Copyleft from "./components/main/Copyleft.svelte"
-  import QuoteDisplay  from "./components/index/QuoteDisplay.svelte"
+  import Profile from "../components/main/Profile.svelte"
+  import MainMenu from "../components/main/MainMenu.svelte"
+  import Copyleft from "../components/main/Copyleft.svelte"
+  import QuoteDisplay  from "../components/index/QuoteDisplay.svelte"
 
-  import ConfigGear from "./components/main/configPanel/ConfigGear.svelte"
-  import Terminal from "svelte-terminal"
-  import FakePanel from "./components/common/FakePanel.svelte"
+  import ConfigGear from "../components/main/configPanel/ConfigGear.svelte"
+  import FakePanel from "../components/common/FakePanel.svelte"
 
 
-  import {show_config_panel, show_quote} from "./store/config"
+  import {show_config_panel, show_quote} from "../store/config"
 
-  import {getRandomQuote, splitSerifs} from "./common/common.js"
+  import {getRandomQuote, splitSerifs} from "../common/common.js"
 
   export let quote_url 
   export let quote_list 

@@ -1,7 +1,7 @@
 
 <script>
-import Main from "./_main_layout.svelte";
-import AboutMe from "./components/about/AboutMe.svelte"
+import Main from "../template/_main_layout.svelte";
+import AboutMe from "../components/about/AboutMe.svelte"
 
 
 const description = ""

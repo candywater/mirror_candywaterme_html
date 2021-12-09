@@ -19,8 +19,8 @@ import 'animate.css/source/fading_entrances/fadeIn.css';
 import 'animate.css/source/fading_exits/fadeOut.css';
 
 import { onDestroy } from 'svelte';
-import {is_hide_all_content} from "./store/config"
-import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "./store/path"
+import {is_hide_all_content} from "../store/config"
+import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "../store/path"
 
 const HIDE_ANIMATION = "animated fadeOut"
 let fadeOutAnimation = ""
