@@ -31,7 +31,6 @@
     "front-matter": "^4.0.2",
     "marked": "^4.0.6",
     "page.js": "^4.13.3",
-    "postcss-cli": "^8.3.1",
     "svelte-terminal": "candywater/svelte-terminal#master",
     "tailwindcss": "^2.0.2"
   }
