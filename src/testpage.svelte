@@ -1,5 +1,5 @@
 <script>
-    import App from './components/markdown/renderArea.svelte';
+    import App from './components/markdown/render.svelte';
 </script>
 
 <App>
