@@ -16,3 +16,11 @@ export function yamlParse(content){
     });
     return result
 }
+
+export function extractYaml(content){
+    //https://github.com/markedjs/marked/issues/485
+    let res = content.match(/^---$.*^---$/ms); 
+    if(res && res.length > 0){
+        return res[0]
+    }
+}
