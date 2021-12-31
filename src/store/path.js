@@ -6,12 +6,14 @@ export const ABOUT = "about"
 export const PROJECT = "project"
 export const ESSAY = "essay"
 export const TECH = "tech"
+export const BLOG = "blog"
 export const RANDOM = "random"
 export const path = writable(INDEX);
 
 
 export const ESSAY_PATH = "/blog/essay"
 export const TECH_PATH = "/blog/tech"
+export const BLOG_PATH = "/blog"
 export const PROJECT_PATH = "/project"
 export const ABOUT_PATH = "/about"
 export const RANDOM_PATH = "/random"
