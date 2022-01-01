@@ -13,7 +13,7 @@
 
   async function onLoad() {
     if (!url) {
-      url = "/blog_src/essay.txt";
+      url = "/doc/essay.txt";
     }
     content = await (await fetch(url)).text();
     var tmp_content_list = content.split(/[\r|\n]/g);
@@ -34,7 +34,7 @@
   <!-- promise was fulfilled -->
   {#each content_list as title}
     <p>
-      <a href={title.replace("doc/", "/blog_src/")}>{title}</a>
+      <a href={title.replace("doc/", "/doc/")}>{title}</a>
     </p>
   {/each}
 {:catch error}

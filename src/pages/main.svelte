@@ -20,17 +20,6 @@
   // import 'animate.css/source/fading_entrances/fadeIn.css';
   import "animate.css/source/fading_exits/fadeOut.css";
 
-  import {
-    path,
-    INDEX,
-    ABOUT,
-    PROJECT,
-    TECH,
-    ESSAY,
-    TECH_PATH,
-    ESSAY_PATH,
-  } from "../store/path";
-
   import { show_config_panel, show_quote } from "../store/config";
 
   import { getRandomQuote, splitSerifs } from "../common/common.js";
@@ -60,13 +49,12 @@
     } else {
       hide_all_content = false;
     }
-
-    if (!quote_list) {
+    if (quote_list.length <= 0) {
       quote_list = splitSerifs(DEFAULT_QUOTE);
     } else {
       return;
     }
-    if (!quote_url) {
+    if (quote_url.length <= 0) {
       fetchQuote(DEFAULT_QUOTE_URL);
     } else {
       fetchQuote(quote_url);
