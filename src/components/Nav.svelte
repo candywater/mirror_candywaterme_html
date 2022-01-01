@@ -23,7 +23,7 @@
       href="essay">essay</a></li>
     <li><a class="btn" rel=prefetch 
       aria-current="{segment === 'tech' ? 'page' : undefined}" 
-      href="tech">blog</a></li>
+      href="tech">tech</a></li>
   </ul>
 </nav>
 
