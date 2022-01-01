@@ -28,7 +28,6 @@
     RANDOM_PATH,
     BLOG_PATH,
   } from "./store/path";
-  import { is_hide_all_content } from "./store/config";
 
   page(INDEX_PATH, () => {
     change_switcher(INDEX);
@@ -55,10 +54,6 @@
 
   function change_switcher(pagename) {
     path.set(pagename);
-    // if(pagename === TECH || pagename === ESSAY || pagename === BLOG)
-    //   $is_hide_all_content = true
-    // else
-    //   $is_hide_all_content = false
   }
 </script>
 
