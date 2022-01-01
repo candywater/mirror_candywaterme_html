@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
   import { onDestroy } from "svelte";
   import Terminal from "svelte-terminal";
 
@@ -36,14 +36,14 @@
   import { getRandomQuote, splitSerifs } from "../common/common.js";
 
   export let quote_url: string;
-  export let quote_list;
-  export let description;
-  export let hide_all_content;
+  export let quote_list: string[];
+  export let description: string;
+  export let hide_all_content: boolean;
 
   const DEFAULT_QUOTE = "happy a new day!";
   const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md";
 
-  let quote = "";
+  let quote: string = "";
   const unsubscribe = show_quote.subscribe((value) => {
     quote = getRandomQuote(quote_list);
   });

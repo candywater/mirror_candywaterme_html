@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Btn from "./MainMenuButton.svelte";
   import {
     ESSAY_PATH,
@@ -17,7 +17,7 @@
   const button_style_4 = `${basicstyle} ${border} bg-yellow-500 hover:bg-yellow-700 `;
   const button_style_5 = `${basicstyle} ${border} bg-red-500 hover:bg-red-700 `;
 
-  function getStyle(color) {
+  function getStyle(color): string {
     return `bg-${color}-500 hover:bg-${color}-700`;
   }
 </script>

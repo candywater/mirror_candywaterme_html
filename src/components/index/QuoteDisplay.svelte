@@ -1,6 +1,6 @@
-<script>
-  export let quote;
-  export let show_quote;
+<script lang="ts">
+  export let quote: string;
+  export let show_quote: Boolean;
 
   const ANIMATED_IN = "animated bounceIn";
 
