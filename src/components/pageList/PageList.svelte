@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
   import { default_number_per_page } from "../../store/config";
+  import page from "page.js";
 
   export let url;
 
@@ -25,6 +26,14 @@
     });
     content_list = tmp_list;
   }
+
+  function jump_to_blog(url:string){
+    if(!url.startsWith('/'))
+      url = '/' + url;
+    page(url);
+  }
+
+
 </script>
 
 {#await content_list}
@@ -34,7 +43,7 @@
   <!-- promise was fulfilled -->
   {#each content_list as title}
     <p>
-      <a href={title.replace("doc/", "/doc/")}>{title}</a>
+      <a href={()=>jump_to_blog(title)}}>{title}</a>
     </p>
   {/each}
 {:catch error}
