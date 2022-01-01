@@ -19,6 +19,9 @@ or
   - read yaml
   - document.txt的优化
 
++ gulp -> postcss (cssnano, purecss)  -> result
++ gulp -> typescript
++ gulp -> beautify
 
 
 ### ref

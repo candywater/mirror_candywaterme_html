@@ -13,6 +13,15 @@
   import ConfigGear from "../components/main/configPanel/ConfigGear.svelte"
   import FakePanel from "../components/common/FakePanel.svelte"
 
+  /* Bouncing entrances  */
+  import 'animate.css/source/_vars.css';
+  import 'animate.css/source/_base.css';
+  // import 'animate.css/source/bouncing_entrances/bounceIn.css';
+  // import 'animate.css/source/attention_seekers/jello.css';
+  // import 'animate.css/source/fading_entrances/fadeIn.css';
+  import 'animate.css/source/fading_exits/fadeOut.css';
+
+  import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "../store/path"
 
   import {show_config_panel, show_quote} from "../store/config"
 
@@ -21,6 +30,7 @@
   export let quote_url 
   export let quote_list 
   export let description  
+  export let hide_all_content
 
   const DEFAULT_QUOTE = "happy a new day!"
   const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md"
@@ -30,7 +40,8 @@
     quote = getRandomQuote(quote_list)
 	});
   onDestroy(unsubscribe);
-
+  const HIDE_ANIMATION = "animated fadeOut"
+  let fadeOutAnimation = ""
   
   onLoad();
 
@@ -39,10 +50,27 @@
   }
 
   function onLoad(){
+    if(hide_all_content === true) {hideContent()}
+    else hide_all_content = false;
     if(!quote_list){ quote_list = splitSerifs(DEFAULT_QUOTE); }
     else{ return }
     if(!quote_url){ fetchQuote(DEFAULT_QUOTE_URL) }
     else{ fetchQuote(quote_url) }
+  }
+
+  function hideContent(){
+    fadeOutAnimation = HIDE_ANIMATION
+    setTimeout(()=>{
+        // if($path === TECH)
+        //   window.location = TECH_PATH
+        // if($path === ESSAY)
+        //   window.location = ESSAY_PATH
+    }, 300)
+  }
+  function onAnimationEnd(){
+    if(hide_all_content){
+      fadeOutAnimation = "hide";
+    }
   }
 
   async function fetchQuote(url){
@@ -62,34 +90,36 @@
 {/if}
 
 <Layout>
-  <div class="container main">
+  <div class = {fadeOutAnimation} on:animationend={onAnimationEnd}> 
+    <div class="container main">
 
-    <div class="mainmenu-block">
-      <MainMenu></MainMenu>
-    </div>
+      <div class="mainmenu-block">
+        <MainMenu></MainMenu>
+      </div>
 
-    <div class="profile-block">
-      <Profile {description} >
-        <slot>
-          <!--index page-->
-          <QuoteDisplay {quote} show_quote={$show_quote}></QuoteDisplay>
-        </slot>
-      </Profile>
-    </div>
+      <div class="profile-block">
+        <Profile {description} >
+          <slot>
+            <!--index page-->
+            <QuoteDisplay {quote} show_quote={$show_quote}></QuoteDisplay>
+          </slot>
+        </Profile>
+      </div>
 
-    <div class="config-block z-10" on:click={on_click}>
-      <ConfigGear></ConfigGear>
-    </div>
+      <div class="config-block z-10" on:click={on_click}>
+        <ConfigGear></ConfigGear>
+      </div>
 
-    {#if $show_config_panel}
-    <div class="absolute w-11/12 h-5/6">
-      <Terminal exactClose={()=>{$show_config_panel = false}}></Terminal>
+      {#if $show_config_panel}
+      <div class="absolute w-11/12 h-5/6">
+        <Terminal exactClose={()=>{$show_config_panel = false}}></Terminal>
+      </div>
+      {/if}
+      
     </div>
-    {/if}
-    
-  </div>
-  <div class="container copyleft-block">
-    <Copyleft></Copyleft>
+    <div class="container copyleft-block">
+      <Copyleft></Copyleft>
+    </div>
   </div>
 </Layout>
 

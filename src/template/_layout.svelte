@@ -9,21 +9,21 @@
 </svelte:head>
 
 <script>
-import 'animate.css/source/_vars.css';
-import 'animate.css/source/_base.css';
+// import 'animate.css/source/_vars.css';
+// import 'animate.css/source/_base.css';
 
-/* Bouncing entrances  */
-import 'animate.css/source/bouncing_entrances/bounceIn.css';
-import 'animate.css/source/attention_seekers/jello.css';
-import 'animate.css/source/fading_entrances/fadeIn.css';
-import 'animate.css/source/fading_exits/fadeOut.css';
+// /* Bouncing entrances  */
+// import 'animate.css/source/bouncing_entrances/bounceIn.css';
+// import 'animate.css/source/attention_seekers/jello.css';
+// import 'animate.css/source/fading_entrances/fadeIn.css';
+// import 'animate.css/source/fading_exits/fadeOut.css';
 
-import { onDestroy } from 'svelte';
-import {is_hide_all_content} from "../store/config"
+// import { onDestroy } from 'svelte';
+// import {is_hide_all_content} from "../store/config"
 import {path, INDEX, ABOUT, PROJECT, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "../store/path"
 
-const HIDE_ANIMATION = "animated fadeOut"
-let fadeOutAnimation = ""
+// const HIDE_ANIMATION = "animated fadeOut"
+// let fadeOutAnimation = ""
 
 /**
  * default 1s
@@ -32,31 +32,31 @@ let fadeOutAnimation = ""
  * animate__fast 	800ms
  * animate__faster 	500ms
  */
-const unsubscribe = is_hide_all_content.subscribe(isHide => {
-  if(isHide){
-    fadeOutAnimation = HIDE_ANIMATION
-    setTimeout(()=>{
-      if($path === TECH)
-        window.location = TECH_PATH
-      if($path === ESSAY)
-        window.location = ESSAY_PATH
-    }, 300)
-  }
-  else{
-    fadeOutAnimation = ""
-  }
-});
-onDestroy(unsubscribe);
+// const unsubscribe = is_hide_all_content.subscribe(isHide => {
+//   if(isHide){
+//     fadeOutAnimation = HIDE_ANIMATION
+//     setTimeout(()=>{
+//       if($path === TECH)
+//         window.location = TECH_PATH
+//       if($path === ESSAY)
+//         window.location = ESSAY_PATH
+//     }, 300)
+//   }
+//   else{
+//     fadeOutAnimation = ""
+//   }
+// });
+// onDestroy(unsubscribe);
 
-function onAnimationEnd(){
-  if($is_hide_all_content){
-    fadeOutAnimation = "hide";
-  }
-}
+// function onAnimationEnd(){
+//   if($is_hide_all_content){
+//     fadeOutAnimation = "hide";
+//   }
+// }
 
 </script>
 
-<main class={fadeOutAnimation} on:animationend={onAnimationEnd}>
+<main>
   <slot></slot>
 </main>
 
