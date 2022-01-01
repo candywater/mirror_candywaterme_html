@@ -60,7 +60,10 @@
   function onLoad() {
     if (hide_all_content === true) {
       hideContent();
-    } else hide_all_content = false;
+    } else {
+      hide_all_content = false;
+    }
+
     if (!quote_list) {
       quote_list = splitSerifs(DEFAULT_QUOTE);
     } else {
