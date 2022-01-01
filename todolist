@@ -22,6 +22,7 @@ or
 + gulp -> postcss (cssnano, purecss)  -> result
 + gulp -> typescript
 + gulp -> beautify
++ gulp -> javascript-obfuscator
 
 
 ### ref
