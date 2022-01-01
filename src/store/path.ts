@@ -16,15 +16,24 @@ export const TECH_PATH = "/blog/tech";
 export const BLOG_PATH = "/blog";
 export const RANDOM_PATH = "/random";
 
-const pathdict: Object = {}
-pathdict[INDEX] = INDEX_PATH
-pathdict[ABOUT] = ABOUT_PATH
-pathdict[PROJECT] = PROJECT_PATH
-pathdict[ESSAY] = ESSAY_PATH
-pathdict[TECH] = TECH_PATH
-pathdict[BLOG] = BLOG_PATH
-pathdict[RANDOM] = RANDOM_PATH
+export let pathDict: Object = {}
+pathDict[INDEX] = INDEX_PATH
+pathDict[ABOUT] = ABOUT_PATH
+pathDict[PROJECT] = PROJECT_PATH
+pathDict[ESSAY] = ESSAY_PATH
+pathDict[TECH] = TECH_PATH
+pathDict[BLOG] = BLOG_PATH
+pathDict[RANDOM] = RANDOM_PATH
+Object.freeze(pathDict);
+
+export let mainMenuDict : Object = {}
+mainMenuDict[INDEX] = INDEX_PATH
+mainMenuDict[ABOUT] = ABOUT_PATH
+mainMenuDict[PROJECT] = PROJECT_PATH
+mainMenuDict[ESSAY] = ESSAY_PATH
+mainMenuDict[TECH] = TECH_PATH
+Object.freeze(mainMenuDict)
 
 
 export const path = writable(INDEX);
-export default pathdict
+export default pathDict
