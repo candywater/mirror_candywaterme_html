@@ -19,10 +19,10 @@ or
   - read yaml
   - document.txt的优化
 
-+ gulp -> postcss (cssnano, purecss)  -> result
-+ gulp -> typescript
-+ gulp -> prettier
-+ gulp -> javascript-obfuscator
++ gulp -> postcss (cssnano, purecss)  -> result [] ->[][x] ->
++ gulp -> typescript []->[x]
++ gulp -> prettier []->[x]
++ gulp -> javascript-obfuscator []->[]
 
 
 ### ref
