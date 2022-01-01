@@ -1,8 +1,10 @@
-export function yamlParse(content) {
+import type { IMarkDownHeader } from "./IMarkdownHeader"
+
+export function yamlParse(content): IMarkDownHeader {
   //https://stackoverflow.com/questions/454908/split-java-string-by-new-line
   //https://stackoverflow.com/questions/8125709/javascript-how-to-split-newline
   let array = content.split(/\r?\n/);
-  let result = {};
+  let result: IMarkDownHeader = {};
   array.forEach((line) => {
     if (line.startsWith("---")) {
       return;
@@ -17,7 +19,7 @@ export function yamlParse(content) {
   return result;
 }
 
-export function extractYaml(content) {
+export function extractYaml(content): string {
   //https://github.com/markedjs/marked/issues/485
   let res = content.match(/^---$.*^---$/ms);
   if (res && res.length > 0) {
