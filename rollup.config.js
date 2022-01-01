@@ -6,6 +6,7 @@ import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 //https://daveceddia.com/svelte-with-sass-in-vscode/
 import preprocess  from 'svelte-preprocess';
+import typescript from '@rollup/plugin-typescript'
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -31,7 +32,7 @@ function serve() {
 }
 
 export default {
-	input: 'src/main.js',
+	input: 'src/main.ts',
 	output: {
 		sourcemap: true,
 		format: 'iife',
@@ -47,6 +48,7 @@ export default {
 			preprocess: preprocess({
 				defaults: {
 					style: "scss",
+					script: "ts",
 				}
 			}),
 			// do not check css
@@ -71,7 +73,10 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
-
+		typescript({ 
+			sourceMap: !production,
+			inlineSources: !production
+		 }),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),

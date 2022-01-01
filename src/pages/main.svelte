@@ -35,7 +35,7 @@
 
   import { getRandomQuote, splitSerifs } from "../common/common.js";
 
-  export let quote_url;
+  export let quote_url : string;
   export let quote_list;
   export let description;
   export let hide_all_content;
