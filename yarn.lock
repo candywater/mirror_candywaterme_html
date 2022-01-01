@@ -2436,7 +2436,12 @@ svelte-preprocess@^4.0.0, svelte-preprocess@^4.10.1:
 
 svelte-terminal@candywater/svelte-terminal#master:
   version "1.0.0"
-  resolved "https://codeload.github.com/candywater/svelte-terminal/tar.gz/ebb646d12a8c884b63c13e113009013c436424aa"
+  resolved "https://codeload.github.com/candywater/svelte-terminal/tar.gz/477c129a27f0b6433a4598058f78e026aa836558"
+  dependencies:
+    "@rollup/plugin-typescript" "^8.3.0"
+    "@tsconfig/svelte" "^3.0.0"
+    tslib "^2.3.1"
+    typescript "^4.5.4"
 
 svelte@^3.0.0:
   version "3.44.2"
