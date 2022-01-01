@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import { onDestroy } from "svelte";
   import Terminal from "svelte-terminal";
 
@@ -35,7 +35,7 @@
 
   import { getRandomQuote, splitSerifs } from "../common/common.js";
 
-  export let quote_url : string;
+  export let quote_url: string;
   export let quote_list;
   export let description;
   export let hide_all_content;
