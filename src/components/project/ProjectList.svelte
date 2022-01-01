@@ -1,28 +1,22 @@
-
-
 <script>
-  import list from "../../data/project_list"
+  import list from "../../data/project_list";
 
-  let list_type = [
-    "bg-gray-300 hover:bg-gray-500 text-black rounded"
-  ]
-
+  let list_type = ["bg-gray-300 hover:bg-gray-500 text-black rounded"];
 </script>
-
 
 <ol class="list-disc">
   {#each list as item, i}
     <li>
-      <a href={item[0]} class="{list_type[i%list_type.length]}">{item[1]} ({item[2]})</a>
+      <a href={item[0]} class={list_type[i % list_type.length]}
+        >{item[1]} ({item[2]})</a
+      >
     </li>
   {/each}
 </ol>
 
 <style>
-  li{
+  li {
     margin: 0.1rem 0.1rem;
     padding: 0.1rem 0.2rem;
   }
-
-
 </style>

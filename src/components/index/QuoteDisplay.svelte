@@ -1,12 +1,11 @@
 <script>
-  export let quote 
-  export let show_quote
-  
-  const ANIMATED_IN = "animated bounceIn"
+  export let quote;
+  export let show_quote;
 
-  let show_animation = ANIMATED_IN
+  const ANIMATED_IN = "animated bounceIn";
+
+  let show_animation = ANIMATED_IN;
 </script>
-
 
 {#if show_quote && quote}
   <div class="card about_profile rounded-md">
@@ -17,11 +16,11 @@
 {/if}
 
 <style>
-  .about_profile{
+  .about_profile {
     padding: 0.5rem;
     margin: 0rem 0rem 0.5rem 0rem;
   }
-  .card{
+  .card {
     background-color: rgba(245, 245, 245, 0.4);
     margin: 1rem 1rem 1rem 1rem;
   }

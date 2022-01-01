@@ -1,9 +1,7 @@
-
-<div class="fake-panel">
-</div>
+<div class="fake-panel" />
 
 <style lang="scss">
-  .fake-panel{
+  .fake-panel {
     height: 100%;
     width: 100%;
     position: fixed;
@@ -11,4 +9,3 @@
     top: 0;
   }
 </style>
-

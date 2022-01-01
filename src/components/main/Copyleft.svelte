@@ -1,6 +1,5 @@
-
 <script>
-  const animation = "animated jello"
+  const animation = "animated jello";
 </script>
 
 <p class="copyleft">
@@ -8,8 +7,8 @@
 </p>
 
 <style lang="scss">
-  .copyleft{
-    span{
+  .copyleft {
+    span {
       background-color: rgba(254, 254, 254, 0.3);
     }
   }

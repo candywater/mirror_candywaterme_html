@@ -1,10 +1,9 @@
-
-import {marked} from 'marked'
+import { marked } from "marked";
 
 marked.setOptions({
-    breaks: true,
+  breaks: true,
 });
 
-export function markdownParse(content){
-    return marked.parse(content)
+export function markdownParse(content) {
+  return marked.parse(content);
 }
