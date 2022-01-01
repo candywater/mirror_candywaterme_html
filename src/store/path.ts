@@ -17,13 +17,13 @@ export const TECH_PATH = "/blog/tech";
 export const BLOG_PATH = "/blog";
 export const RANDOM_PATH = "/random";
 
+const pathdict: Object = {}
+pathdict[INDEX] = INDEX_PATH
+pathdict[ABOUT] = ABOUT_PATH
+pathdict[PROJECT] = PROJECT_PATH
+pathdict[ESSAY] = ESSAY_PATH
+pathdict[TECH] = TECH_PATH
+pathdict[BLOG] = BLOG_PATH
+pathdict[RANDOM] = RANDOM_PATH
 
-export default {
-    INDEX : INDEX_PATH,
-    ABOUT : ABOUT_PATH,
-    PROJECT : PROJECT_PATH,
-    ESSAY : ESSAY_PATH,
-    TECH : TECH_PATH,
-    BLOG : BLOG_PATH,
-    RANDOM : RANDOM_PATH,
-}
+export default pathdict

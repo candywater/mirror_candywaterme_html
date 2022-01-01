@@ -7,7 +7,6 @@
   import Tech from "./pages/tech.svelte";
   import Essay from "./pages/essay.svelte";
   import Random from "./pages/random.svelte";
-  import Blog from "./pages/blog.svelte";
 
   import {
     path,
@@ -19,41 +18,20 @@
     RANDOM,
     BLOG,
   } from "./store/path";
-  import {
-    INDEX_PATH,
-    ABOUT_PATH,
-    PROJECT_PATH,
-    TECH_PATH,
-    ESSAY_PATH,
-    RANDOM_PATH,
-    BLOG_PATH,
-  } from "./store/path";
+  import sitepath from "./store/path";
 
-  page(INDEX_PATH, () => {
-    change_switcher(INDEX);
-  });
-  page(ABOUT_PATH, () => {
-    change_switcher(ABOUT);
-  });
-  page(PROJECT_PATH, () => {
-    change_switcher(PROJECT);
-  });
-  page(TECH_PATH, () => {
-    change_switcher(TECH);
-  });
-  page(ESSAY_PATH, () => {
-    change_switcher(ESSAY);
-  });
-  page(BLOG_PATH, () => {
-    change_switcher(BLOG);
-  });
-  page(RANDOM_PATH, () => {
-    change_switcher(RANDOM);
-  });
+  var currentPath = INDEX;
+
+  for (const [pagename, pagepath] of Object.entries(sitepath)) {
+    page(pagepath, ()=>{
+      change_switcher(pagename, pagepath);
+    })
+  }
   page();
 
-  function change_switcher(pagename) {
+  function change_switcher(pagename, pagepath) {
     path.set(pagename);
+    console.log(pagename)
   }
 </script>
 
@@ -67,8 +45,6 @@
   <Tech />
 {:else if $path === ESSAY}
   <Essay />
-{:else if $path === BLOG}
-  <Blog />>
 {:else if $path === RANDOM}
   <Random />
 {:else}
