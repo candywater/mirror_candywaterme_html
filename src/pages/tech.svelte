@@ -1,5 +1,5 @@
 <script>
-import Main from "../template/_main_layout.svelte";
+import Main from "./main.svelte";
 
 const quote_url = ""
 const quote_list = [""]

@@ -1,6 +1,6 @@
 
 <script>
-import Main from "../template/_main_layout.svelte";
+import Main from "./main.svelte";
 import AboutMe from "../components/about/AboutMe.svelte"
 
 
