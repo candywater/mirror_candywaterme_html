@@ -24,14 +24,13 @@
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
     page(pagepath, ()=>{
-      change_switcher(pagename, pagepath);
+      change_switcher(pagename);
     })
   }
   page();
 
-  function change_switcher(pagename, pagepath) {
+  function change_switcher(pagename) {
     path.set(pagename);
-    console.log(pagename)
   }
 </script>
 

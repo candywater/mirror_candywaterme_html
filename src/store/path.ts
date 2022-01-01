@@ -7,7 +7,6 @@ export const ESSAY = "essay";
 export const TECH = "tech";
 export const BLOG = "blog";
 export const RANDOM = "random";
-export const path = writable(INDEX);
 
 export const INDEX_PATH = "/";
 export const ABOUT_PATH = "/about";
@@ -26,4 +25,6 @@ pathdict[TECH] = TECH_PATH
 pathdict[BLOG] = BLOG_PATH
 pathdict[RANDOM] = RANDOM_PATH
 
+
+export const path = writable(INDEX);
 export default pathdict
