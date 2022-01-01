@@ -53,13 +53,10 @@
 
   onLoad();
 
-  function on_click() {
-    $show_config_panel = !$show_config_panel;
-  }
-
   function onLoad() {
     if (hide_all_content === true) {
       hideContent();
+      return;
     } else {
       hide_all_content = false;
     }
@@ -74,6 +71,10 @@
     } else {
       fetchQuote(quote_url);
     }
+  }
+
+  function on_click() {
+    $show_config_panel = !$show_config_panel;
   }
 
   function hideContent() {
@@ -91,7 +92,7 @@
     }
   }
 
-  async function fetchQuote(url) {
+  async function fetchQuote(url : string) {
     let result = await fetch(url);
     if (result.ok) {
       let text = await result.text();
