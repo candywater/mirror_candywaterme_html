@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import page from "page.js";
 
   import Index from "./pages/index.svelte";
@@ -7,6 +7,9 @@
   import Tech from "./pages/tech.svelte";
   import Essay from "./pages/essay.svelte";
   import Random from "./pages/random.svelte";
+  import PageList from "./components/pageList/pageList.svelte"
+
+  import { onDestroy } from "svelte";
 
   import {
     path,
@@ -16,22 +19,29 @@
     TECH,
     ESSAY,
     RANDOM,
-    BLOG,
+TECH_BLOG,
   } from "./store/path";
   import sitepath from "./store/path";
 
-  var currentPath = INDEX;
+  var currentPath:string = INDEX;
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
     page(pagepath, ()=>{
+      console.log(`pagepath: ${pagepath}`)
       change_switcher(pagename);
     })
   }
+  page(TECH_BLOG, ()=>{console.log("test")})
   page();
 
   function change_switcher(pagename) {
     path.set(pagename);
   }
+
+  const unsubscribe = path.subscribe((value) => {
+    currentPath = value;
+  });
+  onDestroy(unsubscribe);
 </script>
 
 {#if $path === INDEX}

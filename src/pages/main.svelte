@@ -4,7 +4,7 @@
   import page from "page.js"
 
   import Layout from "../template/_layout.svelte";
-  import {path, TECH, ESSAY, TECH_PATH, ESSAY_PATH, TECH_PAGES_PATH, ESSAY_PAGES_PATH} from "../store/path"
+  import {path, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "../store/path"
 
   import Profile from "../components/main/Profile.svelte";
   import MainMenu from "../components/main/MainMenu.svelte";
@@ -71,9 +71,9 @@
     fadeOutAnimation = HIDE_ANIMATION;
     setTimeout(() => {
       if($path === TECH)
-        page(TECH_PAGES_PATH)
+        page(TECH_PATH)
       if($path === ESSAY)
-        page(ESSAY_PAGES_PATH)
+        page(ESSAY_PATH)
     }, 300);
   }
   function onAnimationEnd() {
