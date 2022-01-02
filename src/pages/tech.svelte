@@ -1,10 +1,9 @@
 <script>
   import Main from "./main.svelte";
+  import PageList from "../components/pageList/pageList.svelte"
+  import {TECH_URL} from "../store/path"
 
-  const quote_url = "";
-  const quote_list = [""];
-  const description = "";
-  const hide_all_content = true;
+  const url = TECH_URL
 </script>
 
-<Main {quote_url} {quote_list} {description} {hide_all_content} />
+<PageList {url}></PageList>

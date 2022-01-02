@@ -1,8 +1,10 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
   import Terminal from "svelte-terminal";
+  import page from "page.js"
 
   import Layout from "../template/_layout.svelte";
+  import {path, TECH, ESSAY, TECH_PATH, ESSAY_PATH, TECH_PAGES_PATH, ESSAY_PAGES_PATH} from "../store/path"
 
   import Profile from "../components/main/Profile.svelte";
   import MainMenu from "../components/main/MainMenu.svelte";
@@ -68,10 +70,10 @@
   function hideContent() {
     fadeOutAnimation = HIDE_ANIMATION;
     setTimeout(() => {
-      // if($path === TECH)
-      //   window.location = TECH_PATH
-      // if($path === ESSAY)
-      //   window.location = ESSAY_PATH
+      if($path === TECH)
+        page(TECH_PAGES_PATH)
+      if($path === ESSAY)
+        page(ESSAY_PAGES_PATH)
     }, 300);
   }
   function onAnimationEnd() {
