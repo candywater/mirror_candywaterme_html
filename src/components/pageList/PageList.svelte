@@ -10,6 +10,8 @@
   var pageNum = 0;
   var contentNumberPerPage = default_number_per_page;
 
+  const animation : string = 'animated fadeIn'
+
   onLoad();
 
   async function onLoad() {
@@ -27,7 +29,9 @@
     content_list = tmp_list;
   }
 
-  function jump_to_blog(url:string){
+  function jump_to_blog(e: MouseEvent){
+    e.preventDefault();
+    
     if(!url.startsWith('/'))
       url = '/' + url;
     page(url);
@@ -36,17 +40,27 @@
 
 </script>
 
-{#await content_list}
-  <!-- promise is pending -->
-  <p>waiting for the promise to resolve...</p>
-{:then content_list}
-  <!-- promise was fulfilled -->
-  {#each content_list as title}
-    <p>
-      <a href={()=>jump_to_blog(title)}}>{title}</a>
-    </p>
-  {/each}
-{:catch error}
-  <!-- promise was rejected -->
-  <p>Something went wrong: {error.message}</p>
-{/await}
+<div class={"pagelist " + animation}>
+  {#await content_list}
+    <!-- promise is pending -->
+    <p>waiting for query</p>
+  {:then content_list}
+    <!-- promise was fulfilled -->
+    {#each content_list as article_url}
+      <p>
+        <a href={article_url} on:click={jump_to_blog}>{article_url}</a>
+        <!-- <Page url={article_url} isHide={true} /> -->
+      </p>
+    {/each}
+  {:catch error}
+    <!-- promise was rejected -->
+    <p>Something went wrong: {error.message}</p>
+  {/await}
+</div>
+
+<style lang="scss">
+  .pagelist{
+    position: absolute;
+    top: 0%;
+  }
+</style>

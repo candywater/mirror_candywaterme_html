@@ -14,18 +14,9 @@
   import ConfigGear from "../components/main/configPanel/ConfigGear.svelte";
   import FakePanel from "../components/common/FakePanel.svelte";
 
-  /* Bouncing entrances  */
-  import "animate.css/source/_vars.css";
-  import "animate.css/source/_base.css";
-  import "animate.css/source/bouncing_entrances/bounceIn.css";
-  import "animate.css/source/attention_seekers/jello.css";
-  import "animate.css/source/fading_entrances/fadeIn.css";
-  import "animate.css/source/fading_exits/fadeOut.css";
-
   import {
     show_config_panel,
     show_quote,
-    hide_main_block,
   } from "../store/config";
 
   import { getRandomQuote, splitSerifs } from "../common/common.js";
@@ -33,13 +24,14 @@
   export let quote_url: string;
   export let quote_list: string[];
   export let description: string;
+  export let isHide: boolean;
 
   const DEFAULT_QUOTE: string[] = ["happy a new day!"];
   const DEFAULT_QUOTE_URL: string = "/doc/index/index_quote.md";
 
   let quote: string = "";
 
-  const HIDE_ANIMATION: string = "animated fadeOut";
+  const HIDE_ANIMATION: string = "animated fadeOutUp";
   let fadeOutAnimation: string = "";
 
   const unsubscribe_showquote = show_quote.subscribe((value: boolean) => {
@@ -47,18 +39,22 @@
   });
   onDestroy(unsubscribe_showquote);
 
-  const unsubscribe_hidemainblock = hide_main_block.subscribe(
-    (value: boolean) => {
-      console.log(value === false);
-      if (value) hideContent();
-      else showContent();
-    }
-  );
-  onDestroy(unsubscribe_hidemainblock);
+  // const unsubscribe_hidemainblock = hide_main_block.subscribe(
+  //   (value: boolean) => {
+  //     if (value) hideContent();
+  //     else showContent();
+  //   }
+  // );
+  // onDestroy(unsubscribe_hidemainblock);
 
   onLoad();
 
   function onLoad() {
+    if(isHide === true){
+      console.log(isHide)
+      hideContent();
+      return;
+    }
     if (quote_list.length > 0) {
       return;
     }
@@ -76,14 +72,14 @@
   function hideContent() {
     fadeOutAnimation = HIDE_ANIMATION;
   }
-  function onAnimationEnd() {
-    if ($hide_main_block) fadeOutAnimation = "hide";
-    hide_main_block.set(false);
-  }
   function showContent() {
     fadeOutAnimation = "";
   }
-
+  function onAnimationEnd() {
+    // if ($hide_main_block) fadeOutAnimation = "hide";
+    // hide_main_block.set(false);
+    if(isHide) fadeOutAnimation = "hide"
+  }
   async function fetchQuote(url: string) {
     let result = await fetch(url);
     if (result.ok) {

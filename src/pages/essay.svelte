@@ -7,6 +7,10 @@
   const quote_url = "";
   const quote_list = [""];
   const description = "";
+
+  const hide_main_block = true;
 </script>
 
+<Main {quote_url} {quote_list} {description} isHide={hide_main_block} />
 <PageList {url}></PageList>
+
