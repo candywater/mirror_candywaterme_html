@@ -1,10 +1,10 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
   import Terminal from "svelte-terminal";
-  import page from "page.js"
+  import page from "page.js";
 
   import Layout from "../template/_layout.svelte";
-  import {path, TECH, ESSAY, TECH_PATH, ESSAY_PATH} from "../store/path"
+  import { path, TECH, ESSAY, TECH_PATH, ESSAY_PATH } from "../store/path";
 
   import Profile from "../components/main/Profile.svelte";
   import MainMenu from "../components/main/MainMenu.svelte";
@@ -17,43 +17,49 @@
   /* Bouncing entrances  */
   import "animate.css/source/_vars.css";
   import "animate.css/source/_base.css";
-  // import 'animate.css/source/bouncing_entrances/bounceIn.css';
-  // import 'animate.css/source/attention_seekers/jello.css';
-  // import 'animate.css/source/fading_entrances/fadeIn.css';
+  import "animate.css/source/bouncing_entrances/bounceIn.css";
+  import "animate.css/source/attention_seekers/jello.css";
+  import "animate.css/source/fading_entrances/fadeIn.css";
   import "animate.css/source/fading_exits/fadeOut.css";
 
-  import { show_config_panel, show_quote } from "../store/config";
+  import {
+    show_config_panel,
+    show_quote,
+    hide_main_block,
+  } from "../store/config";
 
   import { getRandomQuote, splitSerifs } from "../common/common.js";
 
   export let quote_url: string;
   export let quote_list: string[];
   export let description: string;
-  export let hide_all_content: boolean;
 
-  const DEFAULT_QUOTE = "happy a new day!";
-  const DEFAULT_QUOTE_URL = "/doc/index/index_quote.md";
+  const DEFAULT_QUOTE: string[] = ["happy a new day!"];
+  const DEFAULT_QUOTE_URL: string = "/doc/index/index_quote.md";
 
   let quote: string = "";
-  const unsubscribe = show_quote.subscribe((value) => {
+
+  const HIDE_ANIMATION: string = "animated fadeOut";
+  let fadeOutAnimation: string = "";
+
+  const unsubscribe_showquote = show_quote.subscribe((value: boolean) => {
     quote = getRandomQuote(quote_list);
   });
-  onDestroy(unsubscribe);
-  const HIDE_ANIMATION = "animated fadeOut";
-  let fadeOutAnimation = "";
+  onDestroy(unsubscribe_showquote);
+
+  const unsubscribe_hidemainblock = hide_main_block.subscribe(
+    (value: boolean) => {
+      console.log(value === false);
+      if (value) hideContent();
+      else showContent();
+    }
+  );
+  onDestroy(unsubscribe_hidemainblock);
 
   onLoad();
 
   function onLoad() {
-    if (hide_all_content === true) {
-      hideContent();
-      return;
-    } else {
-      hide_all_content = false;
-    }
-    if (quote_list.length <= 0) {
-      quote_list = splitSerifs(DEFAULT_QUOTE);
-    } else {
+    if (quote_list.length > 0) {
       return;
     }
     if (quote_url.length <= 0) {
@@ -63,26 +69,21 @@
     }
   }
 
-  function on_click() {
-    $show_config_panel = !$show_config_panel;
+  function on_config_click() {
+    show_config_panel.set(!$show_config_panel);
   }
 
   function hideContent() {
     fadeOutAnimation = HIDE_ANIMATION;
-    setTimeout(() => {
-      if($path === TECH)
-        page(TECH_PATH)
-      if($path === ESSAY)
-        page(ESSAY_PATH)
-    }, 300);
   }
   function onAnimationEnd() {
-    if (hide_all_content) {
-      fadeOutAnimation = "hide";
-    }
+    if ($hide_main_block) fadeOutAnimation = "hide";
+  }
+  function showContent() {
+    fadeOutAnimation = "";
   }
 
-  async function fetchQuote(url : string) {
+  async function fetchQuote(url: string) {
     let result = await fetch(url);
     if (result.ok) {
       let text = await result.text();
@@ -92,7 +93,7 @@
 </script>
 
 {#if $show_config_panel}
-  <div on:click={on_click}>
+  <div on:click={on_config_click}>
     <FakePanel />
   </div>
 {/if}
@@ -113,7 +114,7 @@
         </Profile>
       </div>
 
-      <div class="config-block z-10" on:click={on_click}>
+      <div class="config-block z-10" on:click={on_config_click}>
         <ConfigGear />
       </div>
 
