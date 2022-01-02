@@ -17,6 +17,7 @@
   import Project from "./pages/project.svelte";
   import Tech from "./pages/tech.svelte";
   import Essay from "./pages/essay.svelte";
+  import Blog from "./pages/blog.svelte";
   import Random from "./pages/random.svelte";
 
   import { onDestroy } from "svelte";
@@ -29,7 +30,7 @@
     TECH,
     ESSAY,
     RANDOM,
-    TECH_BLOG,
+    BLOG,
   } from "./store/path";
   import sitepath from "./store/path";
 
@@ -41,9 +42,6 @@
       change_switcher(pagename);
     });
   }
-  page(TECH_BLOG, () => {
-    console.log("test");
-  });
   page();
 
   function change_switcher(pagename) {
@@ -68,6 +66,8 @@
   <Essay />
 {:else if $path === RANDOM}
   <Random />
+{:else if $path === BLOG}
+  <Blog />
 {:else}
   <Index />
 {/if}

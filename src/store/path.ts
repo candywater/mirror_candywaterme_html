@@ -7,9 +7,9 @@ export const ESSAY = "essay";
 export const TECH = "tech";
 // export const ESSAY_PAGES = 'essaypages'
 // export const TECH_PAGES = 'techpages'
-export const ESSAY_BLOG = 'essayblog'
-export const TECH_BLOG = 'techblog'
-// export const BLOG = "blog";
+// export const ESSAY_BLOG = 'essayblog'
+// export const TECH_BLOG = 'techblog'
+export const BLOG = "blog";
 export const RANDOM = "random";
 
 export const INDEX_PATH = "/";
@@ -19,9 +19,9 @@ export const ESSAY_PATH = "/blog/essay";
 export const TECH_PATH = "/blog/tech";
 // export const ESSAY_PAGES_PATH = "/blog/essay/pagelist";
 // export const TECH_PAGES_PATH = "/blog/tech/pagelist";
-export const ESSAY_BLOG_PATH = "/blog/essay/:year/:articlepath";
-export const TECH_BLOG_PATH = "/blog/tech/:year/:articlepath";
-// export const BLOG_PATH = "/blog";
+// export const ESSAY_BLOG_PATH = "/blog/essay/:year/:articlepath";
+// export const TECH_BLOG_PATH = "/blog/tech/:year/:articlepath";
+export const BLOG_PATH = "/blog/:type/:year/:articlepath";
 export const RANDOM_PATH = "/random";
 
 export const ESSAY_URL = '/doc/essay.txt'
@@ -36,8 +36,9 @@ pathDict[ESSAY] = ESSAY_PATH
 pathDict[TECH] = TECH_PATH
 // pathDict[TECH_PAGES] = TECH_PAGES_PATH
 // pathDict[ESSAY_PAGES] = ESSAY_PAGES_PATH
-pathDict[ESSAY_BLOG] = TECH_BLOG_PATH
-pathDict[TECH_BLOG] = TECH_BLOG_PATH
+// pathDict[ESSAY_BLOG] = TECH_BLOG_PATH
+// pathDict[TECH_BLOG] = TECH_BLOG_PATH
+pathDict[BLOG] = BLOG_PATH
 Object.freeze(pathDict);
 
 export let mainMenuDict : Object = {}

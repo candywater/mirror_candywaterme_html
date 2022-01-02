@@ -46,9 +46,9 @@ export default {
 				dev: !production
 			},
 			preprocess: preprocess({
-				defaults: {
-					style: "scss",
-					script: "ts",
+				sourceMap: !production,
+				postcss: {
+					plugins: [require('autoprefixer')()]
 				}
 			}),
 			// do not check css
