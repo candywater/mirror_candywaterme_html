@@ -20,8 +20,6 @@
   import Blog from "./pages/blog.svelte";
   import Random from "./pages/random.svelte";
 
-  import { onDestroy } from "svelte";
-
   import {
     path,
     INDEX,
@@ -31,15 +29,25 @@
     ESSAY,
     RANDOM,
     BLOG,
+    BLOG_OTHER,
   } from "./store/path";
   import sitepath from "./store/path";
 
-  var currentPath: string = INDEX;
+  let type: string = "";
+  let year: string = "";
+  let articlepath: string = "";
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
-    page(pagepath, () => {
+    page(pagepath, (ctx) => {
       console.log(`pagepath: ${pagepath}`);
       change_switcher(pagename);
+      if (pagename == BLOG) {
+        type = ctx.params.type;
+        year = ctx.params.year;
+        articlepath = ctx.params.articlepath;
+      } else if (pagename == BLOG_OTHER) {
+        type = ctx.params.type;
+      }
     });
   }
   page();
@@ -47,11 +55,6 @@
   function change_switcher(pagename) {
     path.set(pagename);
   }
-
-  const unsubscribe = path.subscribe((value) => {
-    currentPath = value;
-  });
-  onDestroy(unsubscribe);
 </script>
 
 {#if $path === INDEX}
@@ -67,7 +70,9 @@
 {:else if $path === RANDOM}
   <Random />
 {:else if $path === BLOG}
-  <Blog />
+  <Blog {type} {year} {articlepath} />
+{:else if $path === BLOG_OTHER}
+  <Blog {type} {year} {articlepath} />
 {:else}
   <Index />
 {/if}
