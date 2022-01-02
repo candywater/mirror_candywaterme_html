@@ -7,7 +7,6 @@
   import Tech from "./pages/tech.svelte";
   import Essay from "./pages/essay.svelte";
   import Random from "./pages/random.svelte";
-  import PageList from "./components/pageList/pageList.svelte"
 
   import { onDestroy } from "svelte";
 

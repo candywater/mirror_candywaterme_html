@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import { path } from "../../store/path";
 
-  export let style;
-  export let href;
-  export let title;
+  export let style : string;
+  export let href : string;
+  export let title :string;
 
   const animation = "animated jello";
   let anime = "";

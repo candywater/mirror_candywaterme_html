@@ -7,7 +7,6 @@
   const quote_url = "";
   const quote_list = [""];
   const description = "";
-  const hide_all_content = true;
 </script>
 
 <PageList {url}></PageList>

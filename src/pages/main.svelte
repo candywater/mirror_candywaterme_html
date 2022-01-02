@@ -78,6 +78,7 @@
   }
   function onAnimationEnd() {
     if ($hide_main_block) fadeOutAnimation = "hide";
+    hide_main_block.set(false);
   }
   function showContent() {
     fadeOutAnimation = "";
