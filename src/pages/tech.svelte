@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import Main from "./main.svelte";
   import PageList from "../components/pageList/pageList.svelte"
   import {TECH_URL} from "../store/path"

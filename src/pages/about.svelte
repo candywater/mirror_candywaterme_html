@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import Main from "./main.svelte";
   import AboutMe from "../components/about/AboutMe.svelte";
 

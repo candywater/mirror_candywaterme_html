@@ -4,7 +4,7 @@
   const MY_NAME = "Candy Water";
 </script>
 
-<script>
+<script lang='ts'>
   import { show_quote } from "../../store/config";
 
   export let description;

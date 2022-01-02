@@ -12,7 +12,7 @@
 
 <a {href} role="button" name="button" class="btn {style} {anime}">{title}</a>
 
-<style>
+<style lang='scss'>
   .btn {
     display: block;
     width: 7rem;

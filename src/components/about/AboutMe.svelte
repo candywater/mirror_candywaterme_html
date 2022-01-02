@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   let show_quote = false;
 
   function onImgClick(e) {

@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   let min = 1;
   let max = 8;
 

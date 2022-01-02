@@ -1,4 +1,4 @@
-<script>
+<script lang='ts'>
   import list from "../../data/project_list";
 
   let list_type = ["bg-gray-300 hover:bg-gray-500 text-black rounded"];
@@ -14,7 +14,7 @@
   {/each}
 </ol>
 
-<style>
+<style lang='scss'>
   li {
     margin: 0.1rem 0.1rem;
     padding: 0.1rem 0.2rem;
