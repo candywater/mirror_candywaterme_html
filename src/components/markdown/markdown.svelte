@@ -15,7 +15,7 @@
 
   async function onLoad() {
     if (!docurl) return;
-    console.log(docurl)
+    // console.log(docurl)
     let content: string = await (await fetch(docurl)).text();
 
     let headerPlain: string = extractYaml(content);
