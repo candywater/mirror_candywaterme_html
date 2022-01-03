@@ -30,8 +30,8 @@
     RANDOM,
     BLOG,
     BLOG_OTHER,
-  } from "./store/path";
-  import sitepath from "./store/path";
+  } from "./config/path";
+  import sitepath from "./config/path";
 
   let type: string = "";
   let year: string = "";

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { path } from "../../store/path";
+  import { path } from "../../config/path";
 
   export let style : string;
   export let href : string;

@@ -5,7 +5,7 @@
 </script>
 
 <script lang='ts'>
-  import { show_quote } from "../../store/config";
+  import { show_quote } from "../../config/config";
 
   export let description;
 

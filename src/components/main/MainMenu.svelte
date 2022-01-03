@@ -6,7 +6,7 @@
     PROJECT_PATH,
     ABOUT_PATH,
     INDEX_PATH,
-  } from "../../store/path";
+  } from "../../config/path";
 
   const basicstyle = "text-white rounded shadow"; //  = "border border-light-blue-500 border-opacity-5"
   const border = "border border-indigo-500";

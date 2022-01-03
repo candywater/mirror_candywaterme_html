@@ -1,7 +1,7 @@
 <script lang='ts'>
   import Main from "./main.svelte";
   import PageList from "../components/pageList/pageList.svelte"
-  import {ESSAY_URL} from "../store/path"
+  import {ESSAY_URL} from "../config/path"
 
   const url = ESSAY_URL
   const quote_url = "";

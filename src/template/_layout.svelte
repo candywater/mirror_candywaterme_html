@@ -8,7 +8,7 @@
     ESSAY,
     TECH_PATH,
     ESSAY_PATH,
-  } from "../store/path";
+  } from "../config/path";
 
 
 </script>

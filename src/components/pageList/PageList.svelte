@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { default_number_per_page } from "../../store/config";
+  import { default_number_per_page } from "../../config/config";
   import page from "page.js";
 
   export let url;

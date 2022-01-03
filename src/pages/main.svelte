@@ -4,7 +4,7 @@
   import page from "page.js";
 
   import Layout from "../template/_layout.svelte";
-  import { path, TECH, ESSAY, TECH_PATH, ESSAY_PATH } from "../store/path";
+  import { path, TECH, ESSAY, TECH_PATH, ESSAY_PATH } from "../config/path";
 
   import Profile from "../components/main/Profile.svelte";
   import MainMenu from "../components/main/MainMenu.svelte";
@@ -17,7 +17,7 @@
   import {
     show_config_panel,
     show_quote,
-  } from "../store/config";
+  } from "../config/config";
 
   import { getRandomQuote, splitSerifs } from "../common/common.js";
 
