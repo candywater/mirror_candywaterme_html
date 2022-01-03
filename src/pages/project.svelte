@@ -2,7 +2,7 @@
   import Main from "./main.svelte";
   import ProjectList from "../components/project/ProjectList.svelte";
 
-  export let firstShow: boolean;
+  export let firstTimeShow: boolean;
 
   const quote_url = "";
   const quote_list = ["meow!"];
@@ -13,6 +13,6 @@
   <title>"my side work list"</title>
 </svelte:head>
 
-<Main {quote_url} {quote_list} {description} {firstShow} >
+<Main {quote_url} {quote_list} {description} firstTimeShow={firstTimeShow} isHide={false} >
   <ProjectList />
 </Main>

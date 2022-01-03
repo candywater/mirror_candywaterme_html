@@ -3,7 +3,7 @@
   import PostList from "../components/pageList/postList.svelte"
   import {ESSAY_URL} from "../config/path"
 
-  export let firstShow: boolean;
+  export let firstTimeShow: boolean;
 
   const url = ESSAY_URL
   const quote_url = "";
@@ -13,8 +13,8 @@
   const hide_main_block = true;
 </script>
 
-{#if firstShow}
-  <Main {quote_url} {quote_list} {description} isHide={hide_main_block} />
+{#if firstTimeShow}
+  <Main {quote_url} {quote_list} {description} firstTimeShow={false} isHide={hide_main_block} />
 {/if}
 <PostList {url}></PostList>
 

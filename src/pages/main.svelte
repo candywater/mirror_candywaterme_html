@@ -22,7 +22,7 @@
   export let quote_list: string[];
   export let description: string;
   export let isHide: boolean;
-  export let firstShow: boolean;
+  export let firstTimeShow: boolean;
 
   const DEFAULT_QUOTE: string[] = ["happy a new day!"];
   const DEFAULT_QUOTE_URL: string = "/doc/index/index_quote.md";
@@ -46,7 +46,7 @@
       hideContent();
       return;
     }
-    if (firstShow == true) {
+    if (firstTimeShow == true) {
       showContent();
     }
     if (quote_list.length > 0) {

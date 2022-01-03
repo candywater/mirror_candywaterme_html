@@ -64,15 +64,15 @@
 </script>
 
 {#if $path === INDEX}
-  <Index firstShow={firstTimeShow} />
+  <Index firstTimeShow={firstTimeShow} />
 {:else if $path === ABOUT}
-  <About firstShow={firstTimeShow}/>
+  <About firstTimeShow={firstTimeShow}/>
 {:else if $path === PROJECT}
-  <Project firstShow={firstTimeShow}/>
+  <Project firstTimeShow={firstTimeShow}/>
 {:else if $path === TECH}
-  <Tech firstShow={firstTimeShow} />
+  <Tech firstTimeShow={firstTimeShow} />
 {:else if $path === ESSAY}
-  <Essay firstShow={firstTimeShow}/>
+  <Essay firstTimeShow={firstTimeShow}/>
 {:else if $path === RANDOM}
   <Random />
 {:else if $path === BLOG}
@@ -80,5 +80,5 @@
 {:else if $path === BLOG_OTHER}
   <Blog {blogpath} />
 {:else}
-  <Index firstShow={firstTimeShow}/>
+  <Index firstTimeShow={firstTimeShow}/>
 {/if}
