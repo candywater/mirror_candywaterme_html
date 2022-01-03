@@ -34,11 +34,18 @@
   import sitepath from "./config/path";
 
   let blogpath: string = "";
+  let firstTimeShow : boolean = false;
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
     page(pagepath, (ctx) => {
-      for (const [key, value] of Object.entries(ctx)) {
-        console.log(`${key}: ${value}`);
+      // for (const [key, value] of Object.entries(ctx)) {
+      //   console.log(`${key}: ${value}`);
+      // }
+      console.log(ctx.init)
+      if(ctx.init && ctx.init ===true){
+        firstTimeShow = true;
+      }else{
+        firstTimeShow = false;
       }
 
       change_switcher(pagename);
@@ -57,15 +64,15 @@
 </script>
 
 {#if $path === INDEX}
-  <Index />
+  <Index firstShow={firstTimeShow} />
 {:else if $path === ABOUT}
-  <About />
+  <About firstShow={firstTimeShow}/>
 {:else if $path === PROJECT}
-  <Project />
+  <Project firstShow={firstTimeShow}/>
 {:else if $path === TECH}
-  <Tech />
+  <Tech firstShow={firstTimeShow} />
 {:else if $path === ESSAY}
-  <Essay />
+  <Essay firstShow={firstTimeShow}/>
 {:else if $path === RANDOM}
   <Random />
 {:else if $path === BLOG}
@@ -73,5 +80,5 @@
 {:else if $path === BLOG_OTHER}
   <Blog {blogpath} />
 {:else}
-  <Index />
+  <Index firstShow={firstTimeShow}/>
 {/if}

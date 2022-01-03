@@ -14,10 +14,7 @@
   import ConfigGear from "../components/main/configPanel/ConfigGear.svelte";
   import FakePanel from "../components/common/FakePanel.svelte";
 
-  import {
-    show_config_panel,
-    show_quote,
-  } from "../config/config";
+  import { show_config_panel, show_quote } from "../config/config";
 
   import { getRandomQuote, splitSerifs } from "../common/common.js";
 
@@ -25,6 +22,7 @@
   export let quote_list: string[];
   export let description: string;
   export let isHide: boolean;
+  export let firstShow: boolean;
 
   const DEFAULT_QUOTE: string[] = ["happy a new day!"];
   const DEFAULT_QUOTE_URL: string = "/doc/index/index_quote.md";
@@ -32,28 +30,24 @@
   let quote: string = "";
 
   const HIDE_ANIMATION: string = "animated fadeOutUp";
-  let fadeOutAnimation: string = "";
+  const SHOW_ANIMATION: string = "animated fadeIn";
+  let mainFadeAnimation: string = "";
 
   const unsubscribe_showquote = show_quote.subscribe((value: boolean) => {
     quote = getRandomQuote(quote_list);
   });
   onDestroy(unsubscribe_showquote);
 
-  // const unsubscribe_hidemainblock = hide_main_block.subscribe(
-  //   (value: boolean) => {
-  //     if (value) hideContent();
-  //     else showContent();
-  //   }
-  // );
-  // onDestroy(unsubscribe_hidemainblock);
-
   onLoad();
 
   function onLoad() {
-    if(isHide === true){
+    if (isHide === true) {
       // console.log(isHide)
       hideContent();
       return;
+    }
+    if (firstShow == true) {
+      showContent();
     }
     if (quote_list.length > 0) {
       return;
@@ -70,15 +64,15 @@
   }
 
   function hideContent() {
-    fadeOutAnimation = HIDE_ANIMATION;
+    mainFadeAnimation = HIDE_ANIMATION;
   }
   function showContent() {
-    fadeOutAnimation = "";
+    mainFadeAnimation = SHOW_ANIMATION;
   }
   function onAnimationEnd() {
     // if ($hide_main_block) fadeOutAnimation = "hide";
     // hide_main_block.set(false);
-    if(isHide) fadeOutAnimation = "hide"
+    if (isHide) mainFadeAnimation = "hide";
   }
   async function fetchQuote(url: string) {
     let result = await fetch(url);
@@ -96,7 +90,7 @@
 {/if}
 
 <Layout>
-  <div class={fadeOutAnimation} on:animationend={onAnimationEnd}>
+  <div class={mainFadeAnimation} on:animationend={onAnimationEnd}>
     <div class="container main">
       <div class="mainmenu-block">
         <MainMenu />

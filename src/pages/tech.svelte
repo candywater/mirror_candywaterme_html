@@ -3,6 +3,8 @@
   import PostList from "../components/pageList/postList.svelte"
   import {TECH_URL} from "../config/path"
 
+  export let firstShow: boolean;
+  
   const url = TECH_URL
   const quote_url = "";
   const quote_list = [""];
