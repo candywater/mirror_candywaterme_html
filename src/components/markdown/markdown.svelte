@@ -15,9 +15,9 @@
     // console.log(docurl)
     let content: string = await (await fetch(docurl)).text();
 
-    extractYaml(content);
+    let yamlContent = extractYaml(content);
 
-    let markdownContent = content.replace(/^---$.*^---$/ms, ""); //https://github.com/markedjs/marked/issues/485
+    let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
     renderedContent = markdownParse(markdownContent);
   }
 </script>

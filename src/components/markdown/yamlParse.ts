@@ -1,8 +1,10 @@
+import type { IPostHeader } from "../../interface/IFrontMatter";
+
 export function yamlParse(content): any {
   //https://stackoverflow.com/questions/454908/split-java-string-by-new-line
   //https://stackoverflow.com/questions/8125709/javascript-how-to-split-newline
   let array = content.split(/\r?\n/);
-  let result: any = {};
+  let result: IPostHeader = {};
   array.forEach((line) => {
     if (line.startsWith("---")) {
       return;
