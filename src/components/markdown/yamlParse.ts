@@ -1,4 +1,4 @@
-import type { IMarkDownHeader } from "./IMarkdownHeader"
+import type { IMarkDownHeader } from "./IMarkdownHeader";
 
 export function yamlParse(content): IMarkDownHeader {
   //https://stackoverflow.com/questions/454908/split-java-string-by-new-line

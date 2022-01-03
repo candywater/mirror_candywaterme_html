@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
   import Main from "./main.svelte";
   import ProjectList from "../components/project/ProjectList.svelte";
 
@@ -13,6 +13,6 @@
   <title>"my side work list"</title>
 </svelte:head>
 
-<Main {quote_url} {quote_list} {description} firstTimeShow={firstTimeShow} isHide={false} >
+<Main {quote_url} {quote_list} {description} {firstTimeShow} isHide={false}>
   <ProjectList />
 </Main>

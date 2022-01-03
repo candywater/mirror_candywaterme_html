@@ -18,31 +18,30 @@ export const BLOG_PATH = "/blog/:type/:year/:articlepath";
 export const BLOG_OTHER_PATH = "/blog/:type/*";
 export const RANDOM_PATH = "/random";
 
-export const ESSAY_URL = '/doc/_info/essay.json'
-export const TECH_URL = '/doc/_info/tech.json'
-export const YEAR_SUMMARY_URL = '/doc/_info/year-summary.json'
+export const ESSAY_URL = "/doc/_info/essay.json";
+export const TECH_URL = "/doc/_info/tech.json";
+export const YEAR_SUMMARY_URL = "/doc/_info/year-summary.json";
 
-export const DOC_SRC_URL = '/doc/'
-export const BLOG_SRC_URL = '/blog/'
+export const DOC_SRC_URL = "/doc/";
+export const BLOG_SRC_URL = "/blog/";
 
-export let pathDict: Object = {}
-pathDict[INDEX] = INDEX_PATH
-pathDict[ABOUT] = ABOUT_PATH
-pathDict[PROJECT] = PROJECT_PATH
-pathDict[ESSAY] = ESSAY_PATH
-pathDict[TECH] = TECH_PATH
-pathDict[BLOG] = BLOG_PATH
-pathDict[BLOG_OTHER] = BLOG_OTHER_PATH
+export let pathDict: Object = {};
+pathDict[INDEX] = INDEX_PATH;
+pathDict[ABOUT] = ABOUT_PATH;
+pathDict[PROJECT] = PROJECT_PATH;
+pathDict[ESSAY] = ESSAY_PATH;
+pathDict[TECH] = TECH_PATH;
+pathDict[BLOG] = BLOG_PATH;
+pathDict[BLOG_OTHER] = BLOG_OTHER_PATH;
 Object.freeze(pathDict);
 
-export let mainMenuDict : Object = {}
-mainMenuDict[INDEX] = INDEX_PATH
-mainMenuDict[ABOUT] = ABOUT_PATH
-mainMenuDict[PROJECT] = PROJECT_PATH
-mainMenuDict[ESSAY] = ESSAY_PATH
-mainMenuDict[TECH] = TECH_PATH
-Object.freeze(mainMenuDict)
-
+export let mainMenuDict: Object = {};
+mainMenuDict[INDEX] = INDEX_PATH;
+mainMenuDict[ABOUT] = ABOUT_PATH;
+mainMenuDict[PROJECT] = PROJECT_PATH;
+mainMenuDict[ESSAY] = ESSAY_PATH;
+mainMenuDict[TECH] = TECH_PATH;
+Object.freeze(mainMenuDict);
 
 export const path = writable(INDEX);
-export default pathDict
+export default pathDict;

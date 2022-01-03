@@ -30,7 +30,7 @@
   <Btn href={INDEX_PATH} style={button_style_5} title="Main" />
 </div>
 
-<style lang='scss'>
+<style lang="scss">
   .main-menu {
     width: 7rem;
   }

@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
   import Main from "./main.svelte";
 
   export let firstTimeShow: boolean;
@@ -8,4 +8,4 @@
   const description = "";
 </script>
 
-<Main {quote_url} {quote_list} {description} firstTimeShow={firstTimeShow} isHide={false} />
+<Main {quote_url} {quote_list} {description} {firstTimeShow} isHide={false} />

@@ -34,7 +34,7 @@
   import sitepath from "./config/path";
 
   let blogpath: string = "";
-  let firstTimeShow : boolean = false;
+  let firstTimeShow: boolean = false;
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
     page(pagepath, (ctx) => {
@@ -52,9 +52,9 @@
       // }
       // console.log('================')
       // console.log(ctx.init)
-      if(ctx.init && ctx.init ===true){
+      if (ctx.init && ctx.init === true) {
         firstTimeShow = true;
-      }else{
+      } else {
         firstTimeShow = false;
       }
 
@@ -74,15 +74,15 @@
 </script>
 
 {#if $path === INDEX}
-  <Index firstTimeShow={firstTimeShow} />
+  <Index {firstTimeShow} />
 {:else if $path === ABOUT}
-  <About firstTimeShow={firstTimeShow}/>
+  <About {firstTimeShow} />
 {:else if $path === PROJECT}
-  <Project firstTimeShow={firstTimeShow}/>
+  <Project {firstTimeShow} />
 {:else if $path === TECH}
-  <Tech firstTimeShow={firstTimeShow} />
+  <Tech {firstTimeShow} />
 {:else if $path === ESSAY}
-  <Essay firstTimeShow={firstTimeShow}/>
+  <Essay {firstTimeShow} />
 {:else if $path === RANDOM}
   <Random />
 {:else if $path === BLOG}
@@ -90,5 +90,5 @@
 {:else if $path === BLOG_OTHER}
   <Blog {blogpath} />
 {:else}
-  <Index firstTimeShow={firstTimeShow}/>
+  <Index {firstTimeShow} />
 {/if}

@@ -1,9 +1,9 @@
 <script lang="ts">
   import { path } from "../../config/path";
 
-  export let style : string;
-  export let href : string;
-  export let title :string;
+  export let style: string;
+  export let href: string;
+  export let title: string;
 
   const animation = "animated jello";
   let anime = "";
@@ -12,7 +12,7 @@
 
 <a {href} role="button" name="button" class="btn {style} {anime}">{title}</a>
 
-<style lang='scss'>
+<style lang="scss">
   .btn {
     display: block;
     width: 7rem;

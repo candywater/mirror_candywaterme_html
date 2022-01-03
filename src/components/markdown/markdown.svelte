@@ -7,7 +7,6 @@
 
   export let docurl: string;
 
-
   let renderedContent: string = "";
   let header: IMarkDownHeader;
 

@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
   // export let segment;
   import switcher from "../router.svelte";
   let segment = switcher;
@@ -44,7 +44,7 @@
   </ul>
 </nav>
 
-<style lang='scss'>
+<style lang="scss">
   nav {
     border-bottom: 1px solid rgba(255, 62, 0, 0.1);
     font-weight: 300;

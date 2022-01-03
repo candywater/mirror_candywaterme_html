@@ -2,7 +2,7 @@
   import { default_number_per_page } from "../../config/config";
   import page from "page.js";
   import type { IPostSummary } from "./IPost";
-import { DocUrl2BlogUrl } from "../../common/common";
+  import { DocUrl2BlogUrl } from "../../common/common";
 
   export let url;
 

@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
   import Main from "./main.svelte";
   import AboutMe from "../components/about/AboutMe.svelte";
 
@@ -13,6 +13,6 @@
   <title>This a my small profile</title>
 </svelte:head>
 
-<Main {quote_url} {quote_list} {description} firstTimeShow={firstTimeShow} isHide={false}>
+<Main {quote_url} {quote_list} {description} {firstTimeShow} isHide={false}>
   <AboutMe />
 </Main>

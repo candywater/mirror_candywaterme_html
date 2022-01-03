@@ -1,4 +1,4 @@
-<script lang='ts'>
+<script lang="ts">
   import {
     path,
     INDEX,
@@ -9,8 +9,6 @@
     TECH_PATH,
     ESSAY_PATH,
   } from "../config/path";
-
-
 </script>
 
 <svelte:head>
