@@ -1,11 +1,12 @@
 <script lang="ts">
   import { default_number_per_page } from "../../config/config";
   import page from "page.js";
+  import type { IPostSummary } from "./IPost";
+import { parseBlogUrl } from "../../common/common";
 
   export let url;
 
-  var content;
-  var content_list = [];
+  var content_list: IPostSummary[] = [];
 
   // todo: pagination
   var pageNum = 0;
@@ -17,24 +18,16 @@
 
   async function onLoad() {
     if (!url) {
-      url = "/doc/essay.txt";
+      return;
     }
-    content = await (await fetch(url)).text();
-    var tmp_content_list = content.split(/[\r|\n]/g);
-    var tmp_list = [];
-    tmp_content_list.forEach((str) => {
-      if (str) {
-        tmp_list.push(str);
-      }
-    });
-    content_list = tmp_list;
+    content_list = await (await fetch(url)).json();
   }
 
-  function jump_to_blog(e: MouseEvent) {
+  function jump_to_blog(e: MouseEvent, url: string) {
     e.preventDefault();
 
-    if (!url.startsWith("/")) url = "/" + url;
-    page(url);
+    let parsedUrl = parseBlogUrl(url);
+    page(parsedUrl);
   }
 </script>
 
@@ -44,9 +37,14 @@
     <p>waiting for query</p>
   {:then content_list}
     <!-- promise was fulfilled -->
-    {#each content_list as article_url}
+    {#each content_list as post}
       <p>
-        <a href={article_url} on:click={jump_to_blog}>{article_url}</a>
+        <a
+          href={post.url}
+          on:click={(e) => {
+            jump_to_blog(e, post.url);
+          }}>{post.title}</a
+        >
       </p>
     {/each}
   {:catch error}

@@ -1,6 +1,6 @@
 <script lang="ts">
     import Markdown from "../markdown/main.svelte";
-    import Comment from "./comment.svelte";
+    import Comment from "../pageList/comment.svelte";
 
     export let url: string;
     export let isHide: boolean;

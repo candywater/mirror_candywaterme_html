@@ -1,3 +1,5 @@
+import { BLOG_SRC_URL, DOC_SRC_URL } from "../config/path";
+
 //https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 export function getRandomInt(min: number, max: number): number {
   min = Math.ceil(min);
@@ -35,4 +37,8 @@ export function splitSerifs(str: string): string[] {
     strs[ele] = strs[ele].replace(/(?:\r\n)/g, "<br>");
   }
   return strs;
+}
+
+export function parseBlogUrl(docurl: string): string{
+  return docurl.replace(DOC_SRC_URL, BLOG_SRC_URL);
 }
