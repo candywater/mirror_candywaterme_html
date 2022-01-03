@@ -38,9 +38,19 @@
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
     page(pagepath, (ctx) => {
+      // console.log('=====ctx===========')
       // for (const [key, value] of Object.entries(ctx)) {
       //   console.log(`${key}: ${value}`);
       // }
+      // console.log('======ctx.state==========')
+      // for (const [key, value] of Object.entries(ctx.state)) {
+      //   console.log(`${key}: ${value}`);
+      // }
+      // console.log('=====ctx.params===========')
+      // for (const [key, value] of Object.entries(ctx.params)) {
+      //   console.log(`${key}: ${value}`);
+      // }
+      // console.log('================')
       // console.log(ctx.init)
       if(ctx.init && ctx.init ===true){
         firstTimeShow = true;
