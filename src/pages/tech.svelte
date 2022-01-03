@@ -4,7 +4,7 @@
   import {TECH_URL} from "../config/path"
 
   export let firstShow: boolean;
-  
+
   const url = TECH_URL
   const quote_url = "";
   const quote_list = [""];
@@ -12,5 +12,7 @@
   const hide_main_block = true;
 </script>
 
-<Main {quote_url} {quote_list} {description} isHide={hide_main_block}/>
+{#if firstShow}
+  <Main {quote_url} {quote_list} {description} isHide={hide_main_block}/>
+{/if}
 <PostList {url}></PostList>
