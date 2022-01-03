@@ -39,6 +39,10 @@ export function splitSerifs(str: string): string[] {
   return strs;
 }
 
-export function parseBlogUrl(docurl: string): string{
-  return docurl.replace(DOC_SRC_URL, BLOG_SRC_URL);
+export function DocUrl2BlogUrl(docurl: string): string{
+  return docurl.replace(DOC_SRC_URL, BLOG_SRC_URL).replace(/\.md$/, '');
+}
+export function BlogUrl2DocUrl(blogurl: string): string{
+  console.log(blogurl.replace(BLOG_SRC_URL, DOC_SRC_URL) + '.md')
+  return blogurl.replace(BLOG_SRC_URL, DOC_SRC_URL) + '.md';
 }

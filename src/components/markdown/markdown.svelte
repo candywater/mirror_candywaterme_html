@@ -5,9 +5,8 @@
   // front-matter has a bit size, do not use it
   // import frontmatter from "front-matter"
 
-  export let url: string;
+  export let docurl: string;
 
-  const default_test_url = "/doc/tech/2017/2017-08-20-about-rust-1.md";
 
   let renderedContent: string = "";
   let header: IMarkDownHeader;
@@ -15,11 +14,12 @@
   onLoad();
 
   async function onLoad() {
-    if (!url) url = default_test_url;
-    let content: string = await (await fetch(url)).text();
+    if (!docurl) return;
+    console.log(docurl)
+    let content: string = await (await fetch(docurl)).text();
 
     let headerPlain: string = extractYaml(content);
-    header = yamlParse(headerPlain);
+    // header = yamlParse(headerPlain);
 
     let markdownContent = content.replace(/^---$.*^---$/ms, ""); //https://github.com/markedjs/marked/issues/485
     renderedContent = markdownParse(await markdownContent);
@@ -27,6 +27,6 @@
 </script>
 
 <div>
-  <h1>{header.title}</h1>
+  <!-- <h1>{header.title}</h1> -->
   {@html renderedContent}
 </div>

@@ -2,7 +2,7 @@
   import { default_number_per_page } from "../../config/config";
   import page from "page.js";
   import type { IPostSummary } from "./IPost";
-import { parseBlogUrl } from "../../common/common";
+import { DocUrl2BlogUrl } from "../../common/common";
 
   export let url;
 
@@ -26,7 +26,7 @@ import { parseBlogUrl } from "../../common/common";
   function jump_to_blog(e: MouseEvent, url: string) {
     e.preventDefault();
 
-    let parsedUrl = parseBlogUrl(url);
+    let parsedUrl = DocUrl2BlogUrl(url);
     page(parsedUrl);
   }
 </script>

@@ -1,10 +1,10 @@
 <script lang="ts">
-  export let type: string
-  export let year: string 
-  export let articlepath: string 
+  import Post from "../components/post/post.svelte";
+  import { BlogUrl2DocUrl } from "../common/common";
 
-  console.log(type)
-  console.log(year)
-  console.log(articlepath)
+  export let blogpath: string;
+
+  let docurl: string = BlogUrl2DocUrl(blogpath);
 </script>
 
+<Post {docurl} />

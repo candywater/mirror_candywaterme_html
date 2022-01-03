@@ -22,7 +22,7 @@ export const ESSAY_URL = '/doc/_info/essay.json'
 export const TECH_URL = '/doc/_info/tech.json'
 export const YEAR_SUMMARY_URL = '/doc/_info/year-summary.json'
 
-export const DOC_SRC_URL = 'doc/'
+export const DOC_SRC_URL = '/doc/'
 export const BLOG_SRC_URL = '/blog/'
 
 export let pathDict: Object = {}

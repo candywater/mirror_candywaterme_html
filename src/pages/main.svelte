@@ -51,7 +51,7 @@
 
   function onLoad() {
     if(isHide === true){
-      console.log(isHide)
+      // console.log(isHide)
       hideContent();
       return;
     }

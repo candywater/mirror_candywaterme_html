@@ -33,20 +33,19 @@
   } from "./config/path";
   import sitepath from "./config/path";
 
-  let type: string = "";
-  let year: string = "";
-  let articlepath: string = "";
+  let blogpath: string = "";
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
     page(pagepath, (ctx) => {
-      console.log(`pagepath: ${pagepath}`);
+      for (const [key, value] of Object.entries(ctx)) {
+        console.log(`${key}: ${value}`);
+      }
+
       change_switcher(pagename);
       if (pagename == BLOG) {
-        type = ctx.params.type;
-        year = ctx.params.year;
-        articlepath = ctx.params.articlepath;
+        blogpath = ctx.path;
       } else if (pagename == BLOG_OTHER) {
-        type = ctx.params.type;
+        blogpath = ctx.path;
       }
     });
   }
@@ -70,9 +69,9 @@
 {:else if $path === RANDOM}
   <Random />
 {:else if $path === BLOG}
-  <Blog {type} {year} {articlepath} />
+  <Blog {blogpath} />
 {:else if $path === BLOG_OTHER}
-  <Blog {type} {year} {articlepath} />
+  <Blog {blogpath} />
 {:else}
   <Index />
 {/if}

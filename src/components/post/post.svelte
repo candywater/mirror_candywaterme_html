@@ -1,13 +1,12 @@
 <script lang="ts">
-    import Markdown from "../markdown/main.svelte";
-    import Comment from "../pageList/comment.svelte";
+    import Markdown from "../markdown/markdown.svelte";
+    import Comment from "./comment.svelte";
 
-    export let url: string;
-    export let isHide: boolean;
+    export let docurl: string;
 </script>
 
 <div class="page">
-    <Markdown {url} />
+    <Markdown {docurl} />
     <Comment />
 </div>
 
