@@ -1,10 +1,9 @@
-import type { IMarkDownHeader } from "./IMarkdownHeader";
 
-export function yamlParse(content): IMarkDownHeader {
+export function yamlParse(content): any {
   //https://stackoverflow.com/questions/454908/split-java-string-by-new-line
   //https://stackoverflow.com/questions/8125709/javascript-how-to-split-newline
   let array = content.split(/\r?\n/);
-  let result: IMarkDownHeader = {};
+  let result: any = {};
   array.forEach((line) => {
     if (line.startsWith("---")) {
       return;

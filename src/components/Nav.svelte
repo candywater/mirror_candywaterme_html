@@ -1,9 +1,5 @@
 <script lang="ts">
-  // export let segment;
-  import switcher from "../router.svelte";
-  let segment = switcher;
-
-  // console.log(segment)
+  import { path } from "../config/path";
 </script>
 
 <nav>
@@ -11,14 +7,14 @@
     <li>
       <a
         class="btn"
-        aria-current={segment === undefined ? "page" : undefined}
+        aria-current={$path === undefined ? "page" : undefined}
         href=".">home</a
       >
     </li>
     <li>
       <a
         class="btn"
-        aria-current={segment === "about" ? "page" : undefined}
+        aria-current={$path === "about" ? "page" : undefined}
         href="about">about</a
       >
     </li>
@@ -29,7 +25,7 @@
       <a
         class="btn"
         rel="prefetch"
-        aria-current={segment === "essay" ? "page" : undefined}
+        aria-current={$path === "essay" ? "page" : undefined}
         href="essay">essay</a
       >
     </li>
@@ -37,7 +33,7 @@
       <a
         class="btn"
         rel="prefetch"
-        aria-current={segment === "tech" ? "page" : undefined}
+        aria-current={$path === "tech" ? "page" : undefined}
         href="tech">tech</a
       >
     </li>

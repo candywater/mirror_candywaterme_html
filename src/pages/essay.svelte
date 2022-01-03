@@ -22,4 +22,4 @@
     isHide={hide_main_block}
   />
 {/if}
-<PostList {url} />
+<PostList docUrl={url} />

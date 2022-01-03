@@ -7,7 +7,7 @@
 <script lang="ts">
   import { show_quote } from "../../config/config";
 
-  export let description;
+  export let description : string;
 
   const PROFILE_IMG_URL =
     "/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg";
@@ -16,8 +16,8 @@
 
   onLoad();
 
-  function onImgClick(e) {
-    $show_quote = !$show_quote;
+  function onImgClick() {
+    show_quote.set(!$show_quote);
   }
 
   function onLoad() {

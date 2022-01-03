@@ -1,7 +1,7 @@
 <script lang="ts">
   let show_quote = false;
 
-  function onImgClick(e) {
+  function onImgClick() {
     show_quote = !show_quote;
   }
 </script>
@@ -49,7 +49,6 @@
 {#if show_quote}
   <div class="inline" id="credit_info">
     Most techinical articles, in this site by <a
-      xmlns:cc="http://creativecommons.org/ns#"
       href="http://candy-water.com/about"
       property="cc:attributionName"
       rel="cc:attributionURL">Candy Water</a
@@ -69,7 +68,6 @@
     <br />
     And most artwork, like essays and some visual works, in this site by
     <a
-      xmlns:cc="http://creativecommons.org/ns#"
       href="http://candy-water.com/about"
       property="cc:attributionName"
       rel="cc:attributionURL">candy water</a

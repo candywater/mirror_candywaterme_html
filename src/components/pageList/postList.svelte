@@ -1,26 +1,26 @@
 <script lang="ts">
-  import { default_number_per_page } from "../../config/config";
+  // import { default_number_per_page } from "../../config/config";
   import page from "page.js";
   import type { IPostSummary } from "./IPost";
   import { DocUrl2BlogUrl } from "../../common/common";
 
-  export let url;
+  export let docUrl : string;
 
   var content_list: IPostSummary[] = [];
 
   // todo: pagination
-  var pageNum = 0;
-  var contentNumberPerPage = default_number_per_page;
+  // var pageNum = 0;
+  // var contentNumberPerPage = default_number_per_page;
 
   const animation: string = "animated fadeIn";
 
   onLoad();
 
   async function onLoad() {
-    if (!url) {
+    if (!docUrl) {
       return;
     }
-    content_list = await (await fetch(url)).json();
+    content_list = await (await fetch(docUrl)).json();
   }
 
   function jump_to_blog(e: MouseEvent, url: string) {
@@ -49,7 +49,7 @@
     {/each}
   {:catch error}
     <!-- promise was rejected -->
-    <p>Something went wrong: {error.message}</p>
+    <p>Something went wrong: {error}</p>
   {/await}
 </div>
 

@@ -1,11 +1,9 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
   import Terminal from "svelte-terminal";
-  import page from "page.js";
 
   import Layout from "../template/_layout.svelte";
-  import { path, TECH, ESSAY, TECH_PATH, ESSAY_PATH } from "../config/path";
-
+  
   import Profile from "../components/main/Profile.svelte";
   import MainMenu from "../components/main/MainMenu.svelte";
   import Copyleft from "../components/main/Copyleft.svelte";

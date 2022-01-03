@@ -1,9 +1,6 @@
 <script lang="ts">
   import {
     path,
-    INDEX,
-    ABOUT,
-    PROJECT,
     TECH,
     ESSAY,
     TECH_PATH,
