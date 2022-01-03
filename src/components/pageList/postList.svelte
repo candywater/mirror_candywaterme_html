@@ -7,10 +7,11 @@
   var content;
   var content_list = [];
 
+  // todo: pagination
   var pageNum = 0;
   var contentNumberPerPage = default_number_per_page;
 
-  const animation : string = 'animated fadeIn'
+  const animation: string = "animated fadeIn";
 
   onLoad();
 
@@ -29,15 +30,12 @@
     content_list = tmp_list;
   }
 
-  function jump_to_blog(e: MouseEvent){
+  function jump_to_blog(e: MouseEvent) {
     e.preventDefault();
-    
-    if(!url.startsWith('/'))
-      url = '/' + url;
+
+    if (!url.startsWith("/")) url = "/" + url;
     page(url);
   }
-
-
 </script>
 
 <div class={"pagelist " + animation}>
@@ -49,7 +47,6 @@
     {#each content_list as article_url}
       <p>
         <a href={article_url} on:click={jump_to_blog}>{article_url}</a>
-        <!-- <Page url={article_url} isHide={true} /> -->
       </p>
     {/each}
   {:catch error}
@@ -59,7 +56,7 @@
 </div>
 
 <style lang="scss">
-  .pagelist{
+  .pagelist {
     position: absolute;
     top: 0%;
   }

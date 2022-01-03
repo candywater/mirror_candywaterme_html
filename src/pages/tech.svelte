@@ -1,6 +1,6 @@
 <script lang='ts'>
   import Main from "./main.svelte";
-  import PageList from "../components/pageList/pageList.svelte"
+  import PostList from "../components/pageList/postList.svelte"
   import {TECH_URL} from "../config/path"
 
   const url = TECH_URL
@@ -11,4 +11,4 @@
 </script>
 
 <Main {quote_url} {quote_list} {description} isHide={hide_main_block}/>
-<PageList {url}></PageList>
+<PostList {url}></PostList>
