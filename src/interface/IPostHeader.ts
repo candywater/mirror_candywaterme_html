@@ -5,5 +5,6 @@ export interface IPostHeader {
     tags?: string | string[];
     category?: string;
     tag?: string;
+    [propName: string]: any;
   }
   
