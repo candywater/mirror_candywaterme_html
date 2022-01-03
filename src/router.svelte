@@ -10,6 +10,7 @@
   //import "animate.css/source/fading_exits/fadeOut.css";
   import "animate.css/source/fading_exits/fadeOutUp.css";
 
+
   import page from "page.js";
 
   import Index from "./pages/index.svelte";
@@ -92,3 +93,4 @@
 {:else}
   <Index {firstTimeShow} />
 {/if}
+

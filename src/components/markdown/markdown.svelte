@@ -26,7 +26,12 @@
   }
 </script>
 
-<div>
+<svelte:head>
+  <title>{header?.title}</title>
+</svelte:head>
+
+
+<div class="page-content">
   <h1>{header?.title}</h1>
   {@html renderedContent}
 </div>
