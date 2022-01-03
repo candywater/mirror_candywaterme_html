@@ -41,7 +41,7 @@
       // for (const [key, value] of Object.entries(ctx)) {
       //   console.log(`${key}: ${value}`);
       // }
-      console.log(ctx.init)
+      // console.log(ctx.init)
       if(ctx.init && ctx.init ===true){
         firstTimeShow = true;
       }else{
