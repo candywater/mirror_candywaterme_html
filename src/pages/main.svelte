@@ -70,8 +70,6 @@
     mainFadeAnimation = SHOW_ANIMATION;
   }
   function onAnimationEnd() {
-    // if ($hide_main_block) fadeOutAnimation = "hide";
-    // hide_main_block.set(false);
     if (isHide) mainFadeAnimation = "hide";
   }
   async function fetchQuote(url: string) {
