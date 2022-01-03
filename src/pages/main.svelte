@@ -3,7 +3,7 @@
   import Terminal from "svelte-terminal";
 
   import Layout from "../template/_layout.svelte";
-  
+
   import Profile from "../components/main/Profile.svelte";
   import MainMenu from "../components/main/MainMenu.svelte";
   import Copyleft from "../components/main/Copyleft.svelte";

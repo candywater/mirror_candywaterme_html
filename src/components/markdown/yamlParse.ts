@@ -1,4 +1,3 @@
-
 export function yamlParse(content): any {
   //https://stackoverflow.com/questions/454908/split-java-string-by-new-line
   //https://stackoverflow.com/questions/8125709/javascript-how-to-split-newline

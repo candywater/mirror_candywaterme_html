@@ -4,7 +4,7 @@
   import type { IPostSummary } from "./IPost";
   import { DocUrl2BlogUrl } from "../../common/common";
 
-  export let docUrl : string;
+  export let docUrl: string;
 
   var content_list: IPostSummary[] = [];
 

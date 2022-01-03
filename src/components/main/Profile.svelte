@@ -7,7 +7,7 @@
 <script lang="ts">
   import { show_quote } from "../../config/config";
 
-  export let description : string;
+  export let description: string;
 
   const PROFILE_IMG_URL =
     "/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg";
