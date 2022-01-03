@@ -30,8 +30,13 @@
   <title>{header?.title}</title>
 </svelte:head>
 
+<div class="post-header">
+  <div class="post-title">
+    <h1>{header?.title}</h1>
+  </div>
+  <div class="post-meta"></div>
+</div>
 
 <div class="page-content">
-  <h1>{header?.title}</h1>
   {@html renderedContent}
 </div>

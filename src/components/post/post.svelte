@@ -1,6 +1,6 @@
 <script lang="ts">
   import Markdown from "../markdown/markdown.svelte";
-  import Comment from "./comment.svelte";
+  import Comment from "../comment/comment.svelte";
 
   export let docurl: string;
 </script>

@@ -8,9 +8,7 @@ const cssnano = require('cssnano');
 
 // const ANIMATE_PATH = 'node_modules/animate.css/animate.css'
 const TAILWINDCSS_PATH = 'node_modules/tailwindcss/dist/tailwind.css'
-
 const SOURCE_HTML = ["./src/**/*.svelte", "./public/**/*.html"]
-
 const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
 // const ANIMATE_OUTPUT = 'public/build/'
 
