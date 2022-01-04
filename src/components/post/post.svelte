@@ -6,14 +6,9 @@
 </script>
 
 
-<article class="page">
+<article class="post">
   <Markdown {docurl} />
+  <hr id="comment_hr" />
   <Comment />
 </article>
 
-<style lang="scss">
-  .page {
-    position: absolute;
-    top: 0%;
-  }
-</style>

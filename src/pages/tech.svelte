@@ -10,6 +10,8 @@
   const quote_list = [""];
   const description = "";
   const hide_main_block = true;
+
+  firstTimeShow = false;
 </script>
 
 {#if firstTimeShow}
@@ -21,4 +23,15 @@
     isHide={hide_main_block}
   />
 {/if}
-<PostList docUrl={url} />
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    <PostList docUrl={url} />
+  </div>
+</main>
+
+<style lang="scss">
+  // .page-content {
+  //   position: absolute;
+  //   top: 0%;
+  // }
+</style>

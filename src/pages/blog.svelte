@@ -7,5 +7,10 @@
   let docurl: string = BlogUrl2DocUrl(blogpath);
 </script>
 
-<Post {docurl} />
+<main class="page-content" aria-label="Content">
+  <div class="wrapper">
+    <Post {docurl} />
+  </div>
+</main>
+
 

@@ -1,5 +1,3 @@
-<hr id="comment_hr" />
-
 <div id="comment_alert" />
 <div id="comment_input_area">
   <textarea

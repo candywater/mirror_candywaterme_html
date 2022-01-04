@@ -31,12 +31,15 @@
   <title>{header?.title}</title>
 </svelte:head>
 
-<div class="post-header">
+<header class="post-header">
   <div class="post-title">
-    <h1>{header?.title}</h1>
+    <h1 class="post-title">{header?.title}</h1>
   </div>
-  <div class="post-meta"></div>
-</div>
+  <p class="post-meta">
+    <time>{header?.date}</time>
+  </p>
+</header>
+<hr>
 
 <div class="page-content">
   {@html renderedContent}

@@ -3,6 +3,7 @@
   import page from "page.js";
   import type { IPostSummary } from "./IPost";
   import { DocUrl2BlogUrl } from "../../common/common";
+  import Post from "../post/post.svelte";
 
   export let docUrl: string;
 
@@ -32,30 +33,43 @@
 </script>
 
 <div class={"pagelist " + animation}>
-  {#await content_list}
-    <!-- promise is pending -->
-    <p>waiting for query</p>
-  {:then content_list}
-    <!-- promise was fulfilled -->
-    {#each content_list as post}
-      <p>
-        <a
-          href={post.url}
-          on:click={(e) => {
-            jump_to_blog(e, post.url);
-          }}>{post.title}</a
-        >
-      </p>
-    {/each}
-  {:catch error}
-    <!-- promise was rejected -->
-    <p>Something went wrong: {error}</p>
-  {/await}
+  <div class="home">
+    <br />
+    <div class="row" style="position: relative;">
+      <h1 class="page-heading">Article List</h1>
+    </div>
+
+    {#await content_list}
+      <!-- promise is pending -->
+      <p>waiting for query</p>
+    {:then content_list}
+      <!-- promise was fulfilled -->
+      <ul class="post-list">
+        {#each content_list as post}
+          <li>
+            <span class="post-meta">{post.date}</span>
+
+            <h2>
+              <a
+                class="post-link"
+                href={post.url}
+                on:click={(e) => {
+                  jump_to_blog(e, post.url);
+                }}>{post.title}</a
+              >
+              <p class="main-tags">description: <span>{post.summary}</span></p>
+              <p class="main-tags">
+                tags: <span class="tags">{post.tags}</span>
+              </p>
+            </h2>
+          </li>
+        {/each}
+      </ul>
+    {:catch error}
+      <!-- promise was rejected -->
+      <p>Something went wrong: {error}</p>
+    {/await}
+  </div>
 </div>
 
-<style lang="scss">
-  .pagelist {
-    position: absolute;
-    top: 0%;
-  }
-</style>
+
