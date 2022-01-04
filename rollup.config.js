@@ -49,7 +49,8 @@ export default {
 				sourceMap: !production,
 				postcss: {
 					plugins: [require('autoprefixer')()]
-				}
+				},
+				scss: ({}),
 			}),
 			// do not check css
 			// onwarn: (warning, handler) => {

@@ -13,7 +13,7 @@ const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
 // const ANIMATE_OUTPUT = 'public/build/'
 
 // tailwindcss
-function purgecss_tailwindcss_prod ()  {
+function purgecss_tailwindcss_prod() {
     var plugins = [
         // autoprefixer({browsers: ['last 1 version']}),
         cssnano()
@@ -26,13 +26,17 @@ function purgecss_tailwindcss_prod ()  {
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
 }
 // tailwindcss
-function purgecss_tailwindcss_dev ()  {
+function purgecss_tailwindcss_dev() {
     var plugins = [
         // autoprefixer({browsers: ['last 1 version']}),
         cssnano()
     ];
     return gulp.src(TAILWINDCSS_PATH)
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
+}
+
+function complier_sass() {
+
 }
 exports.css = gulp.series(purgecss_tailwindcss_prod);
 exports["css:dev"] = gulp.series(purgecss_tailwindcss_dev);
