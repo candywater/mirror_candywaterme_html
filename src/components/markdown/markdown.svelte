@@ -13,11 +13,13 @@
   export let contentUrl: string;
 
   let renderedContent: string = "";
-  let header: IPostHeader;
+  let header: IPostHeader = {
+    title: " ",
+    date: new Date(),    
+  };
 
   var index_list : string[] = [];
   var content_list: IPostSummary[] = [];
-  var post_info : IPostSummary;
 
   onLoad();
 
@@ -28,7 +30,7 @@
     content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
 
     let index = await index_list.findIndex((val) => val == docurl)
-    return post_info = await content_list[index]
+    return await content_list[index]
     
 
   }
