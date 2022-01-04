@@ -35,13 +35,13 @@ function complier_sass() {
     var plugins = [
         cssnano()
     ];
-    return gulp.src(["./src/sass/**/*.scss"])
+    return gulp.src(["./src/sass/**/minima.scss"])
         .pipe(sass().on('error', sass.logError))
         .pipe(postcss(plugins))
         .pipe(gulp.dest('./public/build/sass'))
 }
 function complier_sass_dev() {
-    return gulp.src(["./src/sass/**/*.scss"])
+    return gulp.src(["./src/sass/**/minima.scss"])
         .pipe(sass().on('error', sass.logError))
         .pipe(gulp.dest('./public/build/sass'))
 }
