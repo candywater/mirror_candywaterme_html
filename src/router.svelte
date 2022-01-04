@@ -100,7 +100,11 @@
 {:else if $path === BLOG && blogtype == TECH}
   <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
 {:else if $path === BLOG_OTHER && blogtype == YEAR_SUMMARY}
-  <Blog {blogpath} indexUrl={YEAR_SUMMARY_INDEX_URL} contentUrl={YEAR_SUMMARY_URL} />
+  <Blog
+    {blogpath}
+    indexUrl={YEAR_SUMMARY_INDEX_URL}
+    contentUrl={YEAR_SUMMARY_URL}
+  />
 {:else if $path === BLOG_OTHER}
   <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
 {:else}

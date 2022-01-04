@@ -3,7 +3,7 @@
   import { BlogUrl2DocUrl } from "../common/common";
 
   export let blogpath: string;
-  export let indexUrl:string;
+  export let indexUrl: string;
   export let contentUrl: string;
 
   let docUrl: string = BlogUrl2DocUrl(blogpath);
@@ -11,8 +11,6 @@
 
 <main class="page-content" aria-label="Content">
   <div class="wrapper">
-    <Post docUrl={docUrl} indexUrl={indexUrl} contentUrl={contentUrl}/>
+    <Post {docUrl} {indexUrl} {contentUrl} />
   </div>
 </main>
-
-

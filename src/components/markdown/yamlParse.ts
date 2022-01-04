@@ -2,8 +2,8 @@ import type { IPostHeader } from "../../interface/IPostHeader";
 
 /**
  * warning: cannot parse array
- * @param content 
- * @returns 
+ * @param content
+ * @returns
  */
 export function yamlParse(content): any {
   //https://stackoverflow.com/questions/454908/split-java-string-by-new-line

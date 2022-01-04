@@ -28,4 +28,3 @@
     <PostList docUrl={url} />
   </div>
 </main>
-

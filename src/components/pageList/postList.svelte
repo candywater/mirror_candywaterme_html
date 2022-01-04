@@ -1,7 +1,7 @@
 <script lang="ts">
   // import { default_number_per_page } from "../../config/config";
   import page from "page.js";
-  import type { IPostSummary } from "../../interface/IPostSummary"
+  import type { IPostSummary } from "../../interface/IPostSummary";
   import { DocUrl2BlogUrl } from "../../common/common";
 
   export let docUrl: string;

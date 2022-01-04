@@ -9,30 +9,27 @@
   // import frontmatter from "front-matter"
 
   export let docurl: string;
-  export let indexUrl : string;
+  export let indexUrl: string;
   export let contentUrl: string;
 
   let renderedContent: string = "";
   let header: IPostHeader = {
     title: " ",
-    date: new Date(),    
+    date: new Date(),
   };
 
-  var index_list : string[] = [];
+  var index_list: string[] = [];
   var content_list: IPostSummary[] = [];
 
   onLoad();
 
   async function fetchData() {
-
-     let index_content = await (await fetch(indexUrl)).text();
-     index_list = index_content.split(/[\n]/g)
+    let index_content = await (await fetch(indexUrl)).text();
+    index_list = index_content.split(/[\n]/g);
     content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
 
-    let index = await index_list.findIndex((val) => val == docurl)
-    return await content_list[index]
-    
-
+    let index = await index_list.findIndex((val) => val == docurl);
+    return await content_list[index];
   }
   onLoad();
 

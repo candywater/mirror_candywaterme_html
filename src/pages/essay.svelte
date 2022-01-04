@@ -30,7 +30,6 @@
   </div>
 </main>
 
-
 <!-- 
 <br><br>
 {% include paginator-footer.html %}

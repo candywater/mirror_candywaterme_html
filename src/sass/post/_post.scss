@@ -35,7 +35,13 @@
   // to avoid cannot load youtube video
   iframe {
     border: solid;
-    background: linear-gradient(-45deg, #b36c57, rgba(155, 44, 44, 0.637), #135a74, rgba(29, 104, 86, 0.534)),
+    background: linear-gradient(
+        -45deg,
+        #b36c57,
+        rgba(155, 44, 44, 0.637),
+        #135a74,
+        rgba(29, 104, 86, 0.534)
+      ),
       linear-gradient(127deg, #572c1f, #0b4b63, rgba(17, 100, 81, 0.534));
   }
 
