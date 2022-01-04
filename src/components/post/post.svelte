@@ -6,10 +6,10 @@
 </script>
 
 
-<div class="page">
+<article class="page">
   <Markdown {docurl} />
   <Comment />
-</div>
+</article>
 
 <style lang="scss">
   .page {
