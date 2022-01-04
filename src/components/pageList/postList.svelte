@@ -1,9 +1,8 @@
 <script lang="ts">
   // import { default_number_per_page } from "../../config/config";
   import page from "page.js";
-  import type { IPostSummary } from "./IPost";
+  import type { IPostSummary } from "../../interface/IPostSummary"
   import { DocUrl2BlogUrl } from "../../common/common";
-  import Post from "../post/post.svelte";
 
   export let docUrl: string;
 
@@ -21,7 +20,7 @@
     if (!docUrl) {
       return;
     }
-    content_list = await (await fetch(docUrl)).json();
+    content_list = <IPostSummary[]>await (await fetch(docUrl)).json();
   }
 
   function jump_to_blog(e: MouseEvent, url: string) {
@@ -71,5 +70,3 @@
     {/await}
   </div>
 </div>
-
-

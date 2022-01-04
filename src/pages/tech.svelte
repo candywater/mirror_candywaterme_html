@@ -29,9 +29,3 @@
   </div>
 </main>
 
-<style lang="scss">
-  // .page-content {
-  //   position: absolute;
-  //   top: 0%;
-  // }
-</style>
