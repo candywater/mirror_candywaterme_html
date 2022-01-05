@@ -1,3 +1,23 @@
+/**
+ * Basic styling
+ */
+body {
+  font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
+  color: $text-color;
+  //background-color: $background-color;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-feature-settings: "kern" 1;
+  -moz-font-feature-settings: "kern" 1;
+  -o-font-feature-settings: "kern" 1;
+  font-feature-settings: "kern" 1;
+  font-kerning: normal;
+  // --> animation
+  background: $background-image;
+  background-size: $background-size;
+  animation: Gradient 35s ease infinite;
+  // <--
+}
+
 #{$namespace} {
   /**
  * Reset some basic elements
@@ -20,27 +40,6 @@
   figure {
     margin: 0;
     padding: 0;
-  }
-
-  /**
- * Basic styling
- */
-  body {
-    font: $base-font-weight #{$base-font-size}/#{$base-line-height}
-      $base-font-family;
-    color: $text-color;
-    //background-color: $background-color;
-    -webkit-text-size-adjust: 100%;
-    -webkit-font-feature-settings: "kern" 1;
-    -moz-font-feature-settings: "kern" 1;
-    -o-font-feature-settings: "kern" 1;
-    font-feature-settings: "kern" 1;
-    font-kerning: normal;
-    // --> animation
-    background: $background-image;
-    background-size: $background-size;
-    animation: Gradient 35s ease infinite;
-    // <--
   }
 
   /**

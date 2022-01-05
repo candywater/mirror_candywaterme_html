@@ -14,7 +14,7 @@
 
   let _renderedContent: string = "";
   let _header: IPostHeader = {
-    title: " ",
+    title: "　",
     date: new Date(),
   };
 
