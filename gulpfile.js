@@ -15,7 +15,7 @@ const TAILWINDCSS_PATH = ['node_modules/tailwindcss/dist/tailwind.css']
 const SOURCE_HTML = ["./src/**/*.svelte", "./public/**/*.html"]
 const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
 // minima.css
-const MINIMACSS_PATH = ["./src/sass/**/minima.scss"]
+const MINIMACSS_PATH = ["./src/sass/**/minima.scss", "./src/sass/**/main.scss"]
 const MINIMACSS_DIR_PATH = ["./src/sass/**/*.scss"]
 const MINIMACSS_OUTPUT = './public/build/sass'
 
@@ -32,8 +32,18 @@ function purgecss_tailwindcss_prod() {
         .pipe(postcss(plugins))
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
 }
+
+function purgecss_tailwindcss_dev(){
+    return gulp.src(TAILWINDCSS_PATH)
+    .pipe(purgecss({
+        content: SOURCE_HTML
+    }))
+    .pipe(postcss())
+    .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
+}
+
 // tailwindcss
-function purgecss_tailwindcss_dev() {
+function tailwindcss_dev() {
     return gulp.src(TAILWINDCSS_PATH)
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
 }

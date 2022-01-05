@@ -32,7 +32,7 @@
   <div class="figure">
     <img
       src={PROFILE_IMG_URL}
-      class="real-rounded-circle border-double border-4 border-light-blue-500"
+      class="real-rounded-circle border-double border-4 border-white "
       alt="profile"
       id="profile_photo"
       title="why not try clicking this?"
