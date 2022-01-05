@@ -16,18 +16,17 @@ export function xhr_get(
   let req = {
     method: "GET",
     uri: uri,
-    dataType: "text",
     timeout: timeout,
   };
 
   let xhr = new XMLHttpRequest();
   xhr.timeout = req.timeout; //can not wait for more than 3 seconds!!
-  xhr.responseType = req.dataType;
+  xhr.responseType = "text";
   xhr.open(req.method, req.uri, true);
   xhr.onprogress = function () {
     if (onprogress_cb) onprogress_cb();
   };
-  xhr.onload = function (res) {
+  xhr.onload = function (res: any) {
     if (onload_cb) onload_cb(res.target.responseText);
     console.log("success");
   };
@@ -55,13 +54,12 @@ export function xhr_post(
   let req = {
     method: "POST",
     uri: uri,
-    dataType: "text",
     timeout: timeout,
   };
 
   let xhr = new XMLHttpRequest();
   xhr.timeout = req.timeout; //can not wait for more than 3 seconds!!
-  xhr.responseType = req.dataType;
+  xhr.responseType = "text";
   xhr.open(req.method, req.uri, true);
   //https://stackoverflow.com/questions/25695778/sending-xmlhttprequest-with-formdata
   // xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -70,7 +68,7 @@ export function xhr_post(
   xhr.onprogress = function () {
     if (onprogress_cb) onprogress_cb();
   };
-  xhr.onload = function (res) {
+  xhr.onload = function (res: any) {
     if (onload_cb) onload_cb(res.target.responseText);
     console.log("success");
   };

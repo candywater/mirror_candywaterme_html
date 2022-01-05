@@ -1,5 +1,5 @@
 import Router from "./router.svelte";
-import TestPage from "./Testpage.svelte";
+import TestPage from "./testpage.svelte";
 
 const app = new Router({
   target: document.body,

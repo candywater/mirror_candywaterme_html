@@ -28,7 +28,7 @@ const COMMENT_HTML = `
   `;
 check_if_ie();
 check_dev_or_produ();
-ready(comment_area_html);
+// ready(comment_area_html);
 
 global.insert_new_comment = insert_new_comment;
 global.clear_comment = clear;
@@ -43,10 +43,10 @@ function check_if_ie() {
     !!navigator.userAgent.match(/Trident.*rv\:11\./)
   ) {
     AddAlertMsg(IE_ERROR_MSG);
-    document.querySelector("#comment_input_area > textarea").disabled = true;
-    document.querySelector("#username_input").disabled = true;
-    document.querySelector("#user_email_input").disabled = true;
-    var btns = document.querySelectorAll("#comment_input_area button");
+    (<HTMLTextAreaElement>document.querySelector("#comment_input_area > textarea")).disabled = true;
+    (<HTMLInputElement>document.querySelector("#username_input")).disabled = true;
+    (<HTMLInputElement>document.querySelector("#user_email_input")).disabled = true;
+    var btns: NodeListOf<HTMLButtonElement> = document.querySelectorAll("#comment_input_area button");
     for (var i = 0; i < btns.length; i++) {
       btns[i].disabled = true;
     }
@@ -72,13 +72,18 @@ function check_dev_or_produ() {
  */
 function comment_area_html() {
   var uri = new URL(document.URL);
-  uri = uri.pathname;
+  let url = uri.pathname;
   xhr_get(
-    GET_COMMENT_REQ_PATH + `?getAll=${uri}`,
+    GET_COMMENT_REQ_PATH + `?getAll=${url}`,
     loading_comment,
     draw_comment,
     when_xhr_error
   );
+}
+
+// todo
+function when_xhr_error() {
+
 }
 
 /**
@@ -86,7 +91,7 @@ function comment_area_html() {
  * @public
  */
 function loading_comment() {
-  var loading_spin = document.createElement("div");
+  var loading_spin: any = document.createElement("div");
   loading_spin.className = "lds-dual-ring";
   loading_spin.style = "margin:0 auto; display: flex;";
   var article = document.querySelector("article[class='post']");
@@ -181,12 +186,12 @@ function input_check(comment, username, useremail) {
  */
 function create_comment_data(comment, username, useremail) {
   var uri = new URL(document.URL);
-  uri = uri.pathname;
+  let url = uri.pathname;
   var fdata = {
     comment: comment,
     username: username,
     useremail: useremail,
-    uri: uri,
+    uri: url,
   };
   return JSON.stringify(fdata);
 }
@@ -195,11 +200,11 @@ function create_comment_data(comment, username, useremail) {
  * 用户插入新的comment
  */
 export function insert_new_comment() {
-  var comment = document
-    .querySelector("#comment_input_area > textarea")
+  var comment = (<HTMLTextAreaElement>document
+    .querySelector("#comment_input_area > textarea"))
     .value.trim();
-  var username = document.querySelector("#username_input").value.trim();
-  var useremail = document.querySelector("#user_email_input").value.trim();
+  var username = (<HTMLInputElement>document.querySelector("#username_input")).value.trim();
+  var useremail = (<HTMLInputElement>document.querySelector("#user_email_input")).value.trim();
 
   if (!input_check(comment, username, useremail)) return;
   var jsondata = create_comment_data(comment, username, useremail);
@@ -260,9 +265,9 @@ function AddAlertMsg(str = "", lasttime = 0) {
  */
 export function clear(all = false) {
   AddAlertMsg();
-  document.querySelector("#comment_input_area > textarea").value = "";
+  (<HTMLInputElement>document.querySelector("#comment_input_area > textarea")).value = "";
   if (all) {
-    document.querySelector("#username_input").value = "";
-    document.querySelector("#user_email_input").value = "";
+    (<HTMLInputElement>document.querySelector("#username_input")).value = "";
+    (<HTMLInputElement>document.querySelector("#user_email_input")).value = "";
   }
 }
