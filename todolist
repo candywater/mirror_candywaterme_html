@@ -23,7 +23,7 @@ or
 + gulp -> typescript []->[x]
 + gulp -> prettier []->[x]
 + gulp -> javascript-obfuscator []->[]
-+ fix fetch 2 times issue
++ fix fetch 2 times issue[x]
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap

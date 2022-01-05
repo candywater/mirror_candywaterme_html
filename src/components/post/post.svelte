@@ -1,7 +1,6 @@
 <script lang="ts">
   import Markdown from "../markdown/markdown.svelte";
   import Comment from "../comment/comment.svelte";
-  import type { IPostSummary } from "../../interface/IPostSummary";
 
   export let docUrl: string;
   export let indexUrl: string;

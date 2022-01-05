@@ -12,57 +12,55 @@
   export let indexUrl: string;
   export let contentUrl: string;
 
-  let renderedContent: string = "";
-  let header: IPostHeader = {
+  let _renderedContent: string = "";
+  let _header: IPostHeader = {
     title: " ",
     date: new Date(),
   };
 
-  var index_list: string[] = [];
-  var content_list: IPostSummary[] = [];
+  let _index_list: string[] = [];
+  let _content_list: IPostSummary[] = [];
 
   onLoad();
 
   async function fetchData() {
     let index_content = await (await fetch(indexUrl)).text();
-    index_list = index_content.split(/[\n]/g);
-    content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
+    _index_list = index_content.split(/[\n]/g);
+    _content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
 
-    let index = await index_list.findIndex((val) => val == docurl);
-    return await content_list[index];
+    let index = await _index_list.findIndex((val) => val == docurl);
+    return await _content_list[index];
   }
-  onLoad();
-
   async function onLoad() {
     if (!docurl) return;
     // console.log(docurl)
     let content: string = await (await fetch(docurl)).text();
 
     let yamlContent = extractYaml(content);
-    header = yamlParse(yamlContent); // todo: should take value from json file
-    header = await fetchData();
+    _header = yamlParse(yamlContent); // todo: should take value from json file
+    _header = await fetchData();
 
     let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
-    renderedContent = markdownParse(markdownContent);
+    _renderedContent = markdownParse(markdownContent);
   }
 </script>
 
 <svelte:head>
-  <title>{header?.title}</title>
+  <title>{_header?.title}</title>
 </svelte:head>
 
 <header class="post-header">
   <div class="post-title">
-    <h1 class="post-title">{header?.title}</h1>
+    <h1 class="post-title">{_header?.title}</h1>
   </div>
   <p class="post-meta">
-    <time>{header?.date}</time>
+    <time>{_header?.date}</time>
   </p>
 </header>
 <hr />
 
 <div class="page-content">
-  {@html renderedContent}
+  {@html _renderedContent}
   <br />
   {#if $path == ESSAY}
     <a
