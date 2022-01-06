@@ -1,8 +1,7 @@
 // https://google.github.io/styleguide/jsguide.html
 import { xhr_get, xhr_post } from "./xmlrequest";
 
-var GET_COMMENT_REQ_PATH = "/comment";
-const GET_COMMENT_REQ_PATH_DEV = "http://localhost:9191/comment";
+const COMMENT_API_URL = "/comment";
 
 const COMMENT_LEN_LIMIT = 1000;
 
@@ -10,8 +9,8 @@ const IE_ERROR_MSG =
   "Sorry man/woman, we do not surpport IE. Try 21st century browser.";
 const COMMENT_NUMBER_LIMIT_ERROR_MSG =
   "It has reached the limit of post today. Try post tomorrow.";
-const COMMENT_LEN_LIMIT_ERROR_MSG = "It is too long, please try write less.";
-const WRITE_INFO_ERROR_MSG = "At least write your name and comment, plz.";
+const COMMENT_LEN_LIMIT_ERROR_MSG = "Your post is too large to store, please try write less.";
+const WRITE_INFO_ERROR_MSG = "At least write your name and comment, thanks.";
 const ERROR_MSG = "Something error occurs. Oops.";
 const MAINTENANCE_ERROR_MSG = "Sorry, we are in maintenance.";
 const POST_SUCCESS_MSG = "Post Success.";
@@ -27,7 +26,7 @@ const COMMENT_HTML = `
   </div>
   `;
 check_if_ie();
-check_dev_or_produ();
+check_service_connection();
 // ready(comment_area_html);
 
 global.insert_new_comment = insert_new_comment;
@@ -54,17 +53,10 @@ function check_if_ie() {
   // console.log(navigator.userAgent)
 }
 
-/**
- * judge is it dev environment or production environment
- * @private
- */
-function check_dev_or_produ() {
-  var uri = new URL(document.URL);
-  var host = uri.hostname;
-  if (host == "localhost") {
-    GET_COMMENT_REQ_PATH = GET_COMMENT_REQ_PATH_DEV;
-  }
+function check_service_connection(){
+
 }
+
 
 /**
  * Get all info From DB
@@ -74,7 +66,7 @@ function comment_area_html() {
   var uri = new URL(document.URL);
   let url = uri.pathname;
   xhr_get(
-    GET_COMMENT_REQ_PATH + `?getAll=${url}`,
+    COMMENT_API_URL + `?getAll=${url}`,
     loading_comment,
     draw_comment,
     when_xhr_error
@@ -210,7 +202,7 @@ export function insert_new_comment() {
   var jsondata = create_comment_data(comment, username, useremail);
 
   xhr_post(
-    GET_COMMENT_REQ_PATH,
+    COMMENT_API_URL,
     jsondata,
     null,
     when_post_finish,
