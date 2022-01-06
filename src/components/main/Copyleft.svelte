@@ -8,6 +8,7 @@
 
 <style lang="scss">
   .copyleft {
+    margin: 0;
     span {
       background-color: rgba(254, 254, 254, 0.3);
     }

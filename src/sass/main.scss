@@ -211,6 +211,9 @@ a {
 .container {
     width: 100%
   }
+  .underline {
+    text-decoration: underline;
+  }
   
   @media (min-width: 640px) {
     .container {
