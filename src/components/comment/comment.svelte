@@ -1,3 +1,8 @@
+<script lang="ts">
+
+  
+</script>
+
 <div id="comment_alert" />
 <div id="comment_input_area">
   <textarea

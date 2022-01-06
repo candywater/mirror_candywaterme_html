@@ -5,6 +5,14 @@
 hr {
     border-top-width: 1px;
 }
+/**
+ * Reset links to optimize for opt-in styling instead of
+ * opt-out.
+ */
+
+a {
+    color: inherit;
+}
 .bg-blue-500 {
     --tw-bg-opacity: 1;
     background-color: rgba(59, 130, 246, var(--tw-bg-opacity));
@@ -137,63 +145,99 @@ hr {
 }
 .text-center {
     text-align: center;
-  }
-  *,
+}
+*,
 ::before,
 ::after {
-  box-sizing: border-box; /* 1 */
-  border-width: 0; /* 2 */
-  border-style: solid; /* 2 */
-  border-color: currentColor; /* 2 */
+    box-sizing: border-box; /* 1 */
+    border-width: 0; /* 2 */
+    border-style: solid; /* 2 */
+    border-color: currentColor; /* 2 */
 }
-//  border-light-blue-500 
+//  border-light-blue-500
 
 .border-solid {
     border-style: solid;
-  }
-  
-  .border-dashed {
+}
+
+.border-dashed {
     border-style: dashed;
-  }
-  
-  .border-dotted {
+}
+
+.border-dotted {
     border-style: dotted;
-  }
-  
-  .border-double {
+}
+
+.border-double {
     border-style: double;
-  }
-  
-  .border-none {
+}
+
+.border-none {
     border-style: none;
-  }
-  
-  .border-transparent {
+}
+
+.border-transparent {
     border-color: transparent;
-  }
-  
-  .border-current {
+}
+
+.border-current {
     border-color: currentColor;
-  }
-  
-  .border-black {
+}
+
+.border-black {
     --tw-border-opacity: 1;
     border-color: rgba(0, 0, 0, var(--tw-border-opacity));
-  }
-  
-  .border-white {
+}
+
+.border-white {
     --tw-border-opacity: 1;
     border-color: rgba(255, 255, 255, var(--tw-border-opacity));
-  }
-  .border-gray-500 {
+}
+.border-gray-500 {
     --tw-border-opacity: 1;
     border-color: rgba(107, 114, 128, var(--tw-border-opacity));
-  }
-  .border-blue-500 {
+}
+.border-blue-500 {
     --tw-border-opacity: 1;
     border-color: rgba(59, 130, 246, var(--tw-border-opacity));
-  }
-  .border-indigo-500 {
+}
+.border-indigo-500 {
     --tw-border-opacity: 1;
     border-color: rgba(99, 102, 241, var(--tw-border-opacity));
+}
+.absolute {
+    position: absolute;
+}
+.container {
+    width: 100%
+  }
+  
+  @media (min-width: 640px) {
+    .container {
+      max-width: 640px
+    }
+  }
+  
+  @media (min-width: 768px) {
+    .container {
+      max-width: 768px
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .container {
+      max-width: 1024px
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .container {
+      max-width: 1280px
+    }
+  }
+  
+  @media (min-width: 1536px) {
+    .container {
+      max-width: 1536px
+    }
   }
