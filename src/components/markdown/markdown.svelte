@@ -5,6 +5,7 @@
   import { markdownParse } from "./markdownParse";
   import { extractYaml, yamlParse } from "./yamlParse";
   import type { IPostSummary } from "../../interface/IPostSummary";
+import { FormatDate } from "../../common/common";
   // front-matter has a bit size, do not use it
   // import frontmatter from "front-matter"
 
@@ -69,7 +70,7 @@
         <time><div class="lds-circle"><div /></div></time>
       {/if}
     {:then _header}
-      <time>{_header?.date}</time>
+      <time>{FormatDate(_header?.date)}</time>
     {/await}
   </p>
 </header>

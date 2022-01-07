@@ -1,4 +1,6 @@
 <script lang="ts">
+import { FormatDate } from "../../common/common";
+
   import { path, ESSAY } from "../../config/path";
 
   import type { IPostSummary } from "../../interface/IPostSummary";
@@ -41,7 +43,7 @@
       <ul class="post-list">
         {#each content_list as post}
           <li>
-            <span class="post-meta">{post.date}</span>
+            <span class="post-meta">{FormatDate(post.date)}</span>
 
             <h2>
               <a class="post-link" href={post.url}>{post.title}</a>

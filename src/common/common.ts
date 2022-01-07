@@ -46,3 +46,55 @@ export function BlogUrl2DocUrl(blogurl: string): string {
   // console.log(blogurl.replace(BLOG_SRC_URL, DOC_SRC_URL) + '.md')
   return blogurl.replace(BLOG_SRC_URL, DOC_SRC_URL) + ".md";
 }
+
+const months = [
+  'January',
+  'February',
+  'March',
+  'April',
+  'May',
+  'June',
+  'July',
+  'August',
+  'September',
+  'October',
+  'November',
+  'December'
+]
+
+const monthsTiny = [
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'June',
+  'July',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec'
+]
+const days = [
+  'Sun',
+  'Mon',
+  'Tue',
+  'Wed',
+  'Thu',
+  'Fri',
+  'Sat'
+]
+
+export function FormatDate(d: Date) : string{
+  if (!d) return "";
+  const date = new Date(d);
+  const year = date.getFullYear() // 2019
+  const day = date.getDate() // 1 based
+  const monthIndex = date.getMonth() // 0 based
+  const dayIndex = date.getDay()// 0 based
+  const hour = date.getHours().toString().padStart(2, '0');
+  const min = date.getMinutes().toString().padStart(2, '0');
+
+  return `${day} ${monthsTiny[monthIndex]} ${year} (${days[dayIndex]}) ${hour}:${min} `
+}
