@@ -16,6 +16,7 @@
   const ERROR_MSG = "Some error occurs. Oops.";
   const MAINTENANCE_ERROR_MSG = "Sorry, we are in maintenance.";
   const POST_SUCCESS_MSG = "Post Success.";
+  const LOST_CONNECTION = 'We cannot connect to comment service. Oops'
 
   const COMMENT_HTML = `  
   <div class="comment">
@@ -62,7 +63,7 @@
   }
 
   function check_service_connection() {
-    
+    //AddAlertMsg(LOST_CONNECTION);
   }
 
   /**
