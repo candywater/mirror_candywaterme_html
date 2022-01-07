@@ -5,7 +5,7 @@
 
   export let firstTimeShow: boolean;
 
-  const url = ESSAY_URL;
+  const docListUrl = ESSAY_URL;
   const quote_url = "";
   const quote_list = [""];
   const description = "";
@@ -26,7 +26,7 @@
 {/if}
 <main class="page-content" aria-label="Content">
   <div class="wrapper">
-    <PostList docUrl={url} />
+    <PostList docListUrl={docListUrl} />
   </div>
 </main>
 

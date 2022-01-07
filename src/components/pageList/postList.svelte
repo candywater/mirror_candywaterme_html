@@ -1,10 +1,7 @@
 <script lang="ts">
-  // import { default_number_per_page } from "../../config/config";
-  import page from "page.js";
   import type { IPostSummary } from "../../interface/IPostSummary";
-  import { DocUrl2BlogUrl } from "../../common/common";
 
-  export let docUrl: string;
+  export let docListUrl: string;
 
   var content_list: IPostSummary[] = [];
 
@@ -17,17 +14,10 @@
   onLoad();
 
   async function onLoad() {
-    if (!docUrl) {
+    if (!docListUrl) {
       return;
     }
-    content_list = <IPostSummary[]>await (await fetch(docUrl)).json();
-  }
-
-  function jump_to_blog(e: MouseEvent, url: string) {
-    e.preventDefault();
-
-    let parsedUrl = DocUrl2BlogUrl(url);
-    page(parsedUrl);
+    content_list = <IPostSummary[]>await (await fetch(docListUrl)).json();
   }
 </script>
 
@@ -49,12 +39,8 @@
             <span class="post-meta">{post.date}</span>
 
             <h2>
-              <a
-                class="post-link"
-                href={post.url}
-                on:click={(e) => {
-                  jump_to_blog(e, post.url);
-                }}>{post.title}</a
+              <a class="post-link" href={post.url}
+                >{post.title}</a
               >
               <p class="main-tags">description: <span>{post.summary}</span></p>
               <p class="main-tags">
