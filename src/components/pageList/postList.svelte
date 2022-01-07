@@ -12,6 +12,8 @@ import { FormatDate } from "../../common/common";
   // todo: pagination
   // var pageNum = 0;
   // var contentNumberPerPage = default_number_per_page;
+  const _essay_spinner : string = '<div class="lds-ripple"><div></div><div></div></div>'
+  const _tech_spinner : string = '<div class="lds-hourglass"></div>'
 
   const animation: string = "animated fadeIn";
 
@@ -34,9 +36,9 @@ import { FormatDate } from "../../common/common";
 
     {#await content_list}
       {#if $path == ESSAY}
-        <div class="lds-heart"><div /></div>
+        {@html _essay_spinner}
       {:else}
-        <div class="lds-circle"><div /></div>
+        {@html _tech_spinner}
       {/if}
     {:then content_list}
       <!-- promise was fulfilled -->

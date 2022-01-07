@@ -5,13 +5,17 @@
   import { markdownParse } from "./markdownParse";
   import { extractYaml, yamlParse } from "./yamlParse";
   import type { IPostSummary } from "../../interface/IPostSummary";
-import { FormatDate } from "../../common/common";
+  import { FormatDate } from "../../common/common";
   // front-matter has a bit size, do not use it
   // import frontmatter from "front-matter"
 
   export let docurl: string;
   export let indexUrl: string;
   export let contentUrl: string;
+
+  const _essay_spinner: string =
+    '<div class="lds-ripple"><div></div><div></div></div>';
+  const _tech_spinner: string = '<div class="lds-hourglass"></div>';
 
   let _renderedContent: string = "";
   let _header: IPostHeader = {
@@ -54,9 +58,9 @@ import { FormatDate } from "../../common/common";
   <div class="post-title">
     {#await _header}
       {#if $path == ESSAY}
-        <h1 class="post-title"><div class="lds-heart"><div /></div></h1>
+        <h1 class="post-title">{@html _essay_spinner}</h1>
       {:else}
-        <h1 class="post-title"><div class="lds-circle"><div /></div></h1>
+        <h1 class="post-title">{@html _tech_spinner}</h1>
       {/if}
     {:then _header}
       <h1 class="post-title">{_header?.title}</h1>
@@ -65,9 +69,9 @@ import { FormatDate } from "../../common/common";
   <p class="post-meta">
     {#await _header}
       {#if $path == ESSAY}
-        <time><div class="lds-heart"><div /></div></time>
+        <time>{@html _essay_spinner}</time>
       {:else}
-        <time><div class="lds-circle"><div /></div></time>
+        <time>{@html _tech_spinner}</time>
       {/if}
     {:then _header}
       <time>{FormatDate(_header?.date)}</time>
@@ -78,7 +82,11 @@ import { FormatDate } from "../../common/common";
 
 <div class="page-content">
   {#await _renderedContent}
-    <div class="lds-circle"><div /></div>
+    {#if $path == ESSAY}
+      <time>{@html _essay_spinner}</time>
+    {:else}
+      <time>{@html _tech_spinner}</time>
+    {/if}
   {:then _renderedContent}
     {@html _renderedContent}
   {/await}

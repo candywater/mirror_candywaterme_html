@@ -1,3 +1,5 @@
+//$border-color: $border-color;
+$border-color:  #616a6b ;
 .lds-hourglass {
     display: inline-block;
     position: relative;
@@ -12,8 +14,8 @@
     height: 0;
     margin: 8px;
     box-sizing: border-box;
-    border: 32px solid #fff;
-    border-color: #fff transparent #fff transparent;
+    border: 32px solid $border-color;
+    border-color: $border-color transparent $border-color transparent;
     animation: lds-hourglass 1.2s infinite;
   }
   @keyframes lds-hourglass {
