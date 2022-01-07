@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { path, ESSAY } from "../../config/path";
+
   import type { IPostSummary } from "../../interface/IPostSummary";
 
   export let docListUrl: string;
@@ -29,8 +31,11 @@
     </div>
 
     {#await content_list}
-      <!-- promise is pending -->
-      <p>waiting for query</p>
+      {#if $path == ESSAY}
+        <div class="lds-heart"><div /></div>
+      {:else}
+        <div class="lds-circle"><div /></div>
+      {/if}
     {:then content_list}
       <!-- promise was fulfilled -->
       <ul class="post-list">
@@ -39,9 +44,7 @@
             <span class="post-meta">{post.date}</span>
 
             <h2>
-              <a class="post-link" href={post.url}
-                >{post.title}</a
-              >
+              <a class="post-link" href={post.url}>{post.title}</a>
               <p class="main-tags">description: <span>{post.summary}</span></p>
               <p class="main-tags">
                 tags: <span class="tags">{post.tags}</span>

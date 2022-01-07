@@ -37,7 +37,7 @@
     let content: string = await (await fetch(docurl)).text();
 
     let yamlContent = extractYaml(content);
-    _header = yamlParse(yamlContent); // todo: should take value from json file
+    // _header = yamlParse(yamlContent); // todo: should take value from json file
     _header = await fetchData();
 
     let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
@@ -51,16 +51,36 @@
 
 <header class="post-header">
   <div class="post-title">
-    <h1 class="post-title">{_header?.title}</h1>
+    {#await _header}
+      {#if $path == ESSAY}
+        <h1 class="post-title"><div class="lds-heart"><div /></div></h1>
+      {:else}
+        <h1 class="post-title"><div class="lds-circle"><div /></div></h1>
+      {/if}
+    {:then _header}
+      <h1 class="post-title">{_header?.title}</h1>
+    {/await}
   </div>
   <p class="post-meta">
-    <time>{_header?.date}</time>
+    {#await _header}
+      {#if $path == ESSAY}
+        <time><div class="lds-heart"><div /></div></time>
+      {:else}
+        <time><div class="lds-circle"><div /></div></time>
+      {/if}
+    {:then _header}
+      <time>{_header?.date}</time>
+    {/await}
   </p>
 </header>
 <hr />
 
 <div class="page-content">
-  {@html _renderedContent}
+  {#await _renderedContent}
+    <div class="lds-circle"><div /></div>
+  {:then _renderedContent}
+    {@html _renderedContent}
+  {/await}
   <br />
   {#if $path == ESSAY}
     <a

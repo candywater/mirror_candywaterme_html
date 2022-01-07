@@ -69,6 +69,7 @@ $on-laptop: 800px !default;
 @import "minima/syntax-highlighting";
 @import "post/_post";
 @import "component/comment";
-@import "component/dual-ring";
+@import "component/spinner/lds-heart";
+@import "component/spinner/lds-circle";
 @import "component/icons";
 @import "component/postnav";
