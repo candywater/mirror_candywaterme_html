@@ -17,8 +17,8 @@
   export let indexUrl: string;
   export let contentUrl: string;
 
-  let _renderedContent: string ;
-  let _header: IPostHeader ;
+  let _renderedContent: string;
+  let _header: IPostHeader;
 
   let _index_list: string[] = [];
   let _content_list: IPostSummary[] = [];
@@ -58,6 +58,8 @@
         <Spinner />
       {:then _header}
         {_header?.title}
+      {:catch}
+        <Spinner />
       {/await}
     </h1>
   </div>
@@ -67,6 +69,8 @@
         <Spinner />
       {:then _header}
         {FormatDate(_header?.date)}
+      {:catch}
+        <Spinner />
       {/await}
     </time>
   </p>
@@ -78,6 +82,8 @@
     <Spinner />
   {:then _renderedContent}
     {@html _renderedContent}
+  {:catch}
+    <Spinner />
   {/await}
   <br />
   {#if $path == ESSAY}

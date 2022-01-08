@@ -53,8 +53,7 @@
         {/each}
       </ul>
     {:catch error}
-      <!-- promise was rejected -->
-      <p>Something went wrong: {error}</p>
+      <Spinner />
     {/await}
   </div>
 </div>
