@@ -33,9 +33,7 @@
       <h1 class="page-heading">Article List</h1>
     </div>
 
-    {#await content_list}
-      <Spinner />
-    {:then content_list}
+    {#if content_list}
       <!-- promise was fulfilled -->
       <ul class="post-list">
         {#each content_list as post}
@@ -52,8 +50,8 @@
           </li>
         {/each}
       </ul>
-    {:catch error}
+    {:else error}
       <Spinner />
-    {/await}
+    {/if}
   </div>
 </div>

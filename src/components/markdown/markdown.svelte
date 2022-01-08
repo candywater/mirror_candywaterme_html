@@ -37,7 +37,7 @@
     let content: string = await (await fetch(docurl)).text();
 
     let yamlContent = extractYaml(content);
-    // _header = yamlParse(yamlContent); 
+    // _header = yamlParse(yamlContent);
     _header = await fetchData();
 
     let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
@@ -52,37 +52,31 @@
 <header class="post-header">
   <div class="post-title">
     <h1 class="post-title">
-      {#await _header}
-        <Spinner />
-      {:then _header}
+      {#if _header}
         {_header?.title}
-      {:catch}
+      {:else}
         <Spinner />
-      {/await}
+      {/if}
     </h1>
   </div>
   <p class="post-meta">
     <time>
-      {#await _header}
-        <Spinner />
-      {:then _header}
+      {#if _header}
         {FormatDate(_header?.date)}
-      {:catch}
+      {:else}
         <Spinner />
-      {/await}
+      {/if}
     </time>
   </p>
 </header>
 <hr />
 
 <div class="page-content">
-  {#await _renderedContent}
-    <Spinner />
-  {:then _renderedContent}
+  {#if _renderedContent}
     {@html _renderedContent}
-  {:catch}
+  {:else}
     <Spinner />
-  {/await}
+  {/if}
   <br />
   {#if $path == ESSAY}
     <CcByNcSaIcon />
