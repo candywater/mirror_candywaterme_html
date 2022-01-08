@@ -10,8 +10,6 @@
   import CcByIcon from "../common/CCByIcon.svelte";
   import CcByNcIcon from "../common/CCByNcIcon.svelte";
   import Spinner from "../common/Spinner.svelte";
-  // front-matter has a bit size, do not use it
-  // import frontmatter from "front-matter"
 
   export let docurl: string;
   export let indexUrl: string;
@@ -39,7 +37,7 @@
     let content: string = await (await fetch(docurl)).text();
 
     let yamlContent = extractYaml(content);
-    // _header = yamlParse(yamlContent); // todo: should take value from json file
+    // _header = yamlParse(yamlContent); 
     _header = await fetchData();
 
     let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
