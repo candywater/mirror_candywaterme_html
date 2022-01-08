@@ -28,12 +28,19 @@
     </div>
   </div>
   `;
-  check_if_ie();
-  check_service_connection();
-  // ready(comment_area_html);
 
-  // global.insert_new_comment = insert_new_comment;
-  // global.clear_comment = clear;
+  // ready(comment_area_html);
+  import { onMount } from "svelte";
+
+  onMount(() => {
+    check_if_ie();
+    check_service_connection();
+  });
+
+  let _comment_text: string = "";
+  let _comment_text_revert: string = "";
+  let _message_box_msg: string = "";
+  let _disabled: boolean = false;
 
   /**
    * not support ie
@@ -45,25 +52,17 @@
       !!navigator.userAgent.match(/Trident.*rv\:11\./)
     ) {
       AddAlertMsg(IE_ERROR_MSG);
-      (<HTMLTextAreaElement>(
-        document.querySelector("#comment_input_area > textarea")
-      )).disabled = true;
-      (<HTMLInputElement>document.querySelector("#username_input")).disabled =
-        true;
-      (<HTMLInputElement>document.querySelector("#user_email_input")).disabled =
-        true;
-      var btns: NodeListOf<HTMLButtonElement> = document.querySelectorAll(
-        "#comment_input_area button"
-      );
-      for (var i = 0; i < btns.length; i++) {
-        btns[i].disabled = true;
-      }
+      set_all_component_disable(true);
     }
     // console.log(navigator.userAgent)
   }
 
+  function set_all_component_disable(bool: boolean) {
+    _disabled = bool;
+  }
+
   function check_service_connection() {
-    //AddAlertMsg(LOST_CONNECTION);
+    AddAlertMsg(LOST_CONNECTION, 9999999);
   }
 
   /**
@@ -219,7 +218,7 @@
    * @param {string} data
    * @public
    */
-  function when_post_finish(data : string) {
+  function when_post_finish(data: string) {
     if (data == "ok") {
       clear_comment(null);
       AddAlertMsg(POST_SUCCESS_MSG, 3000);
@@ -264,10 +263,6 @@
     _comment_text_revert = "";
     console.log(_comment_text_revert);
   }
-
-  let _comment_text: string;
-  let _comment_text_revert: string;
-  let _message_box_msg: string;
 </script>
 
 <div id="comment_alert">
@@ -284,28 +279,34 @@
     placeholder="Write your Comment here"
     bind:value={_comment_text}
     on:input={clear_revert_cache}
+    disabled={_disabled}
   />
   <div>
     <div>
       <label for="username_input"> Nick Name:</label>
-      <input type="text" name="" id="username_input" />
+      <input type="text" name="" id="username_input" disabled={_disabled} />
     </div>
     <div>
       <label for="user_email_input">Email(Optional):</label>
-      <input type="email" name="" id="user_email_input" />
+      <input type="email" name="" id="user_email_input" disabled={_disabled} />
     </div>
     <div>
       <button
         class="btn btn-outline-dark submit-btn"
-        on:click={insert_new_comment}>Submit</button
+        on:click={insert_new_comment}
+        disabled={_disabled}>Submit</button
       >
       {#if _comment_text_revert}
-        <button class="btn btn-outline-dark clear-btn" on:click={revert_comment}
-          >Revert</button
+        <button
+          class="btn btn-outline-dark clear-btn"
+          on:click={revert_comment}
+          disabled={_disabled}>Revert</button
         >
       {:else}
-        <button class="btn btn-outline-dark clear-btn" on:click={clear_comment}
-          >Clear</button
+        <button
+          class="btn btn-outline-dark clear-btn"
+          on:click={clear_comment}
+          disabled={_disabled}>Clear</button
         >
       {/if}
     </div>
