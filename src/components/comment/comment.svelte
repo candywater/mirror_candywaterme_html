@@ -16,7 +16,7 @@
   const ERROR_MSG = "Some error occurs. Oops.";
   const MAINTENANCE_ERROR_MSG = "Sorry, we are in maintenance.";
   const POST_SUCCESS_MSG = "Post Success.";
-  const LOST_CONNECTION = 'We cannot connect to comment service. Oops'
+  const LOST_CONNECTION = "We cannot connect to comment service. Oops";
 
   const COMMENT_HTML = `  
   <div class="comment">
@@ -219,9 +219,9 @@
    * @param {string} data
    * @public
    */
-  function when_post_finish(data) {
+  function when_post_finish(data : string) {
     if (data == "ok") {
-      clear();
+      clear_comment(null);
       AddAlertMsg(POST_SUCCESS_MSG, 3000);
       var comments = document.querySelector("#comments");
       //http://youmightnotneedjquery.com/
@@ -242,41 +242,39 @@
    * @param {string} str
    * @param {Number} lasttime ms
    */
-  function AddAlertMsg(str = "", lasttime = 0) {
-    var msgbox = document.querySelector("#comment_alert");
-    if (!str) {
-      msgbox.innerHTML = "";
-      return;
-    }
-    msgbox.innerHTML = str;
-    if (lasttime > 0)
+  function AddAlertMsg(str = "", lasttime = 3000) {
+    _message_box_msg = str;
+    if (str && lasttime > 0)
       setTimeout(() => {
         AddAlertMsg();
       }, lasttime);
   }
 
-  /**
-   * 用户点击清理按钮
-   * @param {boolean} all
-   */
-  function clear(all = false) {
-    AddAlertMsg();
-    (<HTMLInputElement>(
-      document.querySelector("#comment_input_area > textarea")
-    )).value = "";
-    if (all) {
-      (<HTMLInputElement>document.querySelector("#username_input")).value = "";
-      (<HTMLInputElement>document.querySelector("#user_email_input")).value =
-        "";
-    }
+  function clear_comment(e: MouseEvent) {
+    _comment_text_revert = _comment_text;
+    _comment_text = "";
   }
 
-  function clear_comment(e) {
-    clear();
+  function revert_comment(e: MouseEvent) {
+    _comment_text = _comment_text_revert;
+    _comment_text_revert = "";
   }
+
+  function clear_revert_cache() {
+    _comment_text_revert = "";
+    console.log(_comment_text_revert);
+  }
+
+  let _comment_text: string;
+  let _comment_text_revert: string;
+  let _message_box_msg: string;
 </script>
 
-<div id="comment_alert" />
+<div id="comment_alert">
+  {#if _message_box_msg}
+    {@html _message_box_msg}
+  {/if}
+</div>
 <div id="comment_input_area">
   <textarea
     name="comment"
@@ -284,6 +282,8 @@
     cols="30"
     rows="10"
     placeholder="Write your Comment here"
+    bind:value={_comment_text}
+    on:input={clear_revert_cache}
   />
   <div>
     <div>
@@ -299,9 +299,15 @@
         class="btn btn-outline-dark submit-btn"
         on:click={insert_new_comment}>Submit</button
       >
-      <button class="btn btn-outline-dark clear-btn" on:click={clear_comment}
-        >Clear</button
-      >
+      {#if _comment_text_revert}
+        <button class="btn btn-outline-dark clear-btn" on:click={revert_comment}
+          >Revert</button
+        >
+      {:else}
+        <button class="btn btn-outline-dark clear-btn" on:click={clear_comment}
+          >Clear</button
+        >
+      {/if}
     </div>
   </div>
 </div>
