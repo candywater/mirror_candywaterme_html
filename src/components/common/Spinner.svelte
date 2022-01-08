@@ -1,11 +1,11 @@
 <script lang="ts">
     import { ESSAY, path, TECH } from "../../config/path";
 
-    console.log($path)
+    console.log($path);
 
-    const _essay_spinner: string =
-        '<div class="lds-ripple"><div></div><div></div></div>';
-    const _tech_spinner: string = '<div class="lds-circle"><div></div></div>';
+    const _essay_spinner: string = '<div class="lds-circle"><div></div></div>';
+    const _tech_spinner: string =
+        '<div class="lds-facebook"><div></div><div></div><div></div></div>';
 </script>
 
 {#if $path == ESSAY}
