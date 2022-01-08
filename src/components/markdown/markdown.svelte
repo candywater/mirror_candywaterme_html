@@ -54,8 +54,6 @@
     <h1 class="post-title">
       {#if _header}
         {_header?.title}
-      {:else}
-        <Spinner />
       {/if}
     </h1>
   </div>
@@ -63,8 +61,6 @@
     <time>
       {#if _header}
         {FormatDate(_header?.date)}
-      {:else}
-        <Spinner />
       {/if}
     </time>
   </p>
