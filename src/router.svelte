@@ -19,6 +19,7 @@
   import Essay from "./pages/essay.svelte";
   import Blog from "./pages/blog.svelte";
   import Random from "./pages/random.svelte";
+  import Pureblog from "./pages/pureblog.svelte";
 
   import {
     path,
@@ -100,7 +101,7 @@
 {:else if $path === BLOG && blogtype == TECH}
   <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
 {:else if $path === BLOG_OTHER && blogtype == YEAR_SUMMARY}
-  <Blog
+  <Pureblog
     {blogpath}
     indexUrl={YEAR_SUMMARY_INDEX_URL}
     contentUrl={YEAR_SUMMARY_URL}

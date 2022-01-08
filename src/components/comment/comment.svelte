@@ -37,11 +37,6 @@
     check_service_connection();
   });
 
-  let _comment_text: string = "";
-  let _comment_text_revert: string = "";
-  let _message_box_msg: string = "";
-  let _disabled: boolean = false;
-
   /**
    * not support ie
    * @private
@@ -51,7 +46,7 @@
       navigator.userAgent.indexOf("MSIE") >= 0 ||
       !!navigator.userAgent.match(/Trident.*rv\:11\./)
     ) {
-      AddAlertMsg(IE_ERROR_MSG);
+      SetAlertMsg(IE_ERROR_MSG);
       set_all_component_disable(true);
     }
     // console.log(navigator.userAgent)
@@ -62,7 +57,10 @@
   }
 
   function check_service_connection() {
-    AddAlertMsg(LOST_CONNECTION, 9999999);
+    if (true) {
+      SetAlertMsg(LOST_CONNECTION, 0);
+      _is_lost_connection = true;
+    }
   }
 
   /**
@@ -111,7 +109,7 @@
    * @param {*} t
    * @private
    */
-  function get_readable_time(t) {
+  function get_readable_time(t: Date): string {
     return t.toUTCString();
   }
 
@@ -131,8 +129,8 @@
     comment_list.forEach((element) => {
       var username = element.username;
       var comment_article = element.comment;
-      var timestamp = new Date(element.time);
-      timestamp = get_readable_time(timestamp);
+      var time = new Date(element.time);
+      let timestamp = get_readable_time(time);
 
       var comment_node = document.createElement("div");
       comment_node.className = "comment";
@@ -163,11 +161,11 @@
    */
   function input_check(comment, username, useremail) {
     if (comment.length >= COMMENT_LEN_LIMIT) {
-      AddAlertMsg(COMMENT_LEN_LIMIT_ERROR_MSG, 3000);
+      SetAlertMsg(COMMENT_LEN_LIMIT_ERROR_MSG, 3000);
       return false;
     }
     if (comment.length <= 0 || username.length <= 0) {
-      AddAlertMsg(WRITE_INFO_ERROR_MSG, 3000);
+      SetAlertMsg(WRITE_INFO_ERROR_MSG, 3000);
       return false;
     }
     return true;
@@ -181,7 +179,7 @@
    * @returns {JSON} JSON string
    * @private
    */
-  function create_comment_data(comment, username, useremail) {
+  function create_comment_data(comment, username, useremail): string {
     var uri = new URL(document.URL);
     let url = uri.pathname;
     var fdata = {
@@ -221,18 +219,18 @@
   function when_post_finish(data: string) {
     if (data == "ok") {
       clear_comment(null);
-      AddAlertMsg(POST_SUCCESS_MSG, 3000);
+      SetAlertMsg(POST_SUCCESS_MSG, 3000);
       var comments = document.querySelector("#comments");
       //http://youmightnotneedjquery.com/
       while (comments.firstChild) comments.removeChild(comments.firstChild);
       //reload comment area
       comment_area_html();
     } else if (data == "over100") {
-      AddAlertMsg(COMMENT_NUMBER_LIMIT_ERROR_MSG);
+      SetAlertMsg(COMMENT_NUMBER_LIMIT_ERROR_MSG);
     } else if (data == "maintenance") {
-      AddAlertMsg(MAINTENANCE_ERROR_MSG, 10000);
+      SetAlertMsg(MAINTENANCE_ERROR_MSG, 10000);
     } else {
-      AddAlertMsg(ERROR_MSG, 10000);
+      SetAlertMsg(ERROR_MSG, 10000);
     }
   }
 
@@ -241,11 +239,11 @@
    * @param {string} str
    * @param {Number} lasttime ms
    */
-  function AddAlertMsg(str = "", lasttime = 3000) {
+  function SetAlertMsg(str = "", lasttime = 3000) {
     _message_box_msg = str;
     if (str && lasttime > 0)
       setTimeout(() => {
-        AddAlertMsg();
+        SetAlertMsg();
       }, lasttime);
   }
 
@@ -263,6 +261,12 @@
     _comment_text_revert = "";
     console.log(_comment_text_revert);
   }
+
+  let _comment_text: string = "";
+  let _comment_text_revert: string = "";
+  let _message_box_msg: string = "";
+  let _disabled: boolean = false;
+  let _is_lost_connection: boolean = false;
 </script>
 
 <div id="comment_alert">
