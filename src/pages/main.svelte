@@ -1,6 +1,7 @@
 <script lang="ts">
   import { onDestroy } from "svelte";
   import Terminal from "svelte-terminal";
+  import { onMount } from "svelte";
 
   import Layout from "../template/_layout.svelte";
 
@@ -36,7 +37,7 @@
   });
   onDestroy(unsubscribe_showquote);
 
-  onLoad();
+  onMount(onLoad)
 
   function onLoad() {
     if (isHide === true) {

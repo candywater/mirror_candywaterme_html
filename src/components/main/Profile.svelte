@@ -5,6 +5,7 @@
 </script>
 
 <script lang="ts">
+  import { onMount } from "svelte";
   import { show_quote } from "../../config/config";
 
   export let description: string;
@@ -14,17 +15,15 @@
   const MY_DESCRIPTION_DEFAULT =
     "Full stack engineer, amateur content creator.";
 
-  onLoad();
-
   function onImgClick() {
     show_quote.set(!$show_quote);
   }
 
-  function onLoad() {
+  onMount(() => {
     if (!description) {
       description = MY_DESCRIPTION_DEFAULT;
     }
-  }
+  });
 </script>
 
 <div class="profile">

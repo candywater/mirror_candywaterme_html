@@ -1,7 +1,6 @@
 <script lang="ts">
-  import { FormatDate, FormatDateSimple } from "../../common/common";
-
-  import { path, ESSAY } from "../../config/path";
+  import { onMount } from "svelte";
+  import { FormatDateSimple } from "../../common/common";
 
   import type { IPostSummary } from "../../interface/IPostSummary";
   import Spinner from "../common/Spinner.svelte";
@@ -16,14 +15,12 @@
 
   const animation: string = "animated fadeIn";
 
-  onLoad();
-
-  async function onLoad() {
+  onMount(async () => {
     if (!docListUrl) {
       return;
     }
     content_list = <IPostSummary[]>await (await fetch(docListUrl)).json();
-  }
+  });
 </script>
 
 <div class={"pagelist " + animation}>
@@ -50,7 +47,7 @@
           </li>
         {/each}
       </ul>
-    {:else }
+    {:else}
       <Spinner />
     {/if}
   </div>
