@@ -23,7 +23,7 @@ export async function markDown
   return { header, renderedContent }
 }
 
-async function fetchData(docurl: string, indexUrl: string, contentUrl: string) {
+async function fetchData(docurl: string, indexUrl: string, contentUrl: string) : Promise<IPostSummary> {
   let index_content = await (await fetch(indexUrl)).text();
   _index_list = index_content.split(/[\n]/g);
   _content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
