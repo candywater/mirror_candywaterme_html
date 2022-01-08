@@ -50,7 +50,7 @@
           </li>
         {/each}
       </ul>
-    {:else error}
+    {:else }
       <Spinner />
     {/if}
   </div>
