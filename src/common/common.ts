@@ -86,6 +86,7 @@ const days = [
   'Sat'
 ]
 
+
 export function FormatDate(d: Date) : string{
   if (!d) return "";
   const date = new Date(d);
@@ -96,5 +97,17 @@ export function FormatDate(d: Date) : string{
   const hour = date.getHours().toString().padStart(2, '0');
   const min = date.getMinutes().toString().padStart(2, '0');
 
-  return `${day} ${monthsTiny[monthIndex]} ${year} (${days[dayIndex]}) ${hour}:${min} `
+  return `${day} ${monthsTiny[monthIndex]} ${year} ${hour}:${min} (${days[dayIndex]})`
+}
+
+export function FormatDateSimple(d: Date) : string{
+  if (!d) return "";
+  const date = new Date(d);
+  const year = date.getFullYear() // 2019
+  const day = date.getDate() // 1 based
+  const monthIndex = date.getMonth() // 0 based
+  const hour = date.getHours().toString().padStart(2, '0');
+  const min = date.getMinutes().toString().padStart(2, '0');
+
+  return `${day} ${monthsTiny[monthIndex]} ${year} ${hour}:${min} `
 }

@@ -6,6 +6,10 @@
   import { extractYaml, yamlParse } from "./yamlParse";
   import type { IPostSummary } from "../../interface/IPostSummary";
   import { FormatDate } from "../../common/common";
+  import CcByNcSaIcon from "../common/CCByNcSaIcon.svelte";
+  import CcByIcon from "../common/CCByIcon.svelte";
+  import CcByNcIcon from "../common/CCByNcIcon.svelte";
+  import Spinner from "../common/Spinner.svelte";
   // front-matter has a bit size, do not use it
   // import frontmatter from "front-matter"
 
@@ -13,15 +17,8 @@
   export let indexUrl: string;
   export let contentUrl: string;
 
-  const _essay_spinner: string =
-    '<div class="lds-ripple"><div></div><div></div></div>';
-  const _tech_spinner: string = '<div class="lds-hourglass"></div>';
-
-  let _renderedContent: string = "";
-  let _header: IPostHeader = {
-    title: "　",
-    date: new Date(),
-  };
+  let _renderedContent: string ;
+  let _header: IPostHeader ;
 
   let _index_list: string[] = [];
   let _content_list: IPostSummary[] = [];
@@ -56,71 +53,39 @@
 
 <header class="post-header">
   <div class="post-title">
-    {#await _header}
-      {#if $path == ESSAY}
-        <h1 class="post-title">{@html _essay_spinner}</h1>
-      {:else}
-        <h1 class="post-title">{@html _tech_spinner}</h1>
-      {/if}
-    {:then _header}
-      <h1 class="post-title">{_header?.title}</h1>
-    {/await}
+    <h1 class="post-title">
+      {#await _header}
+        <Spinner />
+      {:then _header}
+        {_header?.title}
+      {/await}
+    </h1>
   </div>
   <p class="post-meta">
-    {#await _header}
-      {#if $path == ESSAY}
-        <time>{@html _essay_spinner}</time>
-      {:else}
-        <time>{@html _tech_spinner}</time>
-      {/if}
-    {:then _header}
-      <time>{FormatDate(_header?.date)}</time>
-    {/await}
+    <time>
+      {#await _header}
+        <Spinner />
+      {:then _header}
+        {FormatDate(_header?.date)}
+      {/await}
+    </time>
   </p>
 </header>
 <hr />
 
 <div class="page-content">
   {#await _renderedContent}
-    {#if $path == ESSAY}
-      <time>{@html _essay_spinner}</time>
-    {:else}
-      <time>{@html _tech_spinner}</time>
-    {/if}
+    <Spinner />
   {:then _renderedContent}
     {@html _renderedContent}
   {/await}
   <br />
   {#if $path == ESSAY}
-    <a
-      rel="license"
-      target="_blank"
-      href="http://creativecommons.org/licenses/by-nc-sa/4.0/"
-      ><img
-        alt="creativ common license"
-        style="border-width:0"
-        src="/assets/logos/cc/by_nc_sa_4.0.png"
-      /></a
-    >
+    <CcByNcSaIcon />
   {:else if $path == TECH}
-    <a
-      rel="license"
-      target="_blank"
-      href="http://creativecommons.org/licenses/by/4.0/"
-      ><img
-        alt="creativ common license"
-        style="border-width:0"
-        src="/assets/logos/cc/by_4.0.png"
-      /></a
-    >
+    <CcByIcon />
   {:else}
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"
-      ><img
-        alt="Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)"
-        style="border-width:0"
-        src="/assets/logos/cc/by_nc_4.0.png"
-      /></a
-    >
+    <CcByNcIcon />
   {/if}
   <br />
 </div>

@@ -1,9 +1,10 @@
 <script lang="ts">
-import { FormatDate } from "../../common/common";
+  import { FormatDate, FormatDateSimple } from "../../common/common";
 
   import { path, ESSAY } from "../../config/path";
 
   import type { IPostSummary } from "../../interface/IPostSummary";
+  import Spinner from "../common/Spinner.svelte";
 
   export let docListUrl: string;
 
@@ -12,8 +13,6 @@ import { FormatDate } from "../../common/common";
   // todo: pagination
   // var pageNum = 0;
   // var contentNumberPerPage = default_number_per_page;
-  const _essay_spinner : string = '<div class="lds-ripple"><div></div><div></div></div>'
-  const _tech_spinner : string = '<div class="lds-hourglass"></div>'
 
   const animation: string = "animated fadeIn";
 
@@ -35,17 +34,13 @@ import { FormatDate } from "../../common/common";
     </div>
 
     {#await content_list}
-      {#if $path == ESSAY}
-        {@html _essay_spinner}
-      {:else}
-        {@html _tech_spinner}
-      {/if}
+      <Spinner />
     {:then content_list}
       <!-- promise was fulfilled -->
       <ul class="post-list">
         {#each content_list as post}
           <li>
-            <span class="post-meta">{FormatDate(post.date)}</span>
+            <span class="post-meta">{FormatDateSimple(post.date)}</span>
 
             <h2>
               <a class="post-link" href={post.url}>{post.title}</a>
