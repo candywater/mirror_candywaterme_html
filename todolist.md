@@ -26,6 +26,7 @@ or
 + [x]fix fetch 2 times issue[x]
 + []pagination
 + []search
++ []tags
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap

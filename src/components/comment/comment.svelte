@@ -31,6 +31,8 @@
 
   // ready(comment_area_html);
   import { onMount } from "svelte";
+  import { FormatDate } from "../../common/common";
+  import Spinner from "../common/Spinner.svelte";
 
   onMount(() => {
     check_if_ie();
@@ -267,6 +269,32 @@
   let _message_box_msg: string = "";
   let _disabled: boolean = false;
   let _is_lost_connection: boolean = false;
+  let _comment_list: {
+    username: string;
+    time: Date;
+    comment_article: string;
+  }[];
+  /*        
+  
+  _comment_list = [
+          {username : "ss", time: new Date(), comment_article:"sdfds"},{username : "ss", time: new Date(), comment_article:"sdfds"},
+          {username : "ss", time: new Date(), comment_article:"sdfds"}
+        ]
+        */
+
+  getcomments();
+
+  async function getcomments() {
+    try {
+      let res = await fetch("/comments/get?=");
+      if (res.ok) _comment_list = await res.json();
+      else {
+        _disabled = true;
+      }
+    } catch {
+      throw "error";
+    }
+  }
 </script>
 
 <div id="comment_alert">
@@ -317,4 +345,24 @@
   </div>
 </div>
 
-<div id="comments" />
+<div id="comments">
+  {#if _comment_list}
+    {#each _comment_list as comment}
+      <div class="comment">
+        <div class="comment-header">
+          <div class="thumb">
+            {comment.username}
+          </div>
+          <div class="timestamp">
+            {FormatDate(comment.time)}
+          </div>
+        </div>
+        <div class="card">
+          {comment.comment_article}
+        </div>
+      </div>
+    {/each}
+  {:else if _disabled == false}
+    <div class="text-center"><Spinner /></div>
+  {/if}
+</div>
