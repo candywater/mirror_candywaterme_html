@@ -7,7 +7,6 @@
   }
   #comment_input_area {
     font-size: 100%;
-    line-height: 1.15;
 
     border-style: solid;
     border-width: 1px;
@@ -28,7 +27,7 @@
       div {
         display: inline-block;
         label {
-          font-size: 0.75rem;
+          font-size: 0.8rem;
           // width: 5.2rem;
           display: inline-block;
         }
@@ -38,6 +37,8 @@
       }
     }
     .btn {
+      font-size: 0.8rem;;
+      line-height: 1.15;
       color: #212529;
       // display: inline-block;
       // font-weight: 400;
@@ -50,7 +51,7 @@
       user-select: none;
       background-color: transparent;
       border: 1px solid;
-      // padding: .375rem .75rem;
+      padding: 0rem .125rem ;
       // font-size: 1rem;
       // line-height: 1.5;
       border-radius: 0.2rem;
