@@ -5,4 +5,5 @@ export const show_config_panel = writable(false);
 export const show_quote = writable(false);
 export const hide_main_block = writable(false);
 
-export const default_number_per_page = 20;
+export const DEFAULT_NUMBER_PER_PAGE = 8;
+export const current_page_number = writable(0);

@@ -267,16 +267,5 @@
     }
   }
 
-  .pager_now {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    //.previous_page a, .next_page a,
-    .current_page span {
-      padding: 0.3rem 1rem 0.3rem 1rem;
-      border: 1px solid #111111;
-      margin: 0rem 0rem 0rem 0rem;
-      border-radius: 15px;
-    }
-  }
+
 }

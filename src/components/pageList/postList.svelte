@@ -5,10 +5,12 @@
   import type { IPostSummary } from "../../interface/IPostSummary";
   import Spinner from "../common/Spinner.svelte";
 import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
+import Pagination from "./pagination.svelte";
+import PostItem from "./postItem.svelte";
 
   export let docListUrl: string;
 
-  var content_list: IPostSummary[];
+  var _content_list: IPostSummary[];
 
   // todo: pagination
   // var pageNum = 0;
@@ -20,7 +22,7 @@ import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
     if (!docListUrl) {
       return;
     }
-    content_list = <IPostSummary[]>await (await fetch(docListUrl)).json();
+    _content_list = <IPostSummary[]>await (await fetch(docListUrl)).json();
   });
 </script>
 
@@ -31,23 +33,9 @@ import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
       <h1 class="page-heading">Article List</h1>
     </div>
 
-    {#if content_list }
+    {#if _content_list }
       <!-- promise was fulfilled -->
-      <ul class="post-list">
-        {#each content_list as post}
-          <li>
-            <span class="post-meta">{FormatDateSimple(post.date)}</span>
-
-            <h2>
-              <a class="post-link" href={post.url}>{post.title}</a>
-              <p class="main-tags">description: <span>{post.summary}</span></p>
-              <p class="main-tags">
-                tags: <span class="tags">{post.tags}</span>
-              </p>
-            </h2>
-          </li>
-        {/each}
-      </ul>
+      <Pagination content_list={_content_list}></Pagination>
     {:else}
       <SpinnerFacebook />
     {/if}
