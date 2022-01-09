@@ -35,6 +35,7 @@
   import { FormatDate } from "../../common/common";
   import Spinner from "../common/Spinner.svelte";
   import FakePanelFill from "./FakePanel_comment.svelte";
+import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
 
   onMount(() => {
     check_if_ie();
@@ -63,7 +64,6 @@
   function check_service_connection() {
     if (true) {
       SetAlertMsg(LOST_CONNECTION, 0);
-      _placeholder_msg = LOST_CONNECTION;
     }
   }
 
@@ -377,6 +377,6 @@
       </div>
     {/each}
   {:else if _disabled == false}
-    <div class="text-center"><Spinner /></div>
+    <div class="text-center"><SpinnerFacebook /></div>
   {/if}
 </div>
