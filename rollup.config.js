@@ -7,8 +7,24 @@ import css from 'rollup-plugin-css-only';
 //https://daveceddia.com/svelte-with-sass-in-vscode/
 import preprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript'
+const autoprefixer = require('autoprefixer');
+const tailwindcss = require('tailwindcss');
+const cssnano = require('cssnano');
 
 const production = !process.env.ROLLUP_WATCH;
+
+let postcss_plugins = [
+	autoprefixer(),
+	tailwindcss(),
+	// cssnano(),
+]
+if (production) {
+	postcss_plugins = [
+		autoprefixer(),
+		tailwindcss(),
+		cssnano(),
+	]
+}
 
 function serve() {
 	let server;
@@ -48,12 +64,13 @@ export default {
 			preprocess: preprocess({
 				sourceMap: !production,
 				postcss: {
-					plugins: [
-						require('autoprefixer')(),
-						require('tailwindcss')(),
-					]
+					plugins: postcss_plugins
 				},
-				scss: ({}),
+				scss: ({
+					postcss: {
+						plugins: postcss_plugins,
+					},
+				}),
 			}),
 			// do not check css
 			// onwarn: (warning, handler) => {
