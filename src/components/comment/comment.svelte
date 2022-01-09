@@ -316,7 +316,7 @@
   <div>
     <div>
       <label for="username_input"> Nick Name:</label>
-      <input type="text" name="" id="username_input" disabled={_disabled} />
+      <input type="text" name="" id="username_input" disabled={_disabled} class="disabled:opacity-75" />
     </div>
     <div>
       <label for="user_email_input">Email(Optional):</label>

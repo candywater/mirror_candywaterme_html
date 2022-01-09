@@ -5,7 +5,7 @@ import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import css from 'rollup-plugin-css-only';
 //https://daveceddia.com/svelte-with-sass-in-vscode/
-import preprocess  from 'svelte-preprocess';
+import preprocess from 'svelte-preprocess';
 import typescript from '@rollup/plugin-typescript'
 
 const production = !process.env.ROLLUP_WATCH;
@@ -48,17 +48,20 @@ export default {
 			preprocess: preprocess({
 				sourceMap: !production,
 				postcss: {
-					plugins: [require('autoprefixer')()]
+					plugins: [
+						require('autoprefixer')(),
+						require('tailwindcss')(),
+					]
 				},
 				scss: ({}),
 			}),
 			// do not check css
 			// onwarn: (warning, handler) => {
-      //   const { code, frame } = warning;
-      //   if (code === "css-unused-selector")
-      //       return;
-      //   handler(warning);
-    	// },
+			//   const { code, frame } = warning;
+			//   if (code === "css-unused-selector")
+			//       return;
+			//   handler(warning);
+			// },
 		}),
 		// we'll extract any component CSS out into
 		// a separate file - better for performance
@@ -74,10 +77,10 @@ export default {
 			dedupe: ['svelte']
 		}),
 		commonjs(),
-		typescript({ 
+		typescript({
 			sourceMap: !production,
 			inlineSources: !production
-		 }),
+		}),
 		// In dev mode, call `npm run start` once
 		// the bundle has been generated
 		!production && serve(),

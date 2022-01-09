@@ -6,6 +6,7 @@
     padding: 0rem 0.3rem;
   }
   #comment_input_area {
+    line-height: 1.15;
     border-style: solid;
     border-width: 1px;
     border-color: gainsboro;
@@ -26,7 +27,7 @@
         display: inline-block;
         label {
           font-size: 0.75rem;
-          width: 5.2rem;
+          // width: 5.2rem;
           display: inline-block;
         }
         button {
