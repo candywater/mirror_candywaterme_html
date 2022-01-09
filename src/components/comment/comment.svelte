@@ -376,7 +376,7 @@ import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
         </div>
       </div>
     {/each}
-  {:else if _disabled == true}
+  {:else if _disabled == false}
     <div class="text-center"><SpinnerFacebook /></div>
   {/if}
 </div>
