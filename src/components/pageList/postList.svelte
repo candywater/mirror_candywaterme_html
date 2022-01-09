@@ -4,10 +4,11 @@
 
   import type { IPostSummary } from "../../interface/IPostSummary";
   import Spinner from "../common/Spinner.svelte";
+import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
 
   export let docListUrl: string;
 
-  var content_list: IPostSummary[] = [];
+  var content_list: IPostSummary[];
 
   // todo: pagination
   // var pageNum = 0;
@@ -30,7 +31,7 @@
       <h1 class="page-heading">Article List</h1>
     </div>
 
-    {#if content_list}
+    {#if content_list }
       <!-- promise was fulfilled -->
       <ul class="post-list">
         {#each content_list as post}
@@ -48,7 +49,7 @@
         {/each}
       </ul>
     {:else}
-      <Spinner />
+      <SpinnerFacebook />
     {/if}
   </div>
 </div>

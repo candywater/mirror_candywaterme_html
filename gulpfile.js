@@ -80,11 +80,11 @@ function complier_tailwind_watch() {
 function complier_sass_watch() {
     gulp.watch(MINIMACSS_DIR_PATH, complier_sass_dev)
 }
-exports.css = gulp.series(purgecss_tailwindcss_prod, complier_sass_prod);
-exports["css:dev"] = gulp.series(purgecss_tailwindcss_dev, complier_sass_dev);
-exports["sass"] = gulp.series(complier_sass_dev)
-exports["sass:watch"] = gulp.series(complier_sass_watch)
-exports.default = gulp.series(purgecss_tailwindcss_prod, complier_sass_prod);
+// exports.css = gulp.series(purgecss_tailwindcss_prod, complier_sass_prod);
+// exports["css:dev"] = gulp.series(purgecss_tailwindcss_dev, complier_sass_dev);
+// exports["sass"] = gulp.series(complier_sass_dev)
+// exports["sass:watch"] = gulp.series(complier_sass_watch)
+exports.default = gulp.series(complier_sass_prod);
 exports["watch"] = gulp.parallel(complier_sass_watch)
 
 // postcss
