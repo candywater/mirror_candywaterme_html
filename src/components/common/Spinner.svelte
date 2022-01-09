@@ -3,8 +3,9 @@
 
     console.log($path);
 
-    const _essay_spinner: string = '<div class="lds-circle"><div></div></div>';
+    const _essay_spinner: string = '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>';
     const _tech_spinner: string = '<div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>'
+    const _other_spinner: string = '<div class="lds-circle"><div></div></div>';
         
 </script>
 
@@ -13,5 +14,5 @@
 {:else if $path == TECH}
     {@html _tech_spinner}
 {:else}
-    {@html _essay_spinner}
+    {@html _other_spinner}
 {/if}
