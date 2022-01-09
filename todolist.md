@@ -15,15 +15,17 @@ or
 + 主页的菜单栏在选中页面的时候，有下划线->变成了动画效果
 
 + 用markdown-it来实时加载or生成static的html，可以不用写入数据库，就用一个document的txt就行，然后扫那个txt
-  - markdown-it读取markdown [x]
-  - read yaml
+  - markdown-it读取markdown 
+  - read yaml[x]
   - document.txt的优化
 
-+ gulp -> postcss (cssnano, purecss)  -> result [] ->[][x] ->
-+ gulp -> typescript []->[x]
-+ gulp -> prettier []->[x]
-+ gulp -> javascript-obfuscator []->[]
-+ fix fetch 2 times issue[x]
++ [x]gulp -> postcss (cssnano, purecss)  -> result [x] ->[][x] ->
++ [x]gulp -> typescript [x]->[x]
++ [x]gulp -> prettier [x]->[x]
++ [x]gulp -> javascript-obfuscator []->[]
++ [x]fix fetch 2 times issue[x]
++ []pagination
++ []search
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
