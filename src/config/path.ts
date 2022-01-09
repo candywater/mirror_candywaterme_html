@@ -27,8 +27,8 @@ export const ESSAY_INDEX_URL = "/doc/_info/essay.txt";
 export const TECH_INDEX_URL = "/doc/_info/tech.txt";
 export const YEAR_SUMMARY_INDEX_URL = "/doc/_info/year-summary.txt";
 
-export const DOC_SRC_URL = "/doc/";
-export const BLOG_SRC_URL = "/blog/";
+export const DOC_SRC_URL = "/doc";
+export const BLOG_SRC_URL = "/blog";
 
 export let pathDict: Object = {};
 pathDict[INDEX] = INDEX_PATH;
