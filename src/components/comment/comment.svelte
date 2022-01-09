@@ -34,6 +34,7 @@
   import { onMount } from "svelte";
   import { FormatDate } from "../../common/common";
   import Spinner from "../common/Spinner.svelte";
+  import FakePanelFill from "./FakePanel_comment.svelte";
 
   onMount(() => {
     check_if_ie();
@@ -61,7 +62,7 @@
 
   function check_service_connection() {
     if (true) {
-      SetAlertMsg(LOST_CONNECTION, 3000);
+      SetAlertMsg(LOST_CONNECTION, 0);
       _placeholder_msg = LOST_CONNECTION;
     }
   }
@@ -275,6 +276,8 @@
     comment_article: string;
   }[];
   let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
+  let _comment_input_height: number;
+  let _comment_input_width: number;
   /*        
   
   _comment_list = [
@@ -303,7 +306,17 @@
     {@html _message_box_msg}
   {/if}
 </div>
-<div id="comment_input_area">
+<div
+  id="comment_input_area"
+  bind:clientHeight={_comment_input_height}
+  bind:clientWidth={_comment_input_width}
+>
+  {#if _disabled}
+    <FakePanelFill
+      height={_comment_input_height}
+      width={_comment_input_width}
+    />
+  {/if}
   <textarea
     name="comment"
     id=""
