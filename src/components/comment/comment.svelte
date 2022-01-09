@@ -296,6 +296,7 @@ import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
         _disabled = true;
       }
     } catch {
+      _disabled = true;
       throw "error";
     }
   }
