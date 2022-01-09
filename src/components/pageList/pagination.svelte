@@ -6,7 +6,6 @@
         current_page_number,
         DEFAULT_NUMBER_PER_PAGE,
     } from "../../config/config";
-    import { onMount } from "svelte";
 
     export let content_list: IPostSummary[];
 
@@ -34,6 +33,13 @@
             number < content_list.length / DEFAULT_NUMBER_PER_PAGE
         ) {
             current_page_number.set(number);
+        } else if (number < 0) current_page_number.set(0);
+        else if (number >= content_list.length / DEFAULT_NUMBER_PER_PAGE) {
+            current_page_number.set(
+                parseInt(
+                    (content_list.length / DEFAULT_NUMBER_PER_PAGE).toString()
+                )
+            );
         }
     }
 </script>
@@ -89,7 +95,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
         //.previous_page a, .next_page a,
-        .current_page>input {
+        .current_page > input {
             padding: 0.3rem 1rem 0.3rem 1rem;
             border: 1px solid #111111;
             margin: 0rem 0rem 0rem 0rem;
@@ -97,5 +103,8 @@
             width: 3rem;
             text-align: center;
         }
+    }
+    .line-through {
+        text-decoration-line: line-through;
     }
 </style>
