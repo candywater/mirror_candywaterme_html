@@ -360,7 +360,7 @@ import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
 </div>
 
 <div id="comments">
-  {#if _comment_list}
+  {#if _comment_list && _comment_list.length > 0}
     {#each _comment_list as comment}
       <div class="comment">
         <div class="comment-header">
