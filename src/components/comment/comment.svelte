@@ -17,6 +17,7 @@
   const MAINTENANCE_ERROR_MSG = "Sorry, we are in maintenance.";
   const POST_SUCCESS_MSG = "Post Success.";
   const LOST_CONNECTION = "We cannot connect to comment service. Oops";
+  const DEFAULT_PLACE_HOLDER_MSG = "Write your Comment here";
 
   const COMMENT_HTML = `  
   <div class="comment">
@@ -60,8 +61,8 @@
 
   function check_service_connection() {
     if (true) {
-      SetAlertMsg(LOST_CONNECTION, 0);
-      _is_lost_connection = true;
+      SetAlertMsg(LOST_CONNECTION, 3000);
+      _placeholder_msg = LOST_CONNECTION;
     }
   }
 
@@ -268,12 +269,12 @@
   let _comment_text_revert: string = "";
   let _message_box_msg: string = "";
   let _disabled: boolean = false;
-  let _is_lost_connection: boolean = false;
   let _comment_list: {
     username: string;
     time: Date;
     comment_article: string;
   }[];
+  let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
   /*        
   
   _comment_list = [
@@ -308,7 +309,7 @@
     id=""
     cols="30"
     rows="10"
-    placeholder="Write your Comment here"
+    placeholder={_placeholder_msg}
     bind:value={_comment_text}
     on:input={clear_revert_cache}
     disabled={_disabled}
@@ -316,7 +317,7 @@
   <div>
     <div>
       <label for="username_input"> Nick Name:</label>
-      <input type="text" name="" id="username_input" disabled={_disabled} class="disabled:opacity-75" />
+      <input type="text" name="" id="username_input" disabled={_disabled} />
     </div>
     <div>
       <label for="user_email_input">Email(Optional):</label>

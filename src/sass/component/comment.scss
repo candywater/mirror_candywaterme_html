@@ -21,6 +21,9 @@
       background: transparent;
       resize: none;
     }
+    textarea[name="comment"]:disabled{
+      background-color: #dcdcdc;
+    }
     textarea[name="comment"] + div {
       margin-left: 0.1rem;
       margin-bottom: 0.1rem;
@@ -35,6 +38,11 @@
           height: 1.3rem;
         }
       }
+    }
+    #username_input:disabled,
+    #user_email_input:disabled
+    {
+      background-color: #dcdcdc;
     }
     .btn {
       font-size: 0.8rem;;
@@ -65,6 +73,11 @@
     .btn-outline-dark:hover {
       color: #fff;
       background-color: #343a40;
+      border-color: #343a40;
+    }
+    .btn-outline-dark:disabled {
+      color: #fff;
+      background-color: #dcdcdc;
       border-color: #343a40;
     }
     .btn-outline-dark {
