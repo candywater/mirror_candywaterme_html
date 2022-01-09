@@ -324,19 +324,19 @@
     </div>
     <div>
       <button
-        class="btn btn-outline-dark submit-btn"
+        class={"btn btn-outline-dark submit-btn"}
         on:click={insert_new_comment}
         disabled={_disabled}>Submit</button
       >
       {#if _comment_text_revert}
         <button
-          class="btn btn-outline-dark clear-btn"
+          class={"btn btn-outline-dark clear-btn"}
           on:click={revert_comment}
           disabled={_disabled}>Revert</button
         >
       {:else}
         <button
-          class="btn btn-outline-dark clear-btn"
+          class={"btn btn-outline-dark clear-btn"}
           on:click={clear_comment}
           disabled={_disabled}>Clear</button
         >
