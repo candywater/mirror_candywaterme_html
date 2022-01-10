@@ -42,6 +42,7 @@
   } from "./config/path";
   import sitepath from "./config/path";
 import YearSummary from "./pages/year-summary.svelte";
+import Error from "./errorpages/error.svelte";
 
   let blogpath: string = "";
   let firstTimeShow: boolean = false;
@@ -78,7 +79,7 @@ import YearSummary from "./pages/year-summary.svelte";
       }
     });
   }
-  page();
+  page(404);
 
   function change_switcher(pagename) {
     path.set(pagename);
@@ -113,7 +114,7 @@ import YearSummary from "./pages/year-summary.svelte";
 {:else if $path === BLOG_OTHER}
   <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
 {:else}
-  <Index {firstTimeShow} />
+  <Error />
 {/if}
 
 <style global lang="postcss">
