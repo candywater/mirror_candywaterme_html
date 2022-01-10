@@ -41,6 +41,7 @@
     blogtype
   } from "./config/path";
   import sitepath from "./config/path";
+import YearSummary from "./pages/year-summary.svelte";
 
   let blogpath: string = "";
   let firstTimeShow: boolean = false;
@@ -81,6 +82,7 @@
 
   function change_switcher(pagename) {
     path.set(pagename);
+    console.log(pagename)
   }
 </script>
 
@@ -94,6 +96,8 @@
   <Tech {firstTimeShow} />
 {:else if $path === ESSAY}
   <Essay {firstTimeShow} />
+{:else if $path === YEAR_SUMMARY}
+  <YearSummary {firstTimeShow} />
 {:else if $path === RANDOM}
   <Random />
 {:else if $path === BLOG && $blogtype == ESSAY}

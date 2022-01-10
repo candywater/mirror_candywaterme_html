@@ -1,12 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
-  import { FormatDateSimple } from "../../common/common";
 
   import type { IPostSummary } from "../../interface/IPostSummary";
-  import Spinner from "../common/Spinner.svelte";
-import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
-import Pagination from "./pagination.svelte";
-import PostItem from "./postItem.svelte";
+  import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
+  import Pagination from "./pagination.svelte";
 
   export let docListUrl: string;
 
@@ -22,7 +19,9 @@ import PostItem from "./postItem.svelte";
     if (!docListUrl) {
       return;
     }
-    _content_list = <IPostSummary[]>await (await fetch(docListUrl)).json();
+    let fetchRes = await fetch(docListUrl)
+    _content_list = <IPostSummary[]>await fetchRes.json();
+    
   });
 </script>
 
@@ -33,9 +32,9 @@ import PostItem from "./postItem.svelte";
       <h1 class="page-heading">Article List</h1>
     </div>
 
-    {#if _content_list }
+    {#if _content_list}
       <!-- promise was fulfilled -->
-      <Pagination content_list={_content_list}></Pagination>
+      <Pagination content_list={_content_list} />
     {:else}
       <SpinnerFacebook />
     {/if}

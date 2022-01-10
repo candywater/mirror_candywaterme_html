@@ -15,6 +15,7 @@ export const ABOUT_PATH = "/about";
 export const PROJECT_PATH = "/project";
 export const ESSAY_PATH = "/blog/essay";
 export const TECH_PATH = "/blog/tech";
+export const YEAR_SUMMARY_PATH = "/blog/year-summary";
 export const BLOG_PATH = "/blog/:type/:year/:articlepath";
 export const BLOG_OTHER_PATH = "/blog/:type/*";
 export const RANDOM_PATH = "/random";
@@ -38,6 +39,7 @@ pathDict[ESSAY] = ESSAY_PATH;
 pathDict[TECH] = TECH_PATH;
 pathDict[BLOG] = BLOG_PATH;
 pathDict[BLOG_OTHER] = BLOG_OTHER_PATH;
+pathDict[YEAR_SUMMARY] = YEAR_SUMMARY_PATH;
 Object.freeze(pathDict);
 
 export let mainMenuDict: Object = {};
