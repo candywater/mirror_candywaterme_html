@@ -15,8 +15,6 @@
   if ($path == BLOG && $blogtype.toLowerCase() == title.toLowerCase()) {
     underline = "underline";
   }
-  console.log($path);
-  console.log($blogtype);
 </script>
 
 <a {href} role="button" name="button" class="btn {style} {anime} {underline}"
