@@ -1,8 +1,6 @@
 <script lang="ts">
     import { ESSAY, path, TECH } from "../../config/path";
 
-    console.log($path);
-
     const _essay_spinner: string =
         '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>';
     const _tech_spinner: string =

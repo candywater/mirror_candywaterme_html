@@ -2,6 +2,8 @@
   import Main from "./main.svelte";
   import PostList from "../components/pageList/postList.svelte";
   import { ESSAY_URL } from "../config/path";
+  import MainMenu from "../components/main/MainMenu.svelte";
+  import MainMenuNav from "../components/main/MainMenuNav.svelte";
 
   export let firstTimeShow: boolean;
 
@@ -24,9 +26,10 @@
     isHide={hide_main_block}
   />
 {/if}
+<MainMenuNav />
 <main class="page-content" aria-label="Content">
   <div class="wrapper">
-    <PostList docListUrl={docListUrl} />
+    <PostList {docListUrl} />
   </div>
 </main>
 

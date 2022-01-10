@@ -38,11 +38,11 @@
     YEAR_SUMMARY_INDEX_URL,
     ESSAY_INDEX_URL,
     YEAR_SUMMARY,
+    blogtype
   } from "./config/path";
   import sitepath from "./config/path";
 
   let blogpath: string = "";
-  let blogtype: string = "";
   let firstTimeShow: boolean = false;
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
@@ -70,10 +70,10 @@
       change_switcher(pagename);
       if (pagename == BLOG) {
         blogpath = ctx.path;
-        blogtype = ctx.params.type;
+        blogtype.set(ctx.params.type)
       } else if (pagename == BLOG_OTHER) {
         blogpath = ctx.path;
-        blogtype = ctx.params.type;
+        blogtype.set(ctx.params.type)
       }
     });
   }
@@ -96,11 +96,11 @@
   <Essay {firstTimeShow} />
 {:else if $path === RANDOM}
   <Random />
-{:else if $path === BLOG && blogtype == ESSAY}
+{:else if $path === BLOG && $blogtype == ESSAY}
   <Blog {blogpath} indexUrl={ESSAY_INDEX_URL} contentUrl={ESSAY_URL} />
-{:else if $path === BLOG && blogtype == TECH}
+{:else if $path === BLOG && $blogtype == TECH}
   <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
-{:else if $path === BLOG_OTHER && blogtype == YEAR_SUMMARY}
+{:else if $path === BLOG_OTHER && $blogtype == YEAR_SUMMARY}
   <Pureblog
     {blogpath}
     indexUrl={YEAR_SUMMARY_INDEX_URL}

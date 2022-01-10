@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { path } from "../../config/path";
+  import { blogtype, path, BLOG } from "../../config/path";
 
   export let style: string;
   export let href: string;
@@ -7,10 +7,21 @@
 
   const animation = "animated jello";
   let anime = "";
-  if ($path.toLowerCase() == title.toLowerCase()) anime = animation;
+  let underline = "";
+  if ($path.toLowerCase() == title.toLowerCase()) {
+    anime = animation;
+    underline = "underline";
+  }
+  if ($path == BLOG && $blogtype.toLowerCase() == title.toLowerCase()) {
+    underline = "underline";
+  }
+  console.log($path);
+  console.log($blogtype);
 </script>
 
-<a {href} role="button" name="button" class="btn {style} {anime}">{title}</a>
+<a {href} role="button" name="button" class="btn {style} {anime} {underline}"
+  >{title}</a
+>
 
 <style lang="scss">
   .btn {

@@ -6,6 +6,8 @@
     PROJECT_PATH,
     ABOUT_PATH,
     INDEX_PATH,
+    path,
+ESSAY
   } from "../../config/path";
 
   const basicstyle = "text-white rounded shadow"; //  = "border border-light-blue-500 border-opacity-5"
@@ -23,7 +25,7 @@
 </script>
 
 <div class="main-menu">
-  <Btn href={ESSAY_PATH} style={button_style_1} title="Essay" />
+  <Btn href={ESSAY_PATH} style={button_style_1} title="Essay"/>
   <Btn href={TECH_PATH} style={button_style_2} title="Tech" />
   <Btn href={PROJECT_PATH} style={button_style_3} title="Project" />
   <Btn href={ABOUT_PATH} style={button_style_4} title="About" />
