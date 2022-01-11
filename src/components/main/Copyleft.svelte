@@ -2,7 +2,7 @@
   const animation = "animated jello";
 </script>
 
-<p class={"copyleft " + animation}>
+<p class={"copyleft "}>
   <span>&copy;Copyleft, by candywater</span>
 </p>
 
