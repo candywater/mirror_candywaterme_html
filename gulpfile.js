@@ -1,7 +1,7 @@
 const gulp = require('gulp')
 const purgecss = require('gulp-purgecss')
 const sourcemaps = require('gulp-sourcemaps')
-// var autoprefixer = require('autoprefixer');
+var autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const sass = require('gulp-sass')(require('sass'));
@@ -12,7 +12,7 @@ const tailwindConfig = require("./tailwind.config.js");
 // const ANIMATE_PATH = 'node_modules/animate.css/animate.css'
 // const ANIMATE_OUTPUT = 'public/build/'
 // tailwind.css
-const TAILWINDCSS_PATH = ['node_modules/tailwindcss/dist/tailwind.css']
+const TAILWINDCSS_PATH = ['src/sass/tailwind.css']
 const SOURCE_HTML = ["./src/**/*.svelte", "./src/**/*.ts", "./public/**/*.html"]
 const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
 // minima.css
@@ -26,14 +26,14 @@ const MINIMACSS_OUTPUT = './public/build/sass'
 // tailwindcss
 function tailwindcss_prod() {
     var plugins = [
-        // autoprefixer({browsers: ['last 1 version']}),
+        autoprefixer(),
         tailwindcss(tailwindConfig),
         cssnano(),
     ];
     return gulp.src(TAILWINDCSS_PATH)
-        .pipe(purgecss({
-            content: SOURCE_HTML
-        }))
+        // .pipe(purgecss({
+        //     content: SOURCE_HTML
+        // }))
         .pipe(postcss(plugins))
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
 }

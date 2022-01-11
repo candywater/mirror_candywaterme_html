@@ -38,11 +38,11 @@
     YEAR_SUMMARY_INDEX_URL,
     ESSAY_INDEX_URL,
     YEAR_SUMMARY,
-    blogtype
+    blogtype,
   } from "./config/path";
   import sitepath from "./config/path";
-import YearSummary from "./pages/year-summary.svelte";
-import Error from "./errorpages/error.svelte";
+  import YearSummary from "./pages/year-summary.svelte";
+  import Error from "./errorpages/error.svelte";
 
   let blogpath: string = "";
   let firstTimeShow: boolean = false;
@@ -72,10 +72,10 @@ import Error from "./errorpages/error.svelte";
       change_switcher(pagename);
       if (pagename == BLOG) {
         blogpath = ctx.path;
-        blogtype.set(ctx.params.type)
+        blogtype.set(ctx.params.type);
       } else if (pagename == BLOG_OTHER) {
         blogpath = ctx.path;
-        blogtype.set(ctx.params.type)
+        blogtype.set(ctx.params.type);
       }
     });
   }
@@ -83,7 +83,7 @@ import Error from "./errorpages/error.svelte";
 
   function change_switcher(pagename) {
     path.set(pagename);
-    console.log(pagename)
+    console.log(pagename);
   }
 </script>
 
