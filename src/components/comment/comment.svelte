@@ -381,3 +381,9 @@ import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
     <div class="text-center"><SpinnerFacebook /></div>
   {/if}
 </div>
+
+<style lang="scss">
+  button, input, textarea{
+    font-size: 80%;
+  }
+</style>
