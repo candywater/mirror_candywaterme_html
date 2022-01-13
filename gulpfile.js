@@ -56,10 +56,12 @@ function complier_sass_prod() {
         cssnano()
     ];
     return gulp.src(MINIMACSS_PATH)
+        .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: ['node_modules/animate.css']
-          }).on('error', sass.logError))
+        }).on('error', sass.logError))
         .pipe(postcss(plugins))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(MINIMACSS_OUTPUT))
 }
 function complier_sass_dev() {
@@ -67,8 +69,8 @@ function complier_sass_dev() {
         .pipe(sourcemaps.init())
         .pipe(sass({
             includePaths: ['node_modules/animate.css']
-          }).on('error', sass.logError))
-        .pipe(sourcemaps.write())
+        }).on('error', sass.logError))
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(MINIMACSS_OUTPUT))
 }
 function complier_tailwind_watch() {
