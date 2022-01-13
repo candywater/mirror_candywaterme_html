@@ -35,7 +35,7 @@
   import { FormatDate } from "../../common/common";
   import Spinner from "../common/Spinner.svelte";
   import FakePanelFill from "./FakePanel_comment.svelte";
-import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
+  import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
 
   onMount(() => {
     check_if_ie();
@@ -317,47 +317,53 @@ import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
       height={_comment_input_height}
       width={_comment_input_width}
     />
+  {:else}
+    <textarea
+      name="comment"
+      id=""
+      cols="30"
+      rows="10"
+      placeholder={_placeholder_msg}
+      bind:value={_comment_text}
+      on:input={clear_revert_cache}
+      disabled={_disabled}
+    />
+    <div>
+      <div>
+        <label for="username_input"> Nick Name:</label>
+        <input type="text" name="" id="username_input" disabled={_disabled} />
+      </div>
+      <div>
+        <label for="user_email_input">Email(Optional):</label>
+        <input
+          type="email"
+          name=""
+          id="user_email_input"
+          disabled={_disabled}
+        />
+      </div>
+      <div>
+        <button
+          class={"btn btn-outline-dark submit-btn"}
+          on:click={insert_new_comment}
+          disabled={_disabled}>Submit</button
+        >
+        {#if _comment_text_revert}
+          <button
+            class={"btn btn-outline-dark clear-btn"}
+            on:click={revert_comment}
+            disabled={_disabled}>Revert</button
+          >
+        {:else}
+          <button
+            class={"btn btn-outline-dark clear-btn"}
+            on:click={clear_comment}
+            disabled={_disabled}>Clear</button
+          >
+        {/if}
+      </div>
+    </div>
   {/if}
-  <textarea
-    name="comment"
-    id=""
-    cols="30"
-    rows="10"
-    placeholder={_placeholder_msg}
-    bind:value={_comment_text}
-    on:input={clear_revert_cache}
-    disabled={_disabled}
-  />
-  <div>
-    <div>
-      <label for="username_input"> Nick Name:</label>
-      <input type="text" name="" id="username_input" disabled={_disabled} />
-    </div>
-    <div>
-      <label for="user_email_input">Email(Optional):</label>
-      <input type="email" name="" id="user_email_input" disabled={_disabled} />
-    </div>
-    <div>
-      <button
-        class={"btn btn-outline-dark submit-btn"}
-        on:click={insert_new_comment}
-        disabled={_disabled}>Submit</button
-      >
-      {#if _comment_text_revert}
-        <button
-          class={"btn btn-outline-dark clear-btn"}
-          on:click={revert_comment}
-          disabled={_disabled}>Revert</button
-        >
-      {:else}
-        <button
-          class={"btn btn-outline-dark clear-btn"}
-          on:click={clear_comment}
-          disabled={_disabled}>Clear</button
-        >
-      {/if}
-    </div>
-  </div>
 </div>
 
 <div id="comments">
@@ -383,7 +389,9 @@ import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
 </div>
 
 <style lang="scss">
-  button, input, textarea{
+  button,
+  input,
+  textarea {
     font-size: 85%;
   }
 </style>
