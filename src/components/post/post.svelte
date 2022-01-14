@@ -5,8 +5,8 @@
 
   import { markDown } from "../markdown/markdown";
   import Comment from "../comment/comment.svelte";
-  import Spinner from "../common/Spinner.svelte";
-  import CcIcon from "../common/CCIcon.svelte";
+  import Spinner from "../common/icons/Spinner.svelte";
+  import CcIcon from "../common/icons/CCIcon.svelte";
 
   export let docUrl: string;
   export let indexUrl: string;

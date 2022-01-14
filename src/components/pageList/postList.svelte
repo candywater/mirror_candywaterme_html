@@ -2,7 +2,7 @@
   import { onMount } from "svelte";
 
   import type { IPostSummary } from "../../interface/IPostSummary";
-  import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
+  import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
   import Pagination from "./pagination.svelte";
 
   export let docListUrl: string;

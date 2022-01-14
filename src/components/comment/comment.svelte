@@ -33,9 +33,8 @@
   // ready(comment_area_html);
   import { onMount } from "svelte";
   import { FormatDate } from "../../common/common";
-  import Spinner from "../common/Spinner.svelte";
   import FakePanelFill from "./FakePanel_comment.svelte";
-  import SpinnerFacebook from "../common/SpinnerFacebook.svelte";
+  import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
 
   onMount(() => {
     check_if_ie();
