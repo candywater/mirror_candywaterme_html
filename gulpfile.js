@@ -43,9 +43,9 @@ function tailwind_dev() {
         tailwindcss(tailwindConfig),
         // cssnano(),
     ];
-    return gulp.src("./node_modules/tailwindcss/dist/tailwind.css")
+    return gulp.src(TAILWINDCSS_PATH)
         .pipe(sourcemaps.init())
-        // .pipe(postcss(plugins))
+        .pipe(postcss(plugins))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
 }
@@ -107,6 +107,6 @@ function main_watch(){
 // exports["sass:watch"] = gulp.series(complier_sass_watch)
 exports.default = gulp.series( minima_prod, complier_main_prod, tailwindcss_prod);
 exports.dev = gulp.series( minima_dev, main_dev, tailwind_dev);
-exports["watch"] = gulp.parallel( minima_watch, main_watch)
+exports["watch"] = gulp.parallel( minima_watch, main_watch, tailwind_watch)
 
 // postcss
