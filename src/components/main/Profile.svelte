@@ -32,7 +32,7 @@
     <img
       src={PROFILE_IMG_URL}
       class="real-rounded-circle border-double border-4 border-white 
-        hover:border-solid active:ring active:ring-violet-300 "
+        hover:border-solid active:ring active:ring-amber-500 "
       alt="profile"
       id="profile_photo"
       title="why not try clicking this?"
