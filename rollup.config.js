@@ -15,13 +15,13 @@ const production = !process.env.ROLLUP_WATCH;
 
 let postcss_plugins = [
 	autoprefixer(),
-	tailwindcss(),
+	// tailwindcss(),
 	// cssnano(),
 ]
 if (production) {
 	postcss_plugins = [
 		autoprefixer(),
-		tailwindcss(),
+		// tailwindcss(),
 		cssnano(),
 	]
 }
