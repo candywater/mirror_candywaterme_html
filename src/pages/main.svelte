@@ -34,8 +34,8 @@
 
   const unsubscribe_showquote = show_quote.subscribe((value: boolean) => {
     quote = getRandomQuote(quote_list);
-    if(!quote){
-      show_quote.set(false)
+    if (!quote) {
+      show_quote.set(false);
     }
   });
   onDestroy(unsubscribe_showquote);

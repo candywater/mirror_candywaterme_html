@@ -33,7 +33,7 @@
   // ready(comment_area_html);
   import { onMount } from "svelte";
   import { FormatDate } from "../../common/common";
-  import FakePanelFill from "./FakePanel_comment.svelte";
+  import CommentUnusable from "./comment_unusable.svelte";
   import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
 
   onMount(() => {
@@ -312,10 +312,7 @@
   bind:clientWidth={_comment_input_width}
 >
   {#if _disabled}
-    <FakePanelFill
-      height={_comment_input_height}
-      width={_comment_input_width}
-    />
+    <CommentUnusable />
   {:else}
     <textarea
       name="comment"
