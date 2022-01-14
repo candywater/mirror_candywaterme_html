@@ -31,8 +31,8 @@
   <div class="figure">
     <img
       src={PROFILE_IMG_URL}
-      class="real-rounded-circle border-double border-4 border-white 
-        hover:border-solid active:border-0 active:ring active:ring-rose-500 "
+      class="real-rounded-circle border-solid border-4 border-white 
+        hover:border-double active:border-0 active:ring active:ring-violet-500 "
       alt="profile"
       id="profile_photo"
       title="why not try clicking this?"
