@@ -105,7 +105,7 @@ function main_watch(){
 // exports["css:dev"] = gulp.series(purgecss_tailwindcss_dev, complier_sass_dev);
 // exports["sass"] = gulp.series(complier_sass_dev)
 // exports["sass:watch"] = gulp.series(complier_sass_watch)
-exports.default = gulp.series( minima_prod, complier_main_prod);
-exports["watch"] = gulp.parallel( minima_watch, main_watch)
+exports.default = gulp.series( minima_prod, complier_main_prod, tailwindcss_prod);
+exports["watch"] = gulp.parallel( minima_watch, main_watch, tailwind_watch)
 
 // postcss
