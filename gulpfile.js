@@ -46,7 +46,7 @@ function tailwind_dev() {
     return gulp.src(TAILWINDCSS_PATH)
         .pipe(sourcemaps.init())
         .pipe(postcss(plugins))
-        .pipe(sourcemaps.write())
+        .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
 }
 //minima
