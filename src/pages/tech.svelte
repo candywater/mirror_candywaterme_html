@@ -2,7 +2,7 @@
   import Main from "./main.svelte";
   import PostList from "../components/pageList/postList.svelte";
   import { TECH_URL } from "../config/path";
-  import MainMenuNav from "../components/main/MainMenuNav.svelte";
+  import MainMenuNav from "../layout/MainMenuLayout.svelte";
 
   export let firstTimeShow: boolean;
 
@@ -24,9 +24,11 @@
     isHide={hide_main_block}
   />
 {/if}
-<MainMenuNav />
-<main class="page-content" aria-label="Content">
-  <div class="wrapper">
-    <PostList {docListUrl} />
-  </div>
-</main>
+<MainMenuNav>
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <PostList {docListUrl} />
+    </div>
+  </main>
+  
+</MainMenuNav>

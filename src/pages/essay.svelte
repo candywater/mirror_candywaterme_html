@@ -2,7 +2,7 @@
   import Main from "./main.svelte";
   import PostList from "../components/pageList/postList.svelte";
   import { ESSAY_URL } from "../config/path";
-  import MainMenuNav from "../components/main/MainMenuNav.svelte";
+  import MainMenuNav from "../layout/MainMenuLayout.svelte";
 
   export let firstTimeShow: boolean;
 
