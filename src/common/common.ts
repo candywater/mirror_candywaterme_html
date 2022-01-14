@@ -28,7 +28,7 @@ export function hex2RGB(str: string): Array<number> {
 
 export function getRandomQuote(list: string[]): string {
   if (!list) return "";
-  return list[getRandomInt(0, list.length - 1)];
+  return list[getRandomInt(0, list.length)];
 }
 
 export function splitSerifs(str: string): string[] {

@@ -34,14 +34,14 @@
 
   const unsubscribe_showquote = show_quote.subscribe((value: boolean) => {
     quote = getRandomQuote(quote_list);
+    if(!quote){
+      show_quote.set(false)
+    }
   });
   onDestroy(unsubscribe_showquote);
 
-  onMount(onLoad)
-
-  function onLoad() {
+  onMount(() => {
     if (isHide === true) {
-      // console.log(isHide)
       hideContent();
       return;
     }
@@ -51,12 +51,12 @@
     if (quote_list.length > 0) {
       return;
     }
-    if (quote_url.length <= 0) {
-      fetchQuote(DEFAULT_QUOTE_URL);
-    } else {
+    if (quote_url.length > 0) {
       fetchQuote(quote_url);
+    } else {
+      fetchQuote(DEFAULT_QUOTE_URL);
     }
-  }
+  });
 
   function on_config_click() {
     show_config_panel.set(!$show_config_panel);
@@ -95,10 +95,8 @@
 
       <div class="profile-block">
         <Profile {description}>
-          <slot>
-            <!--index page-->
-            <QuoteDisplay {quote} show_quote={$show_quote} />
-          </slot>
+          <slot />
+          <QuoteDisplay {quote} show_quote={$show_quote} />
         </Profile>
       </div>
 
@@ -139,6 +137,12 @@
       right: 1rem;
       top: 1rem;
     }
+  }
+  .copyleft-block {
+    padding: 0rem;
+    display: flex;
+    justify-content: end;
+    align-items: end;
   }
 
   @media screen {
@@ -258,12 +262,5 @@
         max-width: 100rem;
       }
     }
-  }
-
-  .copyleft-block {
-    padding: 0rem;
-    display: flex;
-    justify-content: end;
-    align-items: end;
   }
 </style>
