@@ -9,6 +9,7 @@
   import { show_quote } from "../../config/config";
 
   export let description: string;
+  let _img_anime: string = "blur-sm";
 
   const PROFILE_IMG_URL =
     "/assets/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg";
@@ -23,6 +24,7 @@
     if (!description) {
       description = MY_DESCRIPTION_DEFAULT;
     }
+    setTimeout(() => (_img_anime = "blur-none"), 100);
   });
 </script>
 
@@ -32,7 +34,7 @@
     <img
       src={PROFILE_IMG_URL}
       class="real-rounded-circle border-solid border-4 border-white 
-        hover:border-double active:border-0 active:ring active:ring-violet-500 "
+        hover:border-double active:border-0 active:ring active:ring-violet-500 {_img_anime}"
       alt="profile"
       id="profile_photo"
       title="why not try clicking this?"
