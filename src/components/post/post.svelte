@@ -29,7 +29,7 @@
 <article class="post">
   <header class="post-header">
     <div class="post-title">
-      <h1 class="post-title">
+      <h1 class="post-title capitalize">
         {#if _header?.title}
           {_header?.title}
         {/if}

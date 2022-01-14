@@ -29,7 +29,7 @@
   <div class="home">
     <br />
     <div class="row" style="position: relative;">
-      <h1 class="page-heading">Article List</h1>
+      <h1 class="page-heading capitalize">Article List</h1>
     </div>
 
     {#if _content_list}
