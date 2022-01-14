@@ -25,12 +25,13 @@
     isHide={hide_main_block}
   />
 {/if}
-<MainMenuNav />
-<main class="page-content" aria-label="Content">
-  <div class="wrapper">
-    <PostList {docListUrl} />
-  </div>
-</main>
+<MainMenuNav>
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <PostList {docListUrl} />
+    </div>
+  </main>
+</MainMenuNav>
 
 <!-- 
 <br><br>

@@ -30,5 +30,4 @@
       <PostList {docListUrl} />
     </div>
   </main>
-  
 </MainMenuNav>

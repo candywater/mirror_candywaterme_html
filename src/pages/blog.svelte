@@ -10,9 +10,10 @@
   let docUrl: string = BlogUrl2DocUrl(blogpath);
 </script>
 
-<MainMenuNav />
-<main class="page-content" aria-label="Content">
-  <div class="wrapper">
-    <Post {docUrl} {indexUrl} {contentUrl} />
-  </div>
-</main>
+<MainMenuNav>
+  <main class="page-content" aria-label="Content">
+    <div class="wrapper">
+      <Post {docUrl} {indexUrl} {contentUrl} />
+    </div>
+  </main>
+</MainMenuNav>
