@@ -275,8 +275,6 @@
     comment_article: string;
   }[];
   let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
-  let _comment_input_height: number;
-  let _comment_input_width: number;
   /*        
   
   _comment_list = [
@@ -301,16 +299,12 @@
   }
 </script>
 
-<div id="comment_alert">
+<div id="comment_alert" class="normal-case">
   {#if _message_box_msg}
     {@html _message_box_msg}
   {/if}
 </div>
-<div
-  id="comment_input_area"
-  bind:clientHeight={_comment_input_height}
-  bind:clientWidth={_comment_input_width}
->
+<div id="comment_input_area">
   {#if _disabled}
     <CommentUnusable />
   {:else}
