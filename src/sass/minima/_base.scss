@@ -132,9 +132,10 @@ ul, ol, dl, figure,
     color: $grey-color;
     border-left: 4px solid $grey-color-light;
     padding-left: calc($spacing-unit / 2);
-    @include relative-font-size(1.125);
+    // @include relative-font-size(1.125);
+    // @include relative-font-size(.875);
     letter-spacing: -1px;
-    font-style: italic;
+    // font-style: italic;
 
     > :last-child {
       margin-bottom: 0;
@@ -147,13 +148,14 @@ ul, ol, dl, figure,
   pre,
   code {
     @include relative-font-size(0.9375);
-    border: 1px solid $grey-color-light;
+    border: 2px solid $grey-color-light;
     border-radius: 3px;
     background-color: #e5e5e5;
   }
 
   code {
     padding: 1px 5px;
+    // font-family: Consolas;
   }
 
   pre {
