@@ -2,7 +2,7 @@
     import MainMenu from "../components/main/MainMenu.svelte";
 </script>
 
-<div class="flex main-menu-layout justify-center">
+<div class="flex main-menu-layout">
     <div class="main-menu animated fadeIn flex-none">
         <MainMenu />
     </div>
@@ -37,40 +37,45 @@
         display: none;
         margin: 0.5rem;
     }
-    @media (min-width: 1024px) {
+
+    @media (min-width: 1280px) {
         .main-menu {
             // right: 25px;
             display: block;
         }
-        // }
-        // @media (min-width: 1280px) {
-        //     .main-menu {
-        //         right: 125px;
-        //     }
-        // }
-        // @media (min-width: 1536px) {
-        //     .main-menu {
-        //         right: 240px;
-        //     }
-        // }
-        // @media (min-width: 1700px) {
-        //     .main-menu {
-        //         right: 340px;
-        //     }
-        // }
-        // @media (min-width: 1950px) {
-        //     .main-menu {
-        //         right: 460px;
-        //     }
-        // }
-        // @media (min-width: 2200px) {
-        //     .main-menu {
-        //         right: 560px;
-        //     }
-        // }
-        // @media (min-width: 2500px) {
-        //     .main-menu {
-        //         right: 700px;
-        //     }
+        .main-menu-layout {
+            justify-content: center;
+        }
     }
+    // }
+    // @media (min-width: 1280px) {
+    //     .main-menu {
+    //         right: 125px;
+    //     }
+    // }
+    // @media (min-width: 1536px) {
+    //     .main-menu {
+    //         right: 240px;
+    //     }
+    // }
+    // @media (min-width: 1700px) {
+    //     .main-menu {
+    //         right: 340px;
+    //     }
+    // }
+    // @media (min-width: 1950px) {
+    //     .main-menu {
+    //         right: 460px;
+    //     }
+    // }
+    // @media (min-width: 2200px) {
+    //     .main-menu {
+    //         right: 560px;
+    //     }
+    // }
+    // @media (min-width: 2500px) {
+    //     .main-menu {
+    //         right: 700px;
+    //     }
+    // }
 </style>
