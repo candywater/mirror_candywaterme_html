@@ -3,7 +3,7 @@
  */
 body {
   // font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
-  font:  $base-font-family;
+  font: $base-font-family;
   color: $text-color;
   //background-color: $background-color;
   // -webkit-text-size-adjust: 100%;
@@ -155,7 +155,7 @@ ul, ol, dl, figure,
 
   code {
     padding: 1px 5px;
-    font-family: monospace, "Georgia", serif;//, Consolas;
+    font-family: monospace, "Georgia", serif; //, Consolas;
   }
 
   pre {
@@ -168,11 +168,11 @@ ul, ol, dl, figure,
     > code {
       border: 0;
       text-rendering: optimizeSpeed;
-      background: #F4F4F5;
+      background: #f4f4f5;
       // word-wrap: break-word;
       // box-decoration-break: clone;
-      padding: .1rem .3rem .2rem;
-      border-radius: .2rem;
+      padding: 0.1rem 0.3rem 0.2rem;
+      border-radius: 0.2rem;
     }
   }
 
@@ -181,18 +181,18 @@ ul, ol, dl, figure,
  */
   .wrapper {
     // max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    // max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
-    width: calc(#{$content-width} - (#{$spacing-unit} * 2));
-    // margin-right: auto;
-    // margin-left: auto;
+    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+    // width: calc(#{$content-width} - (#{$spacing-unit} * 2));
+    margin-right: auto;
+    margin-left: auto;
     padding-right: $spacing-unit;
     padding-left: $spacing-unit;
     @extend %clearfix;
 
     @include media-query($on-laptop) {
       // max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-      // max-width: calc(#{$content-width} - (#{$spacing-unit}));
-      width: calc(#{$content-width} - (#{$spacing-unit}));
+      max-width: calc(#{$content-width} - (#{$spacing-unit}));
+      // width: calc(#{$content-width} - (#{$spacing-unit}));
       padding-right: calc($spacing-unit / 2);
       padding-left: calc($spacing-unit / 2);
     }
