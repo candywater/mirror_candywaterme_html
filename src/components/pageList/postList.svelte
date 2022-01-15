@@ -13,6 +13,7 @@
   // var pageNum = 0;
   // var contentNumberPerPage = default_number_per_page;
 
+  // todo: only from main/about/project will have anime
   const animation: string = "animated fadeIn";
 
   onMount(async () => {
@@ -25,7 +26,7 @@
   });
 </script>
 
-<div class={"pagelist " + animation}>
+<div class={"pagelist "}>
   <div class="home">
     <br />
     <div class="row" style="position: relative;">
