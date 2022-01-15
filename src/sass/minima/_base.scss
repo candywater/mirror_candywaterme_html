@@ -150,24 +150,29 @@ ul, ol, dl, figure,
     @include relative-font-size(0.9375);
     border: 2px solid $grey-color-light;
     border-radius: 3px;
-    background-color: #e5e5e5;
+    // background-color: #e5e5e5;
   }
 
   code {
     padding: 1px 5px;
-    // font-family: Consolas;
+    font-family: monospace, "Georgia", serif;//, Consolas;
   }
 
   pre {
     // to add line number, commment out this
-    // padding: 8px 12px;
+    padding: 8px 12px;
     padding: 0px 3px 0px 0px;
     overflow-x: auto;
+    margin: 3px;
 
     > code {
       border: 0;
-      padding-right: 0;
-      padding-left: 0;
+      text-rendering: optimizeSpeed;
+      background: #F4F4F5;
+      // word-wrap: break-word;
+      // box-decoration-break: clone;
+      padding: .1rem .3rem .2rem;
+      border-radius: .2rem;
     }
   }
 
