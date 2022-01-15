@@ -2,7 +2,7 @@
     import MainMenu from "../components/main/MainMenu.svelte";
 </script>
 
-<div class="flex main-menu-layout">
+<div class="main-menu-layout">
     <div class="main-menu animated fadeIn flex-none">
         <MainMenu />
     </div>
@@ -45,6 +45,7 @@
         }
         .main-menu-layout {
             justify-content: center;
+            display: flex
         }
     }
     // }
