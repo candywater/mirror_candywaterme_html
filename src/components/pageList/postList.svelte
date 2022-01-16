@@ -35,11 +35,12 @@
 <div class={"pagelist "}>
   <div class="home">
     <br />
-    <div class="row relative flex justify-between ">
-      <h1 class="page-heading capitalize">Article List</h1>
-      <div>
+    <div class="row relative table lg:flex justify-between ">
+      <div class="order-2">
         <Searchbar />
       </div>
+      <h1 class="page-heading capitalize order-1">Article List</h1>
+
     </div>
 
     {#if _content_list}
@@ -55,3 +56,9 @@
     {/if}
   </div>
 </div>
+
+<style lang="scss">
+  .page-heading{
+    padding-top: 0.75rem;
+  }
+</style>
