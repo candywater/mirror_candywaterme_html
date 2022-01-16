@@ -5,11 +5,13 @@
   export let content_list: IPostSummary[];
 
   let _res_list: IResultItem[] = [];
+  let _width: number;
 
   function oninput(e: Event) {
     search((<HTMLInputElement>e.target).value);
     // console.log((<InputEvent>e).data);
   }
+
   function onclick(params: Event) {
     console.log(params);
   }
@@ -18,28 +20,25 @@
     _res_list = [];
     for (const [_key, value] of Object.entries(content_list)) {
       if (existKey(value.title, key)) {
-        addSearchItem(value.title, value.url);
+        addSearchItem(value.title, value.url, value.title);
       }
       if (existKey(value.summary, key)) {
-        addSearchItem(value.summary, value.url);
+        addSearchItem(value.summary, value.url, value.title);
       }
       if (existKey(value.tags?.toString(), key)) {
-        addSearchItem(value.tags.toString(), value.url);
+        addSearchItem(value.tags.toString(), value.url, value.title),
+          value.title;
       }
       if (existKey(value.tag, key)) {
-        addSearchItem(value.tag, value.url);
+        addSearchItem(value.tag, value.url, value.title);
       }
       if (existKey(value.date?.toString(), key)) {
-        let date = new Date(key);
-        if (date && value.date == date)
-          // console.log(value.date)
-          // console.log(value.date?.toString())
-          // console.log(value.date?.toString().includes(key))
-          // console.log(value.date?.toString().includes(key))
-          addSearchItem(value.date.toString(), value.url);
+        // let date = new Date(key);
+        // if (date && value.date == date)
+        addSearchItem(value.date.toString(), value.url, value.title);
       }
       if (_res_list.length > 5) {
-        addSearchItem("...", "");
+        addSearchItem("...", "", "");
         break;
       }
     }
@@ -47,23 +46,32 @@
   }
 
   function existKey(search: string, key: string): boolean {
-    if (search && search.toLowerCase().includes(key.toLowerCase())) {
+    if (search && key && search.toLowerCase().includes(key.toLowerCase())) {
       return true;
     }
     return false;
   }
 
-  function addSearchItem(value: string, url: string) {
+  function addSearchItem(value: string, url: string, title: string) {
+    let duplicate = false;
+    _res_list.forEach((element) => {
+      if (element.url == url) duplicate = true;
+    });
+    if (duplicate) return;
     _res_list.push({
       result: value,
       url: url,
+      title: title,
     });
   }
 </script>
 
 <!-- https://tailwindcomponents.com/component/search-bar -->
 <!-- This is an example component -->
-<div class="pt-2 mb-2 relative mx-auto text-gray-600 searchbar ">
+<div
+  class="pt-2 mb-2 relative mx-auto text-gray-600 searchbar "
+  bind:clientWidth={_width}
+>
   <input
     class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
     type="search"
@@ -91,4 +99,14 @@
       />
     </svg>
   </button>
+  <div class="table absolute bg-slate-200 w-fit" style={`width: ${_width}px;`}>
+    {#each _res_list as item, i}
+      <ul>
+        <li>
+          <a href={item.url}>{item.title}</a>
+        </li>
+        <p>{item.result}</p>
+      </ul>
+    {/each}
+  </div>
 </div>
