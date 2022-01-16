@@ -24,9 +24,12 @@ or
 + [x]gulp -> prettier [x]->[x]
 + [x]gulp -> javascript-obfuscator []->[]
 + [x]fix fetch 2 times issue[x]
-+ []pagination
++ [*]pagination
 + []search
 + []tags
++ []rss
++ []sapper
++ []highlight js
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
