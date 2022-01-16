@@ -5,6 +5,12 @@
   import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
   import Pagination from "./pagination.svelte";
 
+  import PostItem from "./postItem.svelte";
+  import {
+    current_page_number,
+    DEFAULT_NUMBER_PER_PAGE,
+  } from "../../config/config";
+
   export let docListUrl: string;
 
   var _content_list: IPostSummary[];
@@ -20,9 +26,8 @@
     if (!docListUrl) {
       return;
     }
-    let fetchRes = await fetch(docListUrl)
+    let fetchRes = await fetch(docListUrl);
     _content_list = <IPostSummary[]>await fetchRes.json();
-    
   });
 </script>
 
@@ -34,8 +39,13 @@
     </div>
 
     {#if _content_list}
-      <!-- promise was fulfilled -->
-      <Pagination content_list={_content_list} />
+      <Pagination content_list={_content_list}>
+        {#each _content_list as post, i}
+          {#if i >= $current_page_number * DEFAULT_NUMBER_PER_PAGE && i < ($current_page_number + 1) * DEFAULT_NUMBER_PER_PAGE}
+            <PostItem {post} />
+          {/if}
+        {/each}
+      </Pagination>
     {:else}
       <SpinnerFacebook />
     {/if}

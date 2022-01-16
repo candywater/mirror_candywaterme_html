@@ -45,11 +45,7 @@
 </script>
 
 <ul class="post-list">
-    {#each content_list as post, i}
-        {#if i >= $current_page_number * DEFAULT_NUMBER_PER_PAGE && i < ($current_page_number + 1) * DEFAULT_NUMBER_PER_PAGE}
-            <PostItem {post} />
-        {/if}
-    {/each}
+    <slot />
     <div class="pager_now">
         {#if $current_page_number > 0}
             <div class="previous_page">
