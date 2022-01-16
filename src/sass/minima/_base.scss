@@ -179,11 +179,17 @@ ul, ol, dl, figure,
   /**
  * Wrapper
  */
+ /*
+ sm	640px	@media (min-width: 640px) { ... }
+md	768px	@media (min-width: 768px) { ... }
+lg	1024px	@media (min-width: 1024px) { ... }
+xl	1280px	@media (min-width: 1280px) { ... }
+2xl	1536px	@media (min-width: 1536px) { ... }
+ */
   .wrapper {
     // max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
     max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
     // width: calc(#{$content-width} - (#{$spacing-unit} * 2));
-
     padding-right: calc($spacing-unit / 2);
     padding-left: calc($spacing-unit / 2);
     @extend %clearfix;
