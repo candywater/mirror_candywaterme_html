@@ -10,6 +10,7 @@
     current_page_number,
     DEFAULT_NUMBER_PER_PAGE,
   } from "../../config/config";
+  import Searchbar from "../search/searchbar.svelte";
 
   export let docListUrl: string;
 
@@ -34,8 +35,11 @@
 <div class={"pagelist "}>
   <div class="home">
     <br />
-    <div class="row" style="position: relative;">
+    <div class="row relative flex justify-between ">
       <h1 class="page-heading capitalize">Article List</h1>
+      <div>
+        <Searchbar />
+      </div>
     </div>
 
     {#if _content_list}
