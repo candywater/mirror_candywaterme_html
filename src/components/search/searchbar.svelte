@@ -1,10 +1,63 @@
 <script lang="ts">
-  function oninput(params: Event) {
+  import type { IPostSummary } from "../../interface/IPostSummary";
+  import type { IResultItem } from "../../interface/IResultItem";
+
+  export let content_list: IPostSummary[];
+
+  let _res_list: IResultItem[] = [];
+
+  function oninput(e: Event) {
+    search((<HTMLInputElement>e.target).value);
+    // console.log((<InputEvent>e).data);
+  }
+  function onclick(params: Event) {
     console.log(params);
   }
-  function onsubmit(params:Event) {
-    
-    console.log(params);
+
+  function search(key: string) {
+    _res_list = [];
+    for (const [_key, value] of Object.entries(content_list)) {
+      if (existKey(value.title, key)) {
+        addSearchItem(value.title, value.url);
+      }
+      if (existKey(value.summary, key)) {
+        addSearchItem(value.summary, value.url);
+      }
+      if (existKey(value.tags?.toString(), key)) {
+        addSearchItem(value.tags.toString(), value.url);
+      }
+      if (existKey(value.tag, key)) {
+        addSearchItem(value.tag, value.url);
+      }
+      if (existKey(value.date?.toString(), key)) {
+        let date = new Date(key);
+        if (date && value.date == date)
+          // console.log(value.date)
+          // console.log(value.date?.toString())
+          // console.log(value.date?.toString().includes(key))
+          // console.log(value.date?.toString().includes(key))
+          addSearchItem(value.date.toString(), value.url);
+      }
+      if (_res_list.length > 5) {
+        addSearchItem("...", "");
+        break;
+      }
+    }
+    console.log(_res_list);
+  }
+
+  function existKey(search: string, key: string): boolean {
+    if (search && search.toLowerCase().includes(key.toLowerCase())) {
+      return true;
+    }
+    return false;
+  }
+
+  function addSearchItem(value: string, url: string) {
+    _res_list.push({
+      result: value,
+      url: url,
+    });
   }
 </script>
 
@@ -39,4 +92,3 @@
     </svg>
   </button>
 </div>
-

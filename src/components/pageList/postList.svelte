@@ -37,7 +37,7 @@
     <br />
     <div class="row relative table lg:flex justify-between ">
       <div class="order-2">
-        <Searchbar />
+        <Searchbar content_list={_content_list} />
       </div>
       <h1 class="page-heading capitalize order-1">Article List</h1>
 
