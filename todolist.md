@@ -31,7 +31,7 @@ or
 + []highlight js
 + [x]搜索0的时候加反馈
 + []搜索的2级页
-+ []压缩md file
++ [x]压缩md file
 + []terminal matrix
 
 ### ref

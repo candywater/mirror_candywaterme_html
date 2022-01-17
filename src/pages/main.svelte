@@ -24,7 +24,7 @@
   export let firstTimeShow: boolean;
 
   const DEFAULT_QUOTE: string[] = ["happy a new day!"];
-  const DEFAULT_QUOTE_URL: string = "/doc/index/index_quote.md";
+  const DEFAULT_QUOTE_URL: string = "/doc/_info/index_quote.json";
 
   let quote: string = "";
 
@@ -74,8 +74,8 @@
   async function fetchQuote(url: string) {
     let result = await fetch(url);
     if (result.ok) {
-      let text = await result.text();
-      quote_list = splitSerifs(text);
+      quote_list = await result.json();
+      // quote_list = splitSerifs(text);
     }
   }
 </script>
