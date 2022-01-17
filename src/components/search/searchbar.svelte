@@ -4,7 +4,7 @@
 
   export let content_list: IPostSummary[];
 
-  const SEARCH_NO_ITEM : string = "There is no item to display";
+  const SEARCH_NO_ITEM : string = "No Result";
 
   let _res_list: IResultItem[] = [];
   let _width: number;
@@ -48,7 +48,7 @@
         break;
       }
     }
-    if(_res_list.length == 0){
+    if(_res_list.length == 0 && key){
       addSearchItem(SEARCH_NO_ITEM, "", "")
     }
     // console.log(_res_list);
