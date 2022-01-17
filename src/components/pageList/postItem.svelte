@@ -1,5 +1,5 @@
 <script lang="ts">
-    import { FormatDateSimple } from "../../common/common";
+    import { FormatDateSimple, splitSerifs } from "../../common/common";
 
     import type { IPostSummary } from "../../interface/IPostSummary";
 
@@ -13,7 +13,20 @@
         <a class="post-link capitalize" href={post.url}>{post.title}</a>
         <p class="main-tags">description: <span>{post.summary}</span></p>
         <p class="main-tags">
-            tags: <span class="tags">{post.tags}</span>
+            tags:
+            <!-- svelte-ignore empty-block -->
+            {#if !post.tags}
+            {:else if typeof post.tags == "string"}
+                {#each post.tags.split(" ") as tag}
+                    <span class="tags">{tag}</span>
+                {/each}
+            {:else if typeof post.tags == "object"}
+                {#each post.tags as tag}
+                    <span class="tags">{tag}</span>
+                {/each}
+            {:else}
+                <span class="tags">{post.tags}</span>
+            {/if}
         </p>
     </h2>
 </li>
