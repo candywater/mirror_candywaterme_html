@@ -19,10 +19,6 @@
     if (!_search_key) _res_list = [];
   }
 
-  function onclick(params: Event) {
-    console.log(params);
-  }
-
   function search(key: string) {
     _res_list = [];
     for (const [_key, value] of Object.entries(content_list)) {
