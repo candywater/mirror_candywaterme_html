@@ -34,6 +34,7 @@ or
 + [x]压缩md file
 + []terminal matrix
 + []loading 时页面变小的问题（chrome）
++ []缩小svelte 编译时间
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
