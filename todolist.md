@@ -28,7 +28,6 @@ or
 + []search
 + []tags
 + []rss
-+ []sapper
 + []highlight js
 + [x]搜索0的时候加反馈
 + []搜索的2级页
