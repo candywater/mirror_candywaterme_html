@@ -4,18 +4,19 @@
 
   export let content_list: IPostSummary[];
 
-  const SEARCH_NO_ITEM : string = "No Result";
+  const SEARCH_NO_ITEM: string = "No Result";
 
   let _res_list: IResultItem[] = [];
   let _width: number;
+  let _search_key: string;
 
   function oninput(e: Event) {
     search((<HTMLInputElement>e.target).value);
     // console.log((<InputEvent>e).data);
   }
 
-  function onfocusout(e: Event){
-    _res_list = [];
+  function onfocusout(e: Event) {
+    if (!_search_key) _res_list = [];
   }
 
   function onclick(params: Event) {
@@ -48,8 +49,8 @@
         break;
       }
     }
-    if(_res_list.length == 0 && key){
-      addSearchItem(SEARCH_NO_ITEM, "", "")
+    if (_res_list.length == 0 && key) {
+      addSearchItem(SEARCH_NO_ITEM, "", "");
     }
     // console.log(_res_list);
   }
@@ -89,6 +90,7 @@
     on:input={oninput}
     on:focus={oninput}
     on:focusout={onfocusout}
+    bind:value={_search_key}
   />
   <button type="submit" class="absolute right-0 top-0 mt-5 mr-4">
     <svg
