@@ -44,14 +44,14 @@
     </div>
 
     {#if _content_list}
-      <Pagination content_list={_content_list}>
+      <!-- <Pagination content_list={_content_list}>
         {#each _content_list as post, i}
           {#if i >= $current_page_number * DEFAULT_NUMBER_PER_PAGE && i < ($current_page_number + 1) * DEFAULT_NUMBER_PER_PAGE}
             <PostItem {post} />
           {/if}
         {/each}
       </Pagination>
-    {:else}
+    {:else} -->
       <SpinnerFacebook />
     {/if}
   </div>

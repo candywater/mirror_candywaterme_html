@@ -197,8 +197,8 @@ xl	1280px	@media (min-width: 1280px) { ... }
 
     @include media-query-min($on-laptop) {
       // max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit}));
-      max-width: calc(#{$content-width} - (#{$spacing-unit}));
-      // width: calc(#{$content-width} - (#{$spacing-unit}));
+      // max-width: calc(#{$content-width} - (#{$spacing-unit}));
+      width: calc(#{$content-width} - (#{$spacing-unit}));
       margin-right: auto;
       margin-left: auto;
       padding-right: $spacing-unit;
