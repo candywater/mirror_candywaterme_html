@@ -16,6 +16,10 @@
   firstTimeShow = false;
 </script>
 
+<svelte:head>
+  <title>Essay</title>
+</svelte:head>
+
 {#if firstTimeShow}
   <Main
     {quote_url}
