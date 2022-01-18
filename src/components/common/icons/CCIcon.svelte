@@ -1,15 +1,15 @@
 <script lang="ts">
-    import CcByNcSaIcon from "./CCByNcSaIcon.svelte";
-    import CcByIcon from "./CCByIcon.svelte";
-    import CcByNcIcon from "./CCByNcIcon.svelte";
+  import CcByNcSaIcon from "./CCByNcSaIcon.svelte";
+  import CcByIcon from "./CCByIcon.svelte";
+  import CcByNcIcon from "./CCByNcIcon.svelte";
 
-    import { ESSAY, path, TECH } from "../../../config/path";
+  import { ESSAY, path, TECH } from "../../../config/path";
 </script>
 
 {#if $path == ESSAY}
-    <CcByNcSaIcon />
+  <CcByNcSaIcon />
 {:else if $path == TECH}
-    <CcByIcon />
+  <CcByIcon />
 {:else}
-    <CcByNcIcon />
+  <CcByNcIcon />
 {/if}

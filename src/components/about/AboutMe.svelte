@@ -43,7 +43,8 @@
       src="/assets/logos/cc/by_nc_sa_4.0.png"
     /></a
   >
-  for arts. Click <a class="underline" href={"#"} on:click={onImgClick}> Here </a> For More.
+  for arts. Click
+  <a class="underline" href={"#"} on:click={onImgClick}> Here </a> For More.
 </div>
 
 {#if show_quote}

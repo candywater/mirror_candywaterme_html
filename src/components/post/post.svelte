@@ -51,7 +51,7 @@
     {:else}
       <Spinner />
     {/if}
-    <slot></slot>
+    <slot />
     <br />
     <CcIcon />
     <br />

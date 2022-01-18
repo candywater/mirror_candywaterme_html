@@ -40,7 +40,6 @@
         <Searchbar content_list={_content_list} />
       </div>
       <h1 class="page-heading capitalize order-1">Article List</h1>
-
     </div>
 
     {#if _content_list}
@@ -58,7 +57,7 @@
 </div>
 
 <style lang="scss">
-  .page-heading{
+  .page-heading {
     padding-top: 0.75rem;
   }
 </style>

@@ -6,9 +6,11 @@ import { extractYaml, yamlParse } from "./yamlParse";
 let _index_list: string[] = [];
 let _content_list: IPostSummary[] = [];
 
-export async function markDown
-  (docurl: string, indexUrl: string, contentUrl: string)
-  : Promise<{ header: IPostHeader, renderedContent: string }> {
+export async function markDown(
+  docurl: string,
+  indexUrl: string,
+  contentUrl: string
+): Promise<{ header: IPostHeader; renderedContent: string }> {
   if (!docurl) return;
   // console.log(docurl)
   let content: string = await (await fetch(docurl)).text();
@@ -20,10 +22,14 @@ export async function markDown
   let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
   let renderedContent = markdownParse(markdownContent);
 
-  return { header, renderedContent }
+  return { header, renderedContent };
 }
 
-async function fetchData(docurl: string, indexUrl: string, contentUrl: string) : Promise<IPostSummary> {
+async function fetchData(
+  docurl: string,
+  indexUrl: string,
+  contentUrl: string
+): Promise<IPostSummary> {
   let index_content = await (await fetch(indexUrl)).text();
   _index_list = index_content.split(/[\n]/g);
   _content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();

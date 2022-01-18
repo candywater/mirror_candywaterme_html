@@ -1,4 +1,6 @@
-<div class="fake-panel-comment text-center text-lg capitalize underline underline-offset-8 shadow-inner">
+<div
+  class="fake-panel-comment text-center text-lg capitalize underline underline-offset-8 shadow-inner"
+>
   comment service is not available.
 </div>
 

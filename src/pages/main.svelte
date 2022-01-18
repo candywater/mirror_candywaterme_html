@@ -110,7 +110,6 @@
             exactClose={() => {
               $show_config_panel = false;
             }}
-            
           />
         </div>
       {/if}

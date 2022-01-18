@@ -1,18 +1,18 @@
 <script lang="ts">
-    import MainMenu from "../components/main/MainMenu.svelte";
+  import MainMenu from "../components/main/MainMenu.svelte";
 </script>
 
 <div class="main-menu-layout">
-    <div class="main-menu animated fadeIn flex-none">
-        <MainMenu />
-    </div>
-    <div class="flex-initial">
-        <slot />
-    </div>
+  <div class="main-menu animated fadeIn flex-none">
+    <MainMenu />
+  </div>
+  <div class="flex-initial">
+    <slot />
+  </div>
 </div>
 
 <style lang="scss">
-    /**
+  /**
   16:9
   640x360
   1280x720
@@ -23,29 +23,29 @@
   2560x4110
   3840x2160
   */
-    //   $size0: 0px;
-    //     $size1: 576px;
-    //     $size2: 768px;
-    //     $size3: 992px;
-    //     $size4: 1200px;
-    //     $size5: 1700px;
-    //     $size6: 2200px;
-    //     $size7: 2700px;
+  //   $size0: 0px;
+  //     $size1: 576px;
+  //     $size2: 768px;
+  //     $size3: 992px;
+  //     $size4: 1200px;
+  //     $size5: 1700px;
+  //     $size6: 2200px;
+  //     $size7: 2700px;
 
+  .main-menu {
+    // position: fixed;
+    display: none;
+    margin: 0.5rem;
+  }
+
+  @media (min-width: 1280px) {
     .main-menu {
-        // position: fixed;
-        display: none;
-        margin: 0.5rem;
+      // right: 25px;
+      display: block;
     }
-
-    @media (min-width: 1280px) {
-        .main-menu {
-            // right: 25px;
-            display: block;
-        }
-        .main-menu-layout {
-            justify-content: center;
-            display: flex
-        }
+    .main-menu-layout {
+      justify-content: center;
+      display: flex;
     }
+  }
 </style>
