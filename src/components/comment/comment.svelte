@@ -159,10 +159,9 @@
    * check input data
    * @param {string} comment
    * @param {string} username
-   * @param {string} useremail
    * @private
    */
-  function input_check(comment, username, useremail) {
+  function input_check(comment: string, username: string) {
     if (comment.length >= COMMENT_LEN_LIMIT) {
       SetAlertMsg(COMMENT_LEN_LIMIT_ERROR_MSG, 3000);
       return false;
@@ -179,10 +178,14 @@
    * @param {string} comment
    * @param {string} username
    * @param {string} useremail
-   * @returns {JSON} JSON string
+   * @returns {string} JSON string
    * @private
    */
-  function create_comment_data(comment, username, useremail): string {
+  function create_comment_data(
+    comment: string,
+    username: string,
+    useremail: string
+  ): string {
     var uri = new URL(document.URL);
     let url = uri.pathname;
     var fdata = {
@@ -221,7 +224,7 @@
    */
   function when_post_finish(data: string) {
     if (data == "ok") {
-      clear_comment(null);
+      clear_comment();
       SetAlertMsg(POST_SUCCESS_MSG, 3000);
       var comments = document.querySelector("#comments");
       //http://youmightnotneedjquery.com/
@@ -242,7 +245,7 @@
    * @param {string} str
    * @param {Number} lasttime ms
    */
-  function SetAlertMsg(str = "", lasttime = 3000) {
+  function SetAlertMsg(str: string = "", lasttime: number = 3000) {
     _message_box_msg = str;
     if (str && lasttime > 0)
       setTimeout(() => {
@@ -250,12 +253,12 @@
       }, lasttime);
   }
 
-  function clear_comment(e: MouseEvent) {
+  function clear_comment() {
     _comment_text_revert = _comment_text;
     _comment_text = "";
   }
 
-  function revert_comment(e: MouseEvent) {
+  function revert_comment() {
     _comment_text = _comment_text_revert;
     _comment_text_revert = "";
   }

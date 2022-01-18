@@ -15,7 +15,7 @@
     // console.log((<InputEvent>e).data);
   }
 
-  function onfocusout(e: Event) {
+  function onfocusout() {
     if (!_search_key) _res_list = [];
   }
 
@@ -109,7 +109,7 @@
     </svg>
   </button>
   <div class="table absolute bg-slate-200 w-fit" style={`width: ${_width}px;`}>
-    {#each _res_list as item, i}
+    {#each _res_list as item}
       <ul>
         <li>
           <a href={item.url}>{item.title}</a>

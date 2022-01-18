@@ -48,7 +48,7 @@
   let firstTimeShow: boolean = false;
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
-    page(pagepath, (ctx) => {
+    page(pagepath, (ctx: any) => {
       // console.log('=====ctx===========')
       // for (const [key, value] of Object.entries(ctx)) {
       //   console.log(`${key}: ${value}`);

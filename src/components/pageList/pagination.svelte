@@ -1,7 +1,6 @@
 <script lang="ts">
   import type { IPostSummary } from "../../interface/IPostSummary";
 
-  import PostItem from "./postItem.svelte";
   import {
     current_page_number,
     DEFAULT_NUMBER_PER_PAGE,

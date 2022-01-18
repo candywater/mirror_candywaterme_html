@@ -6,8 +6,6 @@
     PROJECT_PATH,
     ABOUT_PATH,
     INDEX_PATH,
-    path,
-    ESSAY,
   } from "../../config/path";
 
   const basicstyle = "text-white rounded shadow"; //  = "border border-light-blue-500 border-opacity-5"

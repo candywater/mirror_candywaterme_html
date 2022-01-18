@@ -21,7 +21,7 @@
   // var contentNumberPerPage = default_number_per_page;
 
   // todo: only from main/about/project will have anime
-  const animation: string = "animated fadeIn";
+  // const animation: string = "animated fadeIn";
 
   onMount(async () => {
     if (!docListUrl) {

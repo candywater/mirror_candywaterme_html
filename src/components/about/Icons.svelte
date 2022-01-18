@@ -156,25 +156,25 @@ Copyright (c) 2018 B.C.Rikko <https://github.com/BcRikko>
     transform: scale(2);
     transform-origin: top left;
 
-    &.is-small {
-      margin: 0;
-      // 1px
-      transform: scale(1);
-    }
+    // &.is-small {
+    //   margin: 0;
+    //   // 1px
+    //   transform: scale(1);
+    // }
 
-    &.is-medium {
-      margin-right: $icon-size * 2;
-      margin-bottom: $icon-size * 2;
-      // 3px
-      transform: scale(3);
-    }
+    // &.is-medium {
+    //   margin-right: $icon-size * 2;
+    //   margin-bottom: $icon-size * 2;
+    //   // 3px
+    //   transform: scale(3);
+    // }
 
-    &.is-large {
-      margin-right: $icon-size * 3;
-      margin-bottom: $icon-size * 3;
-      // 4px
-      transform: scale(4);
-    }
+    // &.is-large {
+    //   margin-right: $icon-size * 3;
+    //   margin-bottom: $icon-size * 3;
+    //   // 4px
+    //   transform: scale(4);
+    // }
 
     &::before {
       position: absolute;

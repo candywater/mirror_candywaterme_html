@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { FormatDateSimple, splitSerifs } from "../../common/common";
+  import { FormatDateSimple } from "../../common/common";
 
   import type { IPostSummary } from "../../interface/IPostSummary";
 

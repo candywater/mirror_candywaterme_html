@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ISiteInfo } from "../../interface/ISiteInfo";
+  import type { ISiteInfo } from "../../interface/ISiteInfo";
 
   export let site: ISiteInfo;
 </script>

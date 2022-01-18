@@ -1,5 +1,5 @@
 <script lang="ts">
-  const animation = "animated jello";
+  // const animation = "animated jello";
 </script>
 
 <p class={"copyleft "}>
