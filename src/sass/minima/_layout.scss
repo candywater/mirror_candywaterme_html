@@ -262,12 +262,19 @@
     h4,
     h5,
     h6 {
-      text-decoration-line: underline;
-      text-decoration-color: #3f3f46;
-      text-decoration-style: wavy;
-      // text-decoration-style: solid;
-      text-decoration-thickness: 2px;
+      // text-decoration-line: underline;
+      // text-decoration-color: #3f3f46;
+      // text-decoration-style: wavy;
+      // // text-decoration-style: solid;
+      // text-decoration-thickness: 2px;
       text-transform: capitalize;
+      span{
+        background-color: rgb(228 228 231);
+        // padding: 1px ;
+        // border-style: solid;
+        box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+        // --tw-shadow-color: #fb923c;
+      }
     }
   }
 
