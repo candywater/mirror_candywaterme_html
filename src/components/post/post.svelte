@@ -45,7 +45,7 @@
   </header>
   <hr />
 
-  <div class="page-content">
+  <div class="post-content">
     {#if _renderedContent}
       {@html _renderedContent}
     {:else}
