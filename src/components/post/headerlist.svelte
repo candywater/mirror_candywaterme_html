@@ -20,9 +20,17 @@
 
 <div class="headernav mt-1">
     {#await headerList then headerList}
+        <ul class="list-disc">
             {#each headerList as headerPair}
-                <a class="before:content-['\270E'] mr-2 border pl-1 pr-1" href={"#" + escapedText(headerPair.text)}>{headerPair.text}</a>
+                <li>
+                    <a
+                        class="before:content-['\270E'] mr-2 border pl-1 pr-1"
+                        href={"#" + escapedText(headerPair.text)}
+                        >{" " + headerPair.text}</a
+                    >
+                </li>
             {/each}
+        </ul>
     {/await}
 </div>
 
