@@ -1,6 +1,7 @@
+import type { IHeaderPair } from "../../interface/IHeaderPair";
 import type { IPostHeader } from "../../interface/IPostHeader";
 import type { IPostSummary } from "../../interface/IPostSummary";
-import { markdownParse } from "./markdownParse";
+import { markdownParse ,HeaderList} from "./markdownParse";
 import { extractYaml, yamlParse } from "./yamlParse";
 
 let _index_list: string[] = [];
@@ -10,7 +11,7 @@ export async function markDown(
   docurl: string,
   indexUrl: string,
   contentUrl: string
-): Promise<{ header: IPostHeader; renderedContent: string }> {
+): Promise<{ header: IPostHeader; renderedContent: string ; headerList: IHeaderPair[]}> {
   if (!docurl) return;
   // console.log(docurl)
   let content: string = await (await fetch(docurl)).text();
@@ -22,7 +23,7 @@ export async function markDown(
   let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
   let renderedContent = markdownParse(markdownContent);
 
-  return { header, renderedContent };
+  return { header, renderedContent, headerList: HeaderList};
 }
 
 async function fetchData(

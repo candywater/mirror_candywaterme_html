@@ -7,6 +7,8 @@
   import Comment from "../comment/comment.svelte";
   import Spinner from "../common/icons/Spinner.svelte";
   import CcIcon from "../common/icons/CCIcon.svelte";
+  import Headerlist from "./headerlist.svelte";
+  import type { IHeaderPair } from "../../interface/IHeaderPair";
 
   export let docUrl: string;
   export let indexUrl: string;
@@ -14,11 +16,13 @@
 
   let _renderedContent: string;
   let _header: IPostHeader;
+  let _header_list: IHeaderPair[] = [];
 
   onMount(async () => {
     let res = await markDown(docUrl, indexUrl, contentUrl);
     _header = res.header;
     _renderedContent = res.renderedContent;
+    _header_list = res.headerList;
   });
 </script>
 
@@ -41,6 +45,8 @@
           {FormatDate(_header?.date)}
         {/if}
       </time>
+
+      <Headerlist headerList={_header_list} />
     </p>
   </header>
   <hr />
