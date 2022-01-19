@@ -255,6 +255,20 @@
         @include relative-font-size(1.125);
       }
     }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      text-decoration-line: underline;
+      text-decoration-color: #3f3f46;
+      text-decoration-style: wavy;
+      // text-decoration-style: solid;
+      text-decoration-thickness: 2px;
+      text-transform: capitalize;
+    }
   }
 
   .main-tags {
