@@ -34,10 +34,12 @@ or
 + [x]压缩md file
 + []terminal matrix
 + []loading 时页面变小的问题（chrome）
-+ []缩小svelte 编译时间
++ [x]缩小svelte 编译时间
 + []gRPC
 + []comment server(rust)
 + []image do not download server
++ []add test/jest etc
++ []pagination
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
