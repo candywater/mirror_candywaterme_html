@@ -1,4 +1,4 @@
-User-agent: Googlebot, bingbot, msnbot, Baiduspider
+User-agent: Googlebot, bingbot, Baiduspider
 Disallow: /assets/
 Allow: /blog/tech/
 Allow: /blog/essay/
