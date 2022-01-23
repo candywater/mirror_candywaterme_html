@@ -1,86 +1,177 @@
 <script lang="ts">
-
-// this file is not used yet.
+    // this file is not used yet.
 
     import { Howl, Howler } from "howler";
     import { onMount } from "svelte";
+    import { each } from "svelte/internal";
+    import A4 from "../../errorpages/404.svelte";
 
     export let bgm_list: string[];
-    let _bgm_list: string[];
-    let _sound : Howl = new Howl();
+    let _sound: Howl;
+
+    let _now_playing: string;
+    let _play_index: number;
 
     const music_prefix = "/doc/music/";
 
     onMount(() => {
-        bgm_list.forEach((element) => {
-            _bgm_list.push(music_prefix + element);
-        });
         _sound = new Howl({
-            src: _bgm_list,
+            src: bgm_list,
             html5: true,
             volume: 0.5,
             onend: function () {
                 console.log("Finished!");
             },
         });
+        console.log(bgm_list);
     });
 
     function onplay() {
         _sound.play();
     }
-
 </script>
 
-<div class="w-full">
-    <div class="h-2 bg-red-light"></div>
-      <div class="flex items-center justify-center h-screen bg-red-lightest">
-          <div class="bg-white shadow-lg rounded-lg" style="width: 45rem !important;">
-              <div class="flex">
-                  <div>
-                      <img class="w-full rounded hidden md:block" src="https://tailwindcss.com/img/card-top.jpg" alt="Album Pic">
-                  </div>
-                  <div class="w-full p-8">
-                      <div class="flex justify-between">
-                          <div>
-                              <h3 class="text-2xl text-grey-darkest font-medium">A Sky Full of Stars</h3>
-                              <p class="text-sm text-grey mt-1">Ghost Stories</p>
-                          </div>
-                          <div class="text-red-lighter">
-                              <svg class="w-6 h-6" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M10 3.22l-.61-.6a5.5 5.5 0 0 0-7.78 7.77L10 18.78l8.39-8.4a5.5 5.5 0 0 0-7.78-7.77l-.61.61z"/></svg>
-                          </div>
-                      </div>
-                      <div class="flex justify-between items-center mt-8">
-                          <div class="text-grey-darker">
-                              <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M6.59 12.83L4.4 15c-.58.58-1.59 1-2.4 1H0v-2h2c.29 0 .8-.2 1-.41l2.17-2.18 1.42 1.42zM16 4V1l4 4-4 4V6h-2c-.29 0-.8.2-1 .41l-2.17 2.18L9.4 7.17 11.6 5c.58-.58 1.59-1 2.41-1h2zm0 10v-3l4 4-4 4v-3h-2c-.82 0-1.83-.42-2.41-1l-8.6-8.59C2.8 6.21 2.3 6 2 6H0V4h2c.82 0 1.83.42 2.41 1l8.6 8.59c.2.2.7.41.99.41h2z"/></svg>
-                          </div>
-                          <div class="text-grey-darker">
-                              <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M4 5h3v10H4V5zm12 0v10l-9-5 9-5z"/></svg>
-                          </div>
-                          <div class="text-white p-8 rounded-full bg-red-light shadow-lg">
-                              <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 4h3v12H5V4zm7 0h3v12h-3V4z"/></svg>
-                          </div>
-                          <div class="text-grey-darker">
-                              <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M13 5h3v10h-3V5zM4 5l9 5-9 5V5z"/></svg>
-                          </div>
-                          <div class="text-grey-darker">
-                              <svg class="w-8 h-8" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M5 4a2 2 0 0 0-2 2v6H0l4 4 4-4H5V6h7l2-2H5zm10 4h-3l4-4 4 4h-3v6a2 2 0 0 1-2 2H6l2-2h7V8z"/></svg>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <div class="mx-8 py-4">
-                  <div class="flex justify-between text-sm text-grey-darker">
-                      <p>0:40</p>
-                      <p>4:20</p>
-                  </div>
-                  <div class="mt-1">
-                      <div class="h-1 bg-grey-dark rounded-full">
-                          <div class="w-1/5 h-1 bg-red-light rounded-full relative">
-                              <span class="w-4 h-4 bg-red absolute pin-r pin-b -mb-1 rounded-full shadow"></span>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+<!-- This is an example component -->
+<div class="w-full player">
+    <div
+        class="flex w-8/12  bg-white shadow-md rounded-lg overflow-hidden mx-auto"
+    >
+        <div class="flex flex-col w-full">
+            <div class="flex p-5 border-b">
+                <!-- <img class='w-20 h-20 object-cover' alt='User avatar' src='https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200'> -->
+                <div class="flex flex-col px-2 w-full">
+                    <span class="text-xs text-gray-700 uppercase font-medium ">
+                        now playing
+                    </span>
+                    <span
+                        class="text-sm text-red-500 capitalize font-semibold pt-1"
+                    >
+                        {_now_playing ? _now_playing : ""}
+                    </span>
+                    <span class="text-xs text-gray-500 uppercase font-medium ">
+                        {_now_playing ? _now_playing : ""}
+                    </span>
+                    <div class="flex justify-end">
+                        <!-- <img class="w-5 cursor-pointer" src="https://www.iconpacks.net/icons/2/free-favourite-icon-2765-thumb.png" />
+                        <img class="w-5 cursor-pointer mx-2" src="https://www.iconpacks.net/icons/2/free-favourite-icon-2765-thumb.png" />
+                        <img class="w-5 cursor-pointer" src="https://www.iconpacks.net/icons/2/free-favourite-icon-2765-thumb.png" /> -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row items-center p-5">
+                <div class="flex items-center">
+                    <div class="flex space-x-3 p-2">
+                        <button class="focus:outline-none">
+                            <svg
+                                class="w-4 h-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#ef4444"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><polygon points="19 20 9 12 19 4 19 20" /><line
+                                    x1="5"
+                                    y1="19"
+                                    x2="5"
+                                    y2="5"
+                                /></svg
+                            >
+                        </button>
+                        <button
+                            class="rounded-full w-10 h-10 flex items-center justify-center pl-0.5 ring-1 ring-red-400 focus:outline-none"
+                        >
+                            <svg
+                                class="w-5 h-5"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#ef4444"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><polygon points="5 3 19 12 5 21 5 3" /></svg
+                            >
+                        </button>
+                        <button class="focus:outline-none">
+                            <svg
+                                class="w-4 h-4"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#ef4444"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                ><polygon points="5 4 15 12 5 20 5 4" /><line
+                                    x1="19"
+                                    y1="5"
+                                    x2="19"
+                                    y2="19"
+                                /></svg
+                            >
+                        </button>
+                    </div>
+                </div>
+                <div class="relative w-full sm:w-1/2 md:w-7/12 lg:w-4/6 ml-2">
+                    <div class="bg-red-300 h-2 w-full rounded-lg" />
+                    <div
+                        class="bg-red-500 h-2 w-1/2 rounded-lg absolute top-0"
+                    />
+                </div>
+                <div class="flex justify-end w-full sm:w-auto pt-1 sm:pt-0">
+                    <span
+                        class="text-xs text-gray-700 uppercase font-medium pl-2"
+                    >
+                        02:00/04:00
+                    </span>
+                </div>
+            </div>
+
+            <div class="flex flex-col p-5">
+                <div
+                    class="border-b pb-1 flex justify-between items-center mb-2"
+                >
+                    <span
+                        class=" text-base font-semibold uppercase text-gray-700"
+                    >
+                        play list</span
+                    >
+                    <!-- <img
+                        class="w-4 cursor-pointer"
+                        src="https://p.kindpng.com/picc/s/152-1529312_filter-ios-filter-icon-png-transparent-png.png"
+                    /> -->
+                    <!-- <img
+                        class="w-4 cursor-pointer"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAHklEQVQ4T2NkoBAwUqifYdQAhtEwACai0XQwGMIAACaYABGnE9aRAAAAAElFTkSuQmCC"
+                    /> -->
+                </div>
+
+                {#each bgm_list as bgm_url}
+                    <div
+                        class="flex border-b py-3 cursor-pointer hover:shadow-md px-2 "
+                    >
+                        <!-- <img class='w-10 h-10 object-cover rounded-lg' alt='User avatar' src='https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200'> -->
+
+                        <div class="flex flex-col px-2 w-full">
+                            <!-- <span
+                                class="text-sm text-red-500 capitalize font-semibold pt-1"
+                            >
+                                {bgm_url.replace(/\..{1,4}$/, "")}
+                            </span> -->
+                            <span
+                                class="text-xs text-gray-500 uppercase font-medium "
+                            >
+                                {bgm_url.replace(/\..{1,4}$/, "")}
+                            </span>
+                        </div>
+                    </div>
+                {/each}
+            </div>
+        </div>
+    </div>
+</div>
+<style lang="scss">
+    .player {
+        margin: .5rem 0rem;
+    }
+</style>
