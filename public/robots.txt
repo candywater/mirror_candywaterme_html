@@ -1,7 +1,6 @@
 User-agent: *
 Disallow: /assets/
-Disallow: /lib/
-Disallow: /project/9yin/
-Disallow: /blog_build/
-Allow: /blog/
+Allow: /blog/tech/
+Allow: /blog/essay/
 Allow: /project/
+Allow: /about/

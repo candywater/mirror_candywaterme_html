@@ -8,23 +8,23 @@
 <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
 <url>
-  <loc>http://candy-water.com/</loc>
+  <loc>https://candy-water.com/</loc>
   <changefreq>yearly</changefreq>
 </url>
 <url>
-  <loc>http://candy-water.com/about</loc>
+  <loc>https://candy-water.com/about</loc>
   <changefreq>yearly</changefreq>
 </url>
 <url>
-  <loc>http://candy-water.com/blog/tech_blog/</loc>
+  <loc>https://candy-water.com/blog/tech/</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://candy-water.com/blog/essay_blog/</loc>
+  <loc>https://candy-water.com/blog/essay/</loc>
   <changefreq>weekly</changefreq>
 </url>
 <url>
-  <loc>http://candy-water.com/project</loc>
+  <loc>https://candy-water.com/project</loc>
   <changefreq>monthly</changefreq>
 </url>
 </urlset>
