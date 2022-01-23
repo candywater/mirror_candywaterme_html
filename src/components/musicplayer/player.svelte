@@ -1,4 +1,7 @@
 <script lang="ts">
+
+// this file is not used yet.
+
     import { Howl, Howler } from "howler";
     import { onMount } from "svelte";
 
@@ -25,5 +28,5 @@
     function onplay() {
         _sound.play();
     }
-    
+
 </script>
