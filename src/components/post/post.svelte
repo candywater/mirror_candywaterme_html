@@ -27,7 +27,7 @@
 </script>
 
 <svelte:head>
-  <title>{_header?.title}</title>
+  <title>{_header ? _header.title : "欢迎━(*｀∀´*)ノ亻!"}</title>
 </svelte:head>
 
 <article class="post">
