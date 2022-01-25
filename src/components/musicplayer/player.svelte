@@ -3,7 +3,7 @@
 
     import { Howl, Howler } from "howler";
     import { onMount } from "svelte";
-    import { each } from "svelte/internal";
+    import { each, element } from "svelte/internal";
     import A4 from "../../errorpages/404.svelte";
 
     export let bgm_list: string[];
@@ -15,6 +15,11 @@
     const music_prefix = "/doc/music/";
 
     onMount(() => {
+        bgm_list = bgm_list.map((element) => {
+            return music_prefix + element;
+        });
+
+        console.log(bgm_list);
         _sound = new Howl({
             src: bgm_list,
             html5: true,
@@ -23,7 +28,7 @@
                 console.log("Finished!");
             },
         });
-        console.log(bgm_list);
+        // console.log(bgm_list);
     });
 
     function onplay() {
@@ -81,6 +86,7 @@
                         </button>
                         <button
                             class="rounded-full w-10 h-10 flex items-center justify-center pl-0.5 ring-1 ring-red-400 focus:outline-none"
+                            on:click={onplay}
                         >
                             <svg
                                 class="w-5 h-5"
@@ -126,8 +132,8 @@
                     </span>
                 </div>
             </div>
-
-            <div class="flex flex-col p-5">
+            <!-- playlist -->
+            <div class="flex flex-col p-1 ">
                 <div
                     class="border-b pb-1 flex justify-between items-center mb-2"
                 >
@@ -148,11 +154,11 @@
 
                 {#each bgm_list as bgm_url}
                     <div
-                        class="flex border-b py-3 cursor-pointer hover:shadow-md px-2 "
+                        class="flex border-b py-1 cursor-pointer hover:shadow-md "
                     >
                         <!-- <img class='w-10 h-10 object-cover rounded-lg' alt='User avatar' src='https://images.unsplash.com/photo-1477118476589-bff2c5c4cfbb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=200&q=200'> -->
 
-                        <div class="flex flex-col px-2 w-full">
+                        <div class="flex flex-col w-full">
                             <!-- <span
                                 class="text-sm text-red-500 capitalize font-semibold pt-1"
                             >
@@ -170,8 +176,9 @@
         </div>
     </div>
 </div>
+
 <style lang="scss">
     .player {
-        margin: .5rem 0rem;
+        margin: 0.5rem 0rem;
     }
 </style>

@@ -9,7 +9,7 @@
   import CcIcon from "../common/icons/CCIcon.svelte";
   import Headerlist from "./headerlist.svelte";
   import type { IHeaderPair } from "../../interface/IHeaderPair";
-import Player from "../musicplayer/player.svelte";
+  import Player from "../musicplayer/player.svelte";
 
   export let docUrl: string;
   export let indexUrl: string;
@@ -54,7 +54,7 @@ import Player from "../musicplayer/player.svelte";
 
   <div class="post-content">
     {#if _header?.bgm}
-      <Player bgm_list={_header.bgm}></Player>
+      <Player bgm_list={_header.bgm} />
     {/if}
     {#if _renderedContent}
       {@html _renderedContent}

@@ -14,7 +14,9 @@ export async function markDown(
 ): Promise<{ header: IPostHeader; renderedContent: string ; headerList: IHeaderPair[]}> {
   if (!docurl) return;
   // console.log(docurl)
-  let content: string = await (await fetch(docurl)).text();
+  let res = await fetch(docurl)
+  if(!res.ok) return;
+  let content: string = await res.text();
 
   let yamlContent = extractYaml(content);
   // _header = yamlParse(yamlContent);
@@ -31,7 +33,9 @@ async function fetchData(
   indexUrl: string,
   contentUrl: string
 ): Promise<IPostSummary> {
-  let index_content = await (await fetch(indexUrl)).text();
+  let res = await fetch(indexUrl)
+  if(!res.ok) return null;
+  let index_content = await res.text();
   _index_list = index_content.split(/[\n]/g);
   _content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
 
