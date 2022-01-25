@@ -21,6 +21,7 @@
 
   onMount(async () => {
     let res = await markDown(docUrl, indexUrl, contentUrl);
+    if(!res) return;
     _header = res.header;
     _renderedContent = res.renderedContent;
     _header_list = res.headerList;
