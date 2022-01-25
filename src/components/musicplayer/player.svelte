@@ -1,10 +1,8 @@
 <script lang="ts">
     // this file is not used yet.
 
-    import { Howl, Howler } from "howler";
-    import { onMount } from "svelte";
-    import { each, element } from "svelte/internal";
-    import A4 from "../../errorpages/404.svelte";
+    // import { Howl, Howler } from "howler";
+    // import { onMount } from "svelte";
 
     export let bgm_list: string[];
     let _sound: Howl;
@@ -14,7 +12,7 @@
 
     const music_prefix = "/doc/music/";
 
-    onMount(() => {
+    let initializeHowl = () => {
         bgm_list = bgm_list.map((element) => {
             return music_prefix + element;
         });
@@ -29,13 +27,20 @@
             },
         });
         // console.log(bgm_list);
-    });
+    };
 
     function onplay() {
         _sound.play();
     }
 </script>
 
+<svelte:head>
+    <script
+        src="https://cdn.jsdelivr.net/npm/howler@2.2.3/dist/howler.min.js"
+        integrity="sha256-D+v9meJzO2kOysLcNsgohfWBprXHO2WJWJj/hUhBX1s="
+        crossorigin="anonymous"
+        on:load={initializeHowl}></script>
+</svelte:head>
 <!-- This is an example component -->
 <div class="w-full player">
     <div
