@@ -34,7 +34,6 @@ async function fetchData(
   contentUrl: string
 ): Promise<IPostSummary> {
   let res = await fetch(indexUrl)
-  if(!res.ok) return null;
   let index_content = await res.text();
   _index_list = index_content.split(/[\n]/g);
   _content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
