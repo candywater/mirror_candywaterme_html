@@ -15,7 +15,7 @@ export async function markDown(
   if (!docurl) return;
   // console.log(docurl)
   let res = await fetch(docurl)
-  // if(!res.ok) return;
+  if(!res.ok) return;
   let content: string = await res.text();
 
   let yamlContent = extractYaml(content);
@@ -34,6 +34,7 @@ async function fetchData(
   contentUrl: string
 ): Promise<IPostSummary> {
   let res = await fetch(indexUrl)
+  if(!res.ok) return;
   let index_content = await res.text();
   _index_list = index_content.split(/[\n]/g);
   _content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
