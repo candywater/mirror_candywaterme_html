@@ -15,7 +15,7 @@ export async function markDown(
   if (!docurl) return;
   // console.log(docurl)
   let res = await fetch(docurl)
-  if(!res.ok) return;
+  // if(!res.ok) return;
   let content: string = await res.text();
 
   let yamlContent = extractYaml(content);
