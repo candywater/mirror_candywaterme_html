@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "dev:win": "yarn run dev:tailwind:win && rollup -c -w",
+    "dev:win": "rollup -c -w",
     "start": "sirv public --single",
     "build:tailwind": "NODE_ENV=production npx postcss node_modules/tailwindcss/dist/tailwind.css -o public/build/tailwind/tailwind.css",
     "dev:tailwind": "cp node_modules/tailwindcss/dist/tailwind.css public/build/tailwind/tailwind.css",

@@ -69,4 +69,15 @@
   </div>
   <hr id="comment_hr" />
   <Comment />
+
+  <a href={location.href} on:click={()=>{document.body.scrollIntoView();}} class="postarrow">↑</a>
 </article>
+<style>
+  .postarrow{
+    position: fixed;
+    padding: 10px;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: white;
+  }
+</style>
