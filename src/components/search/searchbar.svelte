@@ -21,6 +21,8 @@
   }
 
   function onfocusout() {
+    // to avoid cannot jump issue
+    if(_search_key) return;
     _res_list = [];
   }
 
