@@ -11,12 +11,17 @@
   let _search_key: string;
 
   function oninput(e: Event) {
-    search((<HTMLInputElement>e.target).value);
+    // console.log((<InputEvent>e).inputType);
+    // console.log((<InputEvent>e).isComposing);
     // console.log((<InputEvent>e).data);
+    // console.log("===========");
+    if((<InputEvent>e).isComposing) return;
+    search((<HTMLInputElement>e.target).value);
+    
   }
 
   function onfocusout() {
-    if (!_search_key) _res_list = [];
+    _res_list = [];
   }
 
   function search(key: string) {
