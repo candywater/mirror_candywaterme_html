@@ -11,14 +11,19 @@
   import type { IHeaderPair } from "../../interface/IHeaderPair";
   import Player from "../musicplayer/player.svelte";
   import Footer from "./footer.svelte";
+  import Searchbar from "../search/searchbar.svelte";
+import type { IPostSummary } from "../../interface/IPostSummary";
 
   export let docUrl: string;
   export let indexUrl: string;
   export let contentUrl: string;
+  
+  let _content_list: IPostSummary[];
 
   let _renderedContent: string;
   let _header: IPostHeader;
   let _header_list: IHeaderPair[] = [];
+  
 
   onMount(async () => {
     let res = await markDown(docUrl, indexUrl, contentUrl);
@@ -26,6 +31,9 @@
     _header = res.header;
     _renderedContent = res.renderedContent;
     _header_list = res.headerList;
+
+    let fetchRes = await fetch(contentUrl);
+    _content_list = <IPostSummary[]>await fetchRes.json();
   });
 </script>
 
@@ -40,13 +48,22 @@
 
 <article class="post">
   <header class="post-header">
-    <div class="post-title">
-      <h1 class="post-title capitalize">
-        {#if _header?.title}
-          {_header?.title}
-        {/if}
-      </h1>
+
+
+    <div class="row relative table lg:flex justify-between ">
+      <div class="order-2">
+        <Searchbar content_list={_content_list} />
+      </div>
+      <!-- <h1 class="page-heading capitalize order-1">Article List</h1> -->
+      <div class="post-title">
+        <h1 class="post-title capitalize">
+          {#if _header?.title}
+            {_header?.title}
+          {/if}
+        </h1>
+      </div>
     </div>
+
     <p class="post-meta">
       <time>
         {#if _header}
