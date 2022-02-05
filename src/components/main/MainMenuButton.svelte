@@ -5,6 +5,8 @@
   export let href: string;
   export let title: string;
 
+  export let external: boolean;
+
   const animation = "animated jello";
   let anime = "";
   let underline = "";
@@ -17,9 +19,19 @@
   }
 </script>
 
-<a {href} role="button" name="button" class="btn {style} {anime} {underline}"
-  >{title}</a
->
+{#if external}
+  <a
+    {href}
+    rel="external"
+    role="button"
+    name="button"
+    class="btn {style} {anime} {underline}">{title}</a
+  >
+{:else}
+  <a {href} role="button" name="button" class="btn {style} {anime} {underline}"
+    >{title}</a
+  >
+{/if}
 
 <style lang="scss">
   .btn {

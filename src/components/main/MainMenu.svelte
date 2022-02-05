@@ -23,11 +23,11 @@
 </script>
 
 <div class="main-menu">
-  <Btn href={ESSAY_PATH} style={button_style_1} title="Essay" />
-  <Btn href={TECH_PATH} style={button_style_2} title="Tech" />
-  <Btn href={PROJECT_PATH} style={button_style_3} title="Project" />
-  <Btn href={ABOUT_PATH} style={button_style_4} title="About" />
-  <Btn href={INDEX_PATH} style={button_style_5} title="Main" />
+  <Btn external={true} href={ESSAY_PATH} style={button_style_1} title="Essay" />
+  <Btn external={true} href={TECH_PATH} style={button_style_2} title="Tech" />
+  <Btn external={false} href={PROJECT_PATH} style={button_style_3} title="Project" />
+  <Btn external={false} href={ABOUT_PATH} style={button_style_4} title="About" />
+  <Btn external={false} href={INDEX_PATH} style={button_style_5} title="Main" />
 </div>
 
 <style lang="scss">
