@@ -4,6 +4,7 @@
   import type { IPostSummary } from "../../interface/IPostSummary";
   import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
   import Pagination from "./pagination.svelte";
+  import Footer from "../post/footer.svelte";
 
   import PostItem from "./postItem.svelte";
   import {
@@ -55,6 +56,17 @@
     {/if}
   </div>
 </div>
+
+<Footer
+  site={{
+    title: "",
+    author: "candywater",
+    github_username: "candywater",
+    twitter_username: "candywater1",
+    description: "",
+    time: new Date(),
+  }}
+/>
 
 <style lang="scss">
   .page-heading {
