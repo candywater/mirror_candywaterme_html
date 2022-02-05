@@ -137,7 +137,8 @@
     {#each _res_list as item}
       <ul>
         <li>
-          <a href={item.url} target="_blank">{item.title}</a>
+          <!-- https://stackoverflow.com/questions/68159400/when-clicked-on-an-href-the-new-url-doesnt-reload-the-page-in-svelte -->
+          <a rel="external" href={item.url}>{item.title}</a>
         </li>
         <p>{item.result}</p>
       </ul>
