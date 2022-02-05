@@ -10,19 +10,35 @@
   let _width: number;
   let _search_key: string;
 
+  const isSafari = navigator.userAgent.includes("Safari/") && navigator.userAgent.includes("Version/");
+  let _is_composing: boolean = false;
+
+  /**
+   * todo: 
+   *  - https://qiita.com/darai0512/items/fac4f166c23bf2075deb
+   *  - https://blog.utgw.net/entry/2021/06/29/212256
+   * @param e
+   */
   function oninput(e: Event) {
     // console.log((<InputEvent>e).inputType);
     // console.log((<InputEvent>e).isComposing);
     // console.log((<InputEvent>e).data);
     // console.log("===========");
     if((<InputEvent>e).isComposing) return;
+    if (_is_composing) return;
     search((<HTMLInputElement>e.target).value);
-    
+  }
+
+  function onComposingStart() {
+    _is_composing = true;
+  }
+  function onComposingEnd() {
+    _is_composing = false;
   }
 
   function onfocusout() {
     // to avoid cannot jump issue
-    if(_search_key) return;
+    if (_search_key) return;
     _res_list = [];
   }
 
@@ -91,6 +107,8 @@
     name="search"
     placeholder="Search"
     on:input={oninput}
+    on:compositionstart={onComposingStart}
+    on:compositionend={onComposingEnd}
     on:focus={oninput}
     on:focusout={onfocusout}
     bind:value={_search_key}
