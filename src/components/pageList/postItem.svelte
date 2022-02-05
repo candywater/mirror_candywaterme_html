@@ -11,7 +11,7 @@
 
   <h2>
     <a class="post-link capitalize" href={post.url}>{post.title}</a>
-    <p class="main-tags">description: <span>{post.summary}</span></p>
+    <p class="main-tags"><span>{post.summary}</span></p>
     <p class="main-tags">
       tags:
       <!-- svelte-ignore empty-block -->
