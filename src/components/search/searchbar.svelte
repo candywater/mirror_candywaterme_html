@@ -138,7 +138,7 @@
       <ul>
         <li>
           <!-- https://stackoverflow.com/questions/68159400/when-clicked-on-an-href-the-new-url-doesnt-reload-the-page-in-svelte -->
-          <a rel="external" href={item.url}>{item.title}</a>
+          <a rel="external" href={item.url}><span class="capitalize">{item.title}</span></a>
         </li>
         <p>{item.result}</p>
       </ul>
