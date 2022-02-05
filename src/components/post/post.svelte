@@ -87,7 +87,7 @@
     on:click={() => {
       document.body.scrollIntoView();
     }}
-    class="postarrow">↑</a
+    class="postarrow shadow">↑</a
   >
 </article>
 
