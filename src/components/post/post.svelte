@@ -32,8 +32,7 @@ import type { IPostSummary } from "../../interface/IPostSummary";
     _renderedContent = res.renderedContent;
     _header_list = res.headerList;
 
-    let fetchRes = await fetch(contentUrl);
-    _content_list = <IPostSummary[]>await fetchRes.json();
+    _content_list = res.contentList;
   });
 </script>
 

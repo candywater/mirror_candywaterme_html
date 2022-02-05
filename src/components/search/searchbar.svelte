@@ -112,7 +112,7 @@
     {#each _res_list as item}
       <ul>
         <li>
-          <a href={item.url}>{item.title}</a>
+          <a href={item.url} target="_blank">{item.title}</a>
         </li>
         <p>{item.result}</p>
       </ul>

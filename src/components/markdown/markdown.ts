@@ -11,7 +11,7 @@ export async function markDown(
   docurl: string,
   indexUrl: string,
   contentUrl: string
-): Promise<{ header: IPostHeader; renderedContent: string ; headerList: IHeaderPair[]}> {
+): Promise<{ header: IPostHeader; renderedContent: string ; headerList: IHeaderPair[]; contentList: IPostSummary[];}> {
   if (!docurl) return;
   // console.log(docurl)
   let res = await fetch(docurl)
@@ -25,7 +25,7 @@ export async function markDown(
   let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
   let renderedContent = markdownParse(markdownContent);
 
-  return { header, renderedContent, headerList: HeaderList};
+  return { header, renderedContent, headerList: HeaderList, contentList : _content_list};
 }
 
 async function fetchData(
