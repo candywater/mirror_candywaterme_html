@@ -1,5 +1,7 @@
 <script lang="ts">
+  import type { ISiteInfo } from "../../interface/ISiteInfo";
   let show_quote = false;
+  export let site: ISiteInfo;
 
   function onImgClick() {
     show_quote = !show_quote;
@@ -7,15 +9,23 @@
 </script>
 
 <span class="">
-  <a href="https://github.com/candywater">
-    <div class="nes-icon github" />
-  </a>
-  <a href="https://twitter.com/candywater1">
-    <div class="nes-icon twitter" />
-  </a>
-  <a href="https://about.me/candywater">
-    <div class="nes-icon aboutme" />
-  </a>
+  {#if site.github_username}
+    <a href={"https://github.com/" + site.github_username}>
+      <div class="nes-icon github" />
+    </a>
+  {/if}
+
+  {#if site.twitter_username}
+    <a href={"https://twitter.com/" + site.twitter_username}>
+      <div class="nes-icon twitter" />
+    </a>
+  {/if}
+
+  {#if site.author}
+    <a href={"https://about.me/" + site.author}>
+      <div class="nes-icon aboutme" />
+    </a>
+  {/if}
 </span>
 
 <br />

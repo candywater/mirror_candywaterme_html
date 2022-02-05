@@ -14,5 +14,12 @@
 </svelte:head>
 
 <Main {quote_url} {quote_list} {description} {firstTimeShow} isHide={false}>
-  <AboutMe />
+  <AboutMe site={{
+    title: "",
+    author: "candywater",
+    github_username: "candywater",
+    twitter_username: "candywater1",
+    description: "",
+    time: new Date()
+  }}/>
 </Main>

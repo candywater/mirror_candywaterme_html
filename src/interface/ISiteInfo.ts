@@ -6,4 +6,5 @@ export interface ISiteInfo {
   twitter_username?: string;
   description?: string;
   time?: Date;
+  [propName: string]: any;
 }

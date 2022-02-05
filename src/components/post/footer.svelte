@@ -12,17 +12,23 @@
 
     <div class="footer-col-wrapper flex justify-between">
       <div class="footer-col footer-col-2">
-          {#if site.github_username}
-            <a href="https://github.com/candywater">
-              <div class="nes-icon github is-a-little-small" />
-            </a>
-          {/if}
+        {#if site.github_username}
+          <a href={"https://github.com/" + site.github_username}>
+            <div class="nes-icon github is-a-little-small" />
+          </a>
+        {/if}
 
-          {#if site.twitter_username}
-            <a href="https://twitter.com/candywater1">
-              <div class="nes-icon twitter is-a-little-small" />
-            </a>
-          {/if}
+        {#if site.twitter_username}
+          <a href={"https://twitter.com/" + site.twitter_username}>
+            <div class="nes-icon twitter is-a-little-small" />
+          </a>
+        {/if}
+
+        {#if site.author}
+          <a href={"https://about.me/" + site.author}>
+            <div class="nes-icon aboutme is-a-little-small" />
+          </a>
+        {/if}
       </div>
 
       <div class="footer-col footer-col-1">
