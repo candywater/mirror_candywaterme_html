@@ -10,6 +10,7 @@
   import Headerlist from "./headerlist.svelte";
   import type { IHeaderPair } from "../../interface/IHeaderPair";
   import Player from "../musicplayer/player.svelte";
+  import Footer from "./footer.svelte";
 
   export let docUrl: string;
   export let indexUrl: string;
@@ -21,7 +22,7 @@
 
   onMount(async () => {
     let res = await markDown(docUrl, indexUrl, contentUrl);
-    if(!res) return;
+    if (!res) return;
     _header = res.header;
     _renderedContent = res.renderedContent;
     _header_list = res.headerList;
@@ -70,10 +71,28 @@
   <hr id="comment_hr" />
   <Comment />
 
-  <a href={location.href} on:click={()=>{document.body.scrollIntoView();}} class="postarrow">↑</a>
+  <Footer
+    site={{
+      title: "",
+      author: "candywater",
+      github_username: "candywater",
+      twitter_username: "candywater1",
+      description: "",
+      time: new Date()
+    }}
+  />
+
+  <a
+    href={location.href}
+    on:click={() => {
+      document.body.scrollIntoView();
+    }}
+    class="postarrow">↑</a
+  >
 </article>
+
 <style>
-  .postarrow{
+  .postarrow {
     position: fixed;
     padding: 10px;
     bottom: 1rem;

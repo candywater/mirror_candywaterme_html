@@ -1,20 +1,34 @@
 <script lang="ts">
+  import { FormatDateYear } from "../../common/common";
+
   import type { ISiteInfo } from "../../interface/ISiteInfo";
 
   export let site: ISiteInfo;
 </script>
 
 <footer class="site-footer">
-  <div class="wrapper">
+  <div class="">
     <h2 class="footer-heading">{site.title}</h2>
 
-    <div class="footer-col-wrapper">
+    <div class="footer-col-wrapper flex justify-between">
+      <div class="footer-col footer-col-2">
+          {#if site.github_username}
+            <a href="https://github.com/candywater">
+              <div class="nes-icon github is-a-little-small" />
+            </a>
+          {/if}
+
+          {#if site.twitter_username}
+            <a href="https://twitter.com/candywater1">
+              <div class="nes-icon twitter is-a-little-small" />
+            </a>
+          {/if}
+      </div>
+
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
           <li>
-            {#if site.author}
-              {site.author}
-            {:else if site.title}
+            {#if site.title}
               {site.title}
             {/if}
           </li>
@@ -24,25 +38,9 @@
         </ul>
       </div>
 
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-          {#if site.github_username}
-            <li>
-              <!-- { /*todo: add github*/ } -->
-            </li>
-          {/if}
-
-          {#if site.twitter_username}
-            <li>
-              <!-- {/*todo: add twitter*/} -->
-            </li>
-          {/if}
-        </ul>
-      </div>
-
       <div class="footer-col footer-col-3">
-        <p>{site.description}</p>
-        <p>copyleft &copy; {site.time}</p>
+        <!-- <p>{site.description}</p> -->
+        <p>copyleft &copy; {site.author} {FormatDateYear(site.time)}</p>
       </div>
     </div>
   </div>

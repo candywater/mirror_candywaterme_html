@@ -157,6 +157,13 @@ $icon-aboutme: (
     transform: scale(1);
   }
 
+  &.is-a-little-small {
+    margin-right: $icon-size * .75;
+    margin-bottom: $icon-size * .75;
+    // 1px
+    transform: scale(1.5);
+  }
+
   &.is-medium {
     margin-right: $icon-size * 2;
     margin-bottom: $icon-size * 2;

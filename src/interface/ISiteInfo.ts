@@ -5,5 +5,5 @@ export interface ISiteInfo {
   github_username?: string;
   twitter_username?: string;
   description?: string;
-  time?: string;
+  time?: Date;
 }
