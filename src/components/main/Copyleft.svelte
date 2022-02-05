@@ -1,16 +1,23 @@
 <script lang="ts">
+  import { FormatDateYear } from "../../common/common";
   // const animation = "animated jello";
+  import type { ISiteInfo } from "../../interface/ISiteInfo";
+
+  let site: ISiteInfo = {
+    author: "candywater",
+    time: new Date(),
+  };
 </script>
 
-<p class={"copyleft "}>
-  <span>&copy;Copyleft, by candywater</span>
-</p>
+<div class={"copyleft "}>
+  <p>copyleft &copy; {site.author} {FormatDateYear(site.time)}</p>
+</div>
 
 <style lang="scss">
-  .copyleft {
-    margin: 0;
-    span {
-      background-color: rgba(254, 254, 254, 0.3);
-    }
+  .copyleft > p {
+    margin-top: 1px;
+    padding-left: 2px;
+    padding-right: 2px;
+    background-color: rgba(254, 254, 254, 0.3);
   }
 </style>
