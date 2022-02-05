@@ -31,6 +31,11 @@
 
 <svelte:head>
   <title>{_header ? _header.title : "欢迎━(*｀∀´*)ノ亻!"}</title>
+  {#if _header?.urls}
+    {#each _header.urls as url}
+      <script src={url} async></script>
+    {/each}
+  {/if}
 </svelte:head>
 
 <article class="post">
@@ -78,7 +83,7 @@
       github_username: "candywater",
       twitter_username: "candywater1",
       description: "",
-      time: new Date()
+      time: new Date(),
     }}
   />
 
