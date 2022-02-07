@@ -40,7 +40,9 @@
       title="why not try clicking this?"
       on:click={onImgClick}
     />
-    <p class="text-center">{MY_NAME}</p>
+    <span class=" clear-left float-right" >
+      <img src="/assets/logos/candywater/candywater.png" alt="candywater" />
+    </span>
   </div>
   <p class="blockquote">
     {description}
