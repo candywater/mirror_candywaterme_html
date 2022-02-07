@@ -25,7 +25,7 @@
     // console.log((<InputEvent>e).data);
     // console.log("===========");
     if((<InputEvent>e).isComposing) return;
-    if (_is_composing) return;
+    // if (_is_composing) return;
     search((<HTMLInputElement>e.target).value);
   }
 
