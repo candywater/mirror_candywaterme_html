@@ -1,7 +1,9 @@
 <script lang="ts">
+  import { SiteInfo } from "../../config/siteinfo";
+
   import type { ISiteInfo } from "../../interface/ISiteInfo";
   let show_quote = false;
-  export let site: ISiteInfo;
+  let site: ISiteInfo = SiteInfo;
 
   function onImgClick() {
     show_quote = !show_quote;

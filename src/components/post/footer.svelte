@@ -1,9 +1,10 @@
 <script lang="ts">
   import { FormatDateYear } from "../../common/common";
+  import { SiteInfo } from "../../config/siteinfo";
 
   import type { ISiteInfo } from "../../interface/ISiteInfo";
 
-  export let site: ISiteInfo;
+  let site: ISiteInfo = SiteInfo;
 </script>
 
 <footer class="site-footer">

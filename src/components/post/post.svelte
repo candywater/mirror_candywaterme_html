@@ -93,14 +93,6 @@ import type { IPostSummary } from "../../interface/IPostSummary";
   <Comment />
 
   <Footer
-    site={{
-      title: "",
-      author: "candywater",
-      github_username: "candywater",
-      twitter_username: "candywater1",
-      description: "",
-      time: new Date(),
-    }}
   />
 
   <a
