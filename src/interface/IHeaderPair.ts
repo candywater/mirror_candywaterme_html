@@ -1,5 +1,4 @@
 export interface IHeaderPair {
-    text?: string;
-    level?: number;
-  }
-  
+  text?: string;
+  level?: number;
+}

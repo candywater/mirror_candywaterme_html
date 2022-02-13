@@ -40,7 +40,7 @@
       title="why not try clicking this?"
       on:click={onImgClick}
     />
-    <span class=" clear-left float-right" >
+    <span class=" clear-left float-right">
       <img src="/assets/logos/candywater/candywater.png" alt="candywater" />
     </span>
   </div>

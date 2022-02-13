@@ -10,11 +10,13 @@
   let _width: number;
   let _search_key: string;
 
-  const isSafari = navigator.userAgent.includes("Safari/") && navigator.userAgent.includes("Version/");
+  const isSafari =
+    navigator.userAgent.includes("Safari/") &&
+    navigator.userAgent.includes("Version/");
   let _is_composing: boolean = false;
 
   /**
-   * todo: 
+   * todo:
    *  - https://qiita.com/darai0512/items/fac4f166c23bf2075deb
    *  - https://blog.utgw.net/entry/2021/06/29/212256
    * @param e
@@ -24,7 +26,7 @@
     // console.log((<InputEvent>e).isComposing);
     // console.log((<InputEvent>e).data);
     // console.log("===========");
-    if((<InputEvent>e).isComposing) return;
+    if ((<InputEvent>e).isComposing) return;
     // if (_is_composing) return;
     search((<HTMLInputElement>e.target).value);
   }
@@ -138,7 +140,9 @@
       <ul>
         <li>
           <!-- https://stackoverflow.com/questions/68159400/when-clicked-on-an-href-the-new-url-doesnt-reload-the-page-in-svelte -->
-          <a rel="external" href={item.url}><span class="capitalize">{item.title}</span></a>
+          <a rel="external" href={item.url}
+            ><span class="capitalize">{item.title}</span></a
+          >
         </li>
         <p>{item.result}</p>
       </ul>

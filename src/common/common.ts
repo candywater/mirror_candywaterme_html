@@ -103,8 +103,8 @@ export function FormatDateSimple(d: Date): string {
   return `${day} ${monthsTiny[monthIndex]} ${year} ${hour}:${min} `;
 }
 
-export function FormatDateYear(d: Date): string{
-  if(!d) return;
+export function FormatDateYear(d: Date): string {
+  if (!d) return;
   const date = new Date(d);
   const year = date.getFullYear(); // 2019
   return year.toString();

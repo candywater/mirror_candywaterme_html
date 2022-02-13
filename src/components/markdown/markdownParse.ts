@@ -1,22 +1,17 @@
-import {
-  marked
-} from "marked";
-import {
-  cleanUrl,
-  escape
-} from "marked/src/helpers"
+import { marked } from "marked";
+import { cleanUrl, escape } from "marked/src/helpers";
 import type { IHeaderPair } from "../../interface/IHeaderPair";
 
 marked.setOptions({
   breaks: true,
 });
 
-export var HeaderList: IHeaderPair[] = []
+export var HeaderList: IHeaderPair[] = [];
 
 const renderer = {
   heading(text, level) {
-    const escapedText = text.toLowerCase().replace(/[^\w]+/g, '-');
-    HeaderList.push({ text, level })
+    const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
+    HeaderList.push({ text, level });
     return `
             <h${level}>
               <a name="${escapedText}" class="anchor " href="#${escapedText}">
@@ -34,16 +29,14 @@ const renderer = {
     if (title) {
       out += ' title="' + title + '"';
     }
-    out += '>' + text + '</a>';
+    out += ">" + text + "</a>";
     return out;
-  }
+  },
 };
 
-marked.use({ renderer })
+marked.use({ renderer });
 
 export function markdownParse(content) {
-  HeaderList = []
+  HeaderList = [];
   return marked.parse(content);
 }
-
-

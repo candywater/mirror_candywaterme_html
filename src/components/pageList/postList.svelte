@@ -57,7 +57,7 @@
   </div>
 </div>
 
-<Footer/>
+<Footer />
 
 <style lang="scss">
   .page-heading {

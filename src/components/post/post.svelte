@@ -12,18 +12,17 @@
   import Player from "../musicplayer/player.svelte";
   import Footer from "./footer.svelte";
   import Searchbar from "../search/searchbar.svelte";
-import type { IPostSummary } from "../../interface/IPostSummary";
+  import type { IPostSummary } from "../../interface/IPostSummary";
 
   export let docUrl: string;
   export let indexUrl: string;
   export let contentUrl: string;
-  
+
   let _content_list: IPostSummary[];
 
   let _renderedContent: string;
   let _header: IPostHeader;
   let _header_list: IHeaderPair[] = [];
-  
 
   onMount(async () => {
     let res = await markDown(docUrl, indexUrl, contentUrl);
@@ -47,8 +46,6 @@ import type { IPostSummary } from "../../interface/IPostSummary";
 
 <article class="post">
   <header class="post-header">
-
-
     <div class="row relative table lg:flex justify-between ">
       <div class="order-2">
         <Searchbar content_list={_content_list} />
@@ -92,8 +89,7 @@ import type { IPostSummary } from "../../interface/IPostSummary";
   <hr id="comment_hr" />
   <Comment />
 
-  <Footer
-  />
+  <Footer />
 
   <a
     href={location.href}
