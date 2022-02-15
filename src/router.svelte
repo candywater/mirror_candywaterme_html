@@ -111,7 +111,7 @@
     indexUrl={YEAR_SUMMARY_INDEX_URL}
     contentUrl={YEAR_SUMMARY_URL}
   />
-{:else if $path === BLOG_OTHER}
+{:else if $path === BLOG_OTHER || $path === BLOG}
   <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
 {:else}
   <Error />

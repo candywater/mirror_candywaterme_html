@@ -8,6 +8,7 @@
   export let contentUrl: string;
 
   let docUrl: string = BlogUrl2DocUrl(blogpath);
+  console.log(blogpath)
 </script>
 
 <MainMenuNav>
