@@ -89,7 +89,7 @@
 
 <svelte:head>
   <link rel="stylesheet" href="https://use.typekit.net/epg1wck.css">
-  <script>
+  <!-- <script>
     (function (d) {
       var config = {
           kitId: "rsf7iyt",
@@ -119,7 +119,7 @@
       };
       s.parentNode.insertBefore(tk, s);
     })(document);
-  </script>
+  </script> -->
 </svelte:head>
 
 {#if $path === INDEX}
