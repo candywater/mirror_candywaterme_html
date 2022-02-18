@@ -41,7 +41,8 @@
       on:click={onImgClick}
     />
     <span class=" clear-left float-right">
-      <img src="/assets/logos/candywater/candywater.png" alt="candywater" />
+      <!-- <img src="/assets/logos/candywater/candywater.png" alt="candywater" /> -->
+      <span class="sign">CandyWater</span>
     </span>
   </div>
   <p class="blockquote">
@@ -62,5 +63,11 @@
     .real-rounded-circle {
       border-radius: 10em;
     }
+
+    .sign{
+      font-family:  looking-flowers-script, sans-serif; 
+      font-size:2.5rem;
+    }
   }
+
 </style>

@@ -29,3 +29,11 @@
     </p>
   </h2>
 </li>
+
+<style lang="scss">
+  .post-link {
+    font-family: etna, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+</style>

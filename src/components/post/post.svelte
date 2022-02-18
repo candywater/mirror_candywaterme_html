@@ -108,4 +108,14 @@
     right: 1rem;
     background-color: white;
   }
+  .post-title {
+    font-family: etna, source-han-sans-simplified-c, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  .post-content {
+    font-family: source-han-sans-simplified-c, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
 </style>
