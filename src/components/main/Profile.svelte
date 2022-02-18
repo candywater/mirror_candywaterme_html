@@ -41,8 +41,8 @@
       on:click={onImgClick}
     />
     <span class=" clear-left float-right">
-      <!-- <img src="/assets/logos/candywater/candywater.png" alt="candywater" /> -->
-      <span class="sign">CandyWater</span>
+      <img src="/assets/logos/candywater/signed/candywater.png" alt="candywater" />
+      <!-- <span class="sign">CandyWater</span> -->
     </span>
   </div>
   <p class="blockquote">
