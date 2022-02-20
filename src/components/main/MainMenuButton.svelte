@@ -41,7 +41,7 @@
     padding: 0.5rem 0.7rem;
     font-size: 1.25rem;
     text-align: center;
-    font-family: etna, serif;
+    // font-family: etna, serif;
     font-weight: 400;
     font-style: normal;
   }
