@@ -4,7 +4,7 @@ export var SiteInfo: ISiteInfo = {
   title: "",
   author: "candywater",
   github_username: "candywater",
-  twitter_username: "candywater020",
+  twitter_username: "",
   description: "",
   time: new Date(),
 };
