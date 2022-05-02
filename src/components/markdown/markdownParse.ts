@@ -25,7 +25,7 @@ const renderer = {
     if (href === null) {
       return text;
     }
-    let out = `<a href="${escape(href)}" class=""`; //after:content-['↗']
+    let out = `<a href="${escape(href, null)}" class=""`; //after:content-['↗']
     if (title) {
       out += ' title="' + title + '"';
     }
