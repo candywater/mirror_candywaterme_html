@@ -15,7 +15,7 @@
 
   import { show_config_panel, show_quote } from "../config/config";
 
-  import { getRandomQuote, splitSerifs } from "../common/common.js";
+  import { getRandomQuote, splitSerifs } from "../common/common";
 
   export let quote_url: string;
   export let quote_list: string[];
