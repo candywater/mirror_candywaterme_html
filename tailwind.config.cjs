@@ -1,13 +1,10 @@
 const production = !process.env.ROLLUP_WATCH;
 module.exports = {
-  purge: {
-    content: [
-      './src/**/*.{svelte,ts}',
-      './src/**/*.html',
-    ],
-    enabled: production,
-  },
-  darkMode: false, // or 'media' or 'class'
+  content: [
+    './src/**/*.{svelte,ts}',
+    './src/**/*.html',
+  ],
+  darkMode: 'media', // or 'media' or 'class'
   theme: {
     fontFamily: {
       default: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],

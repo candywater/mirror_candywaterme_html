@@ -1,4 +1,6 @@
 <script lang="ts">
+  import "tailwindcss/tailwind.css"
+
   /* Bouncing entrances  */
   import "animate.css/source/_vars.css";
   import "animate.css/source/_base.css";

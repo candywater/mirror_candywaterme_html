@@ -1,16 +1,7 @@
-// const tailwindcss = require("tailwindcss");
+import tailwind from 'tailwindcss'
+import tailwindConfig from './tailwind.config.cjs'
+import autoprefixer from 'autoprefixer'
 
-const purgecss = require('@fullhuman/postcss-purgecss')
-
-const purgecss_config = purgecss({
-    content: ["./src/**/*.svelte", "./public/**/*.html"]
-})
-
-
-module.exports = {
-    plugins: [
-        //tailwindcss("./tailwind.config.js"),
-        // ...(process.env.NODE_ENV === "production" ? [purgecss_config] : [])
-        // purgecss_config
-    ]
+export default {
+  plugins:[tailwind(tailwindConfig),autoprefixer]
 }
