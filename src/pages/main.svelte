@@ -132,7 +132,8 @@
     .main-bg {
       background-color: $white-background;
       display: flex;
-      justify-content: center;
+      // justify-content: center;
+      justify-content: space-around;
       align-items: flex-start;
     }
     .mainmenu-block {
