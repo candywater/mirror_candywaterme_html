@@ -3,7 +3,7 @@
         <li>
             <a
                 href="#"
-                class="inline-block p-4 text-blue-600 bg-red-300 rounded-t-lg active dark:bg-red-300 dark:text-blue-500"
+                class="inline-block p-4 text-blue-600 bg-teal-300 rounded-t-lg active dark:bg-teal-300 dark:text-blue-500"
             />
         </li>
         <li>
