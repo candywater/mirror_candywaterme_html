@@ -16,6 +16,7 @@
   import { show_config_panel, show_quote } from "../config/config";
 
   import { getRandomQuote, splitSerifs } from "../common/common";
+  import ControllerPanel from "../components/main/ControllerPanel.svelte";
 
   export let quote_url: string;
   export let quote_list: string[];
@@ -89,30 +90,33 @@
 <Layout>
   <div class={mainFadeAnimation} on:animationend={onAnimationEnd}>
     <div class="container main">
-      <div class="mainmenu-block">
-        <MainMenu />
-      </div>
-
-      <div class="profile-block">
-        <Profile {description}>
-          <slot />
-          <QuoteDisplay {quote} show_quote={$show_quote} />
-        </Profile>
-      </div>
-
-      <div class="config-block z-10" on:click={on_config_click}>
-        <ConfigGear />
-      </div>
-
-      {#if $show_config_panel}
-        <div class="absolute w-11/12 h-5/6">
-          <Terminal
-            exactClose={() => {
-              $show_config_panel = false;
-            }}
-          />
+      <ControllerPanel />
+      <div class="main-bg">
+        <div class="mainmenu-block">
+          <MainMenu />
         </div>
-      {/if}
+
+        <div class="profile-block">
+          <Profile {description}>
+            <slot />
+            <QuoteDisplay {quote} show_quote={$show_quote} />
+          </Profile>
+        </div>
+
+        <div class="config-block z-10" on:click={on_config_click}>
+          <ConfigGear />
+        </div>
+
+        {#if $show_config_panel}
+          <div class="absolute w-11/12 h-5/6">
+            <Terminal
+              exactClose={() => {
+                $show_config_panel = false;
+              }}
+            />
+          </div>
+        {/if}
+      </div>
     </div>
     <div class="container copyleft-block">
       <Copyleft />
@@ -124,18 +128,20 @@
   $white-background: rgba(245, 245, 245, 0.3);
 
   .main {
-    margin-top: 5%;
-    background-color: $white-background;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
+      margin-top: 5%;
+    .main-bg {
+      background-color: $white-background;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
     .mainmenu-block {
       margin: 1rem 1rem;
     }
     .config-block {
       position: absolute;
       right: 1rem;
-      top: 1rem;
+      top: 3.5rem;
     }
   }
   .copyleft-block {
