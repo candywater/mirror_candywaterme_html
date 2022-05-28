@@ -1,49 +1,49 @@
 <div class="relative">
-    <ul class="flex text-center text-gray-500 ">
-        <li>
+    <div class="flex text-center text-gray-500 ">
+        
             <div class="pushable inline-block bg-teal-400">
                 <span class="front bg-teal-300" />
             </div>
-        </li>
-        <li>
+        
+        
             <div class="pushable inline-block bg-orange-400">
                 <span class="front bg-orange-300" />
             </div>
-        </li>
-        <li>
+        
+        
             <div class="pushable inline-block bg-green-400">
                 <span class="front bg-green-300" />
             </div>
-        </li>
-        <li>
+        
+        
             <div class="pushable inline-block bg-sky-400">
                 <span class="front bg-sky-300" />
             </div>
-        </li>
-        <li>
+        
+        
             <div class="pushable inline-block bg-blue-400">
                 <span class="front bg-blue-300" />
             </div>
-        </li>
-        <li>
+        
+        
             <div class="pushable inline-block bg-violet-400">
                 <span class="front bg-violet-300" />
             </div>
-        </li>
-        <li>
+        
+        
             <div class="pushable inline-block bg-pink-400">
                 <span class="front bg-pink-300" />
             </div>
-        </li>
-    </ul>
+        
+    </div>
 </div>
 
 <style lang="scss">
     div {
-        ul {
+        div {
             margin: 0rem;
-            li {
-                margin: 0.5rem 0.25rem 0rem 0.25rem;
+            div {
+                margin: 0.5rem 0.5rem 0rem 0rem;
             }
         }
     }
