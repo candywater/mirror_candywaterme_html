@@ -6,7 +6,7 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const sass = require('gulp-sass')(require('sass'));
 const tailwindcss = require('tailwindcss');
-const tailwindConfig = require("./tailwind.config.js");
+const tailwindConfig = require("./tailwind.config.cjs");
 
 // animate.css
 // const ANIMATE_PATH = 'node_modules/animate.css/animate.css'
@@ -69,27 +69,27 @@ function minima_dev() {
         .pipe(gulp.dest(MINIMACSS_OUTPUT))
 }
 
-function main_dev(){
+function main_dev() {
     return gulp.src(["./src/sass/main.scss"])
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(MINIMACSS_OUTPUT))
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(MINIMACSS_OUTPUT))
 }
 
-function complier_main_prod(){
+function complier_main_prod() {
     var plugins = [
         cssnano(),
     ];
     return gulp.src(["./src/sass/main.scss"])
-    .pipe(sourcemaps.init())
-    .pipe(sass().on('error', sass.logError))
-    .pipe(purgecss({
-        content:["src/**/*.svelte"]
-    }))
-    .pipe(postcss(plugins))
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(MINIMACSS_OUTPUT))
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(purgecss({
+            content: ["src/**/*.svelte"]
+        }))
+        .pipe(postcss(plugins))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(MINIMACSS_OUTPUT))
 }
 
 function tailwind_watch() {
@@ -98,15 +98,15 @@ function tailwind_watch() {
 function minima_watch() {
     gulp.watch(MINIMACSS_DIR_PATH, minima_dev)
 }
-function main_watch(){
+function main_watch() {
     gulp.watch(MINIMACSS_DIR_PATH, main_dev);
 }
 // exports.css = gulp.series(purgecss_tailwindcss_prod, complier_sass_prod);
 // exports["css:dev"] = gulp.series(purgecss_tailwindcss_dev, complier_sass_dev);
 // exports["sass"] = gulp.series(complier_sass_dev)
 // exports["sass:watch"] = gulp.series(complier_sass_watch)
-exports.default = gulp.series(  complier_main_prod, tailwindcss_prod);
-exports.dev = gulp.series(  main_dev, tailwind_dev);
-exports["watch"] = gulp.parallel(  main_watch, tailwind_watch)
+exports.default = gulp.series(complier_main_prod);
+exports.dev = gulp.series(main_dev, tailwind_dev);
+exports["watch"] = gulp.parallel(main_watch, tailwind_watch)
 
 // postcss
