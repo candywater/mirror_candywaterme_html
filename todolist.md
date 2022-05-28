@@ -27,7 +27,7 @@ or
 + [*]pagination
 + [*]search
 + [x]tags
-+ []rss
++ [*]rss
 + []highlight js
 + [x]搜索0的时候加反馈
 + []搜索的2级页
@@ -36,10 +36,12 @@ or
 + []loading 时页面变小的问题（chrome）
 + [x]缩小svelte 编译时间
 + []gRPC
-+ []comment server(rust)
++ []comment server(rust/c#)
 + []image do not download server
 + []add test/jest etc
-+ []pagination
++ [x]pagination
++ []background switcher button 
++ []background switcher feature
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
