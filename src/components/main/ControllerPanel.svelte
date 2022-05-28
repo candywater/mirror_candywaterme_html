@@ -60,7 +60,7 @@
     .front {
         display: block;
         // padding: 12px 42px;
-        padding: 1rem;
+        padding: .75rem 1rem .5rem 1rem;
         // border-radius: 12px;
         border-top-left-radius: 0.5rem;
         border-top-right-radius: 0.5rem;
