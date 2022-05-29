@@ -90,7 +90,7 @@
 </script>
 
 <svelte:head>
-  <link rel="stylesheet" href="https://use.typekit.net/epg1wck.css">
+
   <!-- <script>
     (function (d) {
       var config = {
@@ -153,7 +153,7 @@
 {:else}
   <Error />
 {/if}
-
+<link rel="stylesheet" href="https://use.typekit.net/epg1wck.css" lazyload="1">
 
 <style lang="scss">
   $background-image:  /*linear-gradient(-45deg, rgba(117, 11, 7, 0.829),rgba(139, 24, 22, 0.534), rgb(11, 75, 99),rgba(17, 100, 81, 0.534) ),      
