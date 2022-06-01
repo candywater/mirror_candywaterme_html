@@ -147,9 +147,9 @@
   }
   .copyleft-block {
     padding: 0rem;
-    display: flex;
-    justify-content: end;
-    align-items: end;
+    display: flex;    
+    justify-content: flex-end;
+    align-items: flex-end;
   }
 
   @media screen {
