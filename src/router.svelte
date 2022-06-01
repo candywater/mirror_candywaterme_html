@@ -1,5 +1,5 @@
 <script lang="ts">
-  import "tailwindcss/tailwind.css"
+  import "tailwindcss/tailwind.css";
 
   /* Bouncing entrances  */
   import "animate.css/source/_vars.css";
@@ -90,7 +90,6 @@
 </script>
 
 <svelte:head>
-
   <!-- <script>
     (function (d) {
       var config = {
@@ -123,60 +122,39 @@
     })(document);
   </script> -->
 </svelte:head>
-
-{#if $path === INDEX}
-  <Index {firstTimeShow} />
-{:else if $path === ABOUT}
-  <About {firstTimeShow} />
-{:else if $path === PROJECT}
-  <Project {firstTimeShow} />
-{:else if $path === TECH}
-  <Tech {firstTimeShow} />
-{:else if $path === ESSAY}
-  <Essay {firstTimeShow} />
-{:else if $path === YEAR_SUMMARY}
-  <YearSummary {firstTimeShow} />
-{:else if $path === RANDOM}
-  <Random />
-{:else if $path === BLOG && $blogtype == ESSAY}
-  <Blog {blogpath} indexUrl={ESSAY_INDEX_URL} contentUrl={ESSAY_URL} />
-{:else if $path === BLOG && $blogtype == TECH}
-  <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
-{:else if $path === BLOG_OTHER && $blogtype == YEAR_SUMMARY}
-  <Pureblog
-    {blogpath}
-    indexUrl={YEAR_SUMMARY_INDEX_URL}
-    contentUrl={YEAR_SUMMARY_URL}
+<div>
+  {#if $path === INDEX}
+    <Index {firstTimeShow} />
+  {:else if $path === ABOUT}
+    <About {firstTimeShow} />
+  {:else if $path === PROJECT}
+    <Project {firstTimeShow} />
+  {:else if $path === TECH}
+    <Tech {firstTimeShow} />
+  {:else if $path === ESSAY}
+    <Essay {firstTimeShow} />
+  {:else if $path === YEAR_SUMMARY}
+    <YearSummary {firstTimeShow} />
+  {:else if $path === RANDOM}
+    <Random />
+  {:else if $path === BLOG && $blogtype == ESSAY}
+    <Blog {blogpath} indexUrl={ESSAY_INDEX_URL} contentUrl={ESSAY_URL} />
+  {:else if $path === BLOG && $blogtype == TECH}
+    <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
+  {:else if $path === BLOG_OTHER && $blogtype == YEAR_SUMMARY}
+    <Pureblog
+      {blogpath}
+      indexUrl={YEAR_SUMMARY_INDEX_URL}
+      contentUrl={YEAR_SUMMARY_URL}
+    />
+  {:else if $path === BLOG_OTHER || $path === BLOG}
+    <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
+  {:else}
+    <Error />
+  {/if}
+  <link
+    rel="stylesheet"
+    href="https://use.typekit.net/epg1wck.css"
+    lazyload="1"
   />
-{:else if $path === BLOG_OTHER || $path === BLOG}
-  <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
-{:else}
-  <Error />
-{/if}
-<link rel="stylesheet" href="https://use.typekit.net/epg1wck.css" lazyload="1">
-
-<style lang="scss">
-  $background-image:  /*linear-gradient(-45deg, rgba(117, 11, 7, 0.829),rgba(139, 24, 22, 0.534), rgb(11, 75, 99),rgba(17, 100, 81, 0.534) ),      
-                    linear-gradient(127deg, rgb(114, 30, 4),  rgb(11, 75, 99), rgba(17, 100, 81, 0.534));*/
-                    // linear-gradient(-45deg, rgba(117, 11, 7, 0.829),rgba(139, 24, 22, 0.534),  rgba(17, 100, 81, 0.534) ),
-                    // linear-gradient(207deg,rgb(11, 75, 99), rgba(17, 100, 81, 0.534));
-  linear-gradient(
-    -45deg,
-    rgb(179, 108, 87),
-    rgba(155, 44, 44, 0.637),
-    rgb(19, 90, 116),
-    rgba(29, 104, 86, 0.534)
-  ),
-  linear-gradient(
-    127deg,
-    rgb(87, 44, 31),
-    rgb(11, 75, 99),
-    rgba(17, 100, 81, 0.534)
-  );
-$background-size: 400% 400%;
-body{
-  background: $background-image;
-  background-size: $background-size;
-  animation: Gradient 35s ease infinite;
-}
-</style>
+</div>
