@@ -32,7 +32,7 @@
           </a>
         {/if}
 
-        {#if $path == ESSAY}
+        <!-- {#if $path == ESSAY}
           <a href="https://candywater.me/doc/_info/essay.xml">
             <div class="nes-icon rss is-a-little-small" /></a
           >
@@ -41,7 +41,7 @@
           <a href="https://candywater.me/doc/_info/tech.xml"
             ><div class="nes-icon rss is-a-little-small" /></a
           >
-        {/if}
+        {/if} -->
       </div>
 
       <div class="footer-col footer-col-1">
