@@ -32,7 +32,7 @@
 
 <style lang="scss">
   .post-link {
-    font-family: etna, sans-serif;
+    font-family: /*etna,*/ source-han-sans-simplified-c, sans-serif;
     font-weight: 400;
     font-style: normal;
   }
