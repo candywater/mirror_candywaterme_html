@@ -15,11 +15,11 @@ const tailwindConfig = require("./tailwind.config.cjs");
 const TAILWINDCSS_PATH = ['src/sass/tailwind.css']
 const SOURCE_HTML = ["./src/**/*.svelte", "./src/**/*.ts", "./public/**/*.html"]
 const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
-// minima.css
-const MINIMACSS_PATH = [
-    "./src/sass/**/minima.scss",
-    // "./src/sass/**/main.scss"
-]
+// // minima.css
+// const MINIMACSS_PATH = [
+//     "./src/sass/**/minima.scss",
+//     // "./src/sass/**/main.scss"
+// ]
 const MINIMACSS_DIR_PATH = ["./src/sass/**/*.scss"]
 const MINIMACSS_OUTPUT = './public/build/sass'
 
@@ -49,25 +49,25 @@ function tailwind_dev() {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
 }
-//minima
-function minima_prod() {
-    var plugins = [
-        cssnano()
-    ];
-    return gulp.src(MINIMACSS_PATH)
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(postcss(plugins))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(MINIMACSS_OUTPUT))
-}
-function minima_dev() {
-    return gulp.src(MINIMACSS_PATH)
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(MINIMACSS_OUTPUT))
-}
+// //minima
+// function minima_prod() {
+//     var plugins = [
+//         cssnano()
+//     ];
+//     return gulp.src(MINIMACSS_PATH)
+//         .pipe(sourcemaps.init())
+//         .pipe(sass().on('error', sass.logError))
+//         .pipe(postcss(plugins))
+//         .pipe(sourcemaps.write('.'))
+//         .pipe(gulp.dest(MINIMACSS_OUTPUT))
+// }
+// function minima_dev() {
+//     return gulp.src(MINIMACSS_PATH)
+//         .pipe(sourcemaps.init())
+//         .pipe(sass().on('error', sass.logError))
+//         .pipe(sourcemaps.write('.'))
+//         .pipe(gulp.dest(MINIMACSS_OUTPUT))
+// }
 
 function main_dev() {
     return gulp.src(["./src/sass/main.scss"])
@@ -95,9 +95,9 @@ function complier_main_prod() {
 function tailwind_watch() {
     gulp.watch(SOURCE_HTML, tailwind_dev)
 }
-function minima_watch() {
-    gulp.watch(MINIMACSS_DIR_PATH, minima_dev)
-}
+// function minima_watch() {
+//     gulp.watch(MINIMACSS_DIR_PATH, minima_dev)
+// }
 function main_watch() {
     gulp.watch(MINIMACSS_DIR_PATH, main_dev);
 }
@@ -106,7 +106,7 @@ function main_watch() {
 // exports["sass"] = gulp.series(complier_sass_dev)
 // exports["sass:watch"] = gulp.series(complier_sass_watch)
 exports.default = gulp.series(complier_main_prod);
-exports.dev = gulp.series(main_dev, tailwind_dev);
-exports["watch"] = gulp.parallel(main_watch, tailwind_watch)
+exports.dev = gulp.series(main_dev);
+exports["watch"] = gulp.parallel(main_watch)
 
 // postcss
