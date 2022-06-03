@@ -8,20 +8,77 @@ const sass = require('gulp-sass')(require('sass'));
 const tailwindcss = require('tailwindcss');
 const tailwindConfig = require("./tailwind.config.cjs");
 
-// animate.css
-// const ANIMATE_PATH = 'node_modules/animate.css/animate.css'
-// const ANIMATE_OUTPUT = 'public/build/'
 // tailwind.css
 const TAILWINDCSS_PATH = ['src/sass/tailwind.css']
 const SOURCE_HTML = ["./src/**/*.svelte", "./src/**/*.ts", "./public/**/*.html"]
 const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
+const MINIMACSS_DIR_PATH = ["./src/sass/**/*.scss"]
+const MINIMACSS_OUTPUT = './public/build/sass'
+
+function main_dev() {
+    return gulp.src(["./src/sass/main.scss"])
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(MINIMACSS_OUTPUT))
+}
+
+function complier_main_prod() {
+    var plugins = [
+        cssnano(),
+    ];
+    return gulp.src(["./src/sass/main.scss"])
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        // .pipe(purgecss({
+        //     content: ["src/**/*.svelte"]
+        // }))
+        .pipe(postcss(plugins))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(MINIMACSS_OUTPUT))
+}
+
+function main_watch() {
+    gulp.watch(MINIMACSS_DIR_PATH, main_dev);
+}
+
+exports.default = gulp.series(complier_main_prod);
+exports.dev = gulp.series(main_dev);
+exports["watch"] = gulp.parallel(main_watch)
+
+// postcss
+
+// //minima
+// function minima_prod() {
+//     var plugins = [
+//         cssnano()
+//     ];
+//     return gulp.src(MINIMACSS_PATH)
+//         .pipe(sourcemaps.init())
+//         .pipe(sass().on('error', sass.logError))
+//         .pipe(postcss(plugins))
+//         .pipe(sourcemaps.write('.'))
+//         .pipe(gulp.dest(MINIMACSS_OUTPUT))
+// }
+// function minima_dev() {
+//     return gulp.src(MINIMACSS_PATH)
+//         .pipe(sourcemaps.init())
+//         .pipe(sass().on('error', sass.logError))
+//         .pipe(sourcemaps.write('.'))
+//         .pipe(gulp.dest(MINIMACSS_OUTPUT))
+// }
+
+
+// exports.css = gulp.series(purgecss_tailwindcss_prod, complier_sass_prod);
+// exports["css:dev"] = gulp.series(purgecss_tailwindcss_dev, complier_sass_dev);
+// exports["sass"] = gulp.series(complier_sass_dev)
+// exports["sass:watch"] = gulp.series(complier_sass_watch)
+
 // // minima.css
 // const MINIMACSS_PATH = [
 //     "./src/sass/**/minima.scss",
 //     // "./src/sass/**/main.scss"
 // ]
-const MINIMACSS_DIR_PATH = ["./src/sass/**/*.scss"]
-const MINIMACSS_OUTPUT = './public/build/sass'
 
 // tailwindcss
 function tailwindcss_prod() {
@@ -49,48 +106,7 @@ function tailwind_dev() {
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
 }
-// //minima
-// function minima_prod() {
-//     var plugins = [
-//         cssnano()
-//     ];
-//     return gulp.src(MINIMACSS_PATH)
-//         .pipe(sourcemaps.init())
-//         .pipe(sass().on('error', sass.logError))
-//         .pipe(postcss(plugins))
-//         .pipe(sourcemaps.write('.'))
-//         .pipe(gulp.dest(MINIMACSS_OUTPUT))
-// }
-// function minima_dev() {
-//     return gulp.src(MINIMACSS_PATH)
-//         .pipe(sourcemaps.init())
-//         .pipe(sass().on('error', sass.logError))
-//         .pipe(sourcemaps.write('.'))
-//         .pipe(gulp.dest(MINIMACSS_OUTPUT))
-// }
 
-function main_dev() {
-    return gulp.src(["./src/sass/main.scss"])
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(MINIMACSS_OUTPUT))
-}
-
-function complier_main_prod() {
-    var plugins = [
-        cssnano(),
-    ];
-    return gulp.src(["./src/sass/main.scss"])
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(purgecss({
-            content: ["src/**/*.svelte"]
-        }))
-        .pipe(postcss(plugins))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(MINIMACSS_OUTPUT))
-}
 
 function tailwind_watch() {
     gulp.watch(SOURCE_HTML, tailwind_dev)
@@ -98,15 +114,7 @@ function tailwind_watch() {
 // function minima_watch() {
 //     gulp.watch(MINIMACSS_DIR_PATH, minima_dev)
 // }
-function main_watch() {
-    gulp.watch(MINIMACSS_DIR_PATH, main_dev);
-}
-// exports.css = gulp.series(purgecss_tailwindcss_prod, complier_sass_prod);
-// exports["css:dev"] = gulp.series(purgecss_tailwindcss_dev, complier_sass_dev);
-// exports["sass"] = gulp.series(complier_sass_dev)
-// exports["sass:watch"] = gulp.series(complier_sass_watch)
-exports.default = gulp.series(complier_main_prod);
-exports.dev = gulp.series(main_dev);
-exports["watch"] = gulp.parallel(main_watch)
 
-// postcss
+// animate.css
+// const ANIMATE_PATH = 'node_modules/animate.css/animate.css'
+// const ANIMATE_OUTPUT = 'public/build/'
