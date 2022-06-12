@@ -73,7 +73,7 @@
   }
 
   function loadBackgroundColor(){
-    let classname = sessionStorage.getItem("candy_background_setting")
+    let classname = localStorage.getItem("candy_background_setting")
     document.querySelector("body").className = classname
   }
 </script>

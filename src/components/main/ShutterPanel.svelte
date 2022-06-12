@@ -1,7 +1,7 @@
 <script>
     function set_background(classname) {
         document.querySelector("body").className = classname;
-        sessionStorage.setItem("candy_background_setting", classname)
+        localStorage.setItem("candy_background_setting", classname)
     }
 </script>
 
