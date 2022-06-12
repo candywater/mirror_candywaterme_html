@@ -45,10 +45,9 @@ $on-laptop: 800px !default;
   }
 }
 
-//https://codepen.io/abdelrhmansaid/pen/OJRNOpQ
+// https://codepen.io/abdelrhmansaid/pen/OJRNOpQ
 // https://codepen.io/team/jotform/pen/XWmqoMp
 // https://codepen.io/ste-vg/pen/GqaZbo
-
 
 @mixin background0 {
   @include backgroud-gradient(linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab));
@@ -74,11 +73,11 @@ $on-laptop: 800px !default;
   background-image: url(https://unsplash.com/photos/SahRqFHiWOM/download?force=true);
   background-size: contain;
 }
-// image 
+// image
 @mixin background6 {
   background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80);
 }
-// image 
+// image
 @mixin background7 {
   background-image: url(https://images.unsplash.com/photo-1654960684701-198bf60d57ef?ixlib=rb-1.2.1&dl=lukasz-rawa-410xCX9-yoM-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
 }
