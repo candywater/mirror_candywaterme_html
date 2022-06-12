@@ -37,6 +37,8 @@
     YEAR_SUMMARY_INDEX_URL,
     ESSAY_INDEX_URL,
     YEAR_SUMMARY,
+    OTHER_INDEX_URL,
+    OTHER_URL,
     blogtype,
   } from "./config/path";
   import sitepath from "./config/path";
@@ -72,9 +74,9 @@
     console.log(pagename);
   }
 
-  function loadBackgroundColor(){
-    let classname = localStorage.getItem("candy_background_setting")
-    document.querySelector("body").className = classname
+  function loadBackgroundColor() {
+    let classname = localStorage.getItem("candy_background_setting");
+    if (classname) document.querySelector("body").className = classname;
   }
 </script>
 
@@ -104,7 +106,7 @@
       contentUrl={YEAR_SUMMARY_URL}
     />
   {:else if $path === BLOG_OTHER || $path === BLOG}
-    <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
+    <Blog {blogpath} indexUrl={OTHER_INDEX_URL} contentUrl={OTHER_URL} />
   {:else}
     <Error />
   {/if}

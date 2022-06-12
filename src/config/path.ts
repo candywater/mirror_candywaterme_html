@@ -7,7 +7,7 @@ export const ESSAY = "essay";
 export const TECH = "tech";
 export const BLOG = "blog";
 export const YEAR_SUMMARY = "year-summary";
-export const BLOG_OTHER = "blogother";
+export const BLOG_OTHER = "other";
 export const RANDOM = "random";
 
 export const INDEX_PATH = "/";
@@ -22,10 +22,12 @@ export const RANDOM_PATH = "/random";
 
 export const ESSAY_URL = "/doc/_info/essay.json";
 export const TECH_URL = "/doc/_info/tech.json";
+export const OTHER_URL = "/doc/_info/other.json";
 export const YEAR_SUMMARY_URL = "/doc/_info/year-summary.json";
 
 export const ESSAY_INDEX_URL = "/doc/_info/essay.txt";
 export const TECH_INDEX_URL = "/doc/_info/tech.txt";
+export const OTHER_INDEX_URL = "/doc/_info/other.txt";
 export const YEAR_SUMMARY_INDEX_URL = "/doc/_info/year-summary.txt";
 
 export const DOC_SRC_URL = "/doc";
