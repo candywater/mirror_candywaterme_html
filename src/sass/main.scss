@@ -81,7 +81,7 @@ $on-laptop: 800px !default;
 @mixin background6 {
   //https://unsplash.com/photos/U8i2h95G_-Q
   background-image: url(https://unsplash.com/photos/U8i2h95G_-Q/download?force=tru);
-  background-size: contain;
+  background-size: cover;
 }
 // image
 @mixin background7 {
@@ -89,8 +89,7 @@ $on-laptop: 800px !default;
   background-image: url(https://unsplash.com/photos/410xCX9-yoM/download?force=true);
 }
 /*
-  //https://unsplash.com/photos/DhcJG8UA3tw/
-
+https://unsplash.com/photos/DhcJG8UA3tw
 https://unsplash.com/es/fotos/UfAqCF6szFU
 https://unsplash.com/es/fotos/6FFFuL87z6g
 https://unsplash.com/photos/rrk4WRjBwYw
