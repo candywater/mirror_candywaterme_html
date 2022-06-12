@@ -5,15 +5,16 @@ var autoprefixer = require('autoprefixer');
 const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const sass = require('gulp-sass')(require('sass'));
-const tailwindcss = require('tailwindcss');
-const tailwindConfig = require("./tailwind.config.cjs");
+// const tailwindcss = require('tailwindcss');
+// const tailwindConfig = require("./tailwind.config.cjs");
 
-// tailwind.css
-const TAILWINDCSS_PATH = ['src/sass/tailwind.css']
-const SOURCE_HTML = ["./src/**/*.svelte", "./src/**/*.ts", "./public/**/*.html"]
-const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
+// // tailwind.css
+// const TAILWINDCSS_PATH = ['src/sass/tailwind.css']
+// const SOURCE_HTML = ["./src/**/*.svelte", "./src/**/*.ts", "./public/**/*.html"]
+// const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
 const MINIMACSS_DIR_PATH = ["./src/sass/**/*.scss"]
 const MINIMACSS_OUTPUT = './public/build/sass'
+const DIST_CSS_OUTPUT = './dist/build/sass'
 
 function main_dev() {
     return gulp.src(["./src/sass/main.scss"])
@@ -21,6 +22,7 @@ function main_dev() {
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(MINIMACSS_OUTPUT))
+        .pipe(gulp.dest(DIST_CSS_OUTPUT))
 }
 
 function complier_main_prod() {
@@ -80,37 +82,37 @@ exports["watch"] = gulp.parallel(main_watch)
 //     // "./src/sass/**/main.scss"
 // ]
 
-// tailwindcss
-function tailwindcss_prod() {
-    var plugins = [
-        autoprefixer(),
-        tailwindcss(tailwindConfig),
-        cssnano(),
-    ];
-    return gulp.src(TAILWINDCSS_PATH)
-        // .pipe(purgecss({
-        //     content: SOURCE_HTML
-        // }))
-        .pipe(postcss(plugins))
-        .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
-}
-function tailwind_dev() {
-    var plugins = [
-        // autoprefixer({browsers: ['last 1 version']}),
-        tailwindcss(tailwindConfig),
-        // cssnano(),
-    ];
-    return gulp.src(TAILWINDCSS_PATH)
-        .pipe(sourcemaps.init())
-        .pipe(postcss(plugins))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
-}
+// // tailwindcss
+// function tailwindcss_prod() {
+//     var plugins = [
+//         autoprefixer(),
+//         tailwindcss(tailwindConfig),
+//         cssnano(),
+//     ];
+//     return gulp.src(TAILWINDCSS_PATH)
+//         // .pipe(purgecss({
+//         //     content: SOURCE_HTML
+//         // }))
+//         .pipe(postcss(plugins))
+//         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
+// }
+// function tailwind_dev() {
+//     var plugins = [
+//         // autoprefixer({browsers: ['last 1 version']}),
+//         tailwindcss(tailwindConfig),
+//         // cssnano(),
+//     ];
+//     return gulp.src(TAILWINDCSS_PATH)
+//         .pipe(sourcemaps.init())
+//         .pipe(postcss(plugins))
+//         .pipe(sourcemaps.write('.'))
+//         .pipe(gulp.dest(TAILWINDCSS_OUTPUT))
+// }
 
 
-function tailwind_watch() {
-    gulp.watch(SOURCE_HTML, tailwind_dev)
-}
+// function tailwind_watch() {
+//     gulp.watch(SOURCE_HTML, tailwind_dev)
+// }
 // function minima_watch() {
 //     gulp.watch(MINIMACSS_DIR_PATH, minima_dev)
 // }

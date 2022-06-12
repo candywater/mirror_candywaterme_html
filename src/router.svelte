@@ -7,9 +7,6 @@
   import "animate.css/source/bouncing_entrances/bounceIn.css";
   import "animate.css/source/attention_seekers/jello.css";
   import "animate.css/source/fading_entrances/fadeIn.css";
-  // import "animate.css/source/fading_entrances/fadeInUpBig.css";
-  // import "animate.css/source/fading_entrances/fadeInUp.css";
-  //import "animate.css/source/fading_exits/fadeOut.css";
   import "animate.css/source/fading_exits/fadeOutUp.css";
 
   import page from "page.js";
@@ -51,20 +48,6 @@
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
     page(pagepath, (ctx: any) => {
-      // console.log('=====ctx===========')
-      // for (const [key, value] of Object.entries(ctx)) {
-      //   console.log(`${key}: ${value}`);
-      // }
-      // console.log('======ctx.state==========')
-      // for (const [key, value] of Object.entries(ctx.state)) {
-      //   console.log(`${key}: ${value}`);
-      // }
-      // console.log('=====ctx.params===========')
-      // for (const [key, value] of Object.entries(ctx.params)) {
-      //   console.log(`${key}: ${value}`);
-      // }
-      // console.log('================')
-      // console.log(ctx.init)
       if (ctx.init && ctx.init === true) {
         firstTimeShow = true;
       } else {
@@ -89,39 +72,6 @@
   }
 </script>
 
-<svelte:head>
-  <!-- <script>
-    (function (d) {
-      var config = {
-          kitId: "rsf7iyt",
-          scriptTimeout: 3000,
-          async: true,
-        },
-        h = d.documentElement,
-        t = setTimeout(function () {
-          h.className =
-            h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
-        }, config.scriptTimeout),
-        tk = d.createElement("script"),
-        f = false,
-        s = d.getElementsByTagName("script")[0],
-        a;
-      h.className += " wf-loading";
-      tk.src = "https://use.typekit.net/" + config.kitId + ".js";
-      tk.async = true;
-      tk.onload = tk.onreadystatechange = function () {
-        a = this.readyState;
-        if (f || (a && a != "complete" && a != "loaded")) return;
-        f = true;
-        clearTimeout(t);
-        try {
-          Typekit.load(config);
-        } catch (e) {}
-      };
-      s.parentNode.insertBefore(tk, s);
-    })(document);
-  </script> -->
-</svelte:head>
 <div>
   {#if $path === INDEX}
     <Index {firstTimeShow} />
