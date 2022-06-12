@@ -16,7 +16,7 @@
   import { show_config_panel, show_quote } from "../config/config";
 
   import { getRandomQuote, splitSerifs } from "../common/common";
-  import ControllerPanel from "../components/main/ControllerPanel.svelte";
+  import ShutterPanel from "../components/main/ShutterPanel.svelte";
 
   export let quote_url: string;
   export let quote_list: string[];
@@ -90,7 +90,7 @@
 <Layout>
   <div class={mainFadeAnimation} on:animationend={onAnimationEnd}>
     <div class="container main">
-      <ControllerPanel />
+      <ShutterPanel />
       <div class="main-bg">
         <div class="mainmenu-block">
           <MainMenu />

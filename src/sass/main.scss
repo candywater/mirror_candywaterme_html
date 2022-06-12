@@ -12,24 +12,8 @@ $base-line-height: 1.5 !default;
 
 $spacing-unit: 30px !default;
 
-$text-color: #111 !default;
-$background-color: #fdfdfd !default;
-/*idea: https://codepen.io/P1N2O/pen/pyBNzX*/
-$background-image:  
-  linear-gradient(
-    -45deg,
-    rgb(179, 108, 87),
-    rgba(155, 44, 44, 0.637),
-    rgb(19, 90, 116),
-    rgba(29, 104, 86, 0.534)
-  ),
-  linear-gradient(
-    127deg,
-    rgb(87, 44, 31),
-    rgb(11, 75, 99),
-    rgba(17, 100, 81, 0.534)
-  );
-$background-size: 400% 400%;
+$text-color: #111;
+$background-color: #fdfdfd;
 $brand-color: #2a7ae2 !default;
 
 $grey-color: #828282 !default;
@@ -42,17 +26,59 @@ $content-width: 800px !default;
 $on-palm: 600px !default;
 $on-laptop: 800px !default;
 
-// background animation
-@keyframes Gradient {
-  0% {
-    background-position: 0% 50%;
+// idea: https://codepen.io/P1N2O/pen/pyBNzX
+@mixin backgroud-gradient($background) {
+  background: $background;
+  background-size: 400% 400%;
+  animation: Gradient 35s ease infinite;
+  // background animation
+  @keyframes Gradient {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+}
+
+//https://codepen.io/abdelrhmansaid/pen/OJRNOpQ
+// https://codepen.io/team/jotform/pen/XWmqoMp
+// https://codepen.io/ste-vg/pen/GqaZbo
+
+
+@mixin background0 {
+  @include backgroud-gradient(linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab));
+}
+@mixin background1 {
+  @include backgroud-gradient(linear-gradient(127deg, rgb(87, 44, 31), rgb(11, 75, 99), rgba(17, 100, 81, 0.534)));
+}
+@mixin background2 {
+  @include backgroud-gradient(
+    linear-gradient(-45deg, rgb(179, 108, 87), rgba(155, 44, 44, 0.637), rgb(19, 90, 116), rgba(29, 104, 86, 0.534))
+  );
+}
+@mixin background3 {
+  @include backgroud-gradient(linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab));
+}
+// purple
+@mixin background4 {
+  background-image: url(https://unsplash.com/photos/DhcJG8UA3tw/download?ixid=MnwxMjA3fDB8MXxhbGx8fHx8fHx8fHwxNjU1MDEzMTIx&force=true);
+}
+// green
+@mixin background5 {
+  background-image: url(https://unsplash.com/photos/SahRqFHiWOM/download?force=true);
+}
+// image 
+@mixin background6 {
+  background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2378&q=80);
+}
+// image 
+@mixin background7 {
+  background-image: url(https://images.unsplash.com/photo-1654960684701-198bf60d57ef?ixlib=rb-1.2.1&dl=lukasz-rawa-410xCX9-yoM-unsplash.jpg&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
 }
 
 // Use media queries like this:
@@ -82,11 +108,10 @@ $on-laptop: 800px !default;
 @import "minima/base";
 @import "minima/layout";
 @import "minima/syntax-highlighting";
-@import "post/_post";
+@import "post/post";
 @import "component/comment";
 @import "component/icons";
 @import "component/postnav";
 @import "component/spinner/lds-circle";
 @import "component/spinner/lds-facebook";
-@import "component/spinner/lsd-ellipsis";
 @import "component/spinner/lds-roller";

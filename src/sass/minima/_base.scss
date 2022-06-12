@@ -5,18 +5,27 @@ body {
   // font: $base-font-weight #{$base-font-size}/#{$base-line-height} $base-font-family;
   font: $base-font-family;
   color: $text-color;
-  //background-color: $background-color;
-  // -webkit-text-size-adjust: 100%;
-  // -webkit-font-feature-settings: "kern" 1;
-  // -moz-font-feature-settings: "kern" 1;
-  // -o-font-feature-settings: "kern" 1;
-  // font-feature-settings: "kern" 1;
-  // font-kerning: normal;
-  // --> animation
-  background: $background-image;
-  background-size: $background-size;
-  animation: Gradient 35s ease infinite;
-  // <--
+}
+body.bg1 {
+  @include background1;
+}
+body.bg2 {
+  @include background2;
+}
+body.bg3 {
+  @include background3;
+}
+body.bg4 {
+  @include background4;
+}
+body.bg5 {
+  @include background5;
+}
+body.bg6 {
+  @include background6;
+}
+body.bg7 {
+  @include background7;
 }
 
 #{$namespace} {
