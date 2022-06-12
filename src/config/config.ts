@@ -8,4 +8,3 @@ export const hide_main_block = writable(false);
 export const DEFAULT_NUMBER_PER_PAGE: number = 9;
 export const current_page_number = writable(0);
 
-export const BACK_GROUND_CLASS = writable('bg3')

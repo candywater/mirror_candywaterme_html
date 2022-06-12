@@ -65,10 +65,16 @@
     });
   }
   page(404);
+  loadBackgroundColor();
 
   function change_switcher(pagename) {
     path.set(pagename);
     console.log(pagename);
+  }
+
+  function loadBackgroundColor(){
+    let classname = sessionStorage.getItem("candy_background_setting")
+    document.querySelector("body").className = classname
   }
 </script>
 
