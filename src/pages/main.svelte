@@ -90,7 +90,7 @@
 <Layout>
   <div class={mainFadeAnimation} on:animationend={onAnimationEnd}>
     <div class="container main">
-      <ShutterPanel />
+      <div class="shutter"><ShutterPanel /></div>
       <div class="main-bg">
         <div class="mainmenu-block">
           <MainMenu />
@@ -128,7 +128,7 @@
   $white-background: rgba(245, 245, 245, 0.3);
 
   .main {
-      margin-top: 5%;
+    margin-top: 5%;
     .main-bg {
       background-color: $white-background;
       display: flex;
@@ -142,14 +142,19 @@
     .config-block {
       position: absolute;
       right: 1rem;
-      top: 2.5rem;
+      top: 1rem;
+    }
+    .shutter {
+      position: absolute;
+      margin-top: -2rem;
     }
   }
   .copyleft-block {
     padding: 0rem;
-    display: flex;    
+    display: flex;
     justify-content: flex-end;
     align-items: flex-end;
+    position: absolute;
   }
 
   @media screen {
