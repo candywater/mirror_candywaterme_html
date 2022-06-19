@@ -58,6 +58,9 @@
       img {
         width: 13rem;
       }
+      img:hover {
+        transform: scale(1.02);
+      }
     }
 
     .real-rounded-circle {
