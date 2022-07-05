@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { blogtype, path, BLOG } from "../../config/path";
+  import { blogtype, path, BLOG } from "../../../config/path";
 
   export let style: string;
   export let href: string;

@@ -1,12 +1,12 @@
 <script lang="ts">
-  import Btn from ".../MainMenuButton.svelte";
+  import Btn from "./mainMenu/MainMenuButton.svelte";
   import {
     ESSAY_PATH,
     TECH_PATH,
     PROJECT_PATH,
     ABOUT_PATH,
     INDEX_PATH,
-  } from "../../../../config/path";
+  } from "../../config/path";
 
   const basicstyle = "text-white rounded shadow"; //  = "border border-light-blue-500 border-opacity-5"
   const border = "border border-indigo-500";
