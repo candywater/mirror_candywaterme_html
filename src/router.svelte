@@ -39,7 +39,7 @@
     YEAR_SUMMARY,
     OTHER_INDEX_URL,
     OTHER_URL,
-    blogtype,
+    CurrentPage,
   } from "./config/path";
   import sitepath from "./config/path";
   import YearSummary from "./pages/year-summary.svelte";
@@ -52,10 +52,10 @@
       change_switcher(pagename);
       if (pagename == BLOG) {
         blogpath = ctx.path;
-        blogtype.set(ctx.params.type);
+        CurrentPage.set(ctx.params.type);
       } else if (pagename == BLOG_OTHER) {
         blogpath = ctx.path;
-        blogtype.set(ctx.params.type);
+        CurrentPage.set(ctx.params.type);
       }
     });
   }
@@ -88,11 +88,11 @@
     <YearSummary />
   {:else if $path === RANDOM}
     <Random />
-  {:else if $path === BLOG && $blogtype == ESSAY}
+  {:else if $path === BLOG && $CurrentPage == ESSAY}
     <Blog {blogpath} indexUrl={ESSAY_INDEX_URL} contentUrl={ESSAY_URL} />
-  {:else if $path === BLOG && $blogtype == TECH}
+  {:else if $path === BLOG && $CurrentPage == TECH}
     <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
-  {:else if $path === BLOG_OTHER && $blogtype == YEAR_SUMMARY}
+  {:else if $path === BLOG_OTHER && $CurrentPage == YEAR_SUMMARY}
     <Pureblog
       {blogpath}
       indexUrl={YEAR_SUMMARY_INDEX_URL}

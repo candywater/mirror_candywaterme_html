@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { blogtype, path, BLOG } from "../../../config/path";
+  import { CurrentPage, path, BLOG } from "../../../config/path";
 
   export let style: string;
   export let href: string;
@@ -14,7 +14,7 @@
     anime = animation;
     underline = "underline";
   }
-  if ($path == BLOG && $blogtype.toLowerCase() == title.toLowerCase()) {
+  if ($path == BLOG && $CurrentPage.toLowerCase() == title.toLowerCase()) {
     underline = "underline";
   }
 </script>

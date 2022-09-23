@@ -53,5 +53,5 @@ mainMenuDict[TECH] = TECH_PATH;
 Object.freeze(mainMenuDict);
 
 export const path = writable(INDEX);
-export const blogtype = writable("");
+export const CurrentPage = writable("");
 export default pathDict;

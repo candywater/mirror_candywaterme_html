@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Main from "./main.svelte";
+  import Main from "../pages/main.svelte";
   import ProjectList from "../components/project/ProjectList.svelte";
 
 
