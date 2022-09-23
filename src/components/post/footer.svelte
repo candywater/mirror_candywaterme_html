@@ -1,6 +1,6 @@
 <script lang="ts">
   import { FormatDateYear } from "../../common/common";
-  import { ESSAY, path, TECH } from "../../config/path";
+  import { ESSAY, CurrentPath, TECH } from "../../config/path";
   import { SiteInfo } from "../../config/siteinfo";
 
   import type { ISiteInfo } from "../../interface/ISiteInfo";
@@ -32,12 +32,12 @@
           </a>
         {/if}
 
-        <!-- {#if $path == ESSAY}
+        <!-- {#if $CurrentPath == ESSAY}
           <a href="https://candywater.me/doc/_info/essay.xml">
             <div class="nes-icon rss is-a-little-small" /></a
           >
         {/if}
-        {#if $path == TECH}
+        {#if $CurrentPath == TECH}
           <a href="https://candywater.me/doc/_info/tech.xml"
             ><div class="nes-icon rss is-a-little-small" /></a
           >

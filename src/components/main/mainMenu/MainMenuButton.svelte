@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CurrentPage, path, BLOG } from "../../../config/path";
+  import { CurrentPath, BLOG } from "../../../config/path";
 
   export let style: string;
   export let href: string;
@@ -10,11 +10,11 @@
   const animation = "animated jello";
   let anime = "";
   let underline = "";
-  if ($path.toLowerCase() == title.toLowerCase()) {
+  if ($CurrentPath.toLowerCase() == title.toLowerCase()) {
     anime = animation;
     underline = "underline";
   }
-  if ($path == BLOG && $CurrentPage.toLowerCase() == title.toLowerCase()) {
+  if ($CurrentPath == BLOG && $CurrentPath.toLowerCase() == title.toLowerCase()) {
     underline = "underline";
   }
 </script>

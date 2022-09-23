@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { path, TECH, ESSAY, TECH_PATH, ESSAY_PATH } from "../config/path";
+  import { CurrentPath, TECH, ESSAY, TECH_PATH, ESSAY_PATH } from "../config/path";
 </script>
 
 <svelte:head>
   <title>欢迎━(*｀∀´*)ノ亻!</title>
-  {#if $path === TECH}
+  {#if $CurrentPath === TECH}
     <link rel="preload" href={TECH_PATH} as="document" />
   {/if}
-  {#if $path === ESSAY}
+  {#if $CurrentPath === ESSAY}
     <link rel="preload" href={ESSAY_PATH} as="document" />
   {/if}
 </svelte:head>

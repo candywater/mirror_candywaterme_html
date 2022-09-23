@@ -3,12 +3,12 @@
   import CcByIcon from "./CCByIcon.svelte";
   import CcByNcIcon from "./CCByNcIcon.svelte";
 
-  import { ESSAY, path, TECH } from "../../../config/path";
+  import { ESSAY, CurrentPath, TECH } from "../../../config/path";
 </script>
 
-{#if $path == ESSAY}
+{#if $CurrentPath == ESSAY}
   <CcByNcSaIcon />
-{:else if $path == TECH}
+{:else if $CurrentPath == TECH}
   <CcByIcon />
 {:else}
   <CcByNcIcon />

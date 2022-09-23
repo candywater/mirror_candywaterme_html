@@ -21,7 +21,7 @@
   import Pureblog from "./posts/pureblog.svelte";
 
   import {
-    path,
+    CurrentPath as path,
     INDEX,
     ABOUT,
     PROJECT,
