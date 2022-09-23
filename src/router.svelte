@@ -16,9 +16,9 @@
   import Project from "./pages/project.svelte";
   import Tech from "./pages/tech.svelte";
   import Essay from "./pages/essay.svelte";
-  import Blog from "./pages/blog.svelte";
   import Random from "./pages/random.svelte";
-  import Pureblog from "./pages/pureblog.svelte";
+  import Blog from "./posts/blog.svelte";
+  import Pureblog from "./posts/pureblog.svelte";
 
   import {
     path,
