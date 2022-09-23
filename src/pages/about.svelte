@@ -2,7 +2,6 @@
   import Main from "./main.svelte";
   import AboutMe from "../components/about/AboutMe.svelte";
 
-  export let firstTimeShow: boolean;
 
   const description = "";
   const quote_url = "";
@@ -13,6 +12,6 @@
   <title>This a my small profile</title>
 </svelte:head>
 
-<Main {quote_url} {quote_list} {description} {firstTimeShow} isHide={false}>
+<Main {quote_url} {quote_list} {description}  isHide={false}>
   <AboutMe />
 </Main>

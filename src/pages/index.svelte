@@ -1,14 +1,12 @@
 <script lang="ts">
   import Main from "./main.svelte";
 
-  export let firstTimeShow: boolean;
-
   const quote_url = "";
   const quote_list = [];
   const description = "";
 </script>
 
-<Main {quote_url} {quote_list} {description} {firstTimeShow} isHide={false}>
+<Main {quote_url} {quote_list} {description} isHide={false}>
   <p class="desktop">
     <a href="https://git.io/typing-svg"
       ><img

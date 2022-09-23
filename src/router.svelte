@@ -46,16 +46,9 @@
   import Error from "./errorpages/error.svelte";
 
   let blogpath: string = "";
-  let firstTimeShow: boolean = false;
 
   for (const [pagename, pagepath] of Object.entries(sitepath)) {
     page(pagepath, (ctx: any) => {
-      if (ctx.init && ctx.init === true) {
-        firstTimeShow = true;
-      } else {
-        firstTimeShow = false;
-      }
-
       change_switcher(pagename);
       if (pagename == BLOG) {
         blogpath = ctx.path;
@@ -82,17 +75,17 @@
 
 <div>
   {#if $path === INDEX}
-    <Index {firstTimeShow} />
+    <Index />
   {:else if $path === ABOUT}
-    <About {firstTimeShow} />
+    <About />
   {:else if $path === PROJECT}
-    <Project {firstTimeShow} />
+    <Project />
   {:else if $path === TECH}
-    <Tech {firstTimeShow} />
+    <Tech />
   {:else if $path === ESSAY}
-    <Essay {firstTimeShow} />
+    <Essay />
   {:else if $path === YEAR_SUMMARY}
-    <YearSummary {firstTimeShow} />
+    <YearSummary />
   {:else if $path === RANDOM}
     <Random />
   {:else if $path === BLOG && $blogtype == ESSAY}

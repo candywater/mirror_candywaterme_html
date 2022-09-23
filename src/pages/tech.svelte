@@ -4,7 +4,6 @@
   import { TECH_URL } from "../config/path";
   import MainMenuNav from "../layout/MainMenuLayout.svelte";
 
-  export let firstTimeShow: boolean;
 
   const docListUrl = TECH_URL;
   const quote_url = "";
@@ -12,22 +11,12 @@
   const description = "";
   const hide_main_block = true;
 
-  firstTimeShow = false;
 </script>
 
 <svelte:head>
   <title>Tech</title>
 </svelte:head>
 
-{#if firstTimeShow}
-  <Main
-    {quote_url}
-    {quote_list}
-    {description}
-    firstTimeShow={false}
-    isHide={hide_main_block}
-  />
-{/if}
 <MainMenuNav>
   <main class="page-content" aria-label="Content">
     <div class="wrapper">

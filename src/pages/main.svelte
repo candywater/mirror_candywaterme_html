@@ -22,7 +22,6 @@
   export let quote_list: string[];
   export let description: string;
   export let isHide: boolean;
-  export let firstTimeShow: boolean;
 
   const DEFAULT_QUOTE: string[] = ["happy a new day!"];
   const DEFAULT_QUOTE_URL: string = "/doc/_info/index_quote.json";
@@ -45,9 +44,6 @@
     if (isHide === true) {
       hideContent();
       return;
-    }
-    if (firstTimeShow == true) {
-      showContent();
     }
     if (quote_list.length > 0) {
       return;
