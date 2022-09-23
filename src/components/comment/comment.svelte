@@ -33,7 +33,7 @@
   // ready(comment_area_html);
   import { onMount } from "svelte";
   import { FormatDate } from "../../common/common";
-  import CommentUnusable from "./comment_unusable.svelte";
+  import CommentUnusable from "./comment_unavailable.svelte";
   import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
 
   onMount(() => {
