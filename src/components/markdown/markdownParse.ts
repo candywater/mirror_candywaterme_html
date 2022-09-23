@@ -1,5 +1,5 @@
 import { marked } from "marked";
-import { cleanUrl, escape } from "../lib/helpers";
+import { cleanUrl, escape } from "./helpers";
 import type { IHeaderPair } from "../../interface/IHeaderPair";
 
 marked.setOptions({

@@ -1,6 +1,6 @@
 <script lang="ts">
   // https://google.github.io/styleguide/jsguide.html
-  import { xhr_get, xhr_post } from "./xmlrequest";
+  import { xhr_get, xhr_post } from "../../common/xmlrequest";
 
   const COMMENT_API_URL = "/comment";
 
