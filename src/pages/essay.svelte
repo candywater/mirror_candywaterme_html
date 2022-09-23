@@ -2,7 +2,7 @@
   import Main from "./main.svelte";
   import PostList from "../components/pageList/postList.svelte";
   import { ESSAY_URL } from "../config/path";
-  import MainMenuNav from "../layout/MainMenuLayout.svelte";
+  import SideMainMenuLayout from "../template/SideMainMenuLayout.svelte";
 
   const docListUrl = ESSAY_URL;
   const quote_url = "";
@@ -17,13 +17,13 @@
   <title>Essay</title>
 </svelte:head>
 
-<MainMenuNav>
+<SideMainMenuLayout>
   <main class="page-content" aria-label="Content">
     <div class="wrapper">
       <PostList {docListUrl} />
     </div>
   </main>
-</MainMenuNav>
+</SideMainMenuLayout>
 
 <!-- 
 <br><br>
