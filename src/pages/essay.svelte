@@ -1,15 +1,9 @@
 <script lang="ts">
-  import Main from "./main.svelte";
   import PostList from "../components/pageList/postList.svelte";
   import { ESSAY_URL } from "../config/path";
   import SideMainMenuLayout from "../template/SideMainMenuLayout.svelte";
 
   const docListUrl = ESSAY_URL;
-  const quote_url = "";
-  const quote_list = [""];
-  const description = "";
-
-  const hide_main_block = true;
 
 </script>
 
