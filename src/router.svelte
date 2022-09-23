@@ -41,24 +41,44 @@
     OTHER_URL,
     CurrentPage,
   } from "./config/path";
-  import sitepath from "./config/path";
+  import pathDict from "./config/path";
   import YearSummary from "./pages/year-summary.svelte";
-  import Error from "./errorpages/error.svelte";
+  import Error from "./error/error.svelte";
 
   let blogpath: string = "";
 
-  for (const [pagename, pagepath] of Object.entries(sitepath)) {
-    page(pagepath, (ctx: any) => {
-      change_switcher(pagename);
-      if (pagename == BLOG) {
-        blogpath = ctx.path;
-        CurrentPage.set(ctx.params.type);
-      } else if (pagename == BLOG_OTHER) {
-        blogpath = ctx.path;
-        CurrentPage.set(ctx.params.type);
-      }
-    });
-  }
+  // // set page info => hard to understand
+  // for (const [pagename, pagepath] of Object.entries(pathDict)) {
+  //   page(pagepath, (ctx: any) => {
+  //     change_switcher(pagename);
+  //     // when post
+  //     if (pagename == BLOG) {
+  //       blogpath = ctx.path;
+  //       CurrentPage.set(ctx.params.type);
+  //     } else if (pagename == BLOG_OTHER) {
+  //       blogpath = ctx.path;
+  //       CurrentPage.set(ctx.params.type);
+  //     }
+  //   });
+  // }
+  
+  page(pathDict[INDEX], ()=> change_switcher(INDEX))
+  page(pathDict[ABOUT], ()=> change_switcher(ABOUT))
+  page(pathDict[PROJECT], ()=> change_switcher(PROJECT))
+  page(pathDict[ESSAY], ()=> change_switcher(ESSAY))
+  page(pathDict[TECH], ()=> change_switcher(TECH))
+  page(pathDict[YEAR_SUMMARY], ()=> change_switcher(YEAR_SUMMARY))
+  page(pathDict[BLOG], (ctx: any)=> {
+    change_switcher(BLOG);
+    blogpath = ctx.path;
+    CurrentPage.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
+  })
+  page(pathDict[BLOG_OTHER], (ctx: any)=> {
+    change_switcher(BLOG_OTHER)
+    blogpath = ctx.path;
+    CurrentPage.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
+  })
+
   page(404);
   loadBackgroundColor();
 
