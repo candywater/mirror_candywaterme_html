@@ -43,4 +43,4 @@
   </div>
 </Layout>
 
-<style lang="scss" src="../../sass/pages/main.scss" />
+<style lang="scss" src="./main.scss" />
