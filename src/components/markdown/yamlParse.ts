@@ -1,4 +1,4 @@
-import type { IPostHeader } from "../../interface/IPostHeader";
+import type { IPostHeader } from "../../ts/interface/IPostHeader";
 
 /**
  * warning: cannot parse array

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CurrentPath, BLOG } from "../../../config/path";
+  import { CurrentPath, BLOG } from "../../../ts/config/path";
 
   export let style: string;
   export let href: string;

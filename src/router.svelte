@@ -40,8 +40,8 @@
     OTHER_INDEX_URL,
     OTHER_URL,
     CurrentPage,
-  } from "./config/path";
-  import pathDict from "./config/path";
+  } from "./ts/config/path";
+  import pathDict from "./ts/config/path";
   import YearSummary from "./pages/year-summary.svelte";
   import Error from "./error/error.svelte";
 

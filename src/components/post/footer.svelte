@@ -1,9 +1,9 @@
 <script lang="ts">
-  import { FormatDateYear } from "../../common/common";
-  import { ESSAY, CurrentPath, TECH } from "../../config/path";
-  import { SiteInfo } from "../../config/siteinfo";
+  import { FormatDateYear } from "../../ts/common/common";
+  import { ESSAY, CurrentPath, TECH } from "../../ts/config/path";
+  import { SiteInfo } from "../../ts/config/siteinfo";
 
-  import type { ISiteInfo } from "../../interface/ISiteInfo";
+  import type { ISiteInfo } from "../../ts/interface/ISiteInfo";
 
   let site: ISiteInfo = SiteInfo;
 </script>

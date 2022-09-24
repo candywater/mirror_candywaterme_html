@@ -1,6 +1,6 @@
 <script lang="ts">
   import PostList from "../components/pageList/postList.svelte";
-  import { ESSAY_URL } from "../config/path";
+  import { ESSAY_URL } from "../ts/config/path";
   import SideMainMenuLayout from "../template/SideMainMenuLayout.svelte";
 
   const docListUrl = ESSAY_URL;

@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from "svelte";
 
-  import type { IPostSummary } from "../../interface/IPostSummary";
+  import type { IPostSummary } from "../../ts/interface/IPostSummary";
   import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
   import Pagination from "./pagination.svelte";
   import Footer from "../post/footer.svelte";
@@ -10,7 +10,7 @@
   import {
     current_page_number,
     DEFAULT_NUMBER_PER_PAGE,
-  } from "../../config/config";
+  } from "../../ts/config/config";
   import Searchbar from "../search/searchbar.svelte";
 
   export let docListUrl: string;

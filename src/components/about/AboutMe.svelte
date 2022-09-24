@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { SiteInfo } from "../../config/siteinfo";
+  import { SiteInfo } from "../../ts/config/siteinfo";
 
-  import type { ISiteInfo } from "../../interface/ISiteInfo";
+  import type { ISiteInfo } from "../../ts/interface/ISiteInfo";
   let show_quote = false;
   let site: ISiteInfo = SiteInfo;
 

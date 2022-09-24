@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { ESSAY, CurrentPath, TECH } from "../../../config/path";
+  import { ESSAY, CurrentPath, TECH } from "../../../ts/config/path";
 
   const _essay_spinner: string =
     '<div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>';

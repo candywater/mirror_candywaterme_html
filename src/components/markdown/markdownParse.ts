@@ -1,6 +1,6 @@
 import { marked } from "marked";
 import { cleanUrl, escape } from "./helpers";
-import type { IHeaderPair } from "../../interface/IHeaderPair";
+import type { IHeaderPair } from "../../ts/interface/IHeaderPair";
 
 marked.setOptions({
   breaks: true,

@@ -6,7 +6,7 @@
 
 <script lang="ts">
   import { onMount } from "svelte";
-  import { show_quote } from "../../config/config";
+  import { show_quote } from "../../ts/config/config";
 
   export let description: string;
   let _img_anime: string = "blur-sm";
