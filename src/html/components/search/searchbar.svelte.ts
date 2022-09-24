@@ -53,8 +53,7 @@ function search(key: string) {
       addSearchItem(value.summary, value.url, value.title);
     }
     if (existKey(value.tags?.toString(), key)) {
-      addSearchItem(value.tags.toString(), value.url, value.title),
-        value.title;
+      addSearchItem(value.tags.toString(), value.url, value.title), value.title;
     }
     if (existKey(value.tag, key)) {
       addSearchItem(value.tag, value.url, value.title);
