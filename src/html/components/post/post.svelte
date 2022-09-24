@@ -3,7 +3,7 @@
   import { FormatDate } from "../../../ts/common/common";
   import { onMount } from "svelte";
 
-  import { markDown } from "../markdown/markdown";
+  import { markDown } from "../../../ts/markdown/markdown";
   import Comment from "../comment/comment.svelte";
   import Spinner from "../common/icons/Spinner.svelte";
   import CcIcon from "../common/icons/CCIcon.svelte";
