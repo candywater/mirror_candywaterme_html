@@ -13,9 +13,9 @@
   import ConfigGear from "../components/main/configPanel/ConfigGear.svelte";
   import FakePanel from "../components/common/FakePanel.svelte";
 
-  import { show_config_panel, show_quote } from "../ts/config/config";
+  import { show_config_panel, show_quote } from "../../ts/config/config";
 
-  import { getRandomQuote, splitSerifs } from "../ts/common/common";
+  import { getRandomQuote, splitSerifs } from "../../ts/common/common";
   import ShutterPanel from "../components/main/ShutterPanel.svelte";
 
   export let quote_url: string;
@@ -120,4 +120,4 @@
   </div>
 </Layout>
 
-<style lang="scss" src="../sass/pages/main.scss" />
+<style lang="scss" src="../../sass/pages/main.scss" />

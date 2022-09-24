@@ -3,7 +3,7 @@
   import CcByIcon from "./CCByIcon.svelte";
   import CcByNcIcon from "./CCByNcIcon.svelte";
 
-  import { ESSAY, CurrentPath, TECH } from "../../../ts/config/path";
+  import { ESSAY, CurrentPath, TECH } from "../../../../ts/config/path";
 </script>
 
 {#if $CurrentPath == ESSAY}

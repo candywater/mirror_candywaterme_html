@@ -1,5 +1,5 @@
 <script lang="ts">
-  import list from "../../ts/config/project_list";
+  import list from "../../../ts/config/project_list";
 
   let list_type = ["bg-gray-300 hover:bg-gray-500 text-black rounded"];
 </script>

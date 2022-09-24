@@ -1,6 +1,6 @@
 <script lang="ts">
   import Post from "../components/post/post.svelte";
-  import { BlogUrl2DocUrl } from "../ts/common/common";
+  import { BlogUrl2DocUrl } from "../../ts/common/common";
   import MainMenu from "../components/main/MainMenu.svelte";
   import SideMainMenuLayout from "../template/SideMainMenuLayout.svelte";
   export let blogpath: string;

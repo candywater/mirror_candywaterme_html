@@ -1,10 +1,10 @@
 <script lang="ts">
-  import type { IPostSummary } from "../../ts/interface/IPostSummary";
+  import type { IPostSummary } from "../../../ts/interface/IPostSummary";
 
   import {
     current_page_number,
     DEFAULT_NUMBER_PER_PAGE,
-  } from "../../ts/config/config";
+  } from "../../../ts/config/config";
 
   export let content_list: IPostSummary[];
 

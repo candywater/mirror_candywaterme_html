@@ -1,6 +1,6 @@
 <script lang="ts">
-  import type { IPostHeader } from "../../ts/interface/IPostHeader";
-  import { FormatDate } from "../../ts/common/common";
+  import type { IPostHeader } from "../../../ts/interface/IPostHeader";
+  import { FormatDate } from "../../../ts/common/common";
   import { onMount } from "svelte";
 
   import { markDown } from "../markdown/markdown";
@@ -8,11 +8,11 @@
   import Spinner from "../common/icons/Spinner.svelte";
   import CcIcon from "../common/icons/CCIcon.svelte";
   import Headerlist from "./headerlist.svelte";
-  import type { IHeaderPair } from "../../ts/interface/IHeaderPair";
+  import type { IHeaderPair } from "../../../ts/interface/IHeaderPair";
   import Player from "../musicplayer/player.svelte";
   import Footer from "./footer.svelte";
   import Searchbar from "../search/searchbar.svelte";
-  import type { IPostSummary } from "../../ts/interface/IPostSummary";
+  import type { IPostSummary } from "../../../ts/interface/IPostSummary";
 
   export let docUrl: string;
   export let indexUrl: string;

@@ -1,6 +1,6 @@
 <script lang="ts">
   import Post from "../components/post/post.svelte";
-  import { BlogUrl2DocUrl } from "../ts/common/common";
+  import { BlogUrl2DocUrl } from "../../ts/common/common";
 
   export let blogpath: string;
   export let indexUrl: string;

@@ -1,6 +1,6 @@
-import type { IHeaderPair } from "../../ts/interface/IHeaderPair";
-import type { IPostHeader } from "../../ts/interface/IPostHeader";
-import type { IPostSummary } from "../../ts/interface/IPostSummary";
+import type { IHeaderPair } from "../../../ts/interface/IHeaderPair";
+import type { IPostHeader } from "../../../ts/interface/IPostHeader";
+import type { IPostSummary } from "../../../ts/interface/IPostSummary";
 import { markdownParse, HeaderList } from "./markdownParse";
 import { extractYaml, yamlParse } from "./yamlParse";
 

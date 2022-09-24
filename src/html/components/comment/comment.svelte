@@ -1,6 +1,6 @@
 <script lang="ts">
   // https://google.github.io/styleguide/jsguide.html
-  import { xhr_get, xhr_post } from "../../ts/common/xmlrequest";
+  import { xhr_get, xhr_post } from "../../../ts/common/xmlrequest";
 
   const COMMENT_API_URL = "/comment";
 
@@ -32,7 +32,7 @@
 
   // ready(comment_area_html);
   import { onMount } from "svelte";
-  import { FormatDate } from "../../ts/common/common";
+  import { FormatDate } from "../../../ts/common/common";
   import CommentUnusable from "./comment_unavailable.svelte";
   import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
 

@@ -11,14 +11,17 @@
 
   import page from "page.js";
 
-  import Index from "./pages/index.svelte";
-  import About from "./pages/about.svelte";
-  import Project from "./pages/project.svelte";
-  import Tech from "./pages/tech.svelte";
-  import Essay from "./pages/essay.svelte";
-  import Random from "./pages/random.svelte";
-  import Blog from "./posts/blog.svelte";
-  import Pureblog from "./posts/pureblog.svelte";
+  import Index from "./html/pages/index.svelte";
+  import About from "./html/pages/about.svelte";
+  import Project from "./html/pages/project.svelte";
+  import Tech from "./html/pages/tech.svelte";
+  import Essay from "./html/pages/essay.svelte";
+  import Random from "./html/pages/random.svelte";
+  import Blog from "./html/posts/blog.svelte";
+  import Pureblog from "./html/posts/pureblog.svelte";
+  import YearSummary from "./html/pages/year-summary.svelte";
+  import Error from "./html/error/error.svelte";
+
 
   import {
     CurrentPath as path,
@@ -42,9 +45,7 @@
     CurrentPage,
   } from "./ts/config/path";
   import pathDict from "./ts/config/path";
-  import YearSummary from "./pages/year-summary.svelte";
-  import Error from "./error/error.svelte";
-
+  
   let blogpath: string = "";
 
   // // set page info => hard to understand

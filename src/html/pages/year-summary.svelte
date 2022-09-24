@@ -1,6 +1,6 @@
 <script lang="ts">
   import PostList from "../components/pageList/postList.svelte";
-  import { YEAR_SUMMARY_URL } from "../ts/config/path";
+  import { YEAR_SUMMARY_URL } from "../../ts/config/path";
   import SideMainMenuLayout from "../template/SideMainMenuLayout.svelte";
 
 

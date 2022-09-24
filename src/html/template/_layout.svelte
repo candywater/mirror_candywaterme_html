@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { CurrentPath, TECH, ESSAY, TECH_PATH, ESSAY_PATH } from "../ts/config/path";
+  import { CurrentPath, TECH, ESSAY, TECH_PATH, ESSAY_PATH } from "../../ts/config/path";
 </script>
 
 <svelte:head>

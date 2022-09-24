@@ -1,6 +1,6 @@
 <script lang="ts">
   import PostList from "../components/pageList/postList.svelte";
-  import { TECH_URL } from "../ts/config/path";
+  import { TECH_URL } from "../../ts/config/path";
   import SideMainMenuLayout from "../template/SideMainMenuLayout.svelte";
 
 
