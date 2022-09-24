@@ -141,13 +141,13 @@ https://unsplash.com/photos/5y_i4P17zNk
 }
 
 // Import partials.
-@import "minima/base";
-@import "minima/layout";
-@import "minima/syntax-highlighting";
-@import "post/post";
-@import "component/comment";
-@import "component/icons";
-@import "component/postnav";
-@import "component/spinner/lds-circle";
-@import "component/spinner/lds-facebook";
-@import "component/spinner/lds-roller";
+@import "_minima/base";
+@import "_minima/layout";
+@import "_minima/syntax-highlighting";
+@import "_post/post";
+@import "_component/comment";
+@import "_component/icons";
+@import "_component/postnav";
+@import "_component/spinner/lds-circle";
+@import "_component/spinner/lds-facebook";
+@import "_component/spinner/lds-roller";
