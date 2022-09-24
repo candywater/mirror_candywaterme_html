@@ -27,22 +27,20 @@ body.bg6 {
 body.bg7 {
   @include background7;
 }
-main{
+main {
   // only chrome
   backdrop-filter: blur(7px);
 }
-.main-bg{
+.main-bg {
   // https://lingdaima.com/shadow/
-  box-shadow:
-  10.4px 10.4px 3.3px rgba(0, 0, 0, 0.023),
-  18.8px 18.8px 7.6px rgba(0, 0, 0, 0.032),
-  26.2px 26.2px 13.7px rgba(0, 0, 0, 0.038),
-  34.4px 34.4px 23.2px rgba(0, 0, 0, 0.042),
-  48.6px 48.6px 40.7px rgba(0, 0, 0, 0.048),
-  100px 100px 80px rgba(0, 0, 0, 0.07)
-;
+  box-shadow: 10.4px 10.4px 3.3px rgba(0, 0, 0, 0.023),
+    18.8px 18.8px 7.6px rgba(0, 0, 0, 0.032),
+    26.2px 26.2px 13.7px rgba(0, 0, 0, 0.038),
+    34.4px 34.4px 23.2px rgba(0, 0, 0, 0.042),
+    48.6px 48.6px 40.7px rgba(0, 0, 0, 0.048),
+    100px 100px 80px rgba(0, 0, 0, 0.07);
 }
-.main-bg-glass{
+.main-bg-glass {
   height: 100%;
   width: 100%;
   @include background6;

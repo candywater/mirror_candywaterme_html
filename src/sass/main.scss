@@ -50,14 +50,29 @@ $on-laptop: 800px !default;
 // https://codepen.io/ste-vg/pen/GqaZbo
 
 @mixin background0 {
-  @include backgroud-gradient(linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab));
+  @include backgroud-gradient(
+    linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab)
+  );
 }
 @mixin background1 {
-  @include backgroud-gradient(linear-gradient(127deg, rgb(87, 44, 31), rgb(11, 75, 99), rgba(17, 100, 81, 0.534)));
+  @include backgroud-gradient(
+    linear-gradient(
+      127deg,
+      rgb(87, 44, 31),
+      rgb(11, 75, 99),
+      rgba(17, 100, 81, 0.534)
+    )
+  );
 }
 @mixin background2 {
   @include backgroud-gradient(
-    linear-gradient(-45deg, rgb(179, 108, 87), rgba(155, 44, 44, 0.637), rgb(19, 90, 116), rgba(29, 104, 86, 0.534))
+    linear-gradient(
+      -45deg,
+      rgb(179, 108, 87),
+      rgba(155, 44, 44, 0.637),
+      rgb(19, 90, 116),
+      rgba(29, 104, 86, 0.534)
+    )
   );
 }
 @mixin background3 {
@@ -77,7 +92,7 @@ $on-laptop: 800px !default;
   background-image: url(https://images.unsplash.com/photo-1654876374194-99e8967bc618?ixlib=rb-1.2.1&dl=jonny-gios-SahRqFHiWOM-unsplash.jpg&w=640&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
   background-size: cover;
 }
-// image  
+// image
 @mixin background6 {
   //https://unsplash.com/photos/U8i2h95G_-Q
   background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&dl=bit-cloud-U8i2h95G_-Q-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
