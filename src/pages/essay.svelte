@@ -19,8 +19,3 @@
   </main>
 </SideMainMenuLayout>
 
-<!-- 
-<br><br>
-{% include paginator-footer.html %}
-<br><br>
-<p class="rss-subscribe">subscribe essay<a href="{{ '/rss/essay.xml' | relative_url }}"> via RSS</a></p> -->
