@@ -1,8 +1,8 @@
-<script context="module">
+<!-- <script context="module">
   //https://stackoverflow.com/questions/63044344/api-requests-in-svelte
   // import profile from "/stills/profile/steffen-petermann-457910-unsplash_resize_320x266.jpg"
-  const MY_NAME = "Candy Water";
-</script>
+  // const MY_NAME = "Candy Water";
+</script> -->
 
 <script lang="ts">
   import { onMount } from "svelte";
