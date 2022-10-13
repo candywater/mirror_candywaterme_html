@@ -19,7 +19,7 @@
   }
 </script>
 
-{#if external}
+<!-- {#if external}
   <a
     {href}
     rel="external"
@@ -27,11 +27,11 @@
     name="button"
     class="btn {style} {anime} {underline}">{title}</a
   >
-{:else}
+{:else} -->
   <a {href} role="button" name="button" class="btn {style} {anime} {underline}"
     >{title}</a
   >
-{/if}
+<!-- {/if} -->
 
 <style lang="scss">
   .btn {
