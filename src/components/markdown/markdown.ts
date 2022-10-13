@@ -24,8 +24,8 @@ export async function markDown(
   let content: string = await res.text();
 
   let yamlContent = extractYaml(content);
-  // _header = yamlParse(yamlContent);
   let header = await fetchData(docurl, indexUrl, contentUrl);
+  if(!header) header = yamlParse(yamlContent); // win
 
   let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
   let renderedContent = markdownParse(markdownContent);
@@ -46,9 +46,10 @@ async function fetchData(
   let res = await fetch(indexUrl);
   if (!res.ok) return;
   let index_content = await res.text();
+
   _index_list = index_content.split(/[\n]/g);
   _content_list = <IPostSummary[]>await (await fetch(contentUrl)).json();
 
-  let index = await _index_list.findIndex((val) => val == docurl);
+  let index = await _index_list.findIndex((val) => encodeURI(val) == docurl);
   return await _content_list[index];
 }
