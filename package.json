@@ -10,9 +10,6 @@
         "gulp": "gulp -f gulpfile.cjs",
         "gulp:dev": "gulp -f gulpfile.cjs watch",
         "start": "sirv public --single",
-        "build:tailwind": "NODE_ENV=production npx postcss node_modules/tailwindcss/dist/tailwind.css -o public/build/tailwind/tailwind.css",
-        "dev:tailwind": "cp node_modules/tailwindcss/dist/tailwind.css public/build/tailwind/tailwind.css",
-        "dev:tailwind:win": "copy node_modules\\tailwindcss\\dist\\tailwind.css public\\build\\tailwind\\tailwincss.css",
         "prettier": "npx prettier --write src",
         "ci": "npx svelte-check",
         "postinstall": "pnpm run build"
