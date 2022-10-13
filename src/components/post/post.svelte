@@ -106,7 +106,7 @@
     position: fixed;
     padding: 10px;
     bottom: 1rem;
-    right: 1rem;
+    right: -1rem;
     background-color: white;
   }
   .post-title {
