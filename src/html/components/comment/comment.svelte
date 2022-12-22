@@ -60,19 +60,19 @@
 </div>
 
 <div id="comments">
-  {#if _comment_list && _comment_list.length > 0}
+  {#if _comment_list && _comment_list.length >= 0}
     {#each _comment_list as comment}
       <div class="comment">
         <div class="comment-header">
           <div class="thumb">
-            {comment.username}
+            {comment.authorname}
           </div>
           <div class="timestamp">
-            {FormatDate(comment.time)}
+            {FormatDate(comment.createdate)}
           </div>
         </div>
         <div class="card">
-          {comment.comment_article}
+          {comment.commentbody}
         </div>
       </div>
     {/each}
