@@ -27,11 +27,12 @@
   onMount(async () => {
     let res = await markDown(docUrl, indexUrl, contentUrl);
     if (!res) return;
+
     _header = res.header;
     _renderedContent = res.renderedContent;
-    _header_list = res.headerList;
-
-    _content_list = res.contentList;
+    _header_list = res.headerList; // sub headers list
+    _content_list = res.contentList; // all posts
+    
   });
 </script>
 
@@ -105,7 +106,7 @@
     position: fixed;
     padding: 10px;
     bottom: 1rem;
-    right: 1rem;
+    right: -1rem;
     background-color: white;
   }
   .post-title {

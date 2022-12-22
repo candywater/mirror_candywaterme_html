@@ -1,0 +1,3 @@
+{
+    blogpath: "../blog-git/doc/"
+}
