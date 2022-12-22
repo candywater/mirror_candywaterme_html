@@ -17,7 +17,7 @@ export function yamlParse(content): any {
     let keyvalue = line.split(/[:|：]/);
     if (keyvalue.length >= 2) {
       let key = keyvalue[0].trim();
-      let value = keyvalue[1].trim();
+      let value = line.replace(keyvalue[0] + ':', '').trim();
       result[key] = value;
     }
   });
