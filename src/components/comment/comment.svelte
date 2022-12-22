@@ -222,7 +222,7 @@
    * @public
    */
   function when_post_finish(data: string) {
-    if (data.toLowerCase() == "true") {
+    if (data.toLowerCase() == "ok") {
       clear_comment();
       SetAlertMsg(POST_SUCCESS_MSG, 3000);
       var comments = document.querySelector("#comments");
@@ -230,10 +230,12 @@
       while (comments.firstChild) comments.removeChild(comments.firstChild);
       //reload comment area
       comment_area_html();
-    } else if (data == "over100") {
+    } else if (data.toLowerCase() == "over100") {
       SetAlertMsg(COMMENT_NUMBER_LIMIT_ERROR_MSG);
-    } else if (data == "maintenance") {
+    } else if (data.toLowerCase() == "maintenance") {
       SetAlertMsg(MAINTENANCE_ERROR_MSG, 10000);
+    } else if (data.toLowerCase() == "notok"){
+      SetAlertMsg(ERROR_MSG, 10000);
     } else {
       SetAlertMsg(ERROR_MSG, 10000);
     }
@@ -264,7 +266,7 @@
 
   function clear_revert_cache() {
     _comment_text_revert = "";
-    console.log(_comment_text_revert);
+    //console.log(_comment_text_revert);
   }
 
   let _comment_text: string = "";
