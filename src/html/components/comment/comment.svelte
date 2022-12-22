@@ -65,7 +65,7 @@
       <div class="comment">
         <div class="comment-header">
           <div class="thumb">
-            {comment.authorname}
+            {comment.authorName}
           </div>
           <div class="timestamp">
             {FormatDate(comment.createdate)}

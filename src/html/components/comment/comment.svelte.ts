@@ -128,7 +128,7 @@ function draw_comment(comment_list) {
   }
   // console.log(comment_list)
   comment_list.forEach((element) => {
-    var username = element.authorname;
+    var username = element.authorName;
     var comment_article = element.commentbody;
     var time = new Date(element.createdate);
     let timestamp = get_readable_time(time);
@@ -188,7 +188,7 @@ function create_comment_data(
   let url = uri.pathname;
   var fdata = {
     commentbody: comment,
-    authorname: username,
+    authorName: username,
     authoremailaddress: useremail,
     blogurl: url,
   };
@@ -271,17 +271,32 @@ let _comment_text_revert: string = "";
 let _message_box_msg: string = "";
 let _disabled: boolean = false;
 let _comment_list: {
-  authorname: string;
+  authorName: string;
   createdate: Date;
   commentbody: string;
 }[];
 let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
 /*        
   
-  _comment_list = 
+  _comment_list = [
+    {
+      "authorName": "candywater",
+      "commentbody": "所以说这一切3",
+      "createdate": "2022-12-22T05:07:45.51684+00:00"
+    },
+    {
+      "authorName": "candywater",
+      "commentbody": "lala land",
+      "createdate": "2022-12-22T07:11:05.953155+00:00"
+    },
+    {
+      "authorName": "candywater",
+      "commentbody": "lala land2",
+      "createdate": "2022-12-22T07:11:12.533285+00:00"
+    }
+  ]
         */
 
-getcomments();
 
 async function getcomments() {
   try {
