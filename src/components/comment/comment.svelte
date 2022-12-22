@@ -38,7 +38,7 @@
 
   onMount(() => {
     check_if_ie();
-    check_service_connection();
+    getcomments();
   });
 
   /**
@@ -61,7 +61,7 @@
   }
 
   function check_service_connection() {
-    if (true) {
+    if (_disabled) {
       SetAlertMsg(LOST_CONNECTION, 0);
     }
   }
@@ -129,9 +129,9 @@
     }
     // console.log(comment_list)
     comment_list.forEach((element) => {
-      var username = element.username;
-      var comment_article = element.comment;
-      var time = new Date(element.time);
+      var username = element.authorName;
+      var comment_article = element.commentbody;
+      var time = new Date(element.createdate);
       let timestamp = get_readable_time(time);
 
       var comment_node = document.createElement("div");
@@ -222,7 +222,7 @@
    * @public
    */
   function when_post_finish(data: string) {
-    if (data == "ok") {
+    if (data.toLowerCase() == "true") {
       clear_comment();
       SetAlertMsg(POST_SUCCESS_MSG, 3000);
       var comments = document.querySelector("#comments");
@@ -298,14 +298,19 @@
   ]
         */
 
-  getcomments();
+  
 
   async function getcomments() {
     try {
       let res = await fetch(COMMENT_API_URL + "/GetForBlog?blogurl=" + new URL(document.URL).pathname);
-      if (res.ok) _comment_list = await res.json();
+      if (res.ok){
+        _comment_list = await res.json();
+        _disabled = false;
+        console.log(_disabled)
+      }
       else {
         _disabled = true;
+        check_service_connection();
       }
     } catch {
       _disabled = true;
@@ -372,7 +377,7 @@
 </div>
 
 <div id="comments">
-  {#if _comment_list && _comment_list.length > 0}
+  {#if _comment_list && _comment_list.length >= 0}
     {#each _comment_list as comment}
       <div class="comment">
         <div class="comment-header">
