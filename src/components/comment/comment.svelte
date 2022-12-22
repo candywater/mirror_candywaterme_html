@@ -2,7 +2,7 @@
   // https://google.github.io/styleguide/jsguide.html
   import { xhr_get, xhr_post } from "./xmlrequest";
 
-  const COMMENT_API_URL = "/comment";
+  const COMMENT_API_URL = "/comments";
 
   const COMMENT_LEN_LIMIT = 1000;
 
@@ -71,10 +71,9 @@
    * @private
    */
   function comment_area_html() {
-    var uri = new URL(document.URL);
-    let url = uri.pathname;
+    var uri = new URL(document.URL).pathname;
     xhr_get(
-      COMMENT_API_URL + `?getAll=${url}`,
+      COMMENT_API_URL + `/getforblog?blogurl=${uri}`,
       loading_comment,
       draw_comment,
       when_xhr_error
@@ -161,7 +160,7 @@
    * @param {string} username
    * @private
    */
-  function input_check(comment: string, username: string) {
+  function input_check(comment: string, username: string, useremail: string) {
     if (comment.length >= COMMENT_LEN_LIMIT) {
       SetAlertMsg(COMMENT_LEN_LIMIT_ERROR_MSG, 3000);
       return false;
@@ -189,10 +188,10 @@
     var uri = new URL(document.URL);
     let url = uri.pathname;
     var fdata = {
-      comment: comment,
-      username: username,
-      useremail: useremail,
-      uri: url,
+      commentbody: comment,
+      authorname: username,
+      authoremailaddress: useremail,
+      blogurl: url,
     };
     return JSON.stringify(fdata);
   }
@@ -214,7 +213,7 @@
     if (!input_check(comment, username, useremail)) return;
     var jsondata = create_comment_data(comment, username, useremail);
 
-    xhr_post(COMMENT_API_URL, jsondata, null, when_post_finish, when_xhr_error);
+    xhr_post(COMMENT_API_URL + "/post", jsondata, null, when_post_finish, when_xhr_error);
   }
 
   /**
@@ -273,24 +272,37 @@
   let _message_box_msg: string = "";
   let _disabled: boolean = false;
   let _comment_list: {
-    username: string;
-    time: Date;
-    comment_article: string;
+    authorName: string;
+    commentbody: string;
+    createdate: Date;
   }[];
   let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
   /*        
   
   _comment_list = [
-          {username : "ss", time: new Date(), comment_article:"sdfds"},{username : "ss", time: new Date(), comment_article:"sdfds"},
-          {username : "ss", time: new Date(), comment_article:"sdfds"}
-        ]
+    {
+      "authorName": "candywater",
+      "commentbody": "所以说这一切3",
+      "createdate": "2022-12-22T05:07:45.51684+00:00"
+    },
+    {
+      "authorName": "candywater",
+      "commentbody": "lala land",
+      "createdate": "2022-12-22T07:11:05.953155+00:00"
+    },
+    {
+      "authorName": "candywater",
+      "commentbody": "lala land2",
+      "createdate": "2022-12-22T07:11:12.533285+00:00"
+    }
+  ]
         */
 
   getcomments();
 
   async function getcomments() {
     try {
-      let res = await fetch("/comments/get?=");
+      let res = await fetch(COMMENT_API_URL + "/GetForBlog?blogurl=" + new URL(document.URL).pathname);
       if (res.ok) _comment_list = await res.json();
       else {
         _disabled = true;
@@ -365,14 +377,14 @@
       <div class="comment">
         <div class="comment-header">
           <div class="thumb">
-            {comment.username}
+            {comment.authorName}
           </div>
           <div class="timestamp">
-            {FormatDate(comment.time)}
+            {FormatDate(comment.createdate)}
           </div>
         </div>
         <div class="card">
-          {comment.comment_article}
+          {comment.commentbody}
         </div>
       </div>
     {/each}
