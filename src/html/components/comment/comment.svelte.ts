@@ -1,7 +1,7 @@
 // https://google.github.io/styleguide/jsguide.html
 import { xhr_get, xhr_post } from "../../../ts/common/xmlrequest";
 
-const COMMENT_API_URL = "/comment";
+const COMMENT_API_URL = "/comments";
 
 const COMMENT_LEN_LIMIT = 1000;
 
@@ -37,7 +37,7 @@ import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
 
 onMount(() => {
   check_if_ie();
-  check_service_connection();
+  getcomments();
 });
 
 /**
@@ -60,7 +60,7 @@ function set_all_component_disable(bool: boolean) {
 }
 
 function check_service_connection() {
-  if (true) {
+  if (_disabled) {
     SetAlertMsg(LOST_CONNECTION, 0);
   }
 }
@@ -70,10 +70,9 @@ function check_service_connection() {
  * @private
  */
 function comment_area_html() {
-  var uri = new URL(document.URL);
-  let url = uri.pathname;
+  var uri = new URL(document.URL).pathname;
   xhr_get(
-    COMMENT_API_URL + `?getAll=${url}`,
+    COMMENT_API_URL + `/getforblog?blogurl=${uri}`,
     loading_comment,
     draw_comment,
     when_xhr_error
@@ -129,9 +128,9 @@ function draw_comment(comment_list) {
   }
   // console.log(comment_list)
   comment_list.forEach((element) => {
-    var username = element.username;
-    var comment_article = element.comment;
-    var time = new Date(element.time);
+    var username = element.authorname;
+    var comment_article = element.commentbody;
+    var time = new Date(element.createdate);
     let timestamp = get_readable_time(time);
 
     var comment_node = document.createElement("div");
@@ -160,7 +159,7 @@ function draw_comment(comment_list) {
  * @param {string} username
  * @private
  */
-function input_check(comment: string, username: string) {
+function input_check(comment: string, username: string, useremail: string) {
   if (comment.length >= COMMENT_LEN_LIMIT) {
     SetAlertMsg(COMMENT_LEN_LIMIT_ERROR_MSG, 3000);
     return false;
@@ -188,10 +187,10 @@ function create_comment_data(
   var uri = new URL(document.URL);
   let url = uri.pathname;
   var fdata = {
-    comment: comment,
-    username: username,
-    useremail: useremail,
-    uri: url,
+    commentbody: comment,
+    authorname: username,
+    authoremailaddress: useremail,
+    blogurl: url,
   };
   return JSON.stringify(fdata);
 }
@@ -213,7 +212,7 @@ function insert_new_comment() {
   if (!input_check(comment, username, useremail)) return;
   var jsondata = create_comment_data(comment, username, useremail);
 
-  xhr_post(COMMENT_API_URL, jsondata, null, when_post_finish, when_xhr_error);
+  xhr_post(COMMENT_API_URL + "/post", jsondata, null, when_post_finish, when_xhr_error);
 }
 
 /**
@@ -222,7 +221,7 @@ function insert_new_comment() {
  * @public
  */
 function when_post_finish(data: string) {
-  if (data == "ok") {
+  if (data.toLowerCase() == "ok") {
     clear_comment();
     SetAlertMsg(POST_SUCCESS_MSG, 3000);
     var comments = document.querySelector("#comments");
@@ -230,9 +229,9 @@ function when_post_finish(data: string) {
     while (comments.firstChild) comments.removeChild(comments.firstChild);
     //reload comment area
     comment_area_html();
-  } else if (data == "over100") {
+  } else if (data.toLowerCase() == "over100") {
     SetAlertMsg(COMMENT_NUMBER_LIMIT_ERROR_MSG);
-  } else if (data == "maintenance") {
+  } else if (data.toLowerCase() == "maintenance") {
     SetAlertMsg(MAINTENANCE_ERROR_MSG, 10000);
   } else {
     SetAlertMsg(ERROR_MSG, 10000);
@@ -264,7 +263,7 @@ function revert_comment() {
 
 function clear_revert_cache() {
   _comment_text_revert = "";
-  console.log(_comment_text_revert);
+  //console.log(_comment_text_revert);
 }
 
 let _comment_text: string = "";
@@ -272,27 +271,28 @@ let _comment_text_revert: string = "";
 let _message_box_msg: string = "";
 let _disabled: boolean = false;
 let _comment_list: {
-  username: string;
-  time: Date;
-  comment_article: string;
+  authorname: string;
+  createdate: Date;
+  commentbody: string;
 }[];
 let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
 /*        
   
-  _comment_list = [
-          {username : "ss", time: new Date(), comment_article:"sdfds"},{username : "ss", time: new Date(), comment_article:"sdfds"},
-          {username : "ss", time: new Date(), comment_article:"sdfds"}
-        ]
+  _comment_list = 
         */
 
 getcomments();
 
 async function getcomments() {
   try {
-    let res = await fetch("/comments/get?=");
-    if (res.ok) _comment_list = await res.json();
+    let res = await fetch(COMMENT_API_URL + "/getforblog?blogurl=" + new URL(document.URL).pathname);
+    if (res.ok){
+      _comment_list = await res.json();
+      _disabled = false;
+    }
     else {
       _disabled = true;
+      check_service_connection();
     }
   } catch {
     _disabled = true;
