@@ -16,6 +16,15 @@ export function yamlParse(content): any {
       return;
     }
 
+    // for array
+    if (line.trim().startsWith("-")){
+      if(!Array.isArray(result[lastKey])){
+        result[lastKey] = []
+      }
+      result[lastKey].push(line.trim().substring(1).trim())
+      return;
+    }
+
     // for plain text
     let keyvalue = line.split(/[:|：]/);
     if (keyvalue.length >= 2) {
@@ -23,14 +32,7 @@ export function yamlParse(content): any {
       lastKey = key;
       let value = line.replace(keyvalue[0] + ':', '').trim();
       result[key] = value;
-    }
-
-    // for array
-    if (line.trim().startsWith("-")){
-      if(!Array.isArray(result[lastKey])){
-        result[lastKey] = []
-      }
-      result[lastKey].push(line.trim().substring(1))
+      return;
     }
   });
   return result;
