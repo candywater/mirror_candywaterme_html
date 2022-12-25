@@ -1,3 +1,4 @@
+import { element } from "svelte/internal";
 import type { IPostHeader } from "../interface/IPostHeader";
 
 /**
@@ -10,7 +11,7 @@ export function yamlParse(content): any {
   //https://stackoverflow.com/questions/8125709/javascript-how-to-split-newline
   let array = content.split(/\r?\n/);
   let result: IPostHeader = {};
-  let lastKey = 'lastkey'
+  let lastKey = 'lastkey';
   array.forEach((line) => {
     if (line.startsWith("---")) {
       return;
@@ -43,10 +44,27 @@ export function yamlParse(content): any {
   return result;
 }
 
-export function extractYaml(content): string {
+export function extractYaml(content): [string, string] {
   //https://github.com/markedjs/marked/issues/485
-  let res = content.match(/^---$.*^---$/ms);
-  if (res && res.length > 0) {
-    return res[0];
-  }
+  // this will use 貪欲的探索
+  // let res = content.match(/^---$.*^---$/ms);
+  // if (res && res.length > 0) {
+  //   return res[0];
+  // }
+  let yaml = ""
+  let body = ""
+  let array = content.split(/\r?\n/);
+  let yamlSplitterCounter = 0;
+  array.forEach(line => {
+    if (line.startsWith("---")) {
+      yamlSplitterCounter++;
+    }
+    if (yamlSplitterCounter < 2){
+      yaml += line + "\n"
+    }
+    else {
+      body += line + "\n"
+    }
+  });
+  return [yaml, body];
 }
