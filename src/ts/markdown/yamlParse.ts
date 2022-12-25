@@ -32,6 +32,11 @@ export function yamlParse(content): any {
       lastKey = key;
       let value = line.replace(keyvalue[0] + ':', '').trim();
       result[key] = value;
+      // for date format : 2017-07-13 +0900
+      if(value.match(/^\d{4}-\d{1,2}-\d{1,2}\s+\+\d{4}$/)){
+        result[key] = value.replace(/^(\d{4})-(\d{1,2})-(\d{1,2})\s+\+(\d{4})$/, "$1 $2 $3 00:00:00 GMT+$4")
+      }
+
       return;
     }
   });
