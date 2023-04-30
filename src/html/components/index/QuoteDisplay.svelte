@@ -19,11 +19,10 @@
   .about_profile {
     // position: absolute;
     padding: 0.5rem;
-    margin: 0rem 0rem 0.5rem 0rem;
     z-index: 20;
   }
   .card {
     background-color: rgba(245, 245, 245, 0.4);
-    margin: 1rem 1rem 1rem 1rem;
+    margin: 2rem 1rem 1rem 1rem;
   }
 </style>
