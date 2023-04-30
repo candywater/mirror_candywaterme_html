@@ -2,11 +2,11 @@
   import MainMenu from "../components/main/MainMenu.svelte";
   import MainMenuMobile from "../components/main/mainMenu/MainMenuMobile.svelte";
 
-  let menuClass = "hide-main-menu"
+  let menuClass = "hide-main-menu";
 
   function toggleHideMainMenu() {
-    if(menuClass) menuClass = ""
-    else menuClass = "hide-main-menu"
+    if (menuClass) menuClass = "";
+    else menuClass = "hide-main-menu";
   }
 </script>
 
@@ -42,19 +42,23 @@
   //     $size5: 1700px;
   //     $size6: 2200px;
   //     $size7: 2700px;
+  .main-menu-mobile {
+    position: absolute;
+    z-index: 20;
+  }
 
-  .hide-main-menu{
+  .hide-main-menu {
     display: none;
   }
 
   .main-menu {
     position: fixed;
     z-index: 20;
-    margin: 0rem 0.5rem;
+    margin: 2rem 0.5rem 0rem 0.5rem;
   }
 
   @media (min-width: 1280px) {
-    .main-menu-mobile{
+    .main-menu-mobile {
       display: none;
     }
     .hide-main-menu {
@@ -62,7 +66,9 @@
       display: block;
     }
     .main-menu {
+      position: relative;
       display: block;
+      margin: 0rem 0.5rem;
     }
     .main-menu-layout {
       justify-content: center;
