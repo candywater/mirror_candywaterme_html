@@ -9,6 +9,7 @@
   import "animate.css/source/fading_entrances/fadeIn.css";
   import "animate.css/source/fading_exits/fadeOutUp.css";
 
+
   import page from "page.js";
 
   import Index from "./html/pages/index.svelte";

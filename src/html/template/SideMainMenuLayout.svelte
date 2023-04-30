@@ -1,9 +1,20 @@
 <script lang="ts">
   import MainMenu from "../components/main/MainMenu.svelte";
+  import MainMenuMobile from "../components/main/mainMenu/MainMenuMobile.svelte";
+
+  let menuClass = "hide-main-menu"
+
+  function toggleHideMainMenu() {
+    if(menuClass) menuClass = ""
+    else menuClass = "hide-main-menu"
+  }
 </script>
 
 <div class="main-menu-layout">
-  <div class="main-menu animated fadeIn flex-none">
+  <div class="main-menu-mobile" on:click={toggleHideMainMenu}>
+    <MainMenuMobile />
+  </div>
+  <div class="main-menu animated fadeIn flex-none {menuClass}">
     <MainMenu />
   </div>
   <div class="flex-initial">
@@ -32,15 +43,25 @@
   //     $size6: 2200px;
   //     $size7: 2700px;
 
-  .main-menu {
-    // position: fixed;
+  .hide-main-menu{
     display: none;
-    margin: 0.5rem;
+  }
+
+  .main-menu {
+    position: fixed;
+    z-index: 20;
+    margin: 0rem 0.5rem;
   }
 
   @media (min-width: 1280px) {
-    .main-menu {
+    .main-menu-mobile{
+      display: none;
+    }
+    .hide-main-menu {
       // right: 25px;
+      display: block;
+    }
+    .main-menu {
       display: block;
     }
     .main-menu-layout {

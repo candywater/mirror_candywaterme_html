@@ -37,7 +37,7 @@
   .btn {
     display: block;
     width: 7rem;
-    margin: 0.2rem 0rem;
+    margin: 0rem 0rem 0.2rem 0rem;
     padding: 0.5rem 0.7rem;
     font-size: 1.25rem;
     text-align: center;
