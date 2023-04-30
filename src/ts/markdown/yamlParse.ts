@@ -1,4 +1,3 @@
-import { element } from "svelte/internal";
 import type { IPostHeader } from "../interface/IPostHeader";
 
 /**
@@ -6,7 +5,7 @@ import type { IPostHeader } from "../interface/IPostHeader";
  * @param content
  * @returns
  */
-export function yamlParse(content): any {
+export function yamlParse(content): IPostHeader {
   //https://stackoverflow.com/questions/454908/split-java-string-by-new-line
   //https://stackoverflow.com/questions/8125709/javascript-how-to-split-newline
   let array = content.split(/\r?\n/);
@@ -18,8 +17,8 @@ export function yamlParse(content): any {
     }
 
     // for array
-    if (line.trim().startsWith("-")){
-      if(!Array.isArray(result[lastKey])){
+    if (line.trim().startsWith("-")) {
+      if (!Array.isArray(result[lastKey])) {
         result[lastKey] = []
       }
       result[lastKey].push(line.trim().substring(1).trim())
@@ -34,8 +33,16 @@ export function yamlParse(content): any {
       let value = line.replace(keyvalue[0] + ':', '').trim();
       result[key] = value;
       // for date format : 2017-07-13 +0900
-      if(value.match(/^\d{4}-\d{1,2}-\d{1,2}\s+\+\d{4}$/)){
-        result[key] = value.replace(/^(\d{4})-(\d{1,2})-(\d{1,2})\s+\+(\d{4})$/, "$1 $2 $3 00:00:00 GMT+$4")
+      if (value.match(/^\d{4}-\d{1,2}-\d{1,2}\s+[\+\-]\d{4}$/)) {
+        let timezone = value.replace(/^(\d{4})-(\d{1,2})-(\d{1,2})\s+([\+\-]\d{4})$/, "$4")
+        let time = new Date(value.replace(/^(\d{4})-(\d{1,2})-(\d{1,2})\s+[\+\-](\d{4})$/, "$1-$2-$3T00:00:00.000Z"))
+        result[key] = time.setHours(time.getHours() - timezone)
+      }
+      // for date format : 2017-07-13 13:21 +0900
+      if (value.match(/^\d{4}-\d{1,2}-\d{1,2}\s+\d{1,2}:\d{1,2}\s+[\+\-]\d{4}$/)) {
+        let timezone = value.replace(/^(\d{4})-(\d{1,2})-(\d{1,2})\s+(\d{1,2}:\d{1,2})\s+([\+\-]\d{4})$/, "$5")
+        let time = new Date(value.replace(/^(\d{4})-(\d{1,2})-(\d{1,2})\s+(\d{1,2}):(\d{1,2})\s+[\+\-](\d{4})$/, "$1-$2-$3T$4:$5:00.000Z"))
+        result[key] = new Date(time.setHours(time.getHours() - timezone))
       }
 
       return;
@@ -59,7 +66,7 @@ export function extractYaml(content): [string, string] {
     if (line.startsWith("---")) {
       yamlSplitterCounter++;
     }
-    if (yamlSplitterCounter < 2){
+    if (yamlSplitterCounter < 2) {
       yaml += line + "\n"
     }
     else {
