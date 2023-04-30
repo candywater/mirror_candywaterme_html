@@ -17,8 +17,10 @@
 
 <style lang="scss">
   .about_profile {
+    // position: absolute;
     padding: 0.5rem;
     margin: 0rem 0rem 0.5rem 0rem;
+    z-index: 20;
   }
   .card {
     background-color: rgba(245, 245, 245, 0.4);

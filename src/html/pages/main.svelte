@@ -18,7 +18,6 @@
         <div class="profile-block">
           <Profile {description}>
             <slot />
-            <QuoteDisplay {quote} show_quote={$show_quote} />
           </Profile>
         </div>
 
@@ -37,10 +36,13 @@
         {/if}
       </div>
     </div>
+    
     <div class="container copyleft-block">
       <Copyleft />
     </div>
+    <QuoteDisplay {quote} show_quote={$show_quote} />
   </div>
+
 </Layout>
 
 <style lang="scss" src="./main.svelte.scss" />
