@@ -94,6 +94,7 @@ export function FormatDate(d: Date): string {
 export function FormatDateSimple(d: Date): string {
   if (!d) return "";
   const date = new Date(d);
+  if(!date) return "";
   const year = date.getFullYear(); // 2019
   const day = date.getDate(); // 1 based
   const monthIndex = date.getMonth(); // 0 based
