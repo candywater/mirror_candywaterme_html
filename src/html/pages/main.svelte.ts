@@ -74,3 +74,10 @@ async function fetchQuote(url: string) {
     // quote_list = splitSerifs(text);
   }
 }
+
+function showQuote(id: number){
+  show_quote.set(true)
+  quote = quote_list[id]
+}
+
+window.show_quote = showQuote;
