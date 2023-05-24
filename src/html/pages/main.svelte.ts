@@ -77,7 +77,14 @@ async function fetchQuote(url: string) {
 
 function showQuote(id: number){
   show_quote.set(true)
-  quote = quote_list[id]
+  if (id)  quote = quote_list[id]
+  else quote = getRandomQuote(quote_list);
+}
+
+function showAll(){
+  show_quote.set(true)
+  quote = quote_list.join("<br /><br />")
 }
 
 window.show_quote = showQuote;
+window.show_all = showAll;
