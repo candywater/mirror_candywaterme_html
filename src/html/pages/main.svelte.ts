@@ -83,7 +83,7 @@ function showQuote(id: number){
 
 function showAll(){
   show_quote.set(true)
-  quote = quote_list.join("<br /><br /><hr /><br />")
+  quote = "<br />" + quote_list.join("<br /><br /><hr /><br />")
 }
 
 window.show_quote = showQuote;
