@@ -83,7 +83,13 @@ function showQuote(id: number) {
 
 function showAll() {
   show_quote.set(true)
-  quote = "<br />" + quote_list.join("<br /><br /><hr /><br />")
+  // quote = "<br />" + quote_list.join("<br /><br /><hr /><br />")
+  quote = "<br />"
+  quote_list.forEach((x, index) => {
+    quote += `${index}: <br />`
+    quote += x
+    quote += "<br /><br /><hr /><br />"
+  })
 }
 
 const HELP_INFO = `HELP INFO
@@ -97,13 +103,14 @@ type following commands to use console.
 const ABOUT_INFO = `this is a console by candy water. ver 0.0.1
 visit https://github.com/candywater/svelte-terminal/ for more info. `
 const EXIT_INFO = `have a nice day! `
-const SUCCESS_INFO = `have a nice day! `
+const SUCCESS_INFO = `command succeed. `
 const ERROR_INFO = `command not found. Type :help for help. `
 
 function consoleCommand(input, closeWin = () => { }) {
   let input_array = input.trim().split(" ")
   let str = input_array[0]
   let param = input_array.length >= 2 ? input_array[1] : ""
+  console.log(input_array)
   switch (str) {
     case ":help":
     case "help":
@@ -121,7 +128,12 @@ function consoleCommand(input, closeWin = () => { }) {
       return SUCCESS_INFO
     case ":show":
     case "show":
-      showQuote(param)
+      if(param == "all"){
+        showAll();
+      }
+      else{
+        showQuote(param)
+      }
       return SUCCESS_INFO
     default:
       return ERROR_INFO
