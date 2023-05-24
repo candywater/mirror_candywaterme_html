@@ -92,13 +92,27 @@ function showAll() {
   })
 }
 
+const recommand_quote_list = [227, 224, 225, 230, 250, 254, 255, 220 ]
+
 const HELP_INFO = `HELP INFO
 type following commands to use console.
-:help help
-:about about this console
-:exit exit console
-:show_all show all quote
-:show [number] show specific quote
+:help - help
+:about - about this console
+:exit - exit console
+:show_all - show all quote
+:show [number] - show specific quote
+:show recommand - show recommand quote
+`
+const RECOMMAND_QUOTE_INFO = ` RECOMMAND LIST 
+[${recommand_quote_list.sort().join(", ")}]
+
+love stoies 254 255
+love quote 221 224 172 169 165 22 
+humour quote 217 197 230
+life 213 211 200 195 192 190 188 182 180 
+should do  182 170 171 150 5 227 225 250
+中年男人 214 45
+quote 134 220
 `
 const ABOUT_INFO = `this is a console by candy water. ver 0.0.1
 visit https://github.com/candywater/svelte-terminal/ for more info. `
@@ -130,11 +144,15 @@ function consoleCommand(input, closeWin = () => { }) {
     case "show":
       if(param == "all"){
         showAll();
+        return SUCCESS_INFO
+      }
+      else if(param == "recommand"){
+        return RECOMMAND_QUOTE_INFO
       }
       else{
         showQuote(param)
+        return SUCCESS_INFO
       }
-      return SUCCESS_INFO
     default:
       return ERROR_INFO
   }
