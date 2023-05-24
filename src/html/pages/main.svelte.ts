@@ -107,7 +107,7 @@ const RECOMMAND_QUOTE_INFO = ` RECOMMAND LIST
 [${recommand_quote_list.sort().join(", ")}]
 
 love stoies 254 255
-love quote 221 224 172 169 165 22 
+love quote 221 224 172 169 165 22 156
 humour quote 217 197 230
 life 213 211 200 195 192 190 188 182 180 
 should do  182 170 171 150 5 227 225 250
