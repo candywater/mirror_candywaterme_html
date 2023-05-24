@@ -75,15 +75,57 @@ async function fetchQuote(url: string) {
   }
 }
 
-function showQuote(id: number){
+function showQuote(id: number) {
   show_quote.set(true)
-  if (id)  quote = quote_list[id]
+  if (id) quote = quote_list[id]
   else quote = getRandomQuote(quote_list);
 }
 
-function showAll(){
+function showAll() {
   show_quote.set(true)
   quote = "<br />" + quote_list.join("<br /><br /><hr /><br />")
+}
+
+const HELP_INFO = `HELP INFO
+type following commands to use console.
+:help help
+:about about this console
+:exit exit console
+:show_all show all quote
+:show [number] show specific quote
+`
+const ABOUT_INFO = `this is a console by candy water. ver 0.0.1
+visit https://github.com/candywater/svelte-terminal/ for more info. `
+const EXIT_INFO = `have a nice day! `
+const SUCCESS_INFO = `have a nice day! `
+const ERROR_INFO = `command not found. Type :help for help. `
+
+function consoleCommand(input, closeWin = () => { }) {
+  let input_array = input.trim().split(" ")
+  let str = input_array[0]
+  let param = input_array.length >= 2 ? input_array[1] : ""
+  switch (str) {
+    case ":help":
+    case "help":
+      return HELP_INFO
+    case ":about":
+    case "about":
+      return ABOUT_INFO
+    case ":exit":
+    case "exit":
+      setTimeout(closeWin, 350);
+      return EXIT_INFO
+    case ":show_all":
+    case "show_all":
+      showAll();
+      return SUCCESS_INFO
+    case ":show":
+    case "show":
+      showQuote(param)
+      return SUCCESS_INFO
+    default:
+      return ERROR_INFO
+  }
 }
 
 window.show_quote = showQuote;

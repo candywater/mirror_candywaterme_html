@@ -31,6 +31,7 @@
               exactClose={() => {
                 $show_config_panel = false;
               }}
+              commands={consoleCommand}
             />
           </div>
         {/if}
