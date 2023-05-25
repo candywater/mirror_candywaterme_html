@@ -101,7 +101,7 @@ type following commands to use console.
 :exit - exit console
 :show_all - show all quote
 :show [number] - show specific quote
-:show recommand - show recommand quote
+:show recommend - show recommend quote
 `
 const RECOMMAND_QUOTE_INFO = ` RECOMMAND LIST 
 [${recommand_quote_list.sort().join(", ")}]
@@ -146,7 +146,7 @@ function consoleCommand(input, closeWin = () => { }) {
         showAll();
         return SUCCESS_INFO
       }
-      else if(param == "recommand"){
+      else if(param == "recommend"){
         return RECOMMAND_QUOTE_INFO
       }
       else{
