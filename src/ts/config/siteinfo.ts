@@ -1,7 +1,7 @@
 import type { ISiteInfo } from "../interface/ISiteInfo";
 
 export var SiteInfo: ISiteInfo = {
-  title: "",
+  title: "candywaters",
   author: "candywater",
   github_username: "candywater",
   twitter_username: "",

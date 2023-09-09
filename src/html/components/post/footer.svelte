@@ -1,6 +1,5 @@
 <script lang="ts">
   import { FormatDateYear } from "../../../ts/common/common";
-  import { ESSAY, CurrentPath, TECH } from "../../../ts/config/path";
   import { SiteInfo } from "../../../ts/config/siteinfo";
 
   import type { ISiteInfo } from "../../../ts/interface/ISiteInfo";
@@ -46,11 +45,9 @@
 
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          <li>
-            {#if site.title}
-              {site.title}
-            {/if}
-          </li>
+          {#if site.title}
+            [{site.title}]
+          {/if}
           {#if site.email}
             <li><a href="mailto:{site.email}">{site.email}</a></li>
           {/if}

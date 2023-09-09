@@ -10,7 +10,7 @@
 </script>
 
 <div class={"copyleft "}>
-  <p>copyleft &copy; {site.author} {FormatDateYear(site.time)}</p>
+  <p>copyleft &copy; {site.author} 2017 - {FormatDateYear(site.time)}</p>
 </div>
 
 <style lang="scss">
