@@ -12,6 +12,7 @@
         "start": "sirv public --single",
         "prettier": "npx prettier --write src",
         "ci": "npx svelte-check",
+        "help": "echo \"dev: tmux => pnpm dev | pnpm gulp:dev; \nbuild: pnpm gulp => pnpm build\"",
         "postinstall": "pnpm run build",
         "install:win": "pnpm install --config.https-proxy=http://127.0.0.1:7890 --config.proxy=http://127.0.0.1:7890"
     },
