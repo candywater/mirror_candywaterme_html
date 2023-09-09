@@ -5,7 +5,7 @@
 
 <footer class="$SiteInfo-footer">
   <div class="">
-    <h2 class="footer-heading">{$SiteInfo.title}</h2>
+    <h2 class="footer-heading">[{$SiteInfo.title}]</h2>
 
     <div class="footer-col-wrapper flex justify-between">
       <div class="footer-col footer-col-2">
@@ -41,18 +41,20 @@
 
       <div class="footer-col footer-col-1">
         <div class="contact-list">
-          {#if $SiteInfo.title}
-            [{$SiteInfo.title}]
-          {/if}
-          {#if $SiteInfo.email}
-            <li><a href="mailto:{$SiteInfo.email}">{$SiteInfo.email}</a></li>
-          {/if}
+          <ul>
+            {#if $SiteInfo.email}
+              <li><a href="mailto:{$SiteInfo.email}">{$SiteInfo.email}</a></li>
+            {/if}
+          </ul>
         </div>
       </div>
 
       <div class="footer-col footer-col-3">
         <!-- <p>{$SiteInfo.description}</p> -->
-        <p>copyleft &copy; {$SiteInfo.author} {FormatDateYear($SiteInfo.time)}</p>
+        <p>
+          copyleft &copy; {$SiteInfo.author}
+          {FormatDateYear($SiteInfo.time)}
+        </p>
       </div>
     </div>
   </div>

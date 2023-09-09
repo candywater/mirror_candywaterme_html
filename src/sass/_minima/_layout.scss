@@ -118,10 +118,11 @@
   //   padding: $spacing-unit 0;
   // }
 
-  // .footer-heading {
-  //   @include relative-font-size(1.125);
-  //   margin-bottom: calc($spacing-unit / 2);
-  // }
+  .footer-heading {
+    // @include relative-font-size(1.125);
+    margin-bottom: calc($spacing-unit / 2);
+    text-align: right;
+  }
 
   // .contact-list,
   // .social-media-list {
