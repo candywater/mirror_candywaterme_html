@@ -40,14 +40,14 @@
       </div>
 
       <div class="footer-col footer-col-1">
-        <ul class="contact-list">
+        <div class="contact-list">
           {#if $SiteInfo.title}
             [{$SiteInfo.title}]
           {/if}
           {#if $SiteInfo.email}
             <li><a href="mailto:{$SiteInfo.email}">{$SiteInfo.email}</a></li>
           {/if}
-        </ul>
+        </div>
       </div>
 
       <div class="footer-col footer-col-3">
