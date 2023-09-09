@@ -5,7 +5,7 @@
     "scripts": {
         "build": "vite build",
         "dev": "pnpm dev:dev",
-        "dev:dev": "vite build -w",
+        "dev:dev": "vite --mode development build -w --sourcemap true",
         "dev:serve": "vite",
         "gulp": "gulp -f gulpfile.cjs",
         "gulp:dev": "gulp -f gulpfile.cjs watch",

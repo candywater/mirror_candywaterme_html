@@ -80,7 +80,7 @@ function comment_area_html() {
 }
 
 // todo
-function when_xhr_error() {}
+function when_xhr_error() { }
 
 /**
  * loading comment
@@ -301,7 +301,7 @@ let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
 async function getcomments() {
   try {
     let res = await fetch(COMMENT_API_URL + "/getforblog?blogurl=" + new URL(document.URL).pathname);
-    if (res.ok){
+    if (res.ok) {
       _comment_list = await res.json();
       _disabled = false;
     }
@@ -309,8 +309,8 @@ async function getcomments() {
       _disabled = true;
       check_service_connection();
     }
-  } catch {
+  } catch (error) {
     _disabled = true;
-    throw "error";
+    console.error(error);
   }
 }

@@ -3,7 +3,7 @@
 
   import type { ISiteInfo } from "../../../ts/interface/ISiteInfo";
   let show_quote = false;
-  let site: ISiteInfo = SiteInfo;
+  let site: ISiteInfo = $SiteInfo;
 
   function onImgClick() {
     show_quote = !show_quote;

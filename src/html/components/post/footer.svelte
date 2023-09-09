@@ -1,32 +1,28 @@
 <script lang="ts">
   import { FormatDateYear } from "../../../ts/common/common";
   import { SiteInfo } from "../../../ts/config/siteinfo";
-
-  import type { ISiteInfo } from "../../../ts/interface/ISiteInfo";
-
-  let site: ISiteInfo = SiteInfo;
 </script>
 
-<footer class="site-footer">
+<footer class="$SiteInfo-footer">
   <div class="">
-    <h2 class="footer-heading">{site.title}</h2>
+    <h2 class="footer-heading">{$SiteInfo.title}</h2>
 
     <div class="footer-col-wrapper flex justify-between">
       <div class="footer-col footer-col-2">
-        {#if site.github_username}
-          <a href={"https://github.com/" + site.github_username}>
+        {#if $SiteInfo.github_username}
+          <a href={"https://github.com/" + $SiteInfo.github_username}>
             <div class="nes-icon github is-a-little-small" />
           </a>
         {/if}
 
-        {#if site.twitter_username}
-          <a href={"https://twitter.com/" + site.twitter_username}>
+        {#if $SiteInfo.twitter_username}
+          <a href={"https://twitter.com/" + $SiteInfo.twitter_username}>
             <div class="nes-icon twitter is-a-little-small" />
           </a>
         {/if}
 
-        {#if site.author}
-          <a href={"https://about.me/" + site.author}>
+        {#if $SiteInfo.author}
+          <a href={"https://about.me/" + $SiteInfo.author}>
             <div class="nes-icon aboutme is-a-little-small" />
           </a>
         {/if}
@@ -45,18 +41,18 @@
 
       <div class="footer-col footer-col-1">
         <ul class="contact-list">
-          {#if site.title}
-            [{site.title}]
+          {#if $SiteInfo.title}
+            [{$SiteInfo.title}]
           {/if}
-          {#if site.email}
-            <li><a href="mailto:{site.email}">{site.email}</a></li>
+          {#if $SiteInfo.email}
+            <li><a href="mailto:{$SiteInfo.email}">{$SiteInfo.email}</a></li>
           {/if}
         </ul>
       </div>
 
       <div class="footer-col footer-col-3">
-        <!-- <p>{site.description}</p> -->
-        <p>copyleft &copy; {site.author} {FormatDateYear(site.time)}</p>
+        <!-- <p>{$SiteInfo.description}</p> -->
+        <p>copyleft &copy; {$SiteInfo.author} {FormatDateYear($SiteInfo.time)}</p>
       </div>
     </div>
   </div>

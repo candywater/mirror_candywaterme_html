@@ -1,5 +1,7 @@
 <script lang="ts">
   import type { IPostHeader } from "../../../ts/interface/IPostHeader";
+  import { SiteInfo } from "../../../ts/config/siteinfo";
+
   import { FormatDate } from "../../../ts/common/common";
   import { onMount } from "svelte";
 
@@ -32,7 +34,13 @@
     _renderedContent = res.renderedContent;
     _header_list = res.headerList; // sub headers list
     _content_list = res.contentList; // all posts
-    
+
+    SiteInfo.set({
+      ...$SiteInfo,
+      title: "candywater" + (_header ? " - " + _header.title : ""),
+    });
+    console.log($SiteInfo.title);
+    console.log(_header);
   });
 </script>
 
@@ -47,7 +55,7 @@
 
 <article class="post">
   <header class="post-header">
-    <div class="row relative table lg:flex justify-between ">
+    <div class="row relative table lg:flex justify-between">
       <div class="order-2">
         <Searchbar content_list={_content_list} />
       </div>
@@ -110,7 +118,7 @@
     background-color: white;
   }
   .post-title {
-    font-family: /*etna, */source-han-sans-simplified-c, sans-serif;
+    font-family: /*etna, */ source-han-sans-simplified-c, sans-serif;
     font-weight: 400;
     font-style: normal;
   }
