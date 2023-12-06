@@ -48,35 +48,20 @@
   import pathDict from "./ts/config/path";
   
   let blogpath: string = "";
-
-  // // set page info => hard to understand
-  // for (const [pagename, pagepath] of Object.entries(pathDict)) {
-  //   page(pagepath, (ctx: any) => {
-  //     change_switcher(pagename);
-  //     // when post
-  //     if (pagename == BLOG) {
-  //       blogpath = ctx.path;
-  //       CurrentPage.set(ctx.params.type);
-  //     } else if (pagename == BLOG_OTHER) {
-  //       blogpath = ctx.path;
-  //       CurrentPage.set(ctx.params.type);
-  //     }
-  //   });
-  // }
   
-  page(pathDict[INDEX], ()=> change_switcher(INDEX))
-  page(pathDict[ABOUT], ()=> change_switcher(ABOUT))
-  page(pathDict[PROJECT], ()=> change_switcher(PROJECT))
-  page(pathDict[ESSAY], ()=> change_switcher(ESSAY))
-  page(pathDict[TECH], ()=> change_switcher(TECH))
-  page(pathDict[YEAR_SUMMARY], ()=> change_switcher(YEAR_SUMMARY))
+  page(pathDict[INDEX], ()=> navigateTo(INDEX))
+  page(pathDict[ABOUT], ()=> navigateTo(ABOUT))
+  page(pathDict[PROJECT], ()=> navigateTo(PROJECT))
+  page(pathDict[ESSAY], ()=> navigateTo(ESSAY))
+  page(pathDict[TECH], ()=> navigateTo(TECH))
+  page(pathDict[YEAR_SUMMARY], ()=> navigateTo(YEAR_SUMMARY))
   page(pathDict[BLOG], (ctx: any)=> {
-    change_switcher(BLOG);
+    navigateTo(BLOG);
     blogpath = ctx.path;
     CurrentPage.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
   })
   page(pathDict[BLOG_OTHER], (ctx: any)=> {
-    change_switcher(BLOG_OTHER)
+    navigateTo(BLOG_OTHER)
     blogpath = ctx.path;
     CurrentPage.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
   })
@@ -84,8 +69,9 @@
   page(404);
   loadBackgroundColor();
 
-  function change_switcher(pagename) {
+  function navigateTo(pagename) {
     path.set(pagename);
+    window.history.pushState({}, null, $path);
     console.log(pagename);
   }
 
