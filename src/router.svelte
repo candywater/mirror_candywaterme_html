@@ -71,7 +71,7 @@
 
   function navigateTo(pagename) {
     path.set(pagename);
-    window.history.pushState({}, null, $path);
+    window.history.pushState({}, null, pathDict[pagename]);
     console.log(pagename);
   }
 
