@@ -45,22 +45,22 @@
     OTHER_URL,
     CurrentPage,
   } from "./ts/config/path";
-  import pathDict from "./ts/config/path";
+  import PATH_DICT from "./ts/config/path";
   
   let blogpath: string = "";
   
-  page(pathDict[INDEX], ()=> navigateTo(INDEX))
-  page(pathDict[ABOUT], ()=> navigateTo(ABOUT))
-  page(pathDict[PROJECT], ()=> navigateTo(PROJECT))
-  page(pathDict[ESSAY], ()=> navigateTo(ESSAY))
-  page(pathDict[TECH], ()=> navigateTo(TECH))
-  page(pathDict[YEAR_SUMMARY], ()=> navigateTo(YEAR_SUMMARY))
-  page(pathDict[BLOG], (ctx: any)=> {
+  page(PATH_DICT[INDEX], ()=> navigateTo(INDEX))
+  page(PATH_DICT[ABOUT], ()=> navigateTo(ABOUT))
+  page(PATH_DICT[PROJECT], ()=> navigateTo(PROJECT))
+  page(PATH_DICT[ESSAY], ()=> navigateTo(ESSAY))
+  page(PATH_DICT[TECH], ()=> navigateTo(TECH))
+  page(PATH_DICT[YEAR_SUMMARY], ()=> navigateTo(YEAR_SUMMARY))
+  page(PATH_DICT[BLOG], (ctx: any)=> {
     navigateTo(BLOG);
     blogpath = ctx.path;
     CurrentPage.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
   })
-  page(pathDict[BLOG_OTHER], (ctx: any)=> {
+  page(PATH_DICT[BLOG_OTHER], (ctx: any)=> {
     navigateTo(BLOG_OTHER)
     blogpath = ctx.path;
     CurrentPage.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
@@ -71,7 +71,7 @@
 
   function navigateTo(pagename) {
     path.set(pagename);
-    window.history.pushState({}, null, pathDict[pagename]);
+    window.history.pushState({}, null, PATH_DICT[pagename]);
     console.log(pagename);
   }
 

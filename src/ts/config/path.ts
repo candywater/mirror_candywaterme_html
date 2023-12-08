@@ -33,16 +33,16 @@ export const YEAR_SUMMARY_INDEX_URL = "/doc/_info/year-summary.txt";
 export const DOC_SRC_URL = "/doc";
 export const BLOG_SRC_URL = "/blog";
 
-export let pathDict: Object = {};
-pathDict[INDEX] = INDEX_PATH;
-pathDict[ABOUT] = ABOUT_PATH;
-pathDict[PROJECT] = PROJECT_PATH;
-pathDict[ESSAY] = ESSAY_PATH;
-pathDict[TECH] = TECH_PATH;
-pathDict[BLOG] = BLOG_PATH;
-pathDict[BLOG_OTHER] = BLOG_OTHER_PATH;
-pathDict[YEAR_SUMMARY] = YEAR_SUMMARY_PATH;
-Object.freeze(pathDict);
+export let PATH_DICT: Object = {};
+PATH_DICT[INDEX] = INDEX_PATH;
+PATH_DICT[ABOUT] = ABOUT_PATH;
+PATH_DICT[PROJECT] = PROJECT_PATH;
+PATH_DICT[ESSAY] = ESSAY_PATH;
+PATH_DICT[TECH] = TECH_PATH;
+PATH_DICT[BLOG] = BLOG_PATH;
+PATH_DICT[BLOG_OTHER] = BLOG_OTHER_PATH;
+PATH_DICT[YEAR_SUMMARY] = YEAR_SUMMARY_PATH;
+Object.freeze(PATH_DICT);
 
 export let mainMenuDict: Object = {};
 mainMenuDict[INDEX] = INDEX_PATH;
@@ -54,4 +54,4 @@ Object.freeze(mainMenuDict);
 
 export const CurrentPath = writable(INDEX);
 export const CurrentPage = writable("");
-export default pathDict;
+export default PATH_DICT;
