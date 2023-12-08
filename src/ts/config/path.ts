@@ -44,13 +44,13 @@ PATH_DICT[BLOG_OTHER] = BLOG_OTHER_PATH;
 PATH_DICT[YEAR_SUMMARY] = YEAR_SUMMARY_PATH;
 Object.freeze(PATH_DICT);
 
-export let mainMenuDict: Object = {};
-mainMenuDict[INDEX] = INDEX_PATH;
-mainMenuDict[ABOUT] = ABOUT_PATH;
-mainMenuDict[PROJECT] = PROJECT_PATH;
-mainMenuDict[ESSAY] = ESSAY_PATH;
-mainMenuDict[TECH] = TECH_PATH;
-Object.freeze(mainMenuDict);
+export let Main_Menu_Dict: Object = {};
+Main_Menu_Dict[INDEX] = INDEX_PATH;
+Main_Menu_Dict[ABOUT] = ABOUT_PATH;
+Main_Menu_Dict[PROJECT] = PROJECT_PATH;
+Main_Menu_Dict[ESSAY] = ESSAY_PATH;
+Main_Menu_Dict[TECH] = TECH_PATH;
+Object.freeze(Main_Menu_Dict);
 
 export const CurrentPath = writable(INDEX);
 export const CurrentPage = writable("");
