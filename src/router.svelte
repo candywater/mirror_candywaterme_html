@@ -9,7 +9,6 @@
   import "animate.css/source/fading_entrances/fadeIn.css";
   import "animate.css/source/fading_exits/fadeOutUp.css";
 
-
   import page from "page.js";
 
   import Index from "./html/pages/index.svelte";
@@ -18,8 +17,9 @@
   import Tech from "./html/pages/tech.svelte";
   import Essay from "./html/pages/essay.svelte";
   import Random from "./html/pages/random.svelte";
-  import Blog from "./html/posts/blog.svelte";
-  import Pureblog from "./html/posts/pureblog.svelte";
+
+  import Blog from "./html/pages/blog.svelte";
+  import Pureblog from "./html/pages/pureblog.svelte";
   import YearSummary from "./html/pages/year-summary.svelte";
   import Error from "./html/error/error.svelte";
 
@@ -73,6 +73,7 @@
     path.set(pagename);
     window.history.pushState({}, null, PATH_DICT[pagename]);
     console.log(pagename);
+    console.log(PATH_DICT[pagename]);
   }
 
   function loadBackgroundColor() {

@@ -4,14 +4,15 @@ welcome to candywater's cyber space.
 
 # deploy
 
-yarn dev 
+pnpm dev | pnpm gulp:dev
 
-gulp watch
+# build
 
+pnpm gulp => pnpm build
 
-# publish
+# prettier
 
-yarn build && gulp
+pnpm prettier
 
 # coding rules
 
@@ -21,7 +22,24 @@ yarn build && gulp
 const JWT_GENERATOR = "";
 let blogComment = "";
 function getRequiredType(){
-    
 }
 
+```
+
+# folder structure
+
+```
+/src/html/
+    -components
+    -error
+    -pages
+    -template
+/src/sass
+/src/ts
+```
+
+# output
+
+```
+/public
 ```
