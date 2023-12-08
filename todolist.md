@@ -42,6 +42,8 @@ or
 + [x]pagination
 + []background switcher button 
 + []background switcher feature
++ []upgrade to svelte kit
++ []use svelte kit router
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
