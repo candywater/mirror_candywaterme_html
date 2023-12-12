@@ -21,7 +21,7 @@ pnpm prettier
 
 const JWT_GENERATOR = "";
 let blogComment = "";
-function getRequiredType(){
+function get_required_type(){
 }
 
 ```

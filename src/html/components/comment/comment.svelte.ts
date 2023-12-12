@@ -1,7 +1,14 @@
 // https://google.github.io/styleguide/jsguide.html
 import { xhr_get, xhr_post } from "../../../ts/common/xmlrequest";
+import { onMount } from "svelte";
+import { FormatDate } from "../../../ts/common/common";
+import CommentUnusable from "./comment_unavailable.svelte";
+import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
 
 const COMMENT_API_URL = "/comments";
+const COMMENT_API_GET_SINGLE_PAGE = COMMENT_API_URL + "/getforblog?blogurl="
+const COMMENT_API_POST_SINGLE_COMMENT = COMMENT_API_URL + "/post"
+
 
 const COMMENT_LEN_LIMIT = 1000;
 
@@ -29,15 +36,10 @@ const COMMENT_HTML = `
   </div>
   `;
 
-// ready(comment_area_html);
-import { onMount } from "svelte";
-import { FormatDate } from "../../../ts/common/common";
-import CommentUnusable from "./comment_unavailable.svelte";
-import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
 
 onMount(() => {
   check_if_ie();
-  getcomments();
+  get_comments_when_first_load();
 });
 
 /**
@@ -69,10 +71,10 @@ function check_service_connection() {
  * Get all info From DB
  * @private
  */
-function comment_area_html() {
+function comment_area_reload_html() {
   var uri = new URL(document.URL).pathname;
   xhr_get(
-    COMMENT_API_URL + `/getforblog?blogurl=${uri}`,
+    COMMENT_API_GET_SINGLE_PAGE + `${uri}`,
     loading_comment,
     draw_comment,
     when_xhr_error
@@ -212,7 +214,7 @@ function insert_new_comment() {
   if (!input_check(comment, username, useremail)) return;
   var jsondata = create_comment_data(comment, username, useremail);
 
-  xhr_post(COMMENT_API_URL + "/post", jsondata, null, when_post_finish, when_xhr_error);
+  xhr_post(COMMENT_API_POST_SINGLE_COMMENT, jsondata, null, when_post_finish, when_xhr_error);
 }
 
 /**
@@ -228,7 +230,7 @@ function when_post_finish(data: string) {
     //http://youmightnotneedjquery.com/
     while (comments.firstChild) comments.removeChild(comments.firstChild);
     //reload comment area
-    comment_area_html();
+    comment_area_reload_html();
   } else if (data.toLowerCase() == "over100") {
     SetAlertMsg(COMMENT_NUMBER_LIMIT_ERROR_MSG);
   } else if (data.toLowerCase() == "maintenance") {
@@ -298,9 +300,10 @@ let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
         */
 
 
-async function getcomments() {
+async function get_comments_when_first_load() {
   try {
-    let res = await fetch(COMMENT_API_URL + "/getforblog?blogurl=" + new URL(document.URL).pathname);
+    var uri = new URL(document.URL).pathname
+    let res = await fetch(COMMENT_API_GET_SINGLE_PAGE + `${uri}`);
     if (res.ok) {
       _comment_list = await res.json();
       _disabled = false;
