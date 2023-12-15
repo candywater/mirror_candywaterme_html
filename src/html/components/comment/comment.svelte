@@ -40,12 +40,12 @@
 </script>
 
 <div id="comment_alert" class="normal-case">
-  {#if _message_box_msg}
-    {@html _message_box_msg}
+  {#if $_message_box_msg}
+    {@html $_message_box_msg}
   {/if}
 </div>
 <div id="comment_input_area">
-  {#if _disabled}
+  {#if $_disabled}
     <CommentUnusable />
   {:else}
     <textarea
@@ -56,12 +56,12 @@
       placeholder={_placeholder_msg}
       bind:value={_comment_text}
       on:input={clear_revert_cache}
-      disabled={_disabled}
+      disabled={$_disabled}
     />
     <div>
       <div>
         <label for="username_input"> Nick Name:</label>
-        <input type="text" name="" id="username_input" disabled={_disabled} />
+        <input type="text" name="" id="username_input" disabled={$_disabled} />
       </div>
       <div>
         <label for="user_email_input">Email(Optional):</label>
@@ -69,26 +69,26 @@
           type="email"
           name=""
           id="user_email_input"
-          disabled={_disabled}
+          disabled={$_disabled}
         />
       </div>
       <div>
         <button
           class={"btn btn-outline-dark submit-btn"}
           on:click={insert_new_comment}
-          disabled={_disabled}>Submit</button
+          disabled={$_disabled}>Submit</button
         >
         {#if _comment_text_revert}
           <button
             class={"btn btn-outline-dark clear-btn"}
             on:click={revert_comment}
-            disabled={_disabled}>Revert</button
+            disabled={$_disabled}>Revert</button
           >
         {:else}
           <button
             class={"btn btn-outline-dark clear-btn"}
             on:click={clear_comment}
-            disabled={_disabled}>Clear</button
+            disabled={$_disabled}>Clear</button
           >
         {/if}
       </div>
@@ -97,8 +97,8 @@
 </div>
 
 <div id="comments">
-  {#if _comment_list && _comment_list.length >= 0}
-    {#each _comment_list as comment}
+  {#if $_comment_list && $_comment_list.length >= 0}
+    {#each $_comment_list as comment}
       <div class="comment">
         <div class="comment-header">
           <div class="thumb">
@@ -113,7 +113,7 @@
         </div>
       </div>
     {/each}
-  {:else if _disabled == false}
+  {:else if $_disabled == false}
     <div class="text-center"><SpinnerFacebook /></div>
   {/if}
 </div>

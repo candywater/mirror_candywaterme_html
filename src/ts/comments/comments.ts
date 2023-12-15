@@ -11,6 +11,7 @@ import {
     LOST_CONNECTION,
     DEFAULT_PLACE_HOLDER_MSG
 } from "../config/comment";
+import { writable } from "svelte/store";
 
 const COMMENT_API_URL = "/comments";
 const COMMENT_API_GET_SINGLE_PAGE = COMMENT_API_URL + "/getforblog?blogurl=";
@@ -30,15 +31,15 @@ const COMMENT_HTML = `
 </div>
 `;
 
-export let _message_box_msg: string = "";
-export let _disabled: boolean = false;
-export let _comment_list: {
+export const _message_box_msg = writable<string>("");
+export const _disabled = writable<boolean>(false);
+export const _comment_list = writable<{
     authorName: string;
     createdate: Date;
     commentbody: string;
-}[];
+}[]>([]);
 
-export let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
+export const _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
 
 
 
@@ -59,11 +60,11 @@ export function check_if_ie() {
 
 
 function set_all_component_disable(bool: boolean) {
-    _disabled = bool;
+    _disabled.set(bool);
 }
 
 function check_service_connection() {
-    if (_disabled) {
+    if ($_disabled) {
         SetAlertMsg(LOST_CONNECTION, 0);
     }
 }
@@ -85,7 +86,7 @@ export function get_comments_and_reload_comment_area() {
 
 // todo
 function when_xhr_error() {
-    _disabled = true;
+    _disabled.set(true);
     check_service_connection();
 }
 
@@ -257,7 +258,7 @@ function when_post_finish(data: string) {
  * @param {Number} lasttime ms
  */
 function SetAlertMsg(str: string = "", lasttime: number = 3000) {
-    _message_box_msg = str;
+    _message_box_msg.set(str);
     if (str && lasttime > 0)
         setTimeout(() => {
             SetAlertMsg();
