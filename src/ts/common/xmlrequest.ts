@@ -27,6 +27,10 @@ export function xhr_get(
     if (onprogress_cb) onprogress_cb();
   };
   xhr.onload = function (res: any) {
+    if (res?.status != 200) {
+      onerror_cb();
+      return;
+    }
     if (onload_cb) onload_cb(res.target.responseText);
     console.log("get on load success");
   };

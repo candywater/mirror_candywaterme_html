@@ -36,7 +36,7 @@ export const _disabled = writable<boolean>(false);
 export const _comment_list = writable<{
     authorName: string;
     createdate: Date;
-    commentbody: string;
+    commentbody: string; 
 }[]>([]);
 
 export const _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
@@ -64,7 +64,7 @@ function set_all_component_disable(bool: boolean) {
 }
 
 function check_service_connection() {
-    if ($_disabled) {
+    if (_disabled) {
         SetAlertMsg(LOST_CONNECTION, 0);
     }
 }
