@@ -1,5 +1,32 @@
-<script lang="ts" src="./comment.svelte.ts">
+<script lang="ts">
+  import { FormatDate } from "../../../ts/common/common";
+  import CommentUnusable from "./comment_unavailable.svelte";
+  import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
+  import { insert_new_comment } from "../../../ts/comments/comments";
+  import {
+    _message_box_msg,
+    _disabled,
+    _comment_list,
+    _placeholder_msg,
+  } from "../../../ts/comments/comments";
 
+  let _comment_text: string = "";
+  let _comment_text_revert: string = "";
+
+  function clear_comment() {
+    _comment_text_revert = _comment_text;
+    _comment_text = "";
+  }
+
+  function revert_comment() {
+    _comment_text = _comment_text_revert;
+    _comment_text_revert = "";
+  }
+
+  function clear_revert_cache() {
+    _comment_text_revert = "";
+    //console.log(_comment_text_revert);
+  }
 </script>
 
 <div id="comment_alert" class="normal-case">
