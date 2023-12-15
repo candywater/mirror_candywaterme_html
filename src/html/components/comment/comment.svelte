@@ -2,13 +2,23 @@
   import { FormatDate } from "../../../ts/common/common";
   import CommentUnusable from "./comment_unavailable.svelte";
   import SpinnerFacebook from "../common/icons/SpinnerFacebook.svelte";
-  import { insert_new_comment } from "../../../ts/comments/comments";
+  import { onMount } from "svelte";
+  import {
+    insert_new_comment,
+    check_if_ie,
+    get_comments_and_reload_comment_area,
+  } from "../../../ts/comments/comments";
   import {
     _message_box_msg,
     _disabled,
     _comment_list,
     _placeholder_msg,
   } from "../../../ts/comments/comments";
+
+  onMount(() => {
+    check_if_ie();
+    get_comments_and_reload_comment_area();
+  });
 
   let _comment_text: string = "";
   let _comment_text_revert: string = "";

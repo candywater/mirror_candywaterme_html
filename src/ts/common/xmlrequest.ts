@@ -28,7 +28,7 @@ export function xhr_get(
   };
   xhr.onload = function (res: any) {
     if (onload_cb) onload_cb(res.target.responseText);
-    console.log("success");
+    console.log("get on load success");
   };
   xhr.onerror = onerror_cb;
   xhr.send(null);
@@ -70,7 +70,7 @@ export function xhr_post(
   };
   xhr.onload = function (res: any) {
     if (onload_cb) onload_cb(res.target.responseText);
-    console.log("success");
+    console.log("post onload success");
   };
   xhr.onerror = onerror_cb;
   xhr.send(data);

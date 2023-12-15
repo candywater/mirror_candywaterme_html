@@ -1,6 +1,5 @@
 // https://google.github.io/styleguide/jsguide.html
 import { xhr_get, xhr_post } from "../common/xmlrequest";
-import { onMount } from "svelte";
 import {
     IE_ERROR_MSG,
     COMMENT_NUMBER_LIMIT_ERROR_MSG,
@@ -41,17 +40,13 @@ export let _comment_list: {
 
 export let _placeholder_msg: string = DEFAULT_PLACE_HOLDER_MSG;
 
-onMount(() => {
-    check_if_ie();
-    get_comments_and_reload_comment_area();
-});
 
 
 /**
  * not support ie
  * @private
  */
-function check_if_ie() {
+export function check_if_ie() {
     if (
         navigator.userAgent.indexOf("MSIE") >= 0 ||
         !!navigator.userAgent.match(/Trident.*rv\:11\./)
@@ -62,24 +57,6 @@ function check_if_ie() {
     // console.log(navigator.userAgent)
 }
 
-
-// async function get_comments_when_first_load() {
-//     try {
-//         var uri = new URL(document.URL).pathname
-//         let res = await fetch(COMMENT_API_GET_SINGLE_PAGE + `${uri}`);
-//         if (res.ok) {
-//             _comment_list = await res.json();
-//             _disabled = false;
-//         }
-//         else {
-//             _disabled = true;
-//             check_service_connection();
-//         }
-//     } catch (error) {
-//         _disabled = true;
-//         console.error(error);
-//     }
-// }
 
 function set_all_component_disable(bool: boolean) {
     _disabled = bool;
@@ -95,12 +72,12 @@ function check_service_connection() {
  * Get all info From DB
  * @private
  */
-function get_comments_and_reload_comment_area() {
+export function get_comments_and_reload_comment_area() {
     var uri = new URL(document.URL).pathname;
     xhr_get(
         COMMENT_API_GET_SINGLE_PAGE + `${uri}`,
         loading_comment,
-        draw_comment,
+        draw_comments,
         when_xhr_error,
         TIMEOUT_MILI_SECONDS
     );
@@ -121,7 +98,7 @@ function loading_comment() {
     loading_spin.className = "lds-dual-ring";
     loading_spin.style = "margin:0 auto; display: flex;";
     var article = document.querySelector("article[class='post']");
-    article.appendChild(loading_spin);
+    article?.appendChild(loading_spin);
 }
 
 /**
@@ -147,9 +124,9 @@ function get_readable_time(t: Date): string {
 /**
  * draw comment area
  * @param {string} html
- * @public
+ * @private
  */
-function draw_comment(comment_list) {
+function draw_comments(comment_list) {
     remove_spinner();
     try {
         comment_list = JSON.parse(comment_list);
@@ -157,30 +134,33 @@ function draw_comment(comment_list) {
         return;
     }
     // console.log(comment_list)
-    comment_list.forEach((element) => {
-        var username = element.authorName;
-        var comment_article = element.commentbody;
-        var time = new Date(element.createdate);
-        let timestamp = get_readable_time(time);
+    if (comment_list?.length && comment_list?.length > 0)
+        comment_list?.forEach(draw_comment);
+}
 
-        var comment_node = document.createElement("div");
-        comment_node.className = "comment";
-        comment_node.innerHTML = `
-      <div class="comment-header">
-        <div class="thumb">
-          ${username}
-        </div>
-        <div class="timestamp">
-          ${timestamp}
-        </div>
-      </div>
-      <div class="card">
-        ${comment_article}
-      </div>
-    `;
-        var article = document.querySelector("#comments");
-        article.appendChild(comment_node);
-    });
+function draw_comment(element) {
+    var username = element.authorName;
+    var comment_article = element.commentbody;
+    var time = new Date(element.createdate);
+    let timestamp = get_readable_time(time);
+
+    var comment_node = document.createElement("div");
+    comment_node.className = "comment";
+    comment_node.innerHTML = `
+  <div class="comment-header">
+    <div class="thumb">
+      ${username}
+    </div>
+    <div class="timestamp">
+      ${timestamp}
+    </div>
+  </div>
+  <div class="card">
+    ${comment_article}
+  </div>
+`;
+    var article = document.querySelector("#comments");
+    article.appendChild(comment_node);
 }
 
 /**
@@ -252,7 +232,10 @@ export function insert_new_comment() {
  */
 function when_post_finish(data: string) {
     if (data.toLowerCase() == "ok") {
-        clear_comment();
+        //clear_comment();
+        (<HTMLTextAreaElement>(
+            document.querySelector("#comment_input_area > textarea")
+        )).value = "";
         SetAlertMsg(POST_SUCCESS_MSG, 3000);
         var comments = document.querySelector("#comments");
         //http://youmightnotneedjquery.com/
