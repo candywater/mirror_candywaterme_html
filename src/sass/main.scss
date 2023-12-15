@@ -78,12 +78,14 @@ $on-laptop: 800px !default;
 @mixin background3 {
   // @include backgroud-gradient(linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab));
   // https://unsplash.com/photos/3k1IyUrqRk4
-  background-image: url(https://images.unsplash.com/photo-1654869919548-72a005cb4074?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+  background-image: url(https://images.unsplash.com/p?hoto-1654869919548-72a005cb4074?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+  // background-image: url(http://imgs.candywaters.com/bak3_Voicu_Apostol.avif);
   background-size: contain;
 }
 @mixin background4 {
   // https://unsplash.com/es/fotos/twukN12EN7c
   background-image: url(https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&dl=simon-berger-twukN12EN7c-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
+  // background-image: url(http://imgs.candywaters.com/bak4_simon_berger.jpg);
   background-size: cover;
 }
 // green
