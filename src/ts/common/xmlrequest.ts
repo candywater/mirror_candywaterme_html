@@ -26,8 +26,8 @@ export function xhr_get(
   xhr.onprogress = function () {
     if (onprogress_cb) onprogress_cb();
   };
-  xhr.onload = function (res: any) {
-    if (res?.status != 200) {
+  xhr.onload = function (res : ProgressEvent) {
+    if (res?.currentTarget?.status != 200) {
       onerror_cb();
       return;
     }
