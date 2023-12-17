@@ -12,6 +12,7 @@ import {
     DEFAULT_PLACE_HOLDER_MSG
 } from "../config/comment";
 import { writable } from "svelte/store";
+import type { CommentModel } from "./commentModel";
 
 const COMMENT_API_URL = "/comments";
 const COMMENT_API_GET_SINGLE_PAGE = COMMENT_API_URL + "/getforblog?blogurl=";
@@ -139,10 +140,14 @@ function draw_comments(comment_list) {
         comment_list?.forEach(draw_comment);
 }
 
-function draw_comment(element) {
-    var username = element.authorName;
-    var comment_article = element.commentbody;
-    var time = new Date(element.createdate);
+/**
+ * 
+ * @param CommentModel 
+ */
+function draw_comment(element: CommentModel) {
+    var username = element.AuthorName;
+    var comment_article = element.CommentBody;
+    var time = new Date(element.CreateDate);
     let timestamp = get_readable_time(time);
 
     var comment_node = document.createElement("div");
