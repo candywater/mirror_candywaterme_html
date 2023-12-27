@@ -34,7 +34,7 @@ export const YEAR_SUMMARY_INDEX_URL = "/doc/_info/year-summary.txt";
 export const DOC_SRC_URL = "/doc";
 export const BLOG_SRC_URL = "/blog";
 
-export const GITHUB_OAUTH_CALLBACK_URL = "/comments/oauth_callback"
+export const GITHUB_OAUTH_CALLBACK_URL = "/github/oauth_callback"
 
 export let PATH_DICT: Object = {};
 PATH_DICT[INDEX] = INDEX_PATH;

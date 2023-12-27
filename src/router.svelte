@@ -68,6 +68,7 @@
     blogpath = ctx.path;
     CurrentPageType.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
   });
+  page(PATH_DICT[GITHUB_OAUTH_CALLBACK], () => navigateTo(GITHUB_OAUTH_CALLBACK));
 
   page(404);
   loadBackgroundColor();
