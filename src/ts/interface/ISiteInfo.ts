@@ -8,3 +8,7 @@ export interface ISiteInfo {
   time?: Date;
   [propName: string]: any;
 }
+
+export interface ICommentConfig {
+  githubOauthClientId?: string;
+}

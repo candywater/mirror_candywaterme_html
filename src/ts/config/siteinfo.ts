@@ -1,4 +1,4 @@
-import type { ISiteInfo } from "../interface/ISiteInfo";
+import type { ISiteInfo, ICommentConfig } from "../interface/ISiteInfo";
 import { writable, derived } from 'svelte/store';
 
 export var SiteInfo = writable<ISiteInfo>({
@@ -9,3 +9,7 @@ export var SiteInfo = writable<ISiteInfo>({
   description: "",
   time: new Date(),
 });
+
+export var CommentConfigs = writable<ICommentConfig> ({
+  githubOauthClientId: "93f02305cc81e51edfd4",
+})
