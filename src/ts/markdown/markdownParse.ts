@@ -8,6 +8,7 @@ marked.setOptions({
 
 export var HeaderList: IHeaderPair[] = [];
 
+//https://marked.js.org/using_pro#renderer
 const renderer = {
   heading(text, level) {
     const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
@@ -31,6 +32,17 @@ const renderer = {
     }
     out += ">" + text + "</a>";
     return out;
+  },
+  image(href: string, title: string, text: string) {
+
+    return `<figure class="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+    <a href="#">
+      <img class="rounded-lg" src="${href}" alt="${text}">
+    </a>
+    <figcaption class="absolute px-4 text-lg text-white bottom-6">
+        <p>${title}</p>
+    </figcaption>
+  </figure>`
   },
 };
 
