@@ -23,9 +23,9 @@
   import YearSummary from "./html/pages/year-summary.svelte";
   import Error from "./html/error/error.svelte";
 
+  import GithubOauthRedirect from "./html/pages/oauth/githubOauthRedirect.svelte"
 
   import {
-    CurrentPath as path,
     INDEX,
     ABOUT,
     PROJECT,
@@ -34,6 +34,10 @@
     RANDOM,
     BLOG,
     BLOG_OTHER,
+    GITHUB_OAUTH_CALLBACK,
+  } from "./ts/config/path";
+  import { CurrentPath as path, CurrentPageType } from "./ts/config/path";
+  import {
     ESSAY_URL,
     TECH_URL,
     TECH_INDEX_URL,
@@ -43,28 +47,27 @@
     YEAR_SUMMARY,
     OTHER_INDEX_URL,
     OTHER_URL,
-    CurrentPageType,
   } from "./ts/config/path";
   import PATH_DICT from "./ts/config/path";
-  
+
   let blogpath: string = "";
-  
-  page(PATH_DICT[INDEX], ()=> navigateTo(INDEX))
-  page(PATH_DICT[ABOUT], ()=> navigateTo(ABOUT))
-  page(PATH_DICT[PROJECT], ()=> navigateTo(PROJECT))
-  page(PATH_DICT[ESSAY], ()=> navigateTo(ESSAY))
-  page(PATH_DICT[TECH], ()=> navigateTo(TECH))
-  page(PATH_DICT[YEAR_SUMMARY], ()=> navigateTo(YEAR_SUMMARY))
-  page(PATH_DICT[BLOG], (ctx: any)=> {
+
+  page(PATH_DICT[INDEX], () => navigateTo(INDEX));
+  page(PATH_DICT[ABOUT], () => navigateTo(ABOUT));
+  page(PATH_DICT[PROJECT], () => navigateTo(PROJECT));
+  page(PATH_DICT[ESSAY], () => navigateTo(ESSAY));
+  page(PATH_DICT[TECH], () => navigateTo(TECH));
+  page(PATH_DICT[YEAR_SUMMARY], () => navigateTo(YEAR_SUMMARY));
+  page(PATH_DICT[BLOG], (ctx: any) => {
     navigateTo(BLOG);
     blogpath = ctx.path;
     CurrentPageType.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
-  })
-  page(PATH_DICT[BLOG_OTHER], (ctx: any)=> {
-    navigateTo(BLOG_OTHER)
+  });
+  page(PATH_DICT[BLOG_OTHER], (ctx: any) => {
+    navigateTo(BLOG_OTHER);
     blogpath = ctx.path;
     CurrentPageType.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
-  })
+  });
 
   page(404);
   loadBackgroundColor();
@@ -108,6 +111,8 @@
     />
   {:else if $path === BLOG_OTHER || $path === BLOG}
     <Blog {blogpath} indexUrl={OTHER_INDEX_URL} contentUrl={OTHER_URL} />
+  {:else if $path === GITHUB_OAUTH_CALLBACK}
+    <GithubOauthRedirect />
   {:else}
     <Error />
   {/if}

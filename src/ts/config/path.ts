@@ -9,16 +9,17 @@ export const BLOG = "blog";
 export const YEAR_SUMMARY = "year-summary";
 export const BLOG_OTHER = "other";
 export const RANDOM = "random";
+export const GITHUB_OAUTH_CALLBACK = "github-oauth-callback"
 
-export const INDEX_PATH = "/";
-export const ABOUT_PATH = "/about";
-export const PROJECT_PATH = "/project";
-export const ESSAY_PATH = "/blog/essay";
-export const TECH_PATH = "/blog/tech";
-export const YEAR_SUMMARY_PATH = "/blog/year-summary";
-export const BLOG_PATH = "/blog/:type/:year/:articlepath";
-export const BLOG_OTHER_PATH = "/blog/:type/*";
-export const RANDOM_PATH = "/random";
+const INDEX_PATH = "/";
+const ABOUT_PATH = "/about";
+const PROJECT_PATH = "/project";
+const ESSAY_PATH = "/blog/essay";
+const TECH_PATH = "/blog/tech";
+const YEAR_SUMMARY_PATH = "/blog/year-summary";
+const BLOG_PATH = "/blog/:type/:year/:articlepath";
+const BLOG_OTHER_PATH = "/blog/:type/*";
+const RANDOM_PATH = "/random";
 
 export const ESSAY_URL = "/doc/_info/essay.json";
 export const TECH_URL = "/doc/_info/tech.json";
@@ -44,6 +45,8 @@ PATH_DICT[TECH] = TECH_PATH;
 PATH_DICT[BLOG] = BLOG_PATH;
 PATH_DICT[BLOG_OTHER] = BLOG_OTHER_PATH;
 PATH_DICT[YEAR_SUMMARY] = YEAR_SUMMARY_PATH;
+PATH_DICT[RANDOM] = RANDOM_PATH;
+PATH_DICT[GITHUB_OAUTH_CALLBACK] = GITHUB_OAUTH_CALLBACK_URL;
 Object.freeze(PATH_DICT);
 
 export let Main_Menu_Dict: Object = {};

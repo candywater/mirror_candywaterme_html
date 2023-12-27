@@ -1,11 +1,12 @@
 <script lang="ts">
   import Btn from "./mainMenu/MainMenuButton.svelte";
   import {
-    ESSAY_PATH,
-    TECH_PATH,
-    PROJECT_PATH,
-    ABOUT_PATH,
-    INDEX_PATH,
+    ESSAY,
+    TECH,
+    PROJECT,
+    ABOUT,
+    INDEX,
+    PATH_DICT
   } from "../../../ts/config/path";
 
   const basicstyle = "text-white rounded shadow"; //  = "border border-light-blue-500 border-opacity-5"
@@ -23,21 +24,21 @@
 </script>
 
 <div class="main-menu">
-  <Btn external={true} href={ESSAY_PATH} style={button_style_1} title="Essay" />
-  <Btn external={true} href={TECH_PATH} style={button_style_2} title="Tech" />
+  <Btn external={true} href={PATH_DICT[ESSAY]} style={button_style_1} title="Essay" />
+  <Btn external={true} href={PATH_DICT[TECH]} style={button_style_2} title="Tech" />
   <Btn
     external={false}
-    href={PROJECT_PATH}
+    href={PATH_DICT[PROJECT]}
     style={button_style_3}
     title="Project"
   />
   <Btn
     external={false}
-    href={ABOUT_PATH}
+    href={PATH_DICT[ABOUT]}
     style={button_style_4}
     title="About"
   />
-  <Btn external={false} href={INDEX_PATH} style={button_style_5} title="Main" />
+  <Btn external={false} href={PATH_DICT[INDEX]} style={button_style_5} title="Main" />
 </div>
 
 <style lang="scss">
