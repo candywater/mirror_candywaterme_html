@@ -34,13 +34,11 @@ const renderer = {
     return out;
   },
   image(href: string, title: string, text: string) {
-
-    return `<figure class="relative max-w-sm transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
-    <a href="#">
-      <img class="rounded-lg" src="${href}" alt="${text}">
-    </a>
-    <figcaption class="absolute px-4 text-lg text-white bottom-6">
-        <p>${title}</p>
+    //https://stackoverflow.com/questions/70504047/how-to-have-a-bordered-text-in-tailwind
+    return `<figure class="relative max-w-sm transition-all filter">
+    <img class="rounded-lg" src="${href}" alt="${text}" title="${title}">
+    <figcaption class="absolute px-4 text-lg text-white bottom-6 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
+        <p>${text}</p>
     </figcaption>
   </figure>`
   },
