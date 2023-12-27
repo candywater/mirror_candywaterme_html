@@ -44,7 +44,12 @@ or
 + []background switcher feature
 + []upgrade to svelte kit
 + []use svelte kit router
++ []encrypt with https://github.com/ricmoo/aes-js
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
 https://sveltesociety.dev/recipes/build-setup/using-postcss-with-svelte
+https://flowbite.com/docs/typography/images/
+https://tailwindcss.com/docs/line-height
+https://www.golangprograms.com/how-do-you-send-an-http-post-request-with-an-http-client-in-go.html
+https://medium.com/codex/make-an-http-get-post-request-in-golang-83435ae3ff70
