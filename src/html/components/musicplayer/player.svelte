@@ -45,6 +45,7 @@
       _now_playing_albumImg = element?.albumImg ?? "";
       _now_playing_singer = element?.singer ?? "";
       _now_playing_title = element?.title ?? "";
+      break;
     }
   };
 
