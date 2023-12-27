@@ -6,6 +6,7 @@ css/
 dist/
 /node_modules/
 /public/build/
+assets/backimgs/*
 
 # Logs
 logs
