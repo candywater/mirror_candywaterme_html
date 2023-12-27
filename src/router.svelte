@@ -43,7 +43,7 @@
     YEAR_SUMMARY,
     OTHER_INDEX_URL,
     OTHER_URL,
-    CurrentPage,
+    CurrentPageType,
   } from "./ts/config/path";
   import PATH_DICT from "./ts/config/path";
   
@@ -58,12 +58,12 @@
   page(PATH_DICT[BLOG], (ctx: any)=> {
     navigateTo(BLOG);
     blogpath = ctx.path;
-    CurrentPage.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
+    CurrentPageType.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
   })
   page(PATH_DICT[BLOG_OTHER], (ctx: any)=> {
     navigateTo(BLOG_OTHER)
     blogpath = ctx.path;
-    CurrentPage.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
+    CurrentPageType.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
   })
 
   page(404);
@@ -96,11 +96,11 @@
     <YearSummary />
   {:else if $path === RANDOM}
     <Random />
-  {:else if $path === BLOG && $CurrentPage == ESSAY}
+  {:else if $path === BLOG && $CurrentPageType == ESSAY}
     <Blog {blogpath} indexUrl={ESSAY_INDEX_URL} contentUrl={ESSAY_URL} />
-  {:else if $path === BLOG && $CurrentPage == TECH}
+  {:else if $path === BLOG && $CurrentPageType == TECH}
     <Blog {blogpath} indexUrl={TECH_INDEX_URL} contentUrl={TECH_URL} />
-  {:else if $path === BLOG_OTHER && $CurrentPage == YEAR_SUMMARY}
+  {:else if $path === BLOG_OTHER && $CurrentPageType == YEAR_SUMMARY}
     <Pureblog
       {blogpath}
       indexUrl={YEAR_SUMMARY_INDEX_URL}

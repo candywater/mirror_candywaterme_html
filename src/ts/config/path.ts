@@ -55,5 +55,5 @@ Main_Menu_Dict[TECH] = TECH_PATH;
 Object.freeze(Main_Menu_Dict);
 
 export const CurrentPath = writable(INDEX);
-export const CurrentPage = writable("");
+export const CurrentPageType = writable("");
 export default PATH_DICT;
