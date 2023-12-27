@@ -85,7 +85,7 @@
   ></script>
 </svelte:head>
 
-<div class="flex items-center justify-center mb-1">
+<div class="flex items-center justify-center mb-2">
   <div class="bg-white p-1 rounded-lg shadow-md w-80">
     <div class="flex p-5 border-b">
       {#if _now_playing_albumImg}
