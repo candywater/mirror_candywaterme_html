@@ -78,35 +78,35 @@ $on-laptop: 800px !default;
 @mixin background3 {
   // @include backgroud-gradient(linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab));
   // https://unsplash.com/photos/3k1IyUrqRk4
-  background-image: url(https://images.unsplash.com/p?hoto-1654869919548-72a005cb4074?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
-  // background-image: url(http://imgs.candywaters.com/bak3_Voicu_Apostol.avif);
+  // background-image: url(https://images.unsplash.com/p?hoto-1654869919548-72a005cb4074?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80);
+  background-image: url(http://imgs.candywaters.com/bak3_Voicu_Apostol.avif);
   background-size: contain;
 }
 @mixin background4 {
   // https://unsplash.com/es/fotos/twukN12EN7c
-  background-image: url(https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&dl=simon-berger-twukN12EN7c-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
-  // background-image: url(http://imgs.candywaters.com/bak4_simon_berger.jpg);
+  // background-image: url(https://images.unsplash.com/photo-1500964757637-c85e8a162699?ixlib=rb-1.2.1&dl=simon-berger-twukN12EN7c-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
+  background-image: url(http://imgs.candywaters.com/bak4_simon_berger.jpg);
   background-size: cover;
 }
 // green
 @mixin background5 {
   //https://unsplash.com/photos/SahRqFHiWOM
-  background-image: url(https://images.unsplash.com/photo-1654876374194-99e8967bc618?ixlib=rb-1.2.1&dl=jonny-gios-SahRqFHiWOM-unsplash.jpg&w=640&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
-  // background-image: url(http://imgs.candywaters.com/bak5_jonny_gios.jpg);
+  // background-image: url(https://images.unsplash.com/photo-1654876374194-99e8967bc618?ixlib=rb-1.2.1&dl=jonny-gios-SahRqFHiWOM-unsplash.jpg&w=640&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
+  background-image: url(http://imgs.candywaters.com/bak5_jonny_gios.jpg);
   background-size: cover;
 }
 // image
 @mixin background6 {
   //https://unsplash.com/photos/U8i2h95G_-Q
-  background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&dl=bit-cloud-U8i2h95G_-Q-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
-  // background-image: url(http://imgs.candywaters.com/bak6_bit_cloud.jpg);
+  // background-image: url(https://images.unsplash.com/photo-1566738780863-f9608f88f3a9?ixlib=rb-1.2.1&dl=bit-cloud-U8i2h95G_-Q-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
+  background-image: url(http://imgs.candywaters.com/bak6_bit_cloud.jpg);
   background-size: cover;
 }
 // image
 @mixin background7 {
   // https://unsplash.com/photos/410xCX9-yoM
-  background-image: url(https://images.unsplash.com/photo-1654960684701-198bf60d57ef?ixlib=rb-1.2.1&dl=lukasz-rawa-410xCX9-yoM-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
-  // background-image: url(http://imgs.candywaters.com/bak7_lukasz_rawa.jpg);
+  // background-image: url(https://images.unsplash.com/photo-1654960684701-198bf60d57ef?ixlib=rb-1.2.1&dl=lukasz-rawa-410xCX9-yoM-unsplash.jpg&w=1920&q=80&fm=jpg&crop=entropy&cs=tinysrgb);
+  background-image: url(http://imgs.candywaters.com/bak7_lukasz_rawa.jpg);
   background-size: cover;
 }
 /*
