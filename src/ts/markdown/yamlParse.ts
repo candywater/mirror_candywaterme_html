@@ -66,7 +66,7 @@ export function extractYaml(content): [string, string] {
     if (line.startsWith("---")) {
       yamlSplitterCounter++;
     }
-    if (yamlSplitterCounter < 2) {
+    else if (yamlSplitterCounter < 2) {
       yaml += line + "\n"
     }
     else {
