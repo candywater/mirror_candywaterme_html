@@ -19,7 +19,7 @@
   let _now_playing_title: string = "No music";
   let _now_playing_singer: string = "";
 
-  const music_prefix = "https://imgs.candywaters.com/";
+  const music_prefix = "https://imgs.candywaters.com/music/";
 
   let initializeHowl = () => {
     var bgm_url_list = bgm_list.map((element) => {
