@@ -47,6 +47,10 @@ export function BlogUrl2DocUrl(blogurl: string): string {
   return blogurl.replace(BLOG_SRC_URL, DOC_SRC_URL) + ".md";
 }
 
+export function removeSpecialCharsInUrl(url: string) : string{
+  return url.replace(/[\(\)\/\._-]/g, '')
+}
+
 const months = [
   "January",
   "February",
