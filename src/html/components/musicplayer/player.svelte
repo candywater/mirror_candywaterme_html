@@ -63,7 +63,7 @@
 
       setTimeout(() => {
         setCurrentStatus();
-      }, 500);
+      }, 1000);
     }
   }
 
