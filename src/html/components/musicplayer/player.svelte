@@ -57,14 +57,25 @@
       _is_playing = true;
       _sound.play();
 
+      if (_sound.playing()) {
+        setCurrentStatus();
+      }
+
       setTimeout(() => {
-        var _now_playing = getNowPlaying();
-        console.log(_now_playing);
-        _now_playing_title = _now_playing?.title ?? "No music";
-        _now_playing_singer = _now_playing?.singer ?? "";
-        _now_playing_albumImg = _now_playing?.albumImg ?? "";
+        setCurrentStatus();
       }, 500);
     }
+  }
+
+  function setCurrentStatus() {
+    if (!_sound.playing()) {
+      return;
+    }
+    var _now_playing = getNowPlaying();
+    // console.log(_now_playing);
+    _now_playing_title = _now_playing?.title ?? "No music";
+    _now_playing_singer = _now_playing?.singer ?? "";
+    _now_playing_albumImg = _now_playing?.albumImg ?? "";
   }
 
   function getNowPlaying(): IBgmInfo {
