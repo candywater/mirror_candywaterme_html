@@ -76,23 +76,23 @@ async function fetchQuote(url: string) {
 }
 
 function showQuote(id: number) {
-  show_quote.set(true)
-  if (id) quote = quote_list[id]
+  show_quote.set(true);
+  if (id) quote = quote_list[id];
   else quote = getRandomQuote(quote_list);
 }
 
 function showAll() {
-  show_quote.set(true)
+  show_quote.set(true);
   // quote = "<br />" + quote_list.join("<br /><br /><hr /><br />")
-  quote = "<br />"
+  quote = "<br />";
   quote_list.forEach((x, index) => {
-    quote += `${index}: <br />`
-    quote += x
-    quote += "<br /><br /><hr /><br />"
-  })
+    quote += `${index}: <br />`;
+    quote += x;
+    quote += "<br /><br /><hr /><br />";
+  });
 }
 
-const recommand_quote_list = [227, 224, 225, 230, 250, 254, 255, 220 ]
+const recommand_quote_list = [227, 224, 225, 230, 250, 254, 255, 220];
 
 const HELP_INFO = `HELP INFO
 type following commands to use console.
@@ -102,7 +102,7 @@ type following commands to use console.
 :show_all - show all quote
 :show [number] - show specific quote
 :show recommend - show recommend quote
-`
+`;
 const RECOMMAND_QUOTE_INFO = ` RECOMMAND LIST 
 [${recommand_quote_list.sort().join(", ")}]
 
@@ -113,48 +113,46 @@ life 213 211 200 195 192 190 188 182 180
 should do  182 170 171 150 5 227 225 250
 中年男人 214 45
 quote 134 220
-`
+`;
 const ABOUT_INFO = `this is a console by candy water. ver 0.0.1
-visit https://github.com/candywater/svelte-terminal/ for more info. `
-const EXIT_INFO = `have a nice day! `
-const SUCCESS_INFO = `command succeed. `
-const ERROR_INFO = `command not found. Type :help for help. `
+visit https://github.com/candywater/svelte-terminal/ for more info. `;
+const EXIT_INFO = `have a nice day! `;
+const SUCCESS_INFO = `command succeed. `;
+const ERROR_INFO = `command not found. Type :help for help. `;
 
-function consoleCommand(input, closeWin = () => { }) {
-  let input_array = input.trim().split(" ")
-  let str = input_array[0]
-  let param = input_array.length >= 2 ? input_array[1] : ""
-  console.log(input_array)
+function consoleCommand(input, closeWin = () => {}) {
+  let input_array = input.trim().split(" ");
+  let str = input_array[0];
+  let param = input_array.length >= 2 ? input_array[1] : "";
+  console.log(input_array);
   switch (str) {
     case ":help":
     case "help":
-      return HELP_INFO
+      return HELP_INFO;
     case ":about":
     case "about":
-      return ABOUT_INFO
+      return ABOUT_INFO;
     case ":exit":
     case "exit":
       setTimeout(closeWin, 350);
-      return EXIT_INFO
+      return EXIT_INFO;
     case ":show_all":
     case "show_all":
       showAll();
-      return SUCCESS_INFO
+      return SUCCESS_INFO;
     case ":show":
     case "show":
-      if(param == "all"){
+      if (param == "all") {
         showAll();
-        return SUCCESS_INFO
-      }
-      else if(param == "recommend"){
-        return RECOMMAND_QUOTE_INFO
-      }
-      else{
-        showQuote(param)
-        return SUCCESS_INFO
+        return SUCCESS_INFO;
+      } else if (param == "recommend") {
+        return RECOMMAND_QUOTE_INFO;
+      } else {
+        showQuote(param);
+        return SUCCESS_INFO;
       }
     default:
-      return ERROR_INFO
+      return ERROR_INFO;
   }
 }
 

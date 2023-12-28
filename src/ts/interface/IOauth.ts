@@ -1,4 +1,4 @@
 export interface IGithubOauthQueryString {
-    code?: string;
-    [propName: string]: any;
+  code?: string;
+  [propName: string]: any;
 }

@@ -37,11 +37,13 @@ const renderer = {
   image(href: string, title: string, text: string) {
     if (href.endsWith("aes")) {
       return `<figure class="relative max-w-sm transition-all filter transition-opacity hover:opacity-90">
-      <img class="rounded-lg" src="#" alt="${text}" title="${title}" id="${removeSpecialCharsInUrl(href)}">
+      <img class="rounded-lg" src="#" alt="${text}" title="${title}" id="${removeSpecialCharsInUrl(
+        href
+      )}">
       <figcaption class="absolute px-4 text-lg text-white bottom-6 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
           <p>${text}</p>
       </figcaption>
-    </figure>`
+    </figure>`;
     }
     //https://stackoverflow.com/questions/70504047/how-to-have-a-bordered-text-in-tailwind
     return `<figure class="relative max-w-sm transition-all filter transition-opacity hover:opacity-90">
@@ -49,7 +51,7 @@ const renderer = {
     <figcaption class="absolute px-4 text-lg text-white bottom-6 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
         <p>${text}</p>
     </figcaption>
-  </figure>`
+  </figure>`;
   },
 };
 

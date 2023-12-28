@@ -47,8 +47,8 @@ export function BlogUrl2DocUrl(blogurl: string): string {
   return blogurl.replace(BLOG_SRC_URL, DOC_SRC_URL) + ".md";
 }
 
-export function removeSpecialCharsInUrl(url: string) : string{
-  return url.replace(/[\(\)\/\._-]/g, '')
+export function removeSpecialCharsInUrl(url: string): string {
+  return url.replace(/[:\(\)\/\._-]/g, "");
 }
 
 const months = [
@@ -98,7 +98,7 @@ export function FormatDate(d: Date): string {
 export function FormatDateSimple(d: Date): string {
   if (!d) return "";
   const date = new Date(d);
-  if(!date) return "";
+  if (!date) return "";
   const year = date.getFullYear(); // 2019
   const day = date.getDate(); // 1 based
   const monthIndex = date.getMonth(); // 0 based
