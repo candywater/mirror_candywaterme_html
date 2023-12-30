@@ -16,8 +16,8 @@
 
   let _is_playing: boolean = false;
   let _now_playing_albumImg: string = "";
-  let _now_playing_title: string = "No music";
-  let _now_playing_singer: string = "";
+  let _now_playing_title: string = "Loading...";
+  let _now_playing_singer: string = "Loading...";
 
   const music_prefix = "https://imgs.candywaters.com/music/";
 
