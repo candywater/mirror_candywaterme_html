@@ -115,10 +115,10 @@
             now pausing
           {/if}
         </span> -->
-        <span class="text-sm text-red-500 capitalize font-semibold pt-1">
+        <span class="text-sm text-red-500 capitalize font-semibold pt-1 capitalize ">
           {_now_playing_title}
         </span>
-        <span class="text-xs text-gray-500 uppercase font-medium">
+        <span class="text-xs text-gray-500 uppercase font-medium capitalize ">
           {_now_playing_singer}
         </span>
       </div>
