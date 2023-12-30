@@ -42,7 +42,7 @@
       title: "candywater" + (_header ? " - " + _header.title : ""),
     });
     console.log($SiteInfo.title);
-    console.log(_header);
+    // console.log(_header);
   });
 </script>
 

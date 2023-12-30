@@ -76,7 +76,7 @@
   function navigateTo(pagename) {
     path.set(pagename);
     //window.history.pushState({}, null, PATH_DICT[pagename]);
-    console.log(PATH_DICT[pagename]);
+    // console.log(PATH_DICT[pagename]);
   }
 
   function loadBackgroundColor() {
