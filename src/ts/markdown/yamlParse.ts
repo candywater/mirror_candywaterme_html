@@ -38,13 +38,17 @@ export function yamlParse(content): IPostHeader {
           /^(\d{4})-(\d{1,2})-(\d{1,2})\s+([\+\-]\d{4})$/,
           "$4"
         );
+        let [timeZoneHours, timeZoneMinutes] = getTimeZone(timezone);
+        
         let time = new Date(
           value.replace(
             /^(\d{4})-(\d{1,2})-(\d{1,2})\s+[\+\-](\d{4})$/,
             "$1-$2-$3T00:00:00.000Z"
           )
         );
-        result[key] = time.setHours(time.getHours() - timezone);
+        time = new Date(time.setHours(time.getHours() - timeZoneHours));
+        time = new Date(time.setMinutes(time.getMinutes() - timeZoneMinutes));
+        result[key] = new Date(time);
       }
       // for date format : 2017-07-13 13:21 +0900
       if (
@@ -54,19 +58,35 @@ export function yamlParse(content): IPostHeader {
           /^(\d{4})-(\d{1,2})-(\d{1,2})\s+(\d{1,2}:\d{1,2})\s+([\+\-]\d{4})$/,
           "$5"
         );
+        let [timeZoneHours, timeZoneMinutes] = getTimeZone(timezone);
+        
         let time = new Date(
           value.replace(
             /^(\d{4})-(\d{1,2})-(\d{1,2})\s+(\d{1,2}):(\d{1,2})\s+[\+\-](\d{4})$/,
             "$1-$2-$3T$4:$5:00.000Z"
           )
         );
-        result[key] = new Date(time.setHours(time.getHours() - timezone));
+        time = new Date(time.setHours(time.getHours() - timeZoneHours));
+        time = new Date(time.setMinutes(time.getMinutes() - timeZoneMinutes));
+        result[key] = new Date(time);
       }
 
       return;
     }
   });
   return result;
+}
+
+/**
+ * 
+ * @param {string} timeZoneString "+0900"
+ * @returns
+ */
+function getTimeZone(timeZoneString){
+  let timeZonePlus = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$1")
+  let timeZoneHours = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$2")
+  let timeZoneMinutes = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$3")
+  return [parseInt(timeZonePlus + timeZoneHours), parseInt(timeZonePlus + timeZoneMinutes)]
 }
 
 export function extractYaml(content): [string, string] {
