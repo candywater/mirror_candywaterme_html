@@ -1,6 +1,9 @@
 <script lang="ts">
   import { FormatDateYear } from "../../../ts/common/common";
   import { SiteInfo } from "../../../ts/config/siteinfo";
+  import BookIcon from "../common/icons/BookIcon.svelte";
+  import GithubIcon from "../common/icons/GithubIcon.svelte";
+  import TwitterXIcon from "../common/icons/TwitterXIcon.svelte";
 </script>
 
 <footer class="$SiteInfo-footer">
@@ -8,22 +11,22 @@
     <h2 class="footer-heading">[{$SiteInfo.title}]</h2>
 
     <div class="footer-col-wrapper flex justify-between">
-      <div class="footer-col footer-col-2">
+      <div class="footer-col footer-col-2 inline-flex">
         {#if $SiteInfo.github_username}
-          <a href={"https://github.com/" + $SiteInfo.github_username}>
-            <div class="nes-icon github is-a-little-small" />
+          <a href={"https://github.com/" + $SiteInfo.github_username} class="ml-2 mr-2">
+            <GithubIcon />
           </a>
         {/if}
 
         {#if $SiteInfo.twitter_username}
-          <a href={"https://twitter.com/" + $SiteInfo.twitter_username}>
-            <div class="nes-icon twitter is-a-little-small" />
+          <a href={"https://twitter.com/" + $SiteInfo.twitter_username} class="ml-2 mr-2">
+            <TwitterXIcon />
           </a>
         {/if}
 
         {#if $SiteInfo.author}
-          <a href={"https://about.me/" + $SiteInfo.author}>
-            <div class="nes-icon aboutme is-a-little-small" />
+          <a href={"https://about.me/" + $SiteInfo.author} class="ml-2 mr-2">
+            <BookIcon />
           </a>
         {/if}
 

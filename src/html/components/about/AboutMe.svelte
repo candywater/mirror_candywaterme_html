@@ -14,21 +14,21 @@
   }
 </script>
 
-<span class="">
+<span class="inline-flex">
   {#if site.github_username}
-    <a href={"https://github.com/" + site.github_username}>
+    <a href={"https://github.com/" + site.github_username} class="ml-2 mr-2">
       <GithubIcon />
     </a>
   {/if}
 
   {#if site.twitter_username}
-    <a href={"https://twitter.com/" + site.twitter_username}>
+    <a href={"https://twitter.com/" + site.twitter_username} class="ml-2 mr-2">
       <TwitterXIcon />
     </a>
   {/if}
 
   {#if site.author}
-    <a href={"https://about.me/" + site.author}>
+    <a href={"https://about.me/" + site.author} class="ml-2 mr-2">
       <BookIcon />
     </a>
   {/if}
