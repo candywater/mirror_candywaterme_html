@@ -1,6 +1,7 @@
 <script lang="ts" src="./main.svelte.ts" />
 
 {#if $show_config_panel}
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div on:click={on_config_click}>
     <FakePanel />
   </div>
@@ -21,6 +22,7 @@
           </Profile>
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div class="config-block z-10" on:click={on_config_click}>
           <ConfigGear />
         </div>

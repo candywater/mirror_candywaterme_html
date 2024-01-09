@@ -5,7 +5,7 @@
   export let href: string;
   export let title: string;
 
-  export let external: boolean;
+  export const external: boolean = false;
 
   const animation = "animated jello";
   let anime = "";

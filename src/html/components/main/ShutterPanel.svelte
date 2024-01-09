@@ -7,6 +7,7 @@
 
 <div class="relative">
     <div class="flex text-center text-gray-500 ">
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             class="pushable inline-block bg-teal-400"
             on:click={() => set_background("bg1")}
@@ -14,6 +15,7 @@
             <span class="front bg-teal-300" />
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             class="pushable inline-block bg-orange-400"
             on:click={() => set_background("bg2")}
@@ -21,6 +23,7 @@
             <span class="front bg-orange-300" />
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             class="pushable inline-block bg-green-400"
             on:click={() => set_background("bg3")}
@@ -28,6 +31,7 @@
             <span class="front bg-green-300" />
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             class="pushable inline-block bg-sky-400"
             on:click={() => set_background("bg4")}
@@ -35,6 +39,7 @@
             <span class="front bg-sky-300" />
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             class="pushable inline-block bg-blue-400"
             on:click={() => set_background("bg5")}
@@ -42,6 +47,7 @@
             <span class="front bg-blue-300" />
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             class="pushable inline-block bg-violet-400"
             on:click={() => set_background("bg6")}
@@ -49,6 +55,7 @@
             <span class="front bg-violet-300" />
         </div>
 
+        <!-- svelte-ignore a11y-click-events-have-key-events -->
         <div
             class="pushable inline-block bg-pink-400"
             on:click={() => set_background("bg7")}

@@ -11,6 +11,7 @@
 </script>
 
 <div class="main-menu-layout">
+  <!-- svelte-ignore a11y-click-events-have-key-events -->
   <div class="main-menu-mobile" on:click={toggleHideMainMenu}>
     <MainMenuMobile />
   </div>
