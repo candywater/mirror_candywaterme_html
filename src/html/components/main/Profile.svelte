@@ -31,6 +31,7 @@
 <div class="profile">
   <br />
   <div class="figure">
+    <!-- svelte-ignore a11y-click-events-have-key-events -->
     <img
       src={PROFILE_IMG_URL}
       class="real-rounded-circle border-solid border-4 border-white 
