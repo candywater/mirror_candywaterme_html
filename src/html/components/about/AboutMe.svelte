@@ -1,7 +1,11 @@
 <script lang="ts">
   import { SiteInfo } from "../../../ts/config/siteinfo";
-
   import type { ISiteInfo } from "../../../ts/interface/ISiteInfo";
+
+  import GithubIcon from "../common/icons/GithubIcon.svelte";
+  import TwitterXIcon from "../common/icons/TwitterXIcon.svelte";
+  import BookIcon from "../common/icons/BookIcon.svelte";
+
   let show_quote = false;
   let site: ISiteInfo = $SiteInfo;
 
@@ -13,19 +17,19 @@
 <span class="">
   {#if site.github_username}
     <a href={"https://github.com/" + site.github_username}>
-      <div class="nes-icon github" />
+      <GithubIcon />
     </a>
   {/if}
 
   {#if site.twitter_username}
     <a href={"https://twitter.com/" + site.twitter_username}>
-      <div class="nes-icon twitter" />
+      <TwitterXIcon />
     </a>
   {/if}
 
   {#if site.author}
     <a href={"https://about.me/" + site.author}>
-      <div class="nes-icon aboutme" />
+      <BookIcon />
     </a>
   {/if}
 </span>
