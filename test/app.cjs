@@ -9,7 +9,7 @@ const config = require('./config.cjs')
 
 app.use(express.static('dist'))
 app.use('/blog', express.static('dist'))
-app.use('/doc', express.static(path.join(__dirname, "../blog-git/doc/")))
+app.use('/doc', express.static(path.join(__dirname, "../../blog-git/doc/")))
 
 // app.get('/', (req, res) => {
 //   res.send('Hello World!')
