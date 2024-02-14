@@ -27,8 +27,8 @@ dependencies:
     specifier: ^4.13.3
     version: 4.13.3
   svelte-terminal:
-    specifier: github:candywater/svelte-terminal
-    version: github.com/candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473(rollup@4.9.4)
+    specifier: github:candywater/svelte-terminal#0.0.2
+    version: github.com/candywater/svelte-terminal/9486d39b9c1c5a1aae9b6af642f8243885a0ddb1(rollup@4.9.4)
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
@@ -460,37 +460,6 @@ packages:
       rollup: 4.9.4
       tslib: 2.6.2
       typescript: 5.3.3
-    dev: true
-
-  /@rollup/plugin-typescript@8.5.0(rollup@4.9.4)(tslib@2.6.2)(typescript@4.9.5):
-    resolution: {integrity: sha512-wMv1/scv0m/rXx21wD2IsBbJFba8wGF3ErJIr6IKRfRj49S85Lszbxb4DCo8iILpluTjk2GAAu9CoZt4G3ppgQ==}
-    engines: {node: '>=8.0.0'}
-    peerDependencies:
-      rollup: ^2.14.0
-      tslib: '*'
-      typescript: '>=3.7.0'
-    peerDependenciesMeta:
-      tslib:
-        optional: true
-    dependencies:
-      '@rollup/pluginutils': 3.1.0(rollup@4.9.4)
-      resolve: 1.22.8
-      rollup: 4.9.4
-      tslib: 2.6.2
-      typescript: 4.9.5
-    dev: false
-
-  /@rollup/pluginutils@3.1.0(rollup@4.9.4):
-    resolution: {integrity: sha512-GksZ6pr6TpIjHm8h9lSQ8pi8BE9VeubNT0OMJ3B5uZJ8pz73NPiqOtCog/x2/QzM1ENChPKxMDhiQuRHsqc+lg==}
-    engines: {node: '>= 8.0.0'}
-    peerDependencies:
-      rollup: ^1.20.0||^2.0.0
-    dependencies:
-      '@types/estree': 0.0.39
-      estree-walker: 1.0.1
-      picomatch: 2.3.1
-      rollup: 4.9.4
-    dev: false
 
   /@rollup/pluginutils@4.2.1:
     resolution: {integrity: sha512-iKnFXr7NkdZAIHiIWE+BX5ULi/ucVFYWD6TbAV+rZctiRTY2PL6tsIKhoIOaoskiWAkgu+VsbXgUVDNLHf+InQ==}
@@ -513,7 +482,6 @@ packages:
       estree-walker: 2.0.2
       picomatch: 2.3.1
       rollup: 4.9.4
-    dev: true
 
   /@rollup/rollup-android-arm-eabi@4.9.4:
     resolution: {integrity: sha512-ub/SN3yWqIv5CWiAZPHVS1DloyZsJbtXmX4HxUTIpS0BHm9pW5iYBo2mIZi+hE3AeiTzHz33blwSnhdUo+9NpA==}
@@ -653,10 +621,6 @@ packages:
 
   /@tsconfig/svelte@3.0.0:
     resolution: {integrity: sha512-pYrtLtOwku/7r1i9AMONsJMVYAtk3hzOfiGNekhtq5tYBGA7unMve8RvUclKLMT3PrihvJqUmzsRGh0RP84hKg==}
-
-  /@types/estree@0.0.39:
-    resolution: {integrity: sha512-EYNwp3bU+98cpU4lAWYYL7Zz+2gryWH1qbdDTidVd6hkiR6weksdbMadyXKXNPEkQFhXM+hVO9ZygomHXp+AIw==}
-    dev: false
 
   /@types/estree@1.0.5:
     resolution: {integrity: sha512-/kYRxGDLWzHOB7q+wtSUQlFrtcdUccpfy+X+9iMBpHK8QLLhx2wIPYuS5DYtR9Wa/YlZAbIovy7qVdB1Aq6Lyw==}
@@ -1691,13 +1655,8 @@ packages:
     engines: {node: '>=6'}
     dev: true
 
-  /estree-walker@1.0.1:
-    resolution: {integrity: sha512-1fMXF3YP4pZZVozF8j/ZLfvnR8NSIljt56UhbZ5PeeDmmGHpgpdwQt7ITlGvYaQukCvuBRMLEiKiYC+oeIg4cg==}
-    dev: false
-
   /estree-walker@2.0.2:
     resolution: {integrity: sha512-Rfkk/Mp/DL7JVje3u18FxFujQlTNR2q6QfMSMB7AvCBx91NGj/ba3kCfza0f6dVDbw7YlRf/nDrn7pQrCCyQ/w==}
-    dev: true
 
   /estree-walker@3.0.3:
     resolution: {integrity: sha512-7RUKfXgSMMkzt6ZuXmqapOurLGPPfgj6l9uRZ7lRGolvk0y2yocc35LdcxKC5PQZdn2DMqioAQ2NoWcrTKmm6g==}
@@ -4604,17 +4563,10 @@ packages:
     resolution: {integrity: sha512-/aCDEGatGvZ2BIk+HmLf4ifCJFwvKFNb9/JeZPMulfgFracn9QFcAf5GO8B/mweUjSoblS5In0cWhqpfs/5PQA==}
     dev: true
 
-  /typescript@4.9.5:
-    resolution: {integrity: sha512-1FXk9E2Hm+QzZQ7z+McJiHL4NW1F2EzMu9Nq9i3zAaGqibafqYwCVU6WyWAuyQRRzOlxou8xZSyXLEN8oKj24g==}
-    engines: {node: '>=4.2.0'}
-    hasBin: true
-    dev: false
-
   /typescript@5.3.3:
     resolution: {integrity: sha512-pXWcraxM0uxAS+tN0AG/BF2TyqmHO014Z070UsJ+pFvYuRSq8KH8DmWpnbXe0pEPDHXZV3FcAbJkijJ5oNEnWw==}
     engines: {node: '>=14.17'}
     hasBin: true
-    dev: true
 
   /unc-path-regex@0.1.2:
     resolution: {integrity: sha512-eXL4nmJT7oCpkZsHZUOJo8hcX3GbsiDOa0Qu9F646fi8dT3XuSVopVqAcEiVzSKKH7UoDti23wNX3qGFxcW5Qg==}
@@ -4949,17 +4901,17 @@ packages:
       yargs-parser: 5.0.1
     dev: true
 
-  github.com/candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473(rollup@4.9.4):
-    resolution: {tarball: https://codeload.github.com/candywater/svelte-terminal/tar.gz/55bdce887d5776a6b791f71519abf08c2d2d1473}
-    id: github.com/candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473
+  github.com/candywater/svelte-terminal/9486d39b9c1c5a1aae9b6af642f8243885a0ddb1(rollup@4.9.4):
+    resolution: {tarball: https://codeload.github.com/candywater/svelte-terminal/tar.gz/9486d39b9c1c5a1aae9b6af642f8243885a0ddb1}
+    id: github.com/candywater/svelte-terminal/9486d39b9c1c5a1aae9b6af642f8243885a0ddb1
     name: svelte-terminal
-    version: 1.0.0
+    version: 0.0.2
     dependencies:
-      '@rollup/plugin-typescript': 8.5.0(rollup@4.9.4)(tslib@2.6.2)(typescript@4.9.5)
+      '@rollup/plugin-typescript': 11.1.5(rollup@4.9.4)(tslib@2.6.2)(typescript@5.3.3)
       '@shopify/draggable': 1.0.0-beta.8
       '@tsconfig/svelte': 3.0.0
       tslib: 2.6.2
-      typescript: 4.9.5
+      typescript: 5.3.3
     transitivePeerDependencies:
       - rollup
     dev: false
