@@ -19,9 +19,9 @@ export default defineConfig({
         output: {
           dir: "./dist",
           // format:"iife",
-          sourcemap: true,
         }
-    }
+    },
+    sourcemap: true,
 },
   css:{
     postcss,

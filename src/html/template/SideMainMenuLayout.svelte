@@ -12,7 +12,7 @@
 
 <div class="main-menu-layout">
   <!-- svelte-ignore a11y-click-events-have-key-events -->
-  <div class="main-menu-mobile" on:click={toggleHideMainMenu}>
+  <div class="main-menu-mobile" on:click={toggleHideMainMenu} role="button" tabindex="0">
     <MainMenuMobile />
   </div>
   <div class="main-menu animated fadeIn flex-none {menuClass}">
