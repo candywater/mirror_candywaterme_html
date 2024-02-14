@@ -40,11 +40,11 @@ or
 + []image do not download server
 + []add test/jest etc
 + [x]pagination
-+ []background switcher button 
-+ []background switcher feature
++ [x]background switcher button 
++ [x]background switcher feature
 + []upgrade to svelte kit
 + []use svelte kit router
-+ []encrypt with https://github.com/ricmoo/aes-js
++ [x]encrypt with https://github.com/ricmoo/aes-js
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
