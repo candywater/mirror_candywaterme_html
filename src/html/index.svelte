@@ -11,19 +11,19 @@
 
   import page from "page.js";
 
-  import Index from "./html/pages/index.svelte";
-  import About from "./html/pages/about.svelte";
-  import Project from "./html/pages/project.svelte";
-  import Tech from "./html/pages/tech.svelte";
-  import Essay from "./html/pages/essay.svelte";
-  import Random from "./html/pages/random.svelte";
+  import Index from "./pages/index.svelte";
+  import About from "./pages/about.svelte";
+  import Project from "./pages/project.svelte";
+  import Tech from "./pages/tech.svelte";
+  import Essay from "./pages/essay.svelte";
+  import Random from "./pages/random.svelte";
 
-  import Blog from "./html/pages/blog.svelte";
-  import Pureblog from "./html/pages/pureblog.svelte";
-  import YearSummary from "./html/pages/year-summary.svelte";
-  import Error from "./html/error/error.svelte";
+  import Blog from "./pages/blog.svelte";
+  import Pureblog from "./pages/pureblog.svelte";
+  import YearSummary from "./pages/year-summary.svelte";
+  import Error from "./error/error.svelte";
 
-  import GithubOauthRedirect from "./html/pages/oauth/githubOauthRedirect.svelte"
+  import GithubOauthRedirect from "./pages/oauth/githubOauthRedirect.svelte"
 
   import {
     INDEX,
@@ -35,8 +35,8 @@
     BLOG,
     BLOG_OTHER,
     GITHUB_OAUTH_CALLBACK,
-  } from "./ts/config/path";
-  import { CurrentPath as path, CurrentPageType } from "./ts/config/path";
+  } from "../ts/config/path";
+  import { CurrentPath as path, CurrentPageType } from "../ts/config/path";
   import {
     ESSAY_URL,
     TECH_URL,
@@ -47,8 +47,8 @@
     YEAR_SUMMARY,
     OTHER_INDEX_URL,
     OTHER_URL,
-  } from "./ts/config/path";
-  import PATH_DICT from "./ts/config/path";
+  } from "../ts/config/path";
+  import PATH_DICT from "../ts/config/path";
 
   let blogpath: string = "";
 
