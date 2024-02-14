@@ -10,7 +10,7 @@ export default defineConfig({
   build: {
     rollupOptions: {
         input: {
-            appIndex: fileURLToPath(new URL('./pages/index.html', import.meta.url)),
+            appIndex: fileURLToPath(new URL('./index.html', import.meta.url)),
             // appDice: fileURLToPath(new URL('./src/dice.html', import.meta.url)),
             // appAes: fileURLToPath(new URL('./src/aes/index.html', import.meta.url)),
             // appTarot: fileURLToPath(new URL('./src/tarot/index.html', import.meta.url)),
