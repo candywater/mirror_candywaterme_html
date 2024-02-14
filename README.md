@@ -43,3 +43,8 @@ function get_required_type(){
 ```
 /public
 ```
+
+# iis config
+
+IIS URL Rewrite Module 2
+Microsoft Application Request Routing 3.0
