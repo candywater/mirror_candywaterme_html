@@ -27,8 +27,8 @@ dependencies:
     specifier: ^4.13.3
     version: 4.13.3
   svelte-terminal:
-    specifier: github:candywater/svelte-terminal#55bdce887d5776a6b791f71519abf08c2d2d1473
-    version: git@github.com+candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473(rollup@4.9.4)
+    specifier: github:candywater/svelte-terminal
+    version: github.com/candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473(rollup@4.9.4)
   tailwindcss:
     specifier: ^3.4.1
     version: 3.4.1
@@ -4949,9 +4949,9 @@ packages:
       yargs-parser: 5.0.1
     dev: true
 
-  git@github.com+candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473(rollup@4.9.4):
-    resolution: {commit: 55bdce887d5776a6b791f71519abf08c2d2d1473, repo: git@github.com:candywater/svelte-terminal.git, type: git}
-    id: git@github.com+candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473
+  github.com/candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473(rollup@4.9.4):
+    resolution: {tarball: https://codeload.github.com/candywater/svelte-terminal/tar.gz/55bdce887d5776a6b791f71519abf08c2d2d1473}
+    id: github.com/candywater/svelte-terminal/55bdce887d5776a6b791f71519abf08c2d2d1473
     name: svelte-terminal
     version: 1.0.0
     dependencies:
