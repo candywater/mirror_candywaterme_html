@@ -1,11 +1,53 @@
-<script lang="ts" src="./searchbar.svelte.ts">
+<script lang="ts">
+  import type { IPostSummary } from "@/ts/interface/IPostSummary";
+  import type { IResultItem } from "@/ts/interface/IResultItem";
+  import { search } from "./search";
 
+  export let content_list: IPostSummary[];
+
+  let _res_list: IResultItem[] = [];
+  let _width: number;
+  let _search_key: string;
+
+  const isSafari =
+    navigator.userAgent.includes("Safari/") &&
+    navigator.userAgent.includes("Version/");
+  let _is_composing: boolean = false;
+
+  /**
+   * todo:
+   *  - https://qiita.com/darai0512/items/fac4f166c23bf2075deb
+   *  - https://blog.utgw.net/entry/2021/06/29/212256
+   * @param e
+   */
+  function oninput(e: Event) {
+    // console.log((<InputEvent>e).inputType);
+    // console.log((<InputEvent>e).isComposing);
+    // console.log((<InputEvent>e).data);
+    // console.log("===========");
+    if ((<InputEvent>e).isComposing) return;
+    // if (_is_composing) return;
+    _res_list = search((<HTMLInputElement>e.target).value, content_list);
+  }
+
+  function onComposingStart() {
+    _is_composing = true;
+  }
+  function onComposingEnd() {
+    _is_composing = false;
+  }
+
+  function onfocusout() {
+    // to avoid cannot jump issue
+    if (_search_key) return;
+    _res_list = [];
+  }
 </script>
 
 <!-- https://tailwindcomponents.com/component/search-bar -->
 <!-- This is an example component -->
 <div
-  class="pt-2 mb-2 relative mx-auto text-gray-600 searchbar "
+  class="pt-2 mb-2 relative mx-auto text-gray-600 searchbar"
   bind:clientWidth={_width}
 >
   <input
