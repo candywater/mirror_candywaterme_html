@@ -1,14 +1,8 @@
 <script lang="ts">
-  import { readable } from "svelte/store";
-  import { readConfigJson, projectDocUrl } from "@/ts/config/configReader";
+  import { getReadableConfig, projectDocUrl } from "@/ts/config/configReader";
+  import type { Readable } from "svelte/store";
 
-  const list = readable([], (set) => {
-    readConfigJson(projectDocUrl).then((data) => {
-      set(data);
-    });
-
-    return () => set([]);
-  });
+  const list: Readable<[]> = getReadableConfig(projectDocUrl, []);
 
   let list_type = ["bg-gray-300 hover:bg-gray-500 text-black rounded"];
 </script>
