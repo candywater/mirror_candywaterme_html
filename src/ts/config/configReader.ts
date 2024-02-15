@@ -23,7 +23,6 @@ function readConfigJson(url: string) {
 export {
     getReadableConfig,
     aboutDocUrl,
-    resumeDocUrl,
     projectDocUrl,
     indexDocUrl
 }
