@@ -1,11 +1,23 @@
 <script lang="ts">
-  import list from "@/ts/config/project_list";
+  import { readable } from "svelte/store";
+  import { readConfigJson, projectDocUrl } from "@/ts/config/configReader";
+
+  const list = readable([], (set) => {
+    set([]);
+
+    readConfigJson(projectDocUrl).then((data) => {
+      set(data);
+      console.log(data)
+    });
+
+    return () => set([]);
+  });
 
   let list_type = ["bg-gray-300 hover:bg-gray-500 text-black rounded"];
 </script>
 
 <ol class="list-disc">
-  {#each list as item, i}
+  {#each $list as item, i}
     <li>
       <a href={item[0]} class={list_type[i % list_type.length]}
         >{item[1]} ({item[2]})</a
