@@ -1,7 +1,7 @@
 <script lang="ts">
     import "tailwindcss/tailwind.css";
-    import { readable, type Readable } from "svelte/store";
-    import { readConfigJson, aboutDocUrl } from "@/ts/config/configReader";
+    import type { Readable } from "svelte/store";
+    import { getReadableConfig, aboutDocUrl } from "@/ts/config/configReader";
 
     interface IPageData {
         home?: string;
@@ -11,12 +11,12 @@
         contact?: string;
     }
 
-    const pageData: Readable<IPageData> = readable({}, (set) => {
-        readConfigJson(aboutDocUrl).then((data) => {
-            set(data);
-        });
-
-        return () => set({});
+    const pageData: Readable<IPageData> = getReadableConfig(aboutDocUrl, {
+        home: "",
+        about: "",
+        experience: "",
+        projects: [],
+        contact: "",
     });
 </script>
 
@@ -53,9 +53,9 @@
 </footer>
 
 <style lang="scss">
-    body {
-        font-family: Arial, sans-serif;
-    }
+    // body {
+    //     font-family: Arial, sans-serif;
+    // }
 
     header {
         background-color: #f8f9fa;
