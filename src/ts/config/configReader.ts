@@ -9,7 +9,7 @@ const indexDocUrl = DOC_SRC_URL + `/config/index.json`
 
 function getReadableConfig(url: string, defaultValue: any) {
     return readable(defaultValue, (set) => {
-        readConfigJson(projectDocUrl).then((data) => {
+        readConfigJson(url).then((data) => {
             set(data);
         });
 
