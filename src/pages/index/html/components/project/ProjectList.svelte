@@ -3,11 +3,8 @@
   import { readConfigJson, projectDocUrl } from "@/ts/config/configReader";
 
   const list = readable([], (set) => {
-    set([]);
-
     readConfigJson(projectDocUrl).then((data) => {
       set(data);
-      // console.log(data)
     });
 
     return () => set([]);
