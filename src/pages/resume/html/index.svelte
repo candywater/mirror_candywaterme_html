@@ -37,7 +37,7 @@
     <div class="wrapper">
         <div class="sheet">
             <button
-                class="btn btn-print btn-sm btn-light"
+                class="btn btn-print btn-sm bg-slate-100 hover:bg-slate-300"
                 on:click={handlePrint}
                 ><i class="fa fa-print"></i>
                 Print
