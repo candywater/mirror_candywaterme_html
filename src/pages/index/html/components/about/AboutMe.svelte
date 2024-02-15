@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { SiteInfo } from "../../../ts/config/siteinfo";
-  import type { ISiteInfo } from "../../../ts/interface/ISiteInfo";
+  import { SiteInfo } from "@/ts/config/siteinfo";
+  import type { ISiteInfo } from "@/ts/interface/ISiteInfo";
 
   import GithubIcon from "../common/icons/GithubIcon.svelte";
   import TwitterXIcon from "../common/icons/TwitterXIcon.svelte";

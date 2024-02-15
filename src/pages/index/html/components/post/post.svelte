@@ -1,20 +1,20 @@
 <script lang="ts">
-  import type { IPostHeader } from "../../../ts/interface/IPostHeader";
-  import { SiteInfo } from "../../../ts/config/siteinfo";
+  import type { IPostHeader } from "@/ts/interface/IPostHeader";
+  import { SiteInfo } from "@/ts/config/siteinfo";
 
-  import { FormatDate } from "../../../ts/common/common";
+  import { FormatDate } from "@/ts/common/common";
   import { onMount } from "svelte";
 
-  import { markDown } from "../../../ts/markdown/markdown";
+  import { markDown } from "@/ts/markdown/markdown";
   import Comment from "../comment/comment.svelte";
   import Spinner from "../common/icons/Spinner.svelte";
   import CcIcon from "../common/icons/CCIcon.svelte";
   import Headerlist from "./headerlist.svelte";
-  import type { IHeaderPair } from "../../../ts/interface/IHeaderPair";
+  import type { IHeaderPair } from "@/ts/interface/IHeaderPair";
   import Player from "../musicplayer/player.svelte";
   import Footer from "./footer.svelte";
   import Searchbar from "../search/searchbar.svelte";
-  import type { IPostSummary } from "../../../ts/interface/IPostSummary";
+  import type { IPostSummary } from "@/ts/interface/IPostSummary";
   import Aes from "../encryption/aes.svelte";
   import AesImage from "../encryption/aesImage.svelte";
 

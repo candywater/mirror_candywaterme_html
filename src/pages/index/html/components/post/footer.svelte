@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { FormatDateYear } from "../../../ts/common/common";
-  import { SiteInfo } from "../../../ts/config/siteinfo";
+  import { FormatDateYear } from "@/ts/common/common";
+  import { SiteInfo } from "@/ts/config/siteinfo";
   import BookIcon from "../common/icons/BookIcon.svelte";
   import GithubIcon from "../common/icons/GithubIcon.svelte";
   import TwitterXIcon from "../common/icons/TwitterXIcon.svelte";

@@ -35,8 +35,8 @@
     BLOG,
     BLOG_OTHER,
     GITHUB_OAUTH_CALLBACK,
-  } from "../ts/config/path";
-  import { CurrentPath as path, CurrentPageType } from "../ts/config/path";
+  } from "@/ts/config/path";
+  import { CurrentPath as path, CurrentPageType } from "@/ts/config/path";
   import {
     ESSAY_URL,
     TECH_URL,
@@ -47,8 +47,8 @@
     YEAR_SUMMARY,
     OTHER_INDEX_URL,
     OTHER_URL,
-  } from "../ts/config/path";
-  import PATH_DICT from "../ts/config/path";
+  } from "@/ts/config/path";
+  import PATH_DICT from "@/ts/config/path";
 
   let blogpath: string = "";
 

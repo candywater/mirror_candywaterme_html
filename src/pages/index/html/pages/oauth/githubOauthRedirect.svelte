@@ -4,7 +4,7 @@
     import { onMount } from "svelte";
 
     import Spinner from "../../components/common/icons/Spinner.svelte";
-    import type { IGithubOauthQueryString } from "../../../ts/interface/IOauth";
+    import type { IGithubOauthQueryString } from "@/ts/interface/IOauth";
 
     let value = "afdsaf";
 

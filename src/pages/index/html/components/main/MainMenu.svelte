@@ -7,7 +7,7 @@
     ABOUT,
     INDEX,
     PATH_DICT
-  } from "../../../ts/config/path";
+  } from "@/ts/config/path";
 
   const basicstyle = "text-white rounded shadow"; //  = "border border-light-blue-500 border-opacity-5"
   const border = "border border-indigo-500";

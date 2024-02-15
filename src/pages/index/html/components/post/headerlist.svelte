@@ -1,5 +1,5 @@
 <script lang="ts">
-  import type { IHeaderPair } from "../../../ts/interface/IHeaderPair";
+  import type { IHeaderPair } from "@/ts/interface/IHeaderPair";
 
   export let headerList: IHeaderPair[];
 

@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { FormatDateSimple } from "../../../ts/common/common";
+  import { FormatDateSimple } from "@/ts/common/common";
 
-  import type { IPostSummary } from "../../../ts/interface/IPostSummary";
+  import type { IPostSummary } from "@/ts/interface/IPostSummary";
 
   export let post: IPostSummary;
 </script>

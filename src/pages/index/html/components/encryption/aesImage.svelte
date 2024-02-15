@@ -1,8 +1,8 @@
 <script lang="ts">
     import { onMount } from "svelte";
-    import { AesCtrCount, AesShareKey } from "../../../ts/config/config";
-    import { decryptImg } from "../../../ts/encryption/aes";
-    import { removeSpecialCharsInUrl } from "../../../ts/common/common";
+    import { AesCtrCount, AesShareKey } from "@/ts/config/config";
+    import { decryptImg } from "@/ts/encryption/aes";
+    import { removeSpecialCharsInUrl } from "@/ts/common/common";
 
     export let url;
 

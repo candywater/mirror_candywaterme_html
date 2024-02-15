@@ -1,5 +1,5 @@
-import type { IPostSummary } from "../../../../../ts/interface/IPostSummary";
-import type { IResultItem } from "../../../../../ts/interface/IResultItem";
+import type { IPostSummary } from "@/ts/interface/IPostSummary";
+import type { IResultItem } from "@/ts/interface/IResultItem";
 
 export let content_list: IPostSummary[];
 

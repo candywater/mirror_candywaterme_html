@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { FormatDateYear } from "../../../ts/common/common";
+  import { FormatDateYear } from "@/ts/common/common";
   // const animation = "animated jello";
-  import type { ISiteInfo } from "../../../ts/interface/ISiteInfo";
+  import type { ISiteInfo } from "@/ts/interface/ISiteInfo";
 
   let site: ISiteInfo = {
     author: "candywater",

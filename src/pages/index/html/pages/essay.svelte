@@ -1,7 +1,7 @@
 <script lang="ts">
   import PostList from "../components/pageList/postList.svelte";
-  import { SiteInfo } from "../../ts/config/siteinfo";
-  import { ESSAY_URL } from "../../ts/config/path";
+  import { SiteInfo } from "@/ts/config/siteinfo";
+  import { ESSAY_URL } from "@/ts/config/path";
   import SideMainMenuLayout from "../template/SideMainMenuLayout.svelte";
   import { onMount } from "svelte";
 
