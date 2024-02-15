@@ -1,11 +1,14 @@
 <script lang="ts">
     import "tailwindcss/tailwind.css";
     import type { IResume } from "../ts/interface/IResume";
-    import { getReadableConfig, resumeDocUrl } from "@/ts/config/configReader";
+    import { getReadableConfig } from "@/ts/config/configReader";
     import type { Readable } from "svelte/store";
     import Experience from "./experience.svelte";
     import Skill from "./skill.svelte";
     import Language from "./language.svelte";
+    import { DOC_SRC_URL } from "@/ts/config/path";
+
+    const resumeDocUrl = DOC_SRC_URL + `/config/resume/index.json`;
 
     const handlePrint = () => window.print();
     let resume: Readable<IResume> = getReadableConfig(resumeDocUrl, {
