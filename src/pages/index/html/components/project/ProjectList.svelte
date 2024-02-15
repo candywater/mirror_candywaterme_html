@@ -7,7 +7,7 @@
 
     readConfigJson(projectDocUrl).then((data) => {
       set(data);
-      console.log(data)
+      // console.log(data)
     });
 
     return () => set([]);
