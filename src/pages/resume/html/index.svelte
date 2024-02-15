@@ -8,7 +8,9 @@
     import Language from "./language.svelte";
     import { DOC_SRC_URL } from "@/ts/config/path";
 
-    const resumeDocUrl = DOC_SRC_URL + `/config/resume/index.json`;
+    let resumeDocUrl = DOC_SRC_URL + `/config/resume/index.json`;
+    const urlParams = new URLSearchParams(window.location.search);
+    if(urlParams.has("cn")) resumeDocUrl = DOC_SRC_URL + `/config/resume/index.cn.json`;
 
     const handlePrint = () => window.print();
     let resume: Readable<IResume> = getReadableConfig(resumeDocUrl, {
