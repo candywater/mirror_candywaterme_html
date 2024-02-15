@@ -69,7 +69,7 @@
                     <div class="resume__main">
                         <section class="resume__section resume__summary">
                             <div class="resume__content">
-                                <div class="resume__section-name subtitle">
+                                <div class="resume__section-title subtitle">
                                     <i class="fa fa-pencil-square-o"></i>
                                     <h2>{$resume.summary.name}</h2>
                                 </div>
@@ -82,7 +82,7 @@
                         </section>
                         <section class="resume__section resume__experience">
                             <div class="resume__content">
-                                <div class="resume__section-name subtitle">
+                                <div class="resume__section-title subtitle">
                                     <i class="fa fa-briefcase"></i>
                                     <h2>{$resume.experiences.name}</h2>
                                 </div>
@@ -95,7 +95,7 @@
                     <div class="resume__side">
                         <section class="resume__section resume__skills">
                             <div class="resume__content">
-                                <div class="resume__section-name subtitle">
+                                <div class="resume__section-title subtitle">
                                     <i class="fa fa-align-center"></i>
                                     <h2>{$resume.skills.name}</h2>
                                 </div>
@@ -108,7 +108,7 @@
                         </section>
                         <section class="resume__section resume__languages">
                             <div class="resume__content">
-                                <div class="resume__section-name subtitle">
+                                <div class="resume__section-title subtitle">
                                     <i class="fa fa-globe"></i>
                                     <h2>{$resume.languages.name}</h2>
                                 </div>
