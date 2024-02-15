@@ -84,6 +84,7 @@ body {
 
 .resume ul {
     padding-left: 20px;
+    list-style: disc;
 }
 
 .resume .resume__header,
