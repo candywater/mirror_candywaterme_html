@@ -18,7 +18,7 @@
     size: A4;
   }
   body {
-    color-adjust: exact;
+    print-color-adjust: exact;
     background-color: #fff;
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
@@ -98,8 +98,7 @@
   }
   .resume .resume__columns {
     overflow: hidden;
-    padding: 4em;
-    padding-top: 0;
+    padding: 0 4em 2em;
   }
   .resume .resume__main {
     float: left;
