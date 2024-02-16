@@ -5,6 +5,7 @@
   import { FormatDate } from "@/ts/common/common";
   import { onMount } from "svelte";
 
+  import PostArrow from '@/pages/components/postArrow.svelte';
   import { markDown } from "@/ts/markdown/markdown";
   import Comment from "../comment/comment.svelte";
   import Spinner from "../common/icons/Spinner.svelte";
@@ -110,23 +111,10 @@
 
   <Footer />
 
-  <a
-    href={location.href}
-    on:click={() => {
-      document.body.scrollIntoView();
-    }}
-    class="postarrow shadow">↑</a
-  >
+  <PostArrow />
 </article>
 
 <style>
-  .postarrow {
-    position: fixed;
-    padding: 10px;
-    bottom: 1rem;
-    right: -1rem;
-    background-color: white;
-  }
   .post-title {
     font-family: /*etna, */ source-han-sans-simplified-c, sans-serif;
     font-weight: 400;
