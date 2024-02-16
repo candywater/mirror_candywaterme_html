@@ -3,6 +3,8 @@ export interface IResume {
     address: string;
     email: string;
     phone: string;
+    resume: string;
+    about: string;
     summary: {
         name: string;
         content: string[];

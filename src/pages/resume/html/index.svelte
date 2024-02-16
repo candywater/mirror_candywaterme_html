@@ -35,6 +35,8 @@
             name: "",
             details: [],
         },
+        resume: "", // Add the 'resume' property with an empty string
+        about: "", // Add the 'about' property with an empty string
     } as IResume);
 </script>
 
@@ -67,6 +69,11 @@
                             <span class="info-label"
                                 ><i class="fa fa-phone"></i></span
                             ><span class="info-text">{$resume.phone}</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label"
+                                ><i class="fa fa-address-card-o"></i></span
+                            ><span class="info-text"><a href={$resume.resume}>{$resume.resume}</a></span>
                         </div>
                     </div>
                 </section>
