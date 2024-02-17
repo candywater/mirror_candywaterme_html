@@ -56,8 +56,8 @@ function dummy(){
         .pipe(gulp.dest(MINIMACSS_OUTPUT))
 }
 
-// exports.default = gulp.series(complier_main_prod);
-exports.default = gulp.series(dummy);
+exports.default = gulp.series(complier_main_prod);
+// exports.default = gulp.series(dummy);
 exports.dev = gulp.series(main_dev);
 exports["watch"] = gulp.parallel(main_watch)
 
