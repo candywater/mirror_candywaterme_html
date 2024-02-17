@@ -66,24 +66,33 @@
                             </span>
                             <span class="info-text">{$resume.address}</span>
                         </div>
+                        <div class="flex">
+                            <div class="info-item">
+                                <span class="info-label">
+                                    <i class="fa fa-envelope"></i>
+                                </span>
+                                <span class="info-text">{$resume.email}</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">
+                                    <i class="fa fa-phone"></i>
+                                </span>
+                                <span class="info-text">{$resume.phone}</span>
+                            </div>
+                        </div>
                         <div class="info-item">
                             <span class="info-label">
-                                <i class="fa fa-envelope"></i>
+                                <i class="fa fa-address-card"></i>
+                            </span><span class="info-text">
+                                <a href={$resume.about}>{$resume.about}</a>
                             </span>
-                            <span class="info-text">{$resume.email}</span>
                         </div>
                         <div class="info-item">
-                            <span class="info-label"
-                                ><i class="fa fa-phone"></i></span
-                            ><span class="info-text">{$resume.phone}</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label"
-                                ><i class="fa fa-address-card-o"></i></span
-                            ><span class="info-text"
-                                ><a href={$resume.resume}>{$resume.resume}</a
-                                ></span
-                            >
+                            <span class="info-label">
+                                <i class="fa fa-address-card-o"></i>
+                            </span><span class="info-text">
+                                <a href={$resume.resume}>{$resume.resume}</a>
+                            </span>
                         </div>
                     </div>
                 </section>
