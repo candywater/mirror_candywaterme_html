@@ -3,7 +3,7 @@ section {
     overflow: auto; /* Enable scrolling within each section */
 }
 
-@media (max-width: 600px) {
+@media (max-width: 700px) {
     /* Adjust styles for mobile screens here */
     header {
         display: none;
@@ -13,7 +13,7 @@ section {
     }
 }
 
-@media (min-width: 601px) {
+@media (min-width: 701px) {
     /* Adjust styles for desktop screens here */
     body {
         padding: 4rem 2rem;
@@ -115,6 +115,8 @@ em {
 }
 
 main {
+    // padding-top: 0.25rem;
+
     @media (min-width: 700px) {
         display: grid;
         grid-template-columns: repeat(4, 1fr) 23%;

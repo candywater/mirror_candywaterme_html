@@ -1,5 +1,5 @@
 <script lang="ts">
-    import "tailwindcss/tailwind.css";
+    // import "tailwindcss/tailwind.css";
     // import "@/sass/about.scss";
     // import "simple-line-icons/scss/simple-line-icons.scss";
     import type { Readable } from "svelte/store";
@@ -111,7 +111,7 @@
 </script>
 
 <Layout>
-    <div class="main__wrapper">
+    <div class="main__wrapper appearance-none">
         <main>
             <!-- <Home pageData={$pageData} />
         <About pageData={$pageData} />
