@@ -9,53 +9,67 @@
 
 
 
-<h1>The Codepen Times</h1>
+<h1>{data.title}</h1>
 <aside> 
   <div>
-    <div class="issue">Issue #1 </div>
-    <div class="date">Tuesday, 26 May, 2020</div>
-    <div class="edition">Two memes Edition</div>
+    <div class="issue">{data.issue}</div>
+    <div class="date">{data.date}</div>
+    <div class="edition">{data.edition}</div>
   </div>
 </aside>
-<h2 class="title--large main-title">Woman spends too much time on Codepens despite advice; no plans to stop</h2>
+<h2 class="title--large main-title">{data.headline.title}</h2>
 
 <div class="main-text multi-column">
-  <p>Sometimes, Internet users land themselves in an uncommon situation where an app or website can be used for both work and personal situations. Well, a young front-end designer was spending up to 13 hours on the site, Codepen for work and her hobby, which unfortunately, is also coding. </p>
-  <p>The designer, whose work includes a  <em>To-Do Terrarium</em>, clarified, "Well, I didn't  <em> have  </em>to use it for work but it was already part of my workflow. It just made sense as it was more efficient."   The biggest issue, she said, is that she would hop on Codepen for work, but would get distracted by pens made by others in the community for unexpectedly long periods of time, which then causes her to spend even more time on the site.</p>
-  <p> "I mean, that's terrible right?" she asked. Codepen, which brands itself as the best place to build, test, and discover front-end code, has declined to comment at this time.</p>
+  {#each data.headline.texts as text }
+    html`<p>{text}</p>`
+  {/each}   
 </div>
 
-    <a class="terrarium" href="https://codepen.io/oliviale/full/oNXJgEM" target="_blank">
-  <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-terrarium.jpg"/>
-    <figcaption>A to-do list that grows succulents when you've completed a task</figcaption>
+    <a class="terrarium" href={data.anchors.headline.href} target="_blank">
+  <figure><img src={data.anchors.headline.imgsrc}/>
+    <figcaption>{data.anchors.headline.caption}</figcaption>
   </figure></a>
   
-  <a class="item-with-image plan span--2 long--2" href="https://codepen.io/oliviale/full/moLrBq" target="_blank"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-floorplan.jpg"/>
+  <a class="item-with-image plan span--2 long--2" href={data.anchors.plan.href} target="_blank"><img src={data.anchors.plan.imgsrc}/>
   
-    <h4>Can you get inspired to make your own floor plans?</h4>
+    <h4>{data.anchors.plan.captionTitle}</h4>
   <div class="multi-column">
-    <p>Making a floor Plan with CSS Grid? Talk about using the wrong tool for the job. But I guess this is what happens when someone isn't happy with any of the floor plans found on Pinterest; she'll start making her own for the eventual home that she will never own. Nevertheless, there's a home office with a large window to look out of pensively during rainy days and a ton of "white space" for the cats to run around.</p>
+    <p>{data.anchors.plan.caption}</p>
   </div></a>
   
-  <a class="hogwarts" href="https://codepen.io/oliviale/full/MZZYyO" target="_blank">
-  <div class="hogwarts__title">50% Off Hogwarts Express tickets</div>
-  <div class="hogwarts__image"> <span>Limited time offer</span><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-hogwarts.svg"/></div></a>
-  <a class="item-with-image pasta with-border" href="https://codepen.io/oliviale/full/zYvxXWw" target="_blank">
+  <a class="hogwarts" href={data.anchors.hogwarts.href} target="_blank">
+  <div class="hogwarts__title">{data.anchors.hogwarts.captionTitle}</div>
+  <div class="hogwarts__image"> <span>{data.anchors.hogwarts.caption}</span><img src={data.anchors.hogwarts.imgsrc}/></div></a>
 
-  <h4>A pasta menu</h4>
-  <p>Everybody loves pasta. It's impossible to not love them, so here are 15 recipes, served with GSAP. Note the easter egg — the menu icon changes according to the pasta that you choose.</p></a><a class="item-with-image magazine with-border" href="https://codepen.io/oliviale/full/GRKQoKM" target="_blank">
-  <h4>Marvel at a magazine</h4>
-  <p>A tribute of sorts to an era of cool superhero movies, this is a Marvel-themed magazine! Recommended, because it took 45 hours, so you know some serious dedication has been poured into this.</p></a><a class="item-with-image style" href="https://codepen.io/collection/XJyNPm" target="_blank">
+  <a class="item-with-image pasta with-border" href={data.anchors.pasta.href} target="_blank">
+
+  <h4>{data.anchors.pasta.captionTitle}</h4>
+  <p>{data.anchors.pasta.caption}</p></a>
+  
+  <a class="item-with-image magazine with-border" href={data.anchors.magazine.href} target="_blank">
+  
+    <h4>{data.anchors.magazine.captionTitle}</h4>
+    <p>{data.anchors.magazine.caption}</p>
+  </a>
+  
+  <a class="item-with-image style" href="https://codepen.io/collection/XJyNPm" target="_blank">
   <h4>Let's adopt, don't shop.</h4>
-  <p>Explore a style guide and various page layouts for a pet adoption site in the  <em>Style Guide</em> collection. Inspired by the <em>Atomic Design</em> principle, this 8-pen collection includes a 404 page concept, an admin dashboard and what a Twitter user calls a 'media card zen garden'. Each pen comes with five (yes, five) color themes, including the  precious dark mode.</p></a><a class="item-with-image toggles" href="https://codepen.io/oliviale/full/xxboXzo" target="_blank"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-toggle.gif"/>
+  <p>Explore a style guide and various page layouts for a pet adoption site in the  <em>Style Guide</em> collection. Inspired by the <em>Atomic Design</em> principle, this 8-pen collection includes a 404 page concept, an admin dashboard and what a Twitter user calls a 'media card zen garden'. Each pen comes with five (yes, five) color themes, including the  precious dark mode.</p></a>
+  
+  <a class="item-with-image toggles" href="https://codepen.io/oliviale/full/xxboXzo" target="_blank"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-toggle.gif"/>
 
   <h4>Toggles</h4>
-  <p>Eight playful toggles to toggle on and off for your amusement. Is it possible to use these on your site and still adhere to assessibility rules? No. But there's a really cute dog one you <em>have  </em>to see.</p></a><a class="menu" href="https://codepen.io/oliviale/full/LYYrKMV" target="_blank">
+  <p>Eight playful toggles to toggle on and off for your amusement. Is it possible to use these on your site and still adhere to assessibility rules? No. But there's a really cute dog one you <em>have  </em>to see.</p></a>
+  
+  <a class="menu" href="https://codepen.io/oliviale/full/LYYrKMV" target="_blank">
   <figure><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-menu.jpg"/>
     <figcaption>See the new and improved menu for Toasty!</figcaption>
-  </figure></a><a class="social" href="https://codepen.io/oliviale/full/QWjjrZX" tagrget="_blank"><img class="social__image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-social.gif"/>
+  </figure></a>
+  
+  <a class="social" href="https://codepen.io/oliviale/full/QWjjrZX" tagrget="_blank"><img class="social__image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-social.gif"/>
   <div class="social__subtitle">World News</div>
   <div class="social__content">Looks like Covid-19 is gonna be around for a while so here is another friendly reminder to practice social distancing. Oh, and wear a mask! </div></a>
+
 <div class="item-with-image cssgrid-collection"><a class="cssgrid-collection__image" href="https://codepen.io/collection/DQvYpQ" target="_blank"><img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-co-grid.jpg"/></a>
   <div class="cssgrid-collection__content">
     <h4> <a href="https://codepen.io/collection/DQvYpQ" target="_blank">More CSS Grid things like this one. Shelves, coupons and more!  </a></h4>
@@ -64,6 +78,7 @@
     </div>
   </div>
 </div>
+
 <div class="sidebar">
   <h3 class="title--big">Hot this month</h3><a class="codepen-item pie" href="https://codepen.io/oliviale/full/BaovGmg" target="_blank"><img class="pie__image" src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/showcase-pie.jpg"/>
     <div class="pie__subtitle">Food </div>
