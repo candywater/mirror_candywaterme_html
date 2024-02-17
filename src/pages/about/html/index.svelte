@@ -1,50 +1,124 @@
 <script lang="ts">
     import "tailwindcss/tailwind.css";
-    import type { Readable } from "svelte/store";
-    import { getReadableConfig, aboutDocUrl, getReadableConfigFromBackend } from "@/ts/config/configReader";
-    import Layout from "./_layout.svelte";
-    import Home from "./home.svelte";
-    import Contact from "./contact.svelte";
-    import About from "@/pages/about/html/about.svelte";
-    import Projects from "@/pages/about/html/projects.svelte";
-    import Newpaper from "./newpaper.svelte";
-    import { DOC_SRC_URL } from "@/ts/config/path";
-
     import "@/sass/about.scss";
+    import type { Readable } from "svelte/store";
+    import { getReadableConfigFromBackend } from "@/ts/config/configReader";
+    import Layout from "./_layout.svelte";
+    import Newspaper from "./newspaper.svelte";
+    import { DOC_SRC_URL } from "@/ts/config/path";
+    import type { INewspaper } from "../ts/INewsPaper";
 
     let resumeDocUrl = new URL(window.location.href);
     resumeDocUrl.href = window.location.href;
     resumeDocUrl.pathname = `/cwapi/about/`;
     let resumeDocFailbackUrl = DOC_SRC_URL + `/config/about/index.json`;
 
-    let resume: Readable<IPageData> = getReadableConfigFromBackend(resumeDocUrl, resumeDocFailbackUrl, {})
+    let pageData: Readable<INewspaper> = getReadableConfigFromBackend(
+        resumeDocUrl,
+        resumeDocFailbackUrl,
+        {
+            title: "",
+            issue: "",
+            date: "",
+            edition: "",
+            headline: {
+                title: "",
+                text: [],
+            },
+            anchors: {
+                terrarium: {
+                    href: "",
+                    imgsrc: "",
+                    caption: "",
+                },
+                plan: {
+                    href: "",
+                    imgsrc: "",
+                    captionTitle: "",
+                    caption: "",
+                },
+                hogwarts: {
+                    href: "",
+                    imgsrc: "",
+                    captionTitle: "",
+                    caption: "",
+                    tooltip: "",
+                },
+                pasta: {
+                    href: "",
+                    captionTitle: "",
+                    caption: "",
+                },
+                magazine: {
+                    href: "",
+                    captionTitle: "",
+                    caption: "",
+                },
+                style: {
+                    href: "",
+                    captionTitle: "",
+                    caption: "",
+                },
+                toggles: {
+                    href: "",
+                    captionTitle: "",
+                    caption: "",
+                },
+                menu: {
+                    href: "",
+                    captionTitle: "",
+                    caption: "",
+                },
+                social: {
+                    href: "",
+                    captionTitle: "",
+                    caption: "",
+                },
+            },
+            footline: {
+                href: "",
+                captionTitle: "",
+                caption: "",
+            },
+            sidebarline: {
+                title: "",
+                items: {
+                    pie: {
+                        href: "",
+                        captionTitle: "",
+                        caption: "",
+                    },
+                    captcha: {
+                        href: "",
+                        captionTitle: "",
+                        caption: "",
+                    },
+                    slackui: {
+                        href: "",
+                        captionTitle: "",
+                        caption: "",
+                    },
+                    workout: {
+                        href: "",
+                        captionTitle: "",
+                        caption: "",
+                    },
+                },
+            },
+        } as INewspaper,
+    );
 
-    interface IPageData {
-        home?: string;
-        about?: string;
-        experience?: string;
-        projects?: [[]];
-        contact?: string;
-    }
-
-    const pageData: Readable<IPageData> = getReadableConfig(aboutDocUrl, {
-        home: "",
-        about: "",
-        experience: "",
-        projects: [],
-        contact: "",
-    });
+    console.log($pageData);
 </script>
 
 <Layout>
-
-<div class="main__wrapper">
-    <main>
-    <!-- <Home pageData={$pageData} />
+    <div class="main__wrapper">
+        <main>
+            <!-- <Home pageData={$pageData} />
         <About pageData={$pageData} />
         <Projects pageData={$pageData} />
         <Contact pageData={$pageData} /> -->
-    <Newpaper />
-    </main>
-</div>
+            <Newspaper data={$pageData} />
+        </main>
+    </div>
 </Layout>
