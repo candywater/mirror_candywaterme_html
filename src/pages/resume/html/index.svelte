@@ -2,43 +2,49 @@
     import "tailwindcss/tailwind.css";
 
     import type { IResume } from "../ts/interface/IResume";
-    import { getReadableConfig } from "@/ts/config/configReader";
+    import { getReadableConfigFromBackend } from "@/ts/config/configReader";
     import type { Readable } from "svelte/store";
     import Experience from "./experience.svelte";
     import Skill from "./skill.svelte";
     import Language from "./language.svelte";
     import { DOC_SRC_URL } from "@/ts/config/path";
 
-    let resumeDocUrl = DOC_SRC_URL + `/config/resume/index.json`;
-    const urlParams = new URLSearchParams(window.location.search);
-    if(urlParams.has("cn")) resumeDocUrl = DOC_SRC_URL + `/config/resume/index.cn.json`;
-
     const handlePrint = () => window.print();
-    let resume: Readable<IResume> = getReadableConfig(resumeDocUrl, {
-        name: "",
-        address: "",
-        email: "",
-        phone: "",
-        summary: {
-            name: "", // Add the 'name' property with an empty string
-            content: [], // Change 'undefined[]' to 'string[]'
-            details: [],
-        },
-        experiences: {
-            name: "", // Add the 'name' property with an empty string
-            details: [], // Change 'undefined[]' to 'IExperience[]'
-        },
-        skills: {
+
+    let resumeDocUrl = new URL(window.location.href);
+    resumeDocUrl.href = window.location.href;
+    resumeDocUrl.pathname = `/cwapi/resume/`;
+    let resumeDocFailbackUrl = DOC_SRC_URL + `/config/resume/index.json`;
+
+    let resume: Readable<IResume> = getReadableConfigFromBackend(
+        resumeDocUrl,
+        resumeDocFailbackUrl,
+        {
             name: "",
-            details: [],
-        },
-        languages: {
-            name: "",
-            details: [],
-        },
-        resume: "", // Add the 'resume' property with an empty string
-        about: "", // Add the 'about' property with an empty string
-    } as IResume);
+            address: "",
+            email: "",
+            phone: "",
+            summary: {
+                name: "", // Add the 'name' property with an empty string
+                content: [], // Change 'undefined[]' to 'string[]'
+                details: [],
+            },
+            experiences: {
+                name: "", // Add the 'name' property with an empty string
+                details: [], // Change 'undefined[]' to 'IExperience[]'
+            },
+            skills: {
+                name: "",
+                details: [],
+            },
+            languages: {
+                name: "",
+                details: [],
+            },
+            resume: "", // Add the 'resume' property with an empty string
+            about: "", // Add the 'about' property with an empty string
+        } as IResume,
+    );
 </script>
 
 <div class="A4 resume-content">
@@ -74,7 +80,10 @@
                         <div class="info-item">
                             <span class="info-label"
                                 ><i class="fa fa-address-card-o"></i></span
-                            ><span class="info-text"><a href={$resume.resume}>{$resume.resume}</a></span>
+                            ><span class="info-text"
+                                ><a href={$resume.resume}>{$resume.resume}</a
+                                ></span
+                            >
                         </div>
                     </div>
                 </section>
