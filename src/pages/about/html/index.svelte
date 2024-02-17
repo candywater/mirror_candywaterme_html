@@ -108,8 +108,6 @@
             },
         } as INewspaper,
     );
-
-    console.log($pageData);
 </script>
 
 <Layout>

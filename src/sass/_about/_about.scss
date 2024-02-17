@@ -1,4 +1,3 @@
-
 section {
     width: 100%; /* Make each section fill the width of the page */
     overflow: auto; /* Enable scrolling within each section */
@@ -6,12 +5,20 @@ section {
 
 @media (max-width: 600px) {
     /* Adjust styles for mobile screens here */
+    header {
+        display: none;
+    }
+    body {
+        padding: 0rem;
+    }
 }
 
 @media (min-width: 601px) {
     /* Adjust styles for desktop screens here */
+    body {
+        padding: 4rem 2rem;
+    }
 }
-
 
 :root {
     --font: "EB Garamond", serif;
@@ -38,9 +45,8 @@ body {
     background: var(--preview-bg);
     font-family: var(--font);
     color: var(--black);
-    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/paper_fibers.png)
-        repeat;
-    padding: 4rem 2rem;
+    // background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/567707/paper_fibers.png) repeat;
+    background-color: #f5f6f6;
     line-height: 1.3;
     text-align: justify;
     column-break-inside: avoid;
