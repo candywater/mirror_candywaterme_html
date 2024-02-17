@@ -12,12 +12,14 @@ const sass = require('gulp-sass')(require('sass'));
 // const TAILWINDCSS_PATH = ['src/sass/tailwind.css']
 // const SOURCE_HTML = ["./src/**/*.svelte", "./src/**/*.ts", "./public/**/*.html"]
 // const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
+
+const SCSS_ENTRIES = ["./src/sass/main.scss", "./src/sass/about.scss"]
 const MINIMACSS_DIR_PATH = ["./src/sass/**/*.scss"]
 const MINIMACSS_OUTPUT = './public/build/sass'
 const DIST_CSS_OUTPUT = './dist/build/sass'
 
 function main_dev() {
-    return gulp.src(["./src/sass/main.scss"])
+    return gulp.src(SCSS_ENTRIES)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         .pipe(sourcemaps.write('.'))
@@ -29,32 +31,33 @@ function complier_main_prod() {
     var plugins = [
         cssnano(),
     ];
-    return gulp.src(["./src/sass/main.scss"])
+    return gulp.src(SCSS_ENTRIES)
         .pipe(sourcemaps.init())
         .pipe(sass().on('error', sass.logError))
         // .pipe(purgecss({
         //     content: ["src/**/*.svelte"]
         // }))
         .pipe(postcss(plugins))
-        .pipe(sourcemaps.write('.'))
+        // .pipe(sourcemaps.write('.'))
         .pipe(gulp.dest(MINIMACSS_OUTPUT))
+        .pipe(gulp.dest(DIST_CSS_OUTPUT))
 }
 
 function main_watch() {
     gulp.watch(MINIMACSS_DIR_PATH, main_dev);
 }
 
-function dummy(){
-    var plugins = [
-        cssnano(),
-    ];
-    return gulp.src(["./src/sass/dummy.scss"])
-        .pipe(sourcemaps.init())
-        .pipe(sass().on('error', sass.logError))
-        .pipe(postcss(plugins))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(MINIMACSS_OUTPUT))
-}
+// function dummy(){
+//     var plugins = [
+//         cssnano(),
+//     ];
+//     return gulp.src(["./src/sass/dummy.scss"])
+//         .pipe(sourcemaps.init())
+//         .pipe(sass().on('error', sass.logError))
+//         .pipe(postcss(plugins))
+//         .pipe(sourcemaps.write('.'))
+//         .pipe(gulp.dest(MINIMACSS_OUTPUT))
+// }
 
 exports.default = gulp.series(complier_main_prod);
 // exports.default = gulp.series(dummy);
