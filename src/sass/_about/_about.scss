@@ -3,6 +3,10 @@ section {
     overflow: auto; /* Enable scrolling within each section */
 }
 
+ul {
+    list-style-type: none;
+}
+
 @media (max-width: 700px) {
     /* Adjust styles for mobile screens here */
     header {
