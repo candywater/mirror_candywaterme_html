@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
     import PostArrow from "@/pages/components/postArrow.svelte";
     import Header from "./header.svelte";
     import Footer from "./footer.svelte";
