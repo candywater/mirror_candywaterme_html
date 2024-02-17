@@ -87,13 +87,13 @@
                                 <a href={$resume.about}>{$resume.about}</a>
                             </span>
                         </div>
-                        <div class="info-item">
+                        <!-- <div class="info-item">
                             <span class="info-label">
                                 <i class="fa fa-address-card-o"></i>
                             </span><span class="info-text">
                                 <a href={$resume.resume}>{$resume.resume}</a>
                             </span>
-                        </div>
+                        </div> -->
                     </div>
                 </section>
                 <div class="resume__columns">
