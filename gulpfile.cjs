@@ -44,7 +44,20 @@ function main_watch() {
     gulp.watch(MINIMACSS_DIR_PATH, main_dev);
 }
 
-exports.default = gulp.series(complier_main_prod);
+function dummy(){
+    var plugins = [
+        cssnano(),
+    ];
+    return gulp.src(["./src/sass/dummy.scss"])
+        .pipe(sourcemaps.init())
+        .pipe(sass().on('error', sass.logError))
+        .pipe(postcss(plugins))
+        .pipe(sourcemaps.write('.'))
+        .pipe(gulp.dest(MINIMACSS_OUTPUT))
+}
+
+// exports.default = gulp.series(complier_main_prod);
+exports.default = gulp.series(dummy);
 exports.dev = gulp.series(main_dev);
 exports["watch"] = gulp.parallel(main_watch)
 
