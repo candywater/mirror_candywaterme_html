@@ -1,7 +1,7 @@
 <script lang="ts">
     import "tailwindcss/tailwind.css";
     import "@/sass/about.scss";
-    import "@/../node_modules/simple-line-icons/scss/simple-line-icons";
+    import "simple-line-icons/scss/simple-line-icons.scss";
     import type { Readable } from "svelte/store";
     import { getReadableConfigFromBackend } from "@/ts/config/configReader";
     import Layout from "./_layout.svelte";
