@@ -7,8 +7,9 @@
     import Contact from "./contact.svelte";
     import About from "@/pages/about/html/about.svelte";
     import Projects from "@/pages/about/html/projects.svelte";
+    import Newpaper from "./newpaper.svelte";
 
-    import "@/sass/about.scss"
+    import "@/sass/about.scss";
 
     interface IPageData {
         home?: string;
@@ -28,10 +29,14 @@
 </script>
 
 <Layout>
+
+<div class="main__wrapper">
     <main>
-        <Home pageData={$pageData} />
+    <!-- <Home pageData={$pageData} />
         <About pageData={$pageData} />
         <Projects pageData={$pageData} />
-        <Contact pageData={$pageData} />
+        <Contact pageData={$pageData} /> -->
+    <Newpaper />
     </main>
+</div>
 </Layout>
