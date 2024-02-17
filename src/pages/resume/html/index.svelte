@@ -1,5 +1,7 @@
 <script lang="ts">
     import "tailwindcss/tailwind.css";
+    import "@/sass/main.scss";
+    
     import type { IResume } from "../ts/interface/IResume";
     import { getReadableConfig } from "@/ts/config/configReader";
     import type { Readable } from "svelte/store";
