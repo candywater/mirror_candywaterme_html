@@ -4,7 +4,6 @@ import { svelte } from '@sveltejs/vite-plugin-svelte'
 import { fileURLToPath } from 'url'
 import path from "path"
 
-
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [svelte()],
@@ -23,7 +22,6 @@ export default defineConfig({
         // format:"iife",
       }
     },
-    sourcemap: true,
   },
   css: {
     postcss,
