@@ -1,16 +1,18 @@
 <script lang="ts">
-    import Section from "./Section.svelte";
+    import Section from "./_section.svelte";
 
     export let pageData;
 </script>
 
-<Section id="about">
-    <!-- About content goes here -->
-    {pageData.about}
+<Section>
+    <div id="about">
+        <!-- About content goes here -->
+        {pageData.about}
+    </div>
 </Section>
 
-<style>
-    section {
-        min-height: 100vh; /* Make each section at least as tall as the viewport */
+<style lang="scss">
+    #about {
+        // min-height: 70vh; /* Make each section at least as tall as the viewport */
     }
 </style>

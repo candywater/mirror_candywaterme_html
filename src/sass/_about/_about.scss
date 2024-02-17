@@ -1,0 +1,13 @@
+
+section {
+    width: 100%; /* Make each section fill the width of the page */
+    overflow: auto; /* Enable scrolling within each section */
+}
+
+@media (max-width: 600px) {
+    /* Adjust styles for mobile screens here */
+}
+
+@media (min-width: 601px) {
+    /* Adjust styles for desktop screens here */
+}

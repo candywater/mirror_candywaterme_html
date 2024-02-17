@@ -1,7 +1,6 @@
 <script lang="ts">
-    export let id
 </script>
 
-<section {id}>
+<section>
     <slot />
 </section>
