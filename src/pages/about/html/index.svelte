@@ -3,20 +3,18 @@
     // import "@/sass/about.scss";
     // import "simple-line-icons/scss/simple-line-icons.scss";
     import type { Readable } from "svelte/store";
-    import { getReadableConfigFromBackend } from "@/ts/config/configReader";
+    import { getReadableConfigFromBackend , aboutDocFailBackUrl} from "@/ts/config/configReader";
     import Layout from "./_layout.svelte";
     import Newspaper from "./newspaper.svelte";
-    import { DOC_SRC_URL } from "@/ts/config/path";
     import type { INewspaper } from "../ts/INewsPaper";
 
-    let resumeDocUrl = new URL(window.location.href);
-    resumeDocUrl.href = window.location.href;
-    resumeDocUrl.pathname = `/cwapi/about/`;
-    let resumeDocFailbackUrl = DOC_SRC_URL + `/config/about/index.json`;
+    let aboutDocUrl = new URL(window.location.href);
+    aboutDocUrl.href = window.location.href;
+    aboutDocUrl.pathname = `/cwapi/about/`;
 
     let pageData: Readable<INewspaper> = getReadableConfigFromBackend(
-        resumeDocUrl,
-        resumeDocFailbackUrl,
+        aboutDocUrl,
+        aboutDocFailBackUrl,
         {
             title: "",
             issue: "",

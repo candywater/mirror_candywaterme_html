@@ -2,19 +2,17 @@
     import "tailwindcss/tailwind.css";
 
     import type { IResume } from "../ts/interface/IResume";
-    import { getReadableConfigFromBackend } from "@/ts/config/configReader";
+    import { getReadableConfigFromBackend, resumeDocFailBackUrl } from "@/ts/config/configReader";
     import type { Readable } from "svelte/store";
     import Experience from "./experience.svelte";
     import Skill from "./skill.svelte";
     import Language from "./language.svelte";
-    import { DOC_SRC_URL } from "@/ts/config/path";
 
     const handlePrint = () => window.print();
 
     let resumeDocUrl = new URL(window.location.href);
     resumeDocUrl.href = window.location.href;
     resumeDocUrl.pathname = `/cwapi/resume/`;
-    let resumeDocFailbackUrl = DOC_SRC_URL + `/config/resume/index.json`;
 
     let resume: Readable<IResume> = getReadableConfigFromBackend(
         resumeDocUrl,
