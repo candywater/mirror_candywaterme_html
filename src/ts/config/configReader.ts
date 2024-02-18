@@ -9,6 +9,7 @@ function getReadableConfigFromBackend(url: URL, failbackConfigUrl: string, defau
     return readable(defaultValue, (set) => {
         readConfigText(url)
             .then((configUrl) => {
+                if(configUrl.endsWith(".json") === false){throw new Error("config url is not json") }
                 readConfigJson(configUrl).then((data) => {
                     set(data);
                 })
