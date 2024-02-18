@@ -16,7 +16,7 @@
 
     let resume: Readable<IResume> = getReadableConfigFromBackend(
         resumeDocUrl,
-        resumeDocFailbackUrl,
+        resumeDocFailBackUrl,
         {
             name: "",
             address: "",
