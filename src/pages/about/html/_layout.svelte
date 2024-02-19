@@ -7,14 +7,10 @@
 <div class="mainlayout">
 
     <Header />
-    <div class="">
-        <div class="">
             <div class="wrapper">
                 <slot />
                 <PostArrow />
             </div>
-        </div>
-    </div>
 
     <Footer />
 </div>
