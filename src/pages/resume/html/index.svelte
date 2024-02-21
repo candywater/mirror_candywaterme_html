@@ -12,6 +12,7 @@
 
     let resumeDocUrl = new URL(window.location.href);
     resumeDocUrl.href = window.location.href;
+    resumeDocUrl.search = window.location.search;
     resumeDocUrl.pathname = `/cwapi/resume/`;
 
     let resume: Readable<IResume> = getReadableConfigFromBackend(

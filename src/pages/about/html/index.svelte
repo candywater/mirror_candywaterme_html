@@ -10,6 +10,7 @@
 
     let aboutDocUrl = new URL(window.location.href);
     aboutDocUrl.href = window.location.href;
+    aboutDocUrl.search = window.location.search;
     aboutDocUrl.pathname = `/cwapi/about/`;
 
     let pageData: Readable<INewspaper> = getReadableConfigFromBackend(

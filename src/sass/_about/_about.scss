@@ -7,6 +7,10 @@ ul {
     list-style-type: none;
 }
 
+figure {
+    margin: 0rem;
+}
+
 @media (max-width: 700px) {
     /* Adjust styles for mobile screens here */
     header {
@@ -462,6 +466,7 @@ aside {
 }
 
 .menu {
+    max-height: 30rem;
     margin: 1.5rem 0;
     @media (min-width: 1024px) {
         margin: 0;

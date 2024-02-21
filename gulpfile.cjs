@@ -13,7 +13,7 @@ const sass = require('gulp-sass')(require('sass'));
 // const SOURCE_HTML = ["./src/**/*.svelte", "./src/**/*.ts", "./public/**/*.html"]
 // const TAILWINDCSS_OUTPUT = 'public/build/tailwind'
 
-const SCSS_ENTRIES = ["./src/sass/main.scss", "./src/sass/about.scss"]
+const SCSS_ENTRIES = ["./src/sass/main.scss", "./src/sass/about.scss", "./src/sass/layout.scss"]
 const MINIMACSS_DIR_PATH = ["./src/sass/**/*.scss"]
 const MINIMACSS_OUTPUT = './public/build/sass'
 const DIST_CSS_OUTPUT = './dist/build/sass'

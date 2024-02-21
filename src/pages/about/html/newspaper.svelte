@@ -3,6 +3,15 @@
 
   export let data: INewspaper;
 
+  function onResumeClick(){
+    let resumeUrl = new URL(window.location.href);
+    resumeUrl.href = window.location.href;
+    resumeUrl.search = window.location.search;
+    resumeUrl.pathname = `/pages/resume/`;
+
+    window.open(resumeUrl, '_blank');
+  }
+
 </script>
 
 <h1>{data.title}</h1>
@@ -10,7 +19,8 @@
   <div>
     <div class="issue">{data.issue}</div>
     <div class="date">{data.date}</div>
-    <div class="edition">{data.edition}</div>
+    <!-- svelte-ignore a11y-click-events-have-key-events-->
+    <div class="edition" on:click={onResumeClick} role="button" tabindex="0">{data.edition}</div>
   </div>
 </aside>
 <h2 class="title--large main-title">{data.headline.title}</h2>
