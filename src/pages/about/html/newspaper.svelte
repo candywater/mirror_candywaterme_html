@@ -121,8 +121,8 @@
 <div class="sidebar">
   <h3 class="title--big">{data.sidebarline.title}</h3>
 
-  <a class="codepen-item pie" href={data.sidebarline.items.pie.href} target="_blank"
-    ><img class="pie__image" src={data.sidebarline.items.pie.imgsrc} alt={data.sidebarline.items.pie.title} />
+  <a class="codepen-item pie" href={data.sidebarline.items.pie.href} target="_blank" on:click={onResumeClick}>
+    <img class="pie__image" src={data.sidebarline.items.pie.imgsrc} alt={data.sidebarline.items.pie.title} />
     <div class="pie__subtitle">{data.sidebarline.items.pie.title}</div>
     <div class="pie__content">
       {@html data.sidebarline.items.pie.text}

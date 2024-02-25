@@ -11,6 +11,18 @@ figure {
     margin: 0rem;
 }
 
+body {
+    // font-family: "Manrope", sans-serif;
+    padding: 0;
+    margin: 0;
+}
+
+// .wrapper {
+//     // animation-name: waitfade;
+//     // animation-duration: 1.5s;
+//     // animation-fill-mode: forwards;
+// }
+
 @media (max-width: 700px) {
     /* Adjust styles for mobile screens here */
     header {
@@ -25,6 +37,8 @@ figure {
     /* Adjust styles for desktop screens here */
     body {
         // padding: 4rem 2rem;
+        margin: 0;
+        padding: 0;
     }
 }
 
@@ -238,7 +252,7 @@ main {
 
 img {
     width: 100%;
-    filter: grayscale(95%);
+    // filter: grayscale(95%);
     margin-bottom: 0.5rem;
     border: 1px solid var(--black);
     transition: 0.3s ease;
@@ -556,8 +570,15 @@ aside {
         margin: 0;
         border: 0;
         grid-row: span 2;
-        height: 100%;
+        // height: 100%;
+        height: 7rem;
         object-fit: cover;
+    }
+    @media (max-width: 700px) {
+        /* Adjust styles for mobile screens here */
+        &__image {
+            height: 100%;
+        }
     }
     &__subtitle {
         background: #999;
