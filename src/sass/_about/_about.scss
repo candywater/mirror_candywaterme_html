@@ -3,7 +3,7 @@ section {
     overflow: auto; /* Enable scrolling within each section */
 }
 
-ul {
+nav ul {
     list-style-type: none;
 }
 
@@ -29,6 +29,16 @@ p {
 }
 
 //replace user agent stylesheet
+h3 {
+
+    display: block;
+    // font-size: 1.17em;
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    // font-weight: bold;
+}
 h4 {
     display: block;
     margin-block-start: 0em;

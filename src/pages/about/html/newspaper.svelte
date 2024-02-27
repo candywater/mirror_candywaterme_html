@@ -12,7 +12,7 @@
   //   window.open(resumeUrl, '_blank');
   // }
 
-  function onResumeClick(event: KeyboardEvent) {
+  function onResumeClick(event: MouseEvent) {
     let resumeUrl = new URL(window.location.href);
     resumeUrl.href = window.location.href;
     resumeUrl.search = window.location.search;
@@ -143,8 +143,11 @@
   >
   <div class="cssgrid-collection__content">
     <h4>{@html data.footline.title}</h4>
-    <div class="multi-column-3">
-      {@html data.footline.text}
+    <!-- <div class="multi-column-3"> -->
+    <div class="">
+      {#each data.footline.text ?? [] as text}
+        {@html text}
+      {/each}
     </div>
   </div>
 </div>
