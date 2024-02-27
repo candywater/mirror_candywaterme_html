@@ -1,17 +1,39 @@
 <script lang="ts">
-  import type { INewspaper } from '../ts/INewsPaper';
+  import type { INewspaper } from "../ts/INewsPaper";
 
   export let data: INewspaper;
 
-  function onResumeClick(){
+  // function onResumeClick(){
+  //   let resumeUrl = new URL(window.location.href);
+  //   resumeUrl.href = window.location.href;
+  //   resumeUrl.search = window.location.search;
+  //   resumeUrl.pathname = `/pages/resume/`;
+
+  //   window.open(resumeUrl, '_blank');
+  // }
+
+  function onResumeClick(event: KeyboardEvent) {
     let resumeUrl = new URL(window.location.href);
     resumeUrl.href = window.location.href;
     resumeUrl.search = window.location.search;
     resumeUrl.pathname = `/pages/resume/`;
 
-    window.open(resumeUrl, '_blank');
-  }
+    const resumeWindow = window.open(
+      resumeUrl,
+      "",
+      // "location=0,status=0,width=600,height=400",
+      "location=0,status=0,width=840,height=1143",
+    );
 
+    const authInterval = window.setInterval(function () {
+      if (resumeWindow?.closed) {
+        window.clearInterval(authInterval);
+        // window.location.reload();
+      }
+    }, 500);
+
+    return false;
+  }
 </script>
 
 <h1>{data.title}</h1>
@@ -20,7 +42,9 @@
     <div class="issue">{data.issue}</div>
     <div class="date">{data.date}</div>
     <!-- svelte-ignore a11y-click-events-have-key-events-->
-    <div class="edition" on:click={onResumeClick} role="button" tabindex="0">{data.edition}</div>
+    <div class="edition" role="button" tabindex="0">
+      {data.edition}
+    </div>
   </div>
 </aside>
 <h2 class="title--large main-title">{data.headline.title}</h2>
@@ -33,7 +57,10 @@
 
 <a class="terrarium" href={data.anchors.terrarium.href} target="_blank">
   <figure>
-    <img src={data.anchors.terrarium.imgsrc} alt={data.anchors.terrarium.tooltip} />
+    <img
+      src={data.anchors.terrarium.imgsrc}
+      alt={data.anchors.terrarium.tooltip}
+    />
     <figcaption>{data.anchors.terrarium.caption}</figcaption>
   </figure></a
 >
@@ -42,7 +69,7 @@
   class="item-with-image plan span--2 long--2"
   href={data.anchors.plan.href}
   target="_blank"
-  ><img src={data.anchors.plan.imgsrc} alt={data.anchors.plan.tooltip}/>
+  ><img src={data.anchors.plan.imgsrc} alt={data.anchors.plan.tooltip} />
 
   <h4>{data.anchors.plan.captionTitle}</h4>
   <div class="multi-column">
@@ -87,7 +114,7 @@
   class="item-with-image toggles"
   href={data.anchors.toggles.href}
   target="_blank"
-  ><img src={data.anchors.toggles.imgsrc} alt={data.anchors.toggles.tooltip}/>
+  ><img src={data.anchors.toggles.imgsrc} alt={data.anchors.toggles.tooltip} />
 
   <h4>{data.anchors.toggles.captionTitle}</h4>
   {@html data.anchors.toggles.caption}
@@ -95,20 +122,24 @@
 
 <a class="menu" href={data.anchors.menu.href} target="_blank">
   <figure>
-    <img src={data.anchors.menu.imgsrc} alt={data.anchors.menu.tooltip}/>
+    <img src={data.anchors.menu.imgsrc} alt={data.anchors.menu.tooltip} />
     <figcaption>{data.anchors.menu.caption}</figcaption>
   </figure>
 </a>
 
 <a class="social" href={data.anchors.social.href} target="_blank"
-  ><img class="social__image" src={data.anchors.social.imgsrc} alt={data.anchors.social.tooltip} />
+  ><img
+    class="social__image"
+    src={data.anchors.social.imgsrc}
+    alt={data.anchors.social.tooltip}
+  />
   <div class="social__subtitle">{data.anchors.social.captionTitle}</div>
   <div class="social__content">{data.anchors.social.caption}</div>
 </a>
 
 <div class="item-with-image cssgrid-collection">
   <a class="cssgrid-collection__image" href={data.footline.href} target="_blank"
-    ><img src={data.footline.imgsrc} alt={data.footline.title}/></a
+    ><img src={data.footline.imgsrc} alt={data.footline.title} /></a
   >
   <div class="cssgrid-collection__content">
     <h4>{@html data.footline.title}</h4>
@@ -121,8 +152,17 @@
 <div class="sidebar">
   <h3 class="title--big">{data.sidebarline.title}</h3>
 
-  <a class="codepen-item pie" href={data.sidebarline.items.pie.href} target="_blank" on:click={onResumeClick}>
-    <img class="pie__image" src={data.sidebarline.items.pie.imgsrc} alt={data.sidebarline.items.pie.title} />
+  <a
+    class="codepen-item pie"
+    href={data.sidebarline.items.pie.href}
+    target="_blank"
+    on:click={onResumeClick}
+  >
+    <img
+      class="pie__image"
+      src={data.sidebarline.items.pie.imgsrc}
+      alt={data.sidebarline.items.pie.title}
+    />
     <div class="pie__subtitle">{data.sidebarline.items.pie.title}</div>
     <div class="pie__content">
       {@html data.sidebarline.items.pie.text}
@@ -149,7 +189,10 @@
 
   <a class="workout" href={data.sidebarline.items.workout.href} target="_blank">
     <div class="workout__image">
-      <img src={data.sidebarline.items.workout.imgsrc} alt={data.sidebarline.items.workout.title} />
+      <img
+        src={data.sidebarline.items.workout.imgsrc}
+        alt={data.sidebarline.items.workout.title}
+      />
     </div>
     <div class="workout__blurb">{data.sidebarline.items.workout.title}</div>
     <div class="workout__title">{data.sidebarline.items.workout.text}</div>

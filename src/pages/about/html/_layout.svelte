@@ -20,8 +20,8 @@
 
     .wrapper {
         background-color: #fff;
-        margin-right: auto;
-        margin-left: auto;
+        // margin-right: auto;
+        // margin-left: auto;
         padding-right: $spacing-unit;
         padding-left: $spacing-unit;
     }
