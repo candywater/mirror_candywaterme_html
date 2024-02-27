@@ -60,6 +60,7 @@
     <img
       src={data.anchors.terrarium.imgsrc}
       alt={data.anchors.terrarium.tooltip}
+      title={data.anchors.terrarium.tooltip}
     />
     <figcaption>{data.anchors.terrarium.caption}</figcaption>
   </figure></a
@@ -68,21 +69,23 @@
 <a
   class="item-with-image plan span--2 long--2"
   href={data.anchors.plan.href}
-  target="_blank"
-  ><img src={data.anchors.plan.imgsrc} alt={data.anchors.plan.tooltip} />
+  target="_blank">
+  <img src={data.anchors.plan.imgsrc} alt={data.anchors.plan.tooltip} title={data.anchors.plan.tooltip} />
 
   <h4>{data.anchors.plan.captionTitle}</h4>
   <div class="multi-column">
     <p>{data.anchors.plan.caption}</p>
-  </div></a
->
+  </div>
+</a>
 
 <a class="hogwarts" href={data.anchors.hogwarts.href} target="_blank">
   <div class="hogwarts__title">{data.anchors.hogwarts.captionTitle}</div>
   <div class="hogwarts__image">
-    <span>{data.anchors.hogwarts.caption}</span><img
+    <span>{data.anchors.hogwarts.caption}</span>
+    <img
       src={data.anchors.hogwarts.imgsrc}
       alt={data.anchors.hogwarts.tooltip}
+      title={data.anchors.hogwarts.tooltip}
     />
   </div></a
 >
@@ -114,7 +117,7 @@
   class="item-with-image toggles"
   href={data.anchors.toggles.href}
   target="_blank"
-  ><img src={data.anchors.toggles.imgsrc} alt={data.anchors.toggles.tooltip} />
+  ><img src={data.anchors.toggles.imgsrc} alt={data.anchors.toggles.tooltip} title={data.anchors.toggles.tooltip} />
 
   <h4>{data.anchors.toggles.captionTitle}</h4>
   {@html data.anchors.toggles.caption}
@@ -122,7 +125,7 @@
 
 <a class="menu" href={data.anchors.menu.href} target="_blank">
   <figure>
-    <img src={data.anchors.menu.imgsrc} alt={data.anchors.menu.tooltip} />
+    <img src={data.anchors.menu.imgsrc} alt={data.anchors.menu.tooltip} title={data.anchors.menu.tooltip}/>
     <figcaption>{data.anchors.menu.caption}</figcaption>
   </figure>
 </a>
@@ -132,6 +135,7 @@
     class="social__image"
     src={data.anchors.social.imgsrc}
     alt={data.anchors.social.tooltip}
+    title={data.anchors.social.tooltip}
   />
   <div class="social__subtitle">{data.anchors.social.captionTitle}</div>
   <div class="social__content">{data.anchors.social.caption}</div>
@@ -139,7 +143,7 @@
 
 <div class="item-with-image cssgrid-collection">
   <a class="cssgrid-collection__image" href={data.footline.href} target="_blank"
-    ><img src={data.footline.imgsrc} alt={data.footline.title} /></a
+    ><img src={data.footline.imgsrc} alt={data.footline.title} title={data.footline.title}/></a
   >
   <div class="cssgrid-collection__content">
     <h4>{@html data.footline.title}</h4>
@@ -165,6 +169,7 @@
       class="pie__image"
       src={data.sidebarline.items.pie.imgsrc}
       alt={data.sidebarline.items.pie.title}
+      title={data.sidebarline.items.pie.title}
     />
     <div class="pie__subtitle">{data.sidebarline.items.pie.title}</div>
     <div class="pie__content">
@@ -195,6 +200,7 @@
       <img
         src={data.sidebarline.items.workout.imgsrc}
         alt={data.sidebarline.items.workout.title}
+        title={data.sidebarline.items.workout.title}
       />
     </div>
     <div class="workout__blurb">{data.sidebarline.items.workout.title}</div>
