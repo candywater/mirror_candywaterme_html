@@ -7,7 +7,6 @@ nav ul {
     list-style-type: none;
 }
 
-
 figure {
     margin: 0rem;
 }
@@ -30,7 +29,6 @@ p {
 
 //replace user agent stylesheet
 h3 {
-
     display: block;
     // font-size: 1.17em;
     margin-block-start: 0em;
@@ -549,6 +547,11 @@ aside {
         &:hover {
             border-bottom: 1px solid;
         }
+    }
+
+
+    @media (max-width: 700px) {
+        display: block;
     }
 }
 
