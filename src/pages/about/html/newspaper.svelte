@@ -13,6 +13,8 @@
   // }
 
   function onResumeClick(event: MouseEvent) {
+    event.preventDefault();
+
     let resumeUrl = new URL(window.location.href);
     resumeUrl.href = window.location.href;
     resumeUrl.search = window.location.search;
