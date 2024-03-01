@@ -365,6 +365,7 @@ aside {
             position: absolute;
             border: 0;
             width: 250%;
+            max-width: unset;
             left: -70%;
             bottom: -35%;
             @media (min-width: 700px) and (max-width: 1024px) {
