@@ -71,8 +71,13 @@
 <a
   class="item-with-image plan span--2 long--2"
   href={data.anchors.plan.href}
-  target="_blank">
-  <img src={data.anchors.plan.imgsrc} alt={data.anchors.plan.tooltip} title={data.anchors.plan.tooltip} />
+  target="_blank"
+>
+  <img
+    src={data.anchors.plan.imgsrc}
+    alt={data.anchors.plan.tooltip}
+    title={data.anchors.plan.tooltip}
+  />
 
   <h4>{data.anchors.plan.captionTitle}</h4>
   <div class="multi-column">
@@ -98,8 +103,8 @@
   target="_blank"
 >
   <h4>{data.anchors.pasta.captionTitle}</h4>
-  <p>{data.anchors.pasta.caption}</p></a
->
+  {@html data.anchors.pasta.caption}
+</a>
 
 <a
   class="item-with-image magazine with-border"
@@ -107,7 +112,7 @@
   target="_blank"
 >
   <h4>{data.anchors.magazine.captionTitle}</h4>
-  <p>{data.anchors.magazine.caption}</p>
+  {@html data.anchors.magazine.caption}
 </a>
 
 <a class="item-with-image style" href={data.anchors.style.href} target="_blank">
@@ -119,7 +124,11 @@
   class="item-with-image toggles"
   href={data.anchors.toggles.href}
   target="_blank"
-  ><img src={data.anchors.toggles.imgsrc} alt={data.anchors.toggles.tooltip} title={data.anchors.toggles.tooltip} />
+  ><img
+    src={data.anchors.toggles.imgsrc}
+    alt={data.anchors.toggles.tooltip}
+    title={data.anchors.toggles.tooltip}
+  />
 
   <h4>{data.anchors.toggles.captionTitle}</h4>
   {@html data.anchors.toggles.caption}
@@ -127,7 +136,11 @@
 
 <a class="menu" href={data.anchors.menu.href} target="_blank">
   <figure>
-    <img src={data.anchors.menu.imgsrc} alt={data.anchors.menu.tooltip} title={data.anchors.menu.tooltip}/>
+    <img
+      src={data.anchors.menu.imgsrc}
+      alt={data.anchors.menu.tooltip}
+      title={data.anchors.menu.tooltip}
+    />
     <figcaption>{data.anchors.menu.caption}</figcaption>
   </figure>
 </a>
@@ -145,7 +158,11 @@
 
 <div class="item-with-image cssgrid-collection">
   <a class="cssgrid-collection__image" href={data.footline.href} target="_blank"
-    ><img src={data.footline.imgsrc} alt={data.footline.title} title={data.footline.title}/></a
+    ><img
+      src={data.footline.imgsrc}
+      alt={data.footline.title}
+      title={data.footline.title}
+    /></a
   >
   <div class="cssgrid-collection__content">
     <h4>{@html data.footline.title}</h4>

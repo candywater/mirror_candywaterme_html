@@ -2,7 +2,10 @@
     import "tailwindcss/tailwind.css";
 
     import type { IResume } from "../ts/interface/IResume";
-    import { getReadableConfigFromBackend, resumeDocFailBackUrl } from "@/ts/config/configReader";
+    import {
+        getReadableConfigFromBackend,
+        resumeDocFailBackUrl,
+    } from "@/ts/config/configReader";
     import type { Readable } from "svelte/store";
     import Experience from "./experience.svelte";
     import Skill from "./skill.svelte";
@@ -15,34 +18,35 @@
     resumeDocUrl.search = window.location.search;
     resumeDocUrl.pathname = `/cwapi/resume/`;
 
+    const resumeDefaultData: IResume = {
+        name: "",
+        address: "",
+        email: "",
+        phone: "",
+        summary: {
+            name: "", // Add the 'name' property with an empty string
+            content: [], // Change 'undefined[]' to 'string[]'
+        },
+        experiences: {
+            name: "", // Add the 'name' property with an empty string
+            details: [], // Change 'undefined[]' to 'IExperience[]'
+        },
+        skills: {
+            name: "",
+            details: [],
+        },
+        languages: {
+            name: "",
+            details: [],
+        },
+        resume: "", // Add the 'resume' property with an empty string
+        about: "", // Add the 'about' property with an empty string
+    };
+
     let resume: Readable<IResume> = getReadableConfigFromBackend(
         resumeDocUrl,
         resumeDocFailBackUrl,
-        {
-            name: "",
-            address: "",
-            email: "",
-            phone: "",
-            summary: {
-                name: "", // Add the 'name' property with an empty string
-                content: [], // Change 'undefined[]' to 'string[]'
-                details: [],
-            },
-            experiences: {
-                name: "", // Add the 'name' property with an empty string
-                details: [], // Change 'undefined[]' to 'IExperience[]'
-            },
-            skills: {
-                name: "",
-                details: [],
-            },
-            languages: {
-                name: "",
-                details: [],
-            },
-            resume: "", // Add the 'resume' property with an empty string
-            about: "", // Add the 'about' property with an empty string
-        } as IResume,
+        resumeDefaultData,
     );
 </script>
 
