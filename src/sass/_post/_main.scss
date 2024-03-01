@@ -1,0 +1,117 @@
+$white-background: rgba(245, 245, 245, 0.3);
+
+.mainlayout {
+    justify-content: center;
+    display: flex;
+}
+
+.main {
+    .mainmenu-block {
+        margin: 1rem 1rem;
+    }
+}
+.copyleft-block {
+    padding: 0rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    position: absolute;
+}
+
+@media screen {
+    /**
+16:9
+640x360
+1280x720
+1366x768
+1600x900
+1920x1080
+2048x1152
+2560x4110
+3840x2160
+*/
+    $size0: 0px;
+    $size1: 576px;
+    $size2: 768px;
+    $size3: 992px;
+    $size4: 1200px;
+    $size5: 1700px;
+    $size6: 2200px;
+    $size7: 2700px;
+
+    $height0: 0px;
+    $height1: 360px;
+    $height2: 720px;
+    $height3: 980px;
+    $height4: 2000px;
+
+    @media (min-width: $size0) {
+        .main,
+        .copyleft-block {
+            max-width: 50rem;
+        }
+        .profile-block {
+            margin-left: 0.5rem;
+            width: 30rem;
+        }
+    }
+
+    @media (min-width: $size1) {
+        .main,
+        .copyleft-block {
+            max-width: 50rem;
+        }
+        .profile-block {
+            margin-left: 1rem;
+            width: 30rem;
+        }
+    }
+    @media (min-width: $size2) {
+        .main,
+        .copyleft-block {
+            max-width: 56rem;
+        }
+        .profile-block {
+            margin-left: 1rem;
+            width: 30rem;
+        }
+    }
+    @media (min-width: $size3) {
+        .main,
+        .copyleft-block {
+            max-width: 56rem;
+        }
+        .profile-block {
+            margin-left: 2rem;
+            width: 30rem;
+        }
+    }
+    @media (min-width: $size4) {
+        .main,
+        .copyleft-block {
+            max-width: 56rem;
+        }
+        .profile-block {
+            margin-left: 3rem;
+            width: 30rem;
+        }
+    }
+    @media (min-width: $size5) {
+        .main,
+        .copyleft-block {
+            max-width: 60rem;
+        }
+    }
+    @media (min-width: $size6) {
+        .main,
+        .copyleft-block {
+            max-width: 80rem;
+        }
+    }
+    @media (min-width: $size7) {
+        .main,
+        .copyleft-block {
+            max-width: 100rem;
+        }
+    }
+}

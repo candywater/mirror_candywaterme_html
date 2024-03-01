@@ -12,7 +12,7 @@
  * @param {(imgDataUrl : Uint8Array)=>{}} callback eg: 'img'
  * @returns base64string
  */
-export async function decryptImg(url, key, ctrCount, callback) {
+async function decryptImg(url: string, key: string, ctrCount: string, callback: (imgDataUrl: Uint8Array) => {}) {
   var encryptedArray = await (await fetch(url)).arrayBuffer();
   var encryptedBytes = new Uint8Array(encryptedArray);
   var keyBytes = getShareKeyBytes(key);
@@ -59,7 +59,7 @@ async function decryptedBase64Img(url, key, CTRCount){
  * @param {string} key
  * @returns string
  */
-function getShareKeyBytes(key) {
+function getShareKeyBytes(key: string) {
   var keyBytes = string2Bytes("00000000000000000000000000000000");
   keyBytes.forEach((value, index) => {
     keyBytes[index] = 0;
@@ -93,7 +93,7 @@ function decryptBytes(file, keyBytes, ctrCount) {
  * @param {number} CTRCount
  * @returns Buffer
  */
-function encryptBytes(file, keyBytes, CTRCount) {
+function encryptBytes(file: Uint8Array, keyBytes: Uint8Array, CTRCount: string) {
   var aesCtr = new aesjs.ModeOfOperation.ctr(
     keyBytes,
     new aesjs.Counter(CTRCount)
@@ -107,7 +107,7 @@ function encryptBytes(file, keyBytes, CTRCount) {
  * @param {string} string
  * @returns Uint8Array
  */
-function string2Bytes(string) {
+function string2Bytes(string: string): Uint8Array {
   return aesjs.utils.utf8.toBytes(string);
 }
 
@@ -115,7 +115,7 @@ function string2Bytes(string) {
  * @param {Uint8Array} bytes
  * @returns string
  */
-function bytes2String(bytes) {
+function bytes2String(bytes: Uint8Array) {
   aesjs.utils.utf8.fromBytes(bytes);
 }
 
@@ -124,7 +124,7 @@ function bytes2String(bytes) {
  * @param {string} url
  * @param {Function} callback
  */
-function toDataURLviaXHR(url, callback) {
+function toDataURLviaXHR(url: string, callback: Function) {
   var xhr = new XMLHttpRequest();
   xhr.onload = function () {
     var reader = new FileReader();
@@ -143,10 +143,12 @@ function toDataURLviaXHR(url, callback) {
  * @param {Function} callback
  * @returns base64text
  */
-function fileReaderToDataURL(arrayBuffer, callback) {
+function fileReaderToDataURL(arrayBuffer: Blob, callback: Function) {
   var reader = new FileReader();
   reader.onloadend = function () {
     callback(reader.result);
   };
   reader.readAsDataURL(arrayBuffer);
 }
+
+export { decryptImg }

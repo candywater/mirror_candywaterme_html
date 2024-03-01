@@ -36,7 +36,7 @@ export const BLOG_SRC_URL = "/blog";
 
 export const GITHUB_OAUTH_CALLBACK_URL = "/github/oauth_callback";
 
-export let PATH_DICT: Object = {};
+export let PATH_DICT: Record<string, string> = {};
 PATH_DICT[INDEX] = INDEX_PATH;
 PATH_DICT[ABOUT] = ABOUT_PATH;
 PATH_DICT[PROJECT] = PROJECT_PATH;
@@ -49,7 +49,7 @@ PATH_DICT[RANDOM] = RANDOM_PATH;
 PATH_DICT[GITHUB_OAUTH_CALLBACK] = GITHUB_OAUTH_CALLBACK_URL;
 Object.freeze(PATH_DICT);
 
-export let Main_Menu_Dict: Object = {};
+export let Main_Menu_Dict: Record<string, string> = {};
 Main_Menu_Dict[INDEX] = INDEX_PATH;
 Main_Menu_Dict[ABOUT] = ABOUT_PATH;
 Main_Menu_Dict[PROJECT] = PROJECT_PATH;
