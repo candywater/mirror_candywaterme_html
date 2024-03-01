@@ -44,11 +44,12 @@ main {
 .main-bg-glass {
   height: 100%;
   width: 100%;
-  @include background6;
+  // @include background6;
+  background-color: rgba(245, 245, 245, 1);
   background-size: cover;
   background-position: center;
   clip-path: inset(10em);
-  filter: blur(20px);
+  filter: blur(30px);
   display: flex;
   justify-content: center;
   align-items: center;
