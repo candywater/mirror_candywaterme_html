@@ -1,4 +1,6 @@
 <script lang="ts">
+    import { CdnPrefixUrl } from "@/ts/config/config";
+
   // import { Howl, Howler } from "howler";
   // import { onMount } from "svelte";
 
@@ -19,7 +21,7 @@
   let _now_playing_title: string = "Loading...";
   let _now_playing_singer: string = "Loading...";
 
-  const music_prefix = "https://d1qieyxrtbynoa.cloudfront.net/music/";
+  const music_prefix = CdnPrefixUrl + "music/";
 
   let initializeHowl = () => {
     var bgm_url_list = bgm_list.map((element) => {
