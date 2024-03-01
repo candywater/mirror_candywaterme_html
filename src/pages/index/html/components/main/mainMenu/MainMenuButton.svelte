@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { CurrentPath, BLOG } from "@/ts/config/path";
+  import { CurrentPath } from "@/ts/config/path";
+  import { onMount } from "svelte";
 
   export let style: string;
   export let href: string;
@@ -11,10 +12,7 @@
   let anime = "";
   let underline = "";
   if ($CurrentPath.toLowerCase() == title.toLowerCase()) {
-    anime = animation;
-    underline = "underline";
-  }
-  if ($CurrentPath == BLOG && $CurrentPath.toLowerCase() == title.toLowerCase()) {
+      anime = animation;
     underline = "underline";
   }
 </script>
@@ -28,9 +26,10 @@
     class="btn {style} {anime} {underline}">{title}</a
   >
 {:else} -->
-  <a {href} role="button" name="button" class="btn {style} {anime} {underline}"
-    >{title}</a
-  >
+<a {href} role="button" name="button" class="btn {style} {anime} {underline}">
+  {title}
+</a>
+
 <!-- {/if} -->
 
 <style lang="scss">

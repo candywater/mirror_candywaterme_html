@@ -1,4 +1,3 @@
-
 @media (max-width: 700px) {
     /* Adjust styles for mobile screens here */
     .mainlayout {
@@ -8,6 +7,20 @@
     }
 }
 
+.main-menu {
+    margin: 0 0.5rem;
+    a {
+        color: white;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell,
+            "Helvetica Neue", sans-serif;
+        &:hover,
+        &:focus,
+        &:active,
+        &:visited {
+            color: white;
+        }
+    }
+}
 
+@import "_about/base";
 @import "_about/about";
-

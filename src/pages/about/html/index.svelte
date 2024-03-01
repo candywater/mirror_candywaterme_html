@@ -1,17 +1,28 @@
 <script lang="ts">
-    // import "tailwindcss/tailwind.css";
+    import "tailwindcss/tailwind.css";
+    /* Bouncing entrances  */
+    import "animate.css/source/_vars.css";
+    import "animate.css/source/_base.css";
+    import "animate.css/source/attention_seekers/jello.css";
+
     // import "@/sass/about.scss";
     // import "simple-line-icons/scss/simple-line-icons.scss";
     import type { Readable } from "svelte/store";
-    import { getReadableConfigFromBackend , aboutDocFailBackUrl} from "@/ts/config/configReader";
+    import {
+        getReadableConfigFromBackend,
+        aboutDocFailBackUrl,
+    } from "@/ts/config/configReader";
     import Layout from "./_layout.svelte";
     import Newspaper from "./newspaper.svelte";
     import type { INewspaper } from "../ts/INewsPaper";
+    import PATH_DICT, { CurrentPath, TIMES } from "@/ts/config/path";
 
     let aboutDocUrl = new URL(window.location.href);
     aboutDocUrl.href = window.location.href;
     aboutDocUrl.search = window.location.search;
     aboutDocUrl.pathname = `/cwapi/about/`;
+
+    CurrentPath.set(TIMES);
 
     let pageData: Readable<INewspaper> = getReadableConfigFromBackend(
         aboutDocUrl,
