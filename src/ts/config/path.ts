@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
 
 export const INDEX = "main";
+export const TIMES = "times"
 export const ABOUT = "about";
 export const PROJECT = "project";
 export const ESSAY = "essay";
@@ -14,6 +15,7 @@ export const GITHUB_OAUTH_CALLBACK = "github-oauth-callback";
 const INDEX_PATH = "/";
 const ABOUT_PATH = "/about";
 const PROJECT_PATH = "/project";
+const TIMES_PATH = "/pages/about";
 const ESSAY_PATH = "/blog/essay";
 const TECH_PATH = "/blog/tech";
 const YEAR_SUMMARY_PATH = "/blog/year-summary";
@@ -38,6 +40,7 @@ export const GITHUB_OAUTH_CALLBACK_URL = "/github/oauth_callback";
 
 export let PATH_DICT: Record<string, string> = {};
 PATH_DICT[INDEX] = INDEX_PATH;
+PATH_DICT[TIMES] = TIMES_PATH;
 PATH_DICT[ABOUT] = ABOUT_PATH;
 PATH_DICT[PROJECT] = PROJECT_PATH;
 PATH_DICT[ESSAY] = ESSAY_PATH;
