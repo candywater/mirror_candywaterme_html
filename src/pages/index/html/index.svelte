@@ -49,6 +49,7 @@
     OTHER_URL,
   } from "@/ts/config/path";
   import PATH_DICT from "@/ts/config/path";
+    import { loadBackgroundColor } from "@/ts/common/ui";
 
   let blogpath: string = "";
 
@@ -73,16 +74,13 @@
   page(404);
   loadBackgroundColor();
 
-  function navigateTo(pagename) {
+  function navigateTo(pagename : string) {
     path.set(pagename);
     //window.history.pushState({}, null, PATH_DICT[pagename]);
     // console.log(PATH_DICT[pagename]);
   }
 
-  function loadBackgroundColor() {
-    let classname = localStorage.getItem("candy_background_setting");
-    if (classname) document.querySelector("body").className = classname;
-  }
+
 </script>
 
 <div>
