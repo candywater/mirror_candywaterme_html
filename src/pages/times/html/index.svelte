@@ -8,6 +8,7 @@
     // import "@/sass/about.scss";
     // import "simple-line-icons/scss/simple-line-icons.scss";
     import type { Readable } from "svelte/store";
+    import { readable } from "svelte/store";
     import {
         getReadableConfigFromBackend,
         aboutDocFailBackUrl,
@@ -15,7 +16,19 @@
     import Layout from "./_layout.svelte";
     import Newspaper from "./newspaper.svelte";
     import type { INewspaper } from "../ts/INewsPaper";
-    import PATH_DICT, { CurrentPath, TIMES } from "@/ts/config/path";
+    import { CurrentPath, TIMES } from "@/ts/config/path";
+    import { onMount } from "svelte";
+    import { loadBackgroundColor } from "@/ts/common/ui";
+
+    onMount(()=>{
+        loadBackgroundColor();
+    })
+
+    let initTimeOut: Readable<boolean> = readable(true, (set) => {
+        setTimeout(() => {
+            set(true);
+        }, 1000);
+    });
 
     let aboutDocUrl = new URL(window.location.href);
     aboutDocUrl.href = window.location.href;
@@ -119,12 +132,20 @@
 
 <Layout>
     <div class="main__wrapper appearance-none">
-        <main>
-            <!-- <Home pageData={$pageData} />
-        <About pageData={$pageData} />
-        <Projects pageData={$pageData} />
-        <Contact pageData={$pageData} /> -->
-            <Newspaper data={$pageData} />
-        </main>
+        {#if $initTimeOut}
+            <main>
+                <!-- <Home pageData={$pageData} />
+                <About pageData={$pageData} />
+                <Projects pageData={$pageData} />
+                <Contact pageData={$pageData} /> -->
+                <Newspaper data={$pageData} />
+            </main>
+        {:else}
+            <img
+                src="/assets/logos/candywater/signed/candywater.png"
+                alt="candywater"
+                class="candywater"
+            />
+        {/if}
     </div>
 </Layout>
