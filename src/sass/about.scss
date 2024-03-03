@@ -1,3 +1,5 @@
+@use "_layout/background" as bak;
+
 .mainlayout {
     margin-top: 0.3rem;
 }
@@ -25,5 +27,6 @@
     }
 }
 
+@import "_layout/loadingWrapper";
 @import "_about/base";
 @import "_about/about";

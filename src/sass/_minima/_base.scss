@@ -7,25 +7,25 @@ body {
   color: $text-color;
 }
 body.bg1 {
-  @include background1;
+  @include bak.background1;
 }
 body.bg2 {
-  @include background2;
+  @include bak.background2;
 }
 body.bg3 {
-  @include background3;
+  @include bak.background3;
 }
 body.bg4 {
-  @include background4;
+  @include bak.background4;
 }
 body.bg5 {
-  @include background5;
+  @include bak.background5;
 }
 body.bg6 {
-  @include background6;
+  @include bak.background6;
 }
 body.bg7 {
-  @include background7;
+  @include bak.background7;
 }
 main {
   // only chrome
