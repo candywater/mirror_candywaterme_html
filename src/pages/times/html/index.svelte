@@ -134,10 +134,6 @@
     <div class="main__wrapper appearance-none">
         {#if $initTimeOut}
             <main>
-                <!-- <Home pageData={$pageData} />
-                <About pageData={$pageData} />
-                <Projects pageData={$pageData} />
-                <Contact pageData={$pageData} /> -->
                 <Newspaper data={$pageData} />
             </main>
         {:else}
