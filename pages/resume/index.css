@@ -96,6 +96,9 @@
     margin-top: 0;
     font-size: 1.5em;
   }
+  .resume .resume__header .info-text{
+    font-weight: 300;
+  }
   .resume .resume__columns {
     overflow: hidden;
     padding: 0 4em 2em;

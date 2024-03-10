@@ -55,13 +55,16 @@
         <div class="sheet">
             <button
                 class="btn btn-print btn-sm bg-slate-100 hover:bg-slate-300"
-                on:click={handlePrint}
-                ><i class="fa fa-print"></i>
+                on:click={handlePrint}>
+                <i class="fa fa-print"></i>
                 Print
             </button>
             <div class="two-column resume">
                 <section class="resume__section resume__header">
                     <div class="resume__content">
+                        {#if $resume.jpnname}
+                            <span class="info-text">{$resume.jpnname}</span>
+                        {/if}
                         <h1>{$resume.name}</h1>
                         <div class="info-item">
                             <span class="info-label">

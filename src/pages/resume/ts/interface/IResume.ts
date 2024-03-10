@@ -1,5 +1,6 @@
 export interface IResume {
     name: string;
+    jpnname?: string;
     address: string;
     email: string;
     phone: string;
