@@ -8,6 +8,9 @@ dependencies:
   '@shopify/draggable':
     specifier: 1.0.0-beta.8
     version: 1.0.0-beta.8
+  CandyUtilities:
+    specifier: github:candywater/CandyUtilities#7cc2cc6df1298d46ed31c67a3f7238b8dcd7d834
+    version: github.com/candywater/CandyUtilities/7cc2cc6df1298d46ed31c67a3f7238b8dcd7d834
   animate.css:
     specifier: ^4.1.1
     version: 4.1.1
@@ -652,6 +655,10 @@ packages:
     hasBin: true
     dev: true
 
+  /aes-js@3.1.2:
+    resolution: {integrity: sha512-e5pEa2kBnBOgR4Y/p20pskXI74UEz7de8ZGVo58asOtvSVG5YAbJeELPZxOmt+Bnz3rX753YKhfIn4X4l1PPRQ==}
+    dev: false
+
   /animate.css@4.1.1:
     resolution: {integrity: sha512-+mRmCTv6SbCmtYJCN4faJMNFVNN5EuCTTprDTAo7YzIGji2KADmakjVA3+8mVDkZ2Bf09vayB35lSQIex2+QaQ==}
     dev: false
@@ -1261,6 +1268,10 @@ packages:
       path-key: 3.1.1
       shebang-command: 2.0.0
       which: 2.0.2
+    dev: false
+
+  /crypto-js@4.2.0:
+    resolution: {integrity: sha512-KALDyEYgpY+Rlob/iriUtjV6d5Eq+Y191A5g4UqLAi8CyGP9N1+FdVbkc1SxKc2r4YAYqG8JzO2KGL+AizD70Q==}
     dev: false
 
   /css-declaration-sorter@7.1.1(postcss@8.4.33):
@@ -5055,6 +5066,15 @@ packages:
       y18n: 3.2.2
       yargs-parser: 5.0.1
     dev: true
+
+  github.com/candywater/CandyUtilities/7cc2cc6df1298d46ed31c67a3f7238b8dcd7d834:
+    resolution: {tarball: https://codeload.github.com/candywater/CandyUtilities/tar.gz/7cc2cc6df1298d46ed31c67a3f7238b8dcd7d834}
+    name: CandyUtilities
+    version: 1.0.0
+    dependencies:
+      aes-js: 3.1.2
+      crypto-js: 4.2.0
+    dev: false
 
   github.com/candywater/svelte-terminal/be55920b0a451b557b4fc11855ff280f719dccef(rollup@4.9.4):
     resolution: {tarball: https://codeload.github.com/candywater/svelte-terminal/tar.gz/be55920b0a451b557b4fc11855ff280f719dccef}
