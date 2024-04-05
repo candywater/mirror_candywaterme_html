@@ -20,9 +20,10 @@ let cacheImg = (imgUrl: string | undefined, imgCacheUrl: string | undefined) => 
         .then((db: IDBDatabase) => {
             return new Promise((resolve, reject) => {
                 if (!imgUrl || !imgCacheUrl) return resolve(() => { });
-                if (imgCacheUrl) return resolve(() => { });
                 CandyImage.imgUrlToDataURL(imgCacheUrl, (dataUrl: string) => {
-                    resolve(addDataToDB(db, { imgUrl: imgUrl ?? "", imgCacheUrl: dataUrl ?? "" }))
+                    addDataToDB(db, { imgUrl: imgUrl ?? "", imgCacheUrl: dataUrl ?? "" })
+                    console.log("start caching for", imgCacheUrl);
+                    resolve(()=>{})
                 });
             }
             )
@@ -153,15 +154,15 @@ async function loopNewPaperAndGetImgCache(data: INewspaper, set: (data: INewspap
 async function loopCacheNewsPaper(data: INewspaper) {
     for (let anchor in data.anchors) {
         const anchorKey = anchor as keyof typeof data.anchors;
-        cacheImg(
+        !data.anchors[anchorKey].imgCache && cacheImg(
             data.anchors[anchorKey].imgsrc ?? "",
             data.anchors[anchorKey].imgCacheUrl ?? "",
         );
     }
-    cacheImg(data.footline.imgsrc ?? "", data.footline.imgCacheUrl ?? "");
+    !data.footline.imgCache && cacheImg(data.footline.imgsrc ?? "", data.footline.imgCacheUrl ?? "");
     for (let item in data.sidebarline.items) {
         const itemKey = item as keyof typeof data.sidebarline.items;
-        cacheImg(
+        !data.sidebarline.items[itemKey].imgCache && cacheImg(
             data.sidebarline.items[itemKey].imgsrc ?? "",
             data.sidebarline.items[itemKey].imgCacheUrl ?? "",
         );
