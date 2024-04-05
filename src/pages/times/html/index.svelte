@@ -16,10 +16,11 @@
     import { onMount } from "svelte";
     import { loadBackgroundColor } from "@/ts/common/ui";
     import { pageData } from "../ts/newsReader";
+    import { cacheImg } from "../ts/cacheImg";
 
-    onMount(()=>{
+    onMount(() => {
         loadBackgroundColor();
-    })
+    });
 
     let initTimeOut: Readable<boolean> = readable(true, (set) => {
         setTimeout(() => {

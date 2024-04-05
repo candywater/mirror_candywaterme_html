@@ -1,9 +1,10 @@
 import {
-    getReadableConfigFromBackend,
+    getReadableConfigFromBackendAndUseCache,
     aboutDocFailBackUrl,
 } from "@/ts/config/configReader";
 import type { Readable } from "svelte/store";
 import type { INewspaper } from "./INewsPaper";
+import { loopNewPaperAndGetImgCache } from "./cacheImg";
 
 
 let aboutDocUrl = new URL(window.location.href);
@@ -97,8 +98,9 @@ const aboutDefaultValue: INewspaper = {
     },
 };
 
-export let pageData: Readable<INewspaper> = getReadableConfigFromBackend(
+export let pageData: Readable<INewspaper> = getReadableConfigFromBackendAndUseCache(
     aboutDocUrl,
     aboutDocFailBackUrl,
     aboutDefaultValue,
+    loopNewPaperAndGetImgCache,
 );

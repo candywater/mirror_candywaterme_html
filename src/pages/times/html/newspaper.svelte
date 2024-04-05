@@ -60,7 +60,7 @@
 <a class="terrarium" href={data.anchors.terrarium.href} target="_blank">
   <figure>
     <img
-      src={data.anchors.terrarium.imgsrc}
+      src={data.anchors.terrarium.imgCache ?? data.anchors.terrarium.imgsrc}
       alt={data.anchors.terrarium.tooltip}
       title={data.anchors.terrarium.tooltip}
     />
@@ -74,7 +74,7 @@
   target="_blank"
 >
   <img
-    src={data.anchors.plan.imgsrc}
+    src={data.anchors.plan.imgCache ?? data.anchors.plan.imgsrc}
     alt={data.anchors.plan.tooltip}
     title={data.anchors.plan.tooltip}
   />
@@ -90,7 +90,7 @@
   <div class="hogwarts__image">
     <span>{data.anchors.hogwarts.caption}</span>
     <img
-      src={data.anchors.hogwarts.imgsrc}
+      src={data.anchors.hogwarts.imgCache ?? data.anchors.hogwarts.imgsrc}
       alt={data.anchors.hogwarts.tooltip}
       title={data.anchors.hogwarts.tooltip}
     />
@@ -125,7 +125,7 @@
   href={data.anchors.toggles.href}
   target="_blank"
   ><img
-    src={data.anchors.toggles.imgsrc}
+    src={data.anchors.toggles.imgCache ?? data.anchors.toggles.imgsrc}
     alt={data.anchors.toggles.tooltip}
     title={data.anchors.toggles.tooltip}
   />
@@ -137,7 +137,7 @@
 <a class="menu" href={data.anchors.menu.href} target="_blank">
   <figure>
     <img
-      src={data.anchors.menu.imgsrc}
+      src={data.anchors.menu.imgCache ?? data.anchors.menu.imgsrc}
       alt={data.anchors.menu.tooltip}
       title={data.anchors.menu.tooltip}
     />
@@ -148,7 +148,7 @@
 <a class="social" href={data.anchors.social.href} target="_blank"
   ><img
     class="social__image"
-    src={data.anchors.social.imgsrc}
+    src={data.anchors.social.imgCache ?? data.anchors.social.imgsrc}
     alt={data.anchors.social.tooltip}
     title={data.anchors.social.tooltip}
   />
@@ -159,7 +159,7 @@
 <div class="item-with-image cssgrid-collection">
   <a class="cssgrid-collection__image" href={data.footline.href} target="_blank"
     ><img
-      src={data.footline.imgsrc}
+      src={data.footline.imgCache ?? data.footline.imgsrc}
       alt={data.footline.title}
       title={data.footline.title}
     /></a
@@ -186,7 +186,7 @@
   >
     <img
       class="pie__image"
-      src={data.sidebarline.items.pie.imgsrc}
+      src={data.sidebarline.items.pie.imgCache ?? data.sidebarline.items.pie.imgsrc}
       alt={data.sidebarline.items.pie.title}
       title={data.sidebarline.items.pie.title}
     />
@@ -217,7 +217,7 @@
   <a class="workout" href={data.sidebarline.items.workout.href} target="_blank">
     <div class="workout__image">
       <img
-        src={data.sidebarline.items.workout.imgsrc}
+        src={data.sidebarline.items.workout.imgCache ?? data.sidebarline.items.workout.imgsrc}
         alt={data.sidebarline.items.workout.title}
         title={data.sidebarline.items.workout.title}
       />

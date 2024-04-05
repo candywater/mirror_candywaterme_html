@@ -31,6 +31,8 @@ interface INewspaper {
 interface IAnchor {
   href?: string;
   imgsrc?: string;
+  imgCacheUrl?: string;
+  imgCache?: string;
   captionTitle?: string;
   caption?: string;
   class?: string;
@@ -40,6 +42,8 @@ interface IAnchor {
 interface ILineItem {
   href?: string;
   imgsrc?: string;
+  imgCacheUrl?: string;
+  imgCache?: string;
   title?: string;
   text?: string[] | string;
 }

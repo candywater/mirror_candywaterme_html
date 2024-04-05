@@ -6,6 +6,26 @@ const aboutDocFailBackUrl = DOC_SRC_URL + `/config/about/index.json`
 const projectDocUrl = DOC_SRC_URL + `/config/project/index.json`
 const indexDocUrl = DOC_SRC_URL + `/config/index.json`
 
+function getReadableConfigFromBackendAndUseCache(url: URL, failbackConfigUrl: string, defaultValue: any, cacheCallback: (data: any, set: (data: any) => void) => void) {
+    return readable(defaultValue, (set) => {
+        readConfigText(url)
+            .then((configUrl) => {
+                if(configUrl.endsWith(".json") === false){throw new Error("config url is not json") }
+                readConfigJson(configUrl).then((data) => {
+                    cacheCallback(data, set);
+                })
+            })
+            .catch((ex) => {
+                console.log(ex)
+                readConfigJson(failbackConfigUrl).then((data) => {
+                    cacheCallback(data, set);
+                })
+            });
+
+        return () => set(defaultValue);
+    });
+}
+
 function getReadableConfigFromBackend(url: URL, failbackConfigUrl: string, defaultValue: any) {
     return readable(defaultValue, (set) => {
         readConfigText(url)
@@ -47,6 +67,7 @@ function readConfigText(url: URL) {
 export {
     getReadableConfig,
     getReadableConfigFromBackend,
+    getReadableConfigFromBackendAndUseCache,
     resumeDocFailBackUrl,
     aboutDocFailBackUrl,
     projectDocUrl,
