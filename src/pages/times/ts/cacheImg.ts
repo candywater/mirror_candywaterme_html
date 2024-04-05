@@ -20,9 +20,10 @@ let cacheImg = (imgUrl: string | undefined, imgCacheUrl: string | undefined) => 
         .then((db: IDBDatabase) => {
             return new Promise((resolve, reject) => {
                 if (!imgUrl || !imgCacheUrl) return resolve(() => { });
+                console.log("start caching for", imgCacheUrl);
                 CandyImage.imgUrlToDataURL(imgCacheUrl, (dataUrl: string) => {
                     addDataToDB(db, { imgUrl: imgUrl ?? "", imgCacheUrl: dataUrl ?? "" })
-                    console.log("start caching for", imgCacheUrl);
+                    console.log("end caching for", imgCacheUrl);
                     resolve(()=>{})
                 });
             }
