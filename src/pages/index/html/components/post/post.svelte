@@ -16,7 +16,7 @@
   import Footer from "./footer.svelte";
   import Searchbar from "../search/searchbar.svelte";
   import type { IPostSummary } from "@/ts/interface/IPostSummary";
-  import Aes from "../encryption/aes.svelte";
+  // import Aes from "../encryption/_aes.svelte";
   import AesImage from "../encryption/aesImage.svelte";
 
   export let docUrl: string;
@@ -89,7 +89,7 @@
       <Player bgm_list={_header.bgm} />
     {/if}
     {#if _header?.enableAesImg}
-      <Aes />
+      <!-- <Aes /> -->
       {#if _header?.aesImgs}
         {#each _header.aesImgs as url}
           <AesImage {url} />

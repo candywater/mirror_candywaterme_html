@@ -11,6 +11,9 @@ dependencies:
   CandyUtilities:
     specifier: github:candywater/CandyUtilities#7cc2cc6df1298d46ed31c67a3f7238b8dcd7d834
     version: github.com/candywater/CandyUtilities/7cc2cc6df1298d46ed31c67a3f7238b8dcd7d834
+  aes-js:
+    specifier: ^3.1.2
+    version: 3.1.2
   animate.css:
     specifier: ^4.1.1
     version: 4.1.1
