@@ -6,15 +6,15 @@ const escapeTest = /[&<>"']/;
 const escapeReplace = /[&<>"']/g;
 const escapeTestNoEncode = /[<>"']|&(?!#?\w+;)/;
 const escapeReplaceNoEncode = /[<>"']|&(?!#?\w+;)/g;
-const escapeReplacements = {
+const escapeReplacements: Record<string, string> = {
   "&": "&amp;",
   "<": "&lt;",
   ">": "&gt;",
   '"': "&quot;",
   "'": "&#39;",
 };
-const getEscapeReplacement = (ch) => escapeReplacements[ch];
-export function escape(html, encode) {
+const getEscapeReplacement = (ch: string) => escapeReplacements[ch];
+export function escape(html: string, encode: string | boolean) {
   if (encode) {
     if (escapeTest.test(html)) {
       return html.replace(escapeReplace, getEscapeReplacement);
@@ -33,7 +33,7 @@ const unescapeTest = /&(#(?:\d+)|(?:#x[0-9A-Fa-f]+)|(?:\w+));?/gi;
 /**
  * @param {string} html
  */
-export function unescape(html) {
+export function unescape(html: string) {
   // explicitly match decimal, hex, and named HTML entities
   return html.replace(unescapeTest, (_, n) => {
     n = n.toLowerCase();
@@ -53,11 +53,11 @@ const caret = /(^|[^\[])\^/g;
  * @param {string | RegExp} regex
  * @param {string} opt
  */
-export function edit(regex, opt) {
+export function edit(regex: string | RegExp, opt: string) {
   regex = typeof regex === "string" ? regex : regex.source;
   opt = opt || "";
   const obj = {
-    replace: (name, val) => {
+    replace: (name: string, val) => {
       val = val.source || val;
       val = val.replace(caret, "$1");
       regex = regex.replace(name, val);
@@ -78,7 +78,7 @@ const originIndependentUrl = /^$|^[a-z][a-z0-9+.-]*:|^[?#]/i;
  * @param {string} base
  * @param {string} href
  */
-export function cleanUrl(sanitize, base, href) {
+export function cleanUrl(sanitize: boolean, base: string, href: string) {
   if (sanitize) {
     let prot;
     try {
@@ -107,7 +107,7 @@ export function cleanUrl(sanitize, base, href) {
   return href;
 }
 
-const baseUrls = {};
+const baseUrls: Record<string, string> = {};
 const justDomain = /^[^:]+:\/*[^/]*$/;
 const protocol = /^([^:]+:)[\s\S]*$/;
 const domain = /^([^:]+:\/*[^/]*)[\s\S]*$/;
@@ -116,7 +116,7 @@ const domain = /^([^:]+:\/*[^/]*)[\s\S]*$/;
  * @param {string} base
  * @param {string} href
  */
-export function resolveUrl(base, href) {
+export function resolveUrl(base: string, href: string) {
   if (!baseUrls[" " + base]) {
     // we can ignore everything in base after the last slash of its path component,
     // but we might need to add _that_
@@ -145,9 +145,9 @@ export function resolveUrl(base, href) {
   }
 }
 
-export const noopTest = { exec: function noopTest() {} };
+export const noopTest = { exec: function noopTest() { } };
 
-export function merge(obj) {
+export function merge(obj: Record<string, string>) {
   let i = 1,
     target,
     key;
@@ -164,22 +164,22 @@ export function merge(obj) {
   return obj;
 }
 
-export function splitCells(tableRow, count) {
+export function splitCells(tableRow: string, count: number) {
   // ensure that every cell-delimiting pipe has a space
   // before it to distinguish it from an escaped pipe
   const row = tableRow.replace(/\|/g, (match, offset, str) => {
-      let escaped = false,
-        curr = offset;
-      while (--curr >= 0 && str[curr] === "\\") escaped = !escaped;
-      if (escaped) {
-        // odd number of slashes means | is escaped
-        // so we leave it alone
-        return "|";
-      } else {
-        // add space before unescaped |
-        return " |";
-      }
-    }),
+    let escaped = false,
+      curr = offset;
+    while (--curr >= 0 && str[curr] === "\\") escaped = !escaped;
+    if (escaped) {
+      // odd number of slashes means | is escaped
+      // so we leave it alone
+      return "|";
+    } else {
+      // add space before unescaped |
+      return " |";
+    }
+  }),
     cells = row.split(/ \|/);
   let i = 0;
 
@@ -212,7 +212,7 @@ export function splitCells(tableRow, count) {
  * @param {string} c
  * @param {boolean} invert Remove suffix of non-c chars instead. Default falsey.
  */
-export function rtrim(str, c, invert) {
+export function rtrim(str: string, c: string, invert: boolean) {
   const l = str.length;
   if (l === 0) {
     return "";
@@ -236,7 +236,7 @@ export function rtrim(str, c, invert) {
   return str.slice(0, l - suffLen);
 }
 
-export function findClosingBracket(str, b) {
+export function findClosingBracket(str: string, b: Array<string>) {
   if (str.indexOf(b[1]) === -1) {
     return -1;
   }
@@ -271,7 +271,7 @@ export function checkSanitizeDeprecation(opt) {
  * @param {string} pattern
  * @param {number} count
  */
-export function repeatString(pattern, count) {
+export function repeatString(pattern: string, count: number) {
   if (count < 1) {
     return "";
   }
