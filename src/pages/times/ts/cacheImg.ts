@@ -18,13 +18,13 @@ import type { INewspaper } from "./INewsPaper";
 let cacheImg = (imgUrl: string | undefined, imgCacheUrl: string | undefined) => {
     openDB()
         .then((db: IDBDatabase) => {
-            return new Promise((resolve, reject) => {
-                if (!imgUrl || !imgCacheUrl) return resolve(() => { });
+            return new Promise<void>((resolve, reject) => {
+                if (!imgUrl || !imgCacheUrl) return resolve();
                 console.log("start caching for", imgCacheUrl);
                 CandyImage.imgUrlToDataURL(imgCacheUrl, (dataUrl: string) => {
                     addDataToDB(db, { imgUrl: imgUrl ?? "", imgCacheUrl: dataUrl ?? "" })
                     console.log("end caching for", imgCacheUrl);
-                    resolve(()=>{})
+                    resolve()
                 });
             }
             )
@@ -36,23 +36,23 @@ let cacheImg = (imgUrl: string | undefined, imgCacheUrl: string | undefined) => 
 
 
 const openDB = () => {
-    return new Promise((resolve, reject) => {
+    return new Promise<IDBDatabase>((resolve, reject) => {
         const request = indexedDB.open("CandyImgs", 1);
 
         request.onerror = (event) => {
             reject("Error opening database");
         };
 
-        request.onsuccess = (event) => {
-            const db = event.target.result;
+        request.onsuccess = (event: Event) => {
+            const db = (event?.target as IDBRequest)?.result;
             resolve(db);
         };
 
-        request.onupgradeneeded = (event) => {
-            const db = event.target.result;
+        request.onupgradeneeded = (event: Event) => {
+            const db = (event?.target as IDBRequest)?.result;
             const objectStore = db.createObjectStore("Imgs", { keyPath: "imgUrl" });
 
-            objectStore.transaction.oncomplete = (event) => {
+            objectStore.transaction.oncomplete = (event: Event) => {
                 // Store values in the newly created objectStore.
                 // const transaction = db.transaction("Imgs", "readwrite");
                 // const objectStore = transaction.objectStore("Imgs");
@@ -64,7 +64,7 @@ const openDB = () => {
 };
 
 const addDataToDB = (db: IDBDatabase, data: { imgUrl: string, imgCacheUrl: string }) => {
-    return new Promise((resolve, reject) => {
+    return new Promise<string>((resolve, reject) => {
         const transaction = db.transaction(["Imgs"], "readwrite");
         const objectStore = transaction.objectStore("Imgs");
         const request = objectStore.add(data);
@@ -72,7 +72,7 @@ const addDataToDB = (db: IDBDatabase, data: { imgUrl: string, imgCacheUrl: strin
             reject("Error adding data to database");
         };
         request.onsuccess = (event) => {
-            resolve("Data added to database", data?.imgUrl);
+            resolve("Data added to database" + data?.imgUrl);
         };
     });
 }
