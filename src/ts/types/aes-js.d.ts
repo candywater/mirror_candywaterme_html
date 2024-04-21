@@ -2,7 +2,7 @@
 declare module 'aes-js' {
     function AES(key: string);
     declare class Counter {
-        constructor(initValue: string);
+        constructor(initValue: number);
     }
     interface IModeOfOperation {
         constructor(key, counter);

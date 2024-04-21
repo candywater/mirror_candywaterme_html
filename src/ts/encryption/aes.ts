@@ -69,7 +69,7 @@ function getShareKeyBytes(key: string) {
   });
   var keyStringBytes = string2Bytes(key);
   keyStringBytes.forEach((value, index) => {
-    keyBytes[index] = value - "0";
+    keyBytes[index] = value;
   });
   return keyBytes;
 }
@@ -78,9 +78,10 @@ function getShareKeyBytes(key: string) {
  *
  * @param {Uint8Array} file
  * @param {Uint8Array} keyBytes
+ * @param {number} ctrCount
  * @returns Buffer
  */
-function decryptBytes(file, keyBytes, ctrCount) {
+function decryptBytes(file: Uint8Array, keyBytes:Uint8Array, ctrCount:number) {
   var aesCtr = new aesjs.ModeOfOperation.ctr(
     keyBytes,
     new aesjs.Counter(ctrCount)
@@ -96,7 +97,7 @@ function decryptBytes(file, keyBytes, ctrCount) {
  * @param {number} CTRCount
  * @returns Buffer
  */
-function encryptBytes(file: Uint8Array, keyBytes: Uint8Array, CTRCount: string) {
+function encryptBytes(file: Uint8Array, keyBytes: Uint8Array, CTRCount: number) {
   var aesCtr = new aesjs.ModeOfOperation.ctr(
     keyBytes,
     new aesjs.Counter(CTRCount)
