@@ -34,6 +34,7 @@ const COMMENT_HTML = `
 
 export const _message_box_msg = writable<string>("");
 export const _disabled = writable<boolean>(false);
+// not used for now.... TODO: use it.
 export const _comment_list = writable<
   {
     authorName: string;
@@ -107,9 +108,9 @@ function loading_comment() {
  * @private
  */
 function remove_spinner() {
-  var spinner = document.querySelectorAll(".lds-dual-ring");
-  spinner.forEach((val) => {
-    val.parentNode.removeChild(val);
+  var spinner : NodeListOf<Element> = document.querySelectorAll(".lds-dual-ring");
+  spinner.forEach((val : Element) => {
+    val?.parentNode?.removeChild(val);
   });
 }
 
@@ -124,19 +125,20 @@ function get_readable_time(t: Date): string {
 
 /**
  * draw comment area
- * @param {string} html
+ * @param {string} comment_list
  * @private
  */
-function draw_comments(comment_list) {
+function draw_comments(comment_list : string) {
   remove_spinner();
+  var deserilized_comment_list : CommentModel[] = []
   try {
-    comment_list = JSON.parse(comment_list);
+    deserilized_comment_list = JSON.parse(comment_list);
   } catch (e) {
     return;
   }
   // console.log(comment_list)
-  if (comment_list?.length && comment_list?.length > 0)
-    comment_list?.forEach(draw_comment);
+  if (deserilized_comment_list?.length && deserilized_comment_list?.length > 0)
+    deserilized_comment_list?.forEach(draw_comment);
 }
 
 /**
@@ -165,7 +167,7 @@ function draw_comment(element: CommentModel) {
   </div>
 `;
   var article = document.querySelector("#comments");
-  article.appendChild(comment_node);
+  article?.appendChild(comment_node);
 }
 
 /**
@@ -250,7 +252,7 @@ function when_post_finish(data: string) {
     SetAlertMsg(POST_SUCCESS_MSG, 3000);
     var comments = document.querySelector("#comments");
     //http://youmightnotneedjquery.com/
-    while (comments.firstChild) comments.removeChild(comments.firstChild);
+    while (comments?.firstChild) comments.removeChild(comments.firstChild);
     //reload comment area
     get_comments_and_reload_comment_area();
   } else if (data.toLowerCase() == "over100") {

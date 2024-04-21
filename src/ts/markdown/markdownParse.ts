@@ -11,7 +11,7 @@ export var HeaderList: IHeaderPair[] = [];
 
 //https://marked.js.org/using_pro#renderer
 const renderer = {
-  heading(text, level) {
+  heading(text:string, level:number) {
     const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
     HeaderList.push({ text, level });
     return `
@@ -57,7 +57,7 @@ const renderer = {
 
 marked.use({ renderer });
 
-export function markdownParse(content) {
+export function markdownParse(content: string) {
   HeaderList = [];
   return marked.parse(content);
 }

@@ -7,11 +7,11 @@
  * @param {Int32} timeout
  */
 export function xhr_get(
-  uri,
-  onprogress_cb,
-  onload_cb,
-  onerror_cb,
-  timeout = 10000
+  uri: string,
+  onprogress_cb: (e: Event) => void,
+  onload_cb: (e: Event) => void,
+  onerror_cb: (e: Event) => void,
+  timeout:number = 10000 
 ) {
   let req = {
     method: "GET",
@@ -41,18 +41,18 @@ export function xhr_get(
 /**
  * XMLHttpReq post
  * @param {String} uri
- * @param {JSON} data
+ * @param {string} jsondata
  * @param {Function} onprogress_cb
  * @param {Function} onload_cb
  * @param {Function} onerror_cb
  * @param {Int32} timeout
  */
 export function xhr_post(
-  uri,
-  data,
-  onprogress_cb,
-  onload_cb,
-  onerror_cb,
+  uri: string,
+  data: string,
+  onprogress_cb: Function,
+  onload_cb: (e: Event) => void,
+  onerror_cb: (e: Event) => void,
   timeout = 10000
 ) {
   let req = {
