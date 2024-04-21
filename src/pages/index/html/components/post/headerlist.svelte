@@ -24,8 +24,8 @@
       {#each headerList as headerPair}
         <li>
           <a
-            class="before:content-['\270E'] mr-2 border pl-1 pr-1"
-            href={"#" + escapedText(headerPair.text)}>{" " + headerPair.text}</a
+            class="before:content-['✎'] mr-2 border pl-1 pr-1"
+            href={"#" + escapedText(headerPair.text ?? "")}>{" " + headerPair.text}</a
           >
         </li>
       {/each}
