@@ -82,7 +82,7 @@ const monthsTiny = [
 ];
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-export function FormatDate(d: Date): string {
+export function FormatDate(d: Date | undefined): string {
   if (!d) return "";
   const date = new Date(d);
   const year = date.getFullYear(); // 2019

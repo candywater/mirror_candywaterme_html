@@ -4,7 +4,7 @@
     import { decryptImg } from "@/ts/encryption/aes";
     import { removeSpecialCharsInUrl } from "@/ts/common/common";
 
-    export let url;
+    export let url: string;
 
     onMount(() => {
         decrypt();

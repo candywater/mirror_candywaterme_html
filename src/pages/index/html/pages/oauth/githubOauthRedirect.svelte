@@ -16,7 +16,7 @@
             },
         );
         // Get the value of "some_key" in eg "https://example.com/?some_key=some_value"
-        value = params.code; // "some_value"
+        value = params.code ?? ""; // "some_value"
     });
 </script>
 

@@ -15,7 +15,7 @@ import aesjs from "aes-js";
  * @param {(imgDataUrl : Uint8Array)=>{}} callback eg: 'img'
  * @returns base64string
  */
-async function decryptImg(url: string, key: string, ctrCount: string, callback: (imgDataUrl: Uint8Array) => {}) {
+async function decryptImg(url: string, key: string, ctrCount: string, callback: (imgDataUrl: Uint8Array) => void) {
   var encryptedArray = await (await fetch(url)).arrayBuffer();
   var encryptedBytes = new Uint8Array(encryptedArray);
   var keyBytes = getShareKeyBytes(key);
