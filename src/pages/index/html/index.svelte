@@ -115,9 +115,9 @@
   {:else}
     <Error />
   {/if}
-  <link
+  <!-- <link
     rel="stylesheet"
     href="https://use.typekit.net/epg1wck.css"
     lazyload="1"
-  />
+  /> -->
 </div>

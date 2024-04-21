@@ -1,4 +1,4 @@
 
 declare module 'page.js' {
-    export function page(path: String | Function, fn: String);
+    export default function page(path: String | Function | number, fn?: Function);
 }
