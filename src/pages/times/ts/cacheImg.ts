@@ -1,5 +1,4 @@
 import { Image as CandyImage } from "CandyUtilities";
-import { pageData } from "../ts/newsReader";
 import type { INewspaper } from "./INewsPaper";
 
 // let cacheImg = (imgUrl: string | undefined, imgCacheUrl: string | undefined) => {
@@ -85,15 +84,15 @@ const getDataFromDB = (db: IDBDatabase) => {
         request.onerror = (event) => {
             reject("Error retrieving data from database");
         };
-        request.onsuccess = (event) => {
-            const data = event.target.result;
+        request.onsuccess = (event : Event) => {
+            const data = (event?.target as IDBRequest)?.result;
             resolve(data);
         };
     });
 };
 
 
-const getSingleDataFromDB = (db: IDBDatabase, imgUrl: string) => {
+const getSingleDataFromDB = (db: IDBDatabase, imgUrl: string | undefined) => {
     return new Promise<string>((resolve, reject) => {
         if (!imgUrl) return resolve("");
         const transaction = db.transaction(["Imgs"], "readonly");
@@ -104,8 +103,8 @@ const getSingleDataFromDB = (db: IDBDatabase, imgUrl: string) => {
         request.onerror = (event) => {
             reject("Error retrieving data from database");
         };
-        request.onsuccess = (event) => {
-            const data = event.target.result;
+        request.onsuccess = (event: Event) => {
+            const data = (event?.target as IDBRequest)?.result;
             // console.log(data);
             resolve(data?.imgCacheUrl);
         };
