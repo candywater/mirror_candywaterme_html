@@ -15,7 +15,7 @@
             var image = new Image();
             image.src = imgDataUrl
             // id would be "# + ${url}"
-            document.querySelector(`#${removeSpecialCharsInUrl(url)}`).replaceWith(image);
+            document.querySelector(`#${removeSpecialCharsInUrl(url)}`)?.replaceWith(image);
         });
     }
 </script>
