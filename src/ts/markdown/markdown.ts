@@ -10,7 +10,7 @@ let _content_list: IPostSummary[] = [];
 export async function markDown(
   docurl: string,
   indexUrl: string,
-  contentUrl: string
+  contentUrl: string,
 ): Promise<{
   header: IPostHeader;
   renderedContent: string;
@@ -41,7 +41,7 @@ export async function markDown(
 async function fetchData(
   docurl: string,
   indexUrl: string,
-  contentUrl: string
+  contentUrl: string,
 ): Promise<IPostSummary> {
   let res = await fetch(indexUrl);
   if (!res.ok) return;

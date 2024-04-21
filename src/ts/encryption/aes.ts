@@ -4,7 +4,6 @@
  * "https://bun.sh/guides/binary/arraybuffer-to-blob"
  */
 
-
 import aesjs from "aes-js";
 
 /**
@@ -15,14 +14,19 @@ import aesjs from "aes-js";
  * @param {(base64Text) => void} callback eg: 'img'
  * @returns base64string
  */
-async function decryptImg(url: string, key: string, ctrCount: string, callback: (imgDataUrl: string) => void) {
+async function decryptImg(
+  url: string,
+  key: string,
+  ctrCount: string,
+  callback: (imgDataUrl: string) => void,
+) {
   var encryptedArray = await (await fetch(url)).arrayBuffer();
   var encryptedBytes = new Uint8Array(encryptedArray);
   var keyBytes = getShareKeyBytes(key);
   var decryptedBytes = decryptBytes(
     encryptedBytes,
     keyBytes,
-    parseInt(ctrCount)
+    parseInt(ctrCount),
   );
 
   var blob = new Blob([decryptedBytes]);
@@ -81,10 +85,14 @@ function getShareKeyBytes(key: string) {
  * @param {number} ctrCount
  * @returns Buffer
  */
-function decryptBytes(file: Uint8Array, keyBytes:Uint8Array, ctrCount:number) {
+function decryptBytes(
+  file: Uint8Array,
+  keyBytes: Uint8Array,
+  ctrCount: number,
+) {
   var aesCtr = new aesjs.ModeOfOperation.ctr(
     keyBytes,
-    new aesjs.Counter(ctrCount)
+    new aesjs.Counter(ctrCount),
   );
   var encryptedBytes = aesCtr.decrypt(file);
   return encryptedBytes;
@@ -97,10 +105,14 @@ function decryptBytes(file: Uint8Array, keyBytes:Uint8Array, ctrCount:number) {
  * @param {number} CTRCount
  * @returns Buffer
  */
-function encryptBytes(file: Uint8Array, keyBytes: Uint8Array, CTRCount: number) {
+function encryptBytes(
+  file: Uint8Array,
+  keyBytes: Uint8Array,
+  CTRCount: number,
+) {
   var aesCtr = new aesjs.ModeOfOperation.ctr(
     keyBytes,
-    new aesjs.Counter(CTRCount)
+    new aesjs.Counter(CTRCount),
   );
   var encryptedBytes = aesCtr.encrypt(file);
   return encryptedBytes;
@@ -155,4 +167,4 @@ function fileReaderToDataURL(arrayBuffer: Blob, callback: Function) {
   reader.readAsDataURL(arrayBuffer);
 }
 
-export { decryptImg }
+export { decryptImg };

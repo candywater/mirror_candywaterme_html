@@ -1,4 +1,3 @@
-
 interface INewspaper {
   title: string;
   issue: string;
@@ -24,7 +23,7 @@ interface INewspaper {
       captcha: ILineItem;
       slackui: ILineItem;
       workout: ILineItem;
-    }
+    };
   };
 }
 
@@ -52,9 +51,4 @@ interface ILineItermWithTextArray extends Omit<ILineItem, "text"> {
   text: string[];
 }
 
-export type {
-  INewspaper,
-  IAnchor,
-  ILineItem,
-  ILineItermWithTextArray
-}
+export type { INewspaper, IAnchor, ILineItem, ILineItermWithTextArray };

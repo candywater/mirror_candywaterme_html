@@ -21,7 +21,7 @@ export function hex2RGB(str: string): Array<number> {
     return [value >> 16, (value >> 8) & 0xff, value & 0xff];
   } else if (short) {
     return Array.from(short, (s) => Number.parseInt(s, 16)).map(
-      (n) => (n << 4) | n
+      (n) => (n << 4) | n,
     );
   }
 }

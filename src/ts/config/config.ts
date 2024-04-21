@@ -10,4 +10,5 @@ export const current_page_number = writable(0);
 
 export const AesShareKey = readable(atob("Y2FuZHl3YXRlcg=="));
 export const AesCtrCount = readable(atob("Nw=="));
-export const CdnPrefixUrl = "https://candy-img.s3.ap-northeast-1.amazonaws.com/"
+export const CdnPrefixUrl =
+  "https://candy-img.s3.ap-northeast-1.amazonaws.com/";

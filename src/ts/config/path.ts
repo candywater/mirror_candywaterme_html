@@ -1,7 +1,7 @@
 import { writable } from "svelte/store";
 
 export const INDEX = "main";
-export const TIMES = "times"
+export const TIMES = "times";
 export const ABOUT = "about";
 export const PROJECT = "project";
 export const ESSAY = "essay";

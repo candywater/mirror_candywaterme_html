@@ -145,7 +145,7 @@ export function resolveUrl(base: string, href: string) {
   }
 }
 
-export const noopTest = { exec: function noopTest() { } };
+export const noopTest = { exec: function noopTest() {} };
 
 export function merge(obj: Record<string, string>) {
   let i = 1,
@@ -168,18 +168,18 @@ export function splitCells(tableRow: string, count: number) {
   // ensure that every cell-delimiting pipe has a space
   // before it to distinguish it from an escaped pipe
   const row = tableRow.replace(/\|/g, (match, offset, str) => {
-    let escaped = false,
-      curr = offset;
-    while (--curr >= 0 && str[curr] === "\\") escaped = !escaped;
-    if (escaped) {
-      // odd number of slashes means | is escaped
-      // so we leave it alone
-      return "|";
-    } else {
-      // add space before unescaped |
-      return " |";
-    }
-  }),
+      let escaped = false,
+        curr = offset;
+      while (--curr >= 0 && str[curr] === "\\") escaped = !escaped;
+      if (escaped) {
+        // odd number of slashes means | is escaped
+        // so we leave it alone
+        return "|";
+      } else {
+        // add space before unescaped |
+        return " |";
+      }
+    }),
     cells = row.split(/ \|/);
   let i = 0;
 
@@ -261,7 +261,7 @@ export function findClosingBracket(str: string, b: Array<string>) {
 export function checkSanitizeDeprecation(opt) {
   if (opt && opt.sanitize && !opt.silent) {
     console.warn(
-      "marked(): sanitize and sanitizer parameters are deprecated since version 0.7.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/#/USING_ADVANCED.md#options"
+      "marked(): sanitize and sanitizer parameters are deprecated since version 0.7.0, should not be used and will be removed in the future. Read more here: https://marked.js.org/#/USING_ADVANCED.md#options",
     );
   }
 }

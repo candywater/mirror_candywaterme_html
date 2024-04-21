@@ -11,7 +11,7 @@ export function xhr_get(
   onprogress_cb: (e: Event) => void,
   onload_cb: (e: Event) => void,
   onerror_cb: (e: Event) => void,
-  timeout:number = 10000 
+  timeout: number = 10000,
 ) {
   let req = {
     method: "GET",
@@ -53,7 +53,7 @@ export function xhr_post(
   onprogress_cb: Function,
   onload_cb: (e: Event) => void,
   onerror_cb: (e: Event) => void,
-  timeout = 10000
+  timeout = 10000,
 ) {
   let req = {
     method: "POST",

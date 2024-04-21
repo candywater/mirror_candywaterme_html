@@ -11,7 +11,7 @@ export var HeaderList: IHeaderPair[] = [];
 
 //https://marked.js.org/using_pro#renderer
 const renderer = {
-  heading(text:string, level:number) {
+  heading(text: string, level: number) {
     const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
     HeaderList.push({ text, level });
     return `
@@ -38,7 +38,7 @@ const renderer = {
     if (href.endsWith("aes")) {
       return `<figure class="relative max-w-sm transition-all filter transition-opacity hover:opacity-90">
       <img class="rounded-lg" src="#" alt="${text}" title="${title}" id="${removeSpecialCharsInUrl(
-        href
+        href,
       )}">
       <figcaption class="absolute px-4 text-lg text-white bottom-6 drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">
           <p>${text}</p>

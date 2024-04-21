@@ -36,15 +36,15 @@ export function yamlParse(content): IPostHeader {
       if (value.match(/^\d{4}-\d{1,2}-\d{1,2}\s+[\+\-]\d{4}$/)) {
         let timezone = value.replace(
           /^(\d{4})-(\d{1,2})-(\d{1,2})\s+([\+\-]\d{4})$/,
-          "$4"
+          "$4",
         );
         let [timeZoneHours, timeZoneMinutes] = getTimeZone(timezone);
-        
+
         let time = new Date(
           value.replace(
             /^(\d{4})-(\d{1,2})-(\d{1,2})\s+[\+\-](\d{4})$/,
-            "$1-$2-$3T00:00:00.000Z"
-          )
+            "$1-$2-$3T00:00:00.000Z",
+          ),
         );
         time = new Date(time.setHours(time.getHours() - timeZoneHours));
         time = new Date(time.setMinutes(time.getMinutes() - timeZoneMinutes));
@@ -56,15 +56,15 @@ export function yamlParse(content): IPostHeader {
       ) {
         let timezone = value.replace(
           /^(\d{4})-(\d{1,2})-(\d{1,2})\s+(\d{1,2}:\d{1,2})\s+([\+\-]\d{4})$/,
-          "$5"
+          "$5",
         );
         let [timeZoneHours, timeZoneMinutes] = getTimeZone(timezone);
-        
+
         let time = new Date(
           value.replace(
             /^(\d{4})-(\d{1,2})-(\d{1,2})\s+(\d{1,2}):(\d{1,2})\s+[\+\-](\d{4})$/,
-            "$1-$2-$3T$4:$5:00.000Z"
-          )
+            "$1-$2-$3T$4:$5:00.000Z",
+          ),
         );
         time = new Date(time.setHours(time.getHours() - timeZoneHours));
         time = new Date(time.setMinutes(time.getMinutes() - timeZoneMinutes));
@@ -78,15 +78,18 @@ export function yamlParse(content): IPostHeader {
 }
 
 /**
- * 
+ *
  * @param {string} timeZoneString "+0900"
  * @returns
  */
-function getTimeZone(timeZoneString){
-  let timeZonePlus = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$1")
-  let timeZoneHours = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$2")
-  let timeZoneMinutes = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$3")
-  return [parseInt(timeZonePlus + timeZoneHours), parseInt(timeZonePlus + timeZoneMinutes)]
+function getTimeZone(timeZoneString) {
+  let timeZonePlus = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$1");
+  let timeZoneHours = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$2");
+  let timeZoneMinutes = timeZoneString.replace(/([+-])(\d\d)(\d\d)/, "$3");
+  return [
+    parseInt(timeZonePlus + timeZoneHours),
+    parseInt(timeZonePlus + timeZoneMinutes),
+  ];
 }
 
 export function extractYaml(content): [string, string] {

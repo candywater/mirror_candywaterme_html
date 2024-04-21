@@ -81,7 +81,7 @@ export function get_comments_and_reload_comment_area() {
     loading_comment,
     draw_comments,
     when_xhr_error,
-    TIMEOUT_MILI_SECONDS
+    TIMEOUT_MILI_SECONDS,
   );
 }
 
@@ -108,8 +108,9 @@ function loading_comment() {
  * @private
  */
 function remove_spinner() {
-  var spinner : NodeListOf<Element> = document.querySelectorAll(".lds-dual-ring");
-  spinner.forEach((val : Element) => {
+  var spinner: NodeListOf<Element> =
+    document.querySelectorAll(".lds-dual-ring");
+  spinner.forEach((val: Element) => {
     val?.parentNode?.removeChild(val);
   });
 }
@@ -128,9 +129,9 @@ function get_readable_time(t: Date): string {
  * @param {string} comment_list
  * @private
  */
-function draw_comments(comment_list : string) {
+function draw_comments(comment_list: string) {
   remove_spinner();
-  var deserilized_comment_list : CommentModel[] = []
+  var deserilized_comment_list: CommentModel[] = [];
   try {
     deserilized_comment_list = JSON.parse(comment_list);
   } catch (e) {
@@ -199,7 +200,7 @@ function input_check(comment: string, username: string, useremail: string) {
 function create_comment_data(
   comment: string,
   username: string,
-  useremail: string
+  useremail: string,
 ): string {
   var uri = new URL(document.URL);
   let url = uri.pathname;
@@ -234,7 +235,7 @@ export function insert_new_comment() {
     jsondata,
     null,
     when_post_finish,
-    when_xhr_error
+    when_xhr_error,
   );
 }
 
