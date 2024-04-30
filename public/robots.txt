@@ -1,0 +1,7 @@
+User-agent: Googlebot, bingbot, Baiduspider
+Disallow: /assets/
+Allow: /blog/tech/
+Allow: /blog/essay/
+Allow: /project/
+Allow: /about/
+Sitemap: https://candywaters.com/sitemap.xml

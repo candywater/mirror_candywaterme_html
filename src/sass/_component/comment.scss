@@ -1,0 +1,104 @@
+#{$namespace} {
+  #comment_alert {
+    font-size: 0.75rem;
+    background-color: rgb(173, 205, 231);
+    margin: 0rem 0rem 0.2rem 0rem;
+    padding: 0rem 0.3rem;
+  }
+  #comment_input_area {
+    font-size: 100%;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: gainsboro;
+    margin-bottom: 1rem;
+    padding: 0.5rem, 0.5rem, 0.9rem, 0.5rem;
+
+    textarea[name="comment"] {
+      border: none;
+      height: 120px;
+      width: 100%;
+      background: transparent;
+      resize: none;
+    }
+    textarea[name="comment"] + div {
+      margin-left: 0.1rem;
+      margin-bottom: 0.1rem;
+      div {
+        display: inline-block;
+        label {
+          font-size: 0.8rem;
+          // width: 5.2rem;
+          display: inline-block;
+        }
+        button {
+          height: 1.3rem;
+        }
+      }
+    }
+    .btn {
+      font-size: 0.8rem;
+      line-height: 1.15;
+      color: #212529;
+      // display: inline-block;
+      // font-weight: 400;
+      // text-align: center;
+      // vertical-align: middle;
+      cursor: pointer;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+      background-color: transparent;
+      border: 1px solid;
+      padding: 0rem 0.125rem;
+      // font-size: 1rem;
+      // line-height: 1.5;
+      border-radius: 0.2rem;
+      transition:
+        color 0.15s ease-in-out,
+        background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
+    }
+    .btn:hover {
+      color: #212529;
+      text-decoration: none;
+    }
+    .btn-outline-dark:hover {
+      color: #fff;
+      background-color: #343a40;
+      border-color: #343a40;
+    }
+    .btn-outline-dark {
+      color: #343a40;
+      border-color: #343a40;
+    }
+  }
+
+  #comments {
+    margin: 1rem 0rem;
+    display: grid;
+    .card {
+      display: flex;
+      margin: 0.2rem 3rem 0.2rem 1rem;
+      min-width: 0;
+      word-wrap: break-word;
+      background-color: rgb(224, 224, 224);
+      background-clip: border-box;
+      // border: 1px solid rgba(0,0,0,.125);
+      // border-radius: .25rem;
+    }
+    .comment-header {
+      display: flex;
+      justify-content: space-between;
+      margin-right: 3rem;
+      .timestamp {
+        font-size: smaller;
+      }
+    }
+    .comment {
+      border-bottom: 1px solid #e1e1e1;
+    }
+  }
+}
