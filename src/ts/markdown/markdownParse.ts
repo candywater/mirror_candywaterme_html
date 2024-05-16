@@ -53,6 +53,28 @@ const renderer = {
     </figcaption>
   </figure>`;
   },
+  code(code: string, language: string) {
+    return `<pre><code class="language-html block whitespace-pre overflow-x-scroll">${escape(code, true)}</code></pre>`;
+  },
+  tablerow(content: string) {
+    return `<tr class="bg-white text-gray-900 border-b">${content}</tr>`;
+  },
+  tablecell(content: string, flags: { header: boolean; align: "center" | "left" | "right" | null }) {
+    const type = flags.header ? "th" : "td";
+    // const attributes = flags.header ? `  scope="col" class="px-6 py-3 pd-2"` : ` class="px-6 py-4 pd-2"`;
+    const tag = flags.align ? `<${type} align="${flags.align}">` : `<${type}>`;
+    return `${tag}${content}</${type}>\n`;
+  },
+  //https://flowbite.com/docs/components/tables/
+  table(header: string, body: string) {
+    return `<div class="relative overflow-x-auto  ">
+      <table class="w-full text-sm text-left rtl:text-right">
+        <thead class="text-xs uppercase">${header}</thead>
+        <tbody>${body}</tbody>
+      </table>
+    </div>
+    `;
+  },
 };
 
 marked.use({ renderer });
