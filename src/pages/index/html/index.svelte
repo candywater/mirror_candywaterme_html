@@ -16,7 +16,6 @@
   import Project from "./pages/project.svelte";
   import Tech from "./pages/tech.svelte";
   import Essay from "./pages/essay.svelte";
-  import Random from "./pages/random.svelte";
 
   import Blog from "./pages/blog.svelte";
   import Pureblog from "./pages/pureblog.svelte";
@@ -96,8 +95,6 @@
     <Essay />
   {:else if $path === YEAR_SUMMARY}
     <YearSummary />
-  {:else if $path === RANDOM}
-    <Random />
   {:else if $path === BLOG && $CurrentPageType == ESSAY}
     <Blog {blogpath} indexUrl={ESSAY_INDEX_URL} contentUrl={ESSAY_URL} />
   {:else if $path === BLOG && $CurrentPageType == TECH}

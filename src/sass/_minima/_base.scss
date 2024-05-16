@@ -225,7 +225,6 @@ xl	1280px	@media (min-width: 1280px) { ... }
  */
   .wrapper {
     // max-width: -webkit-calc(#{$content-width} - (#{$spacing-unit} * 2));
-    max-width: calc(#{$content-width} - (#{$spacing-unit} * 2));
     // width: max-content;
     // width: calc(#{$content-width} - (#{$spacing-unit} * 2));
     padding-right: calc($spacing-unit / 2);
@@ -244,6 +243,13 @@ xl	1280px	@media (min-width: 1280px) { ... }
     @include media-query-min(calc($on-laptop + 7.5rem)) {
       width: calc(#{$content-width} - (#{$spacing-unit}));
     }
+
+    @include media-query-min(calc($on-2klaptop)) {
+      width: calc(#{$content-2kwidth});
+    }
+
+    max-width: calc(#{$content-2kwidth});
+
     background: $background-color;
   }
 

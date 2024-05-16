@@ -20,9 +20,9 @@
 </svelte:head>
 
 <SideMainMenuLayout>
-  <main class="page-content" aria-label="Content">
+  <div class="page-content" aria-label="Content">
     <div class="wrapper">
       <PostList {docListUrl} />
     </div>
-  </main>
+  </div>
 </SideMainMenuLayout>

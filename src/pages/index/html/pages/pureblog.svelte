@@ -9,8 +9,8 @@
   let docUrl: string = BlogUrl2DocUrl(blogpath);
 </script>
 
-<main class="page-content" aria-label="Content">
+<div class="page-content" aria-label="Content">
   <div class="wrapper">
     <Post {docUrl} {indexUrl} {contentUrl} />
   </div>
-</main>
+</div>
