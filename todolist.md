@@ -36,7 +36,7 @@ or
 + []loading 时页面变小的问题（chrome）
 + [x]缩小svelte 编译时间
 + []gRPC
-+ []comment server(rust/c#)
++ [x]comment server(rust/c#)
 + []image do not download server
 + []add test/jest etc
 + [x]pagination
@@ -45,6 +45,7 @@ or
 + []upgrade to svelte kit
 + []use svelte kit router
 + [x]encrypt with https://github.com/ricmoo/aes-js
++ [] 2k screen support
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
