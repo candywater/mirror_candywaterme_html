@@ -7,10 +7,11 @@
 </script>
 
 <li>
-  <span class="post-meta">{FormatDateSimple(post.date)}</span>
-
   <h2>
-    <a class="post-link capitalize" href={post.url}>{post.title}</a>
+    <div class="flex">
+      <a class="post-link capitalize" href={post.url}>{post.title}</a>
+      <span class="post-meta ml-5 ">{FormatDateSimple(post.date)}</span>
+    </div>
     <p class="main-tags"><span>{post.summary}</span></p>
     <p class="main-tags">
       tags:
@@ -35,5 +36,8 @@
     font-family: /*etna,*/ source-han-sans-simplified-c, sans-serif;
     font-weight: 400;
     font-style: normal;
+  }
+  .flex > span {
+    align-content: center;
   }
 </style>
