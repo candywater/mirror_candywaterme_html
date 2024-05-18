@@ -19,33 +19,39 @@ or
   - read yaml[x]
   - document.txt的优化 
 
-+ [x]gulp -> postcss (cssnano, purecss)  -> result [x] ->[][x] ->
-+ [x]gulp -> typescript [x]->[x]
-+ [x]gulp -> prettier [x]->[x]
-+ [x]gulp -> javascript-obfuscator []->[]
-+ [x]fix fetch 2 times issue[x]
-+ [*]pagination
-+ [*]search
-+ [x]tags
-+ [*]rss
-+ []highlight js
-+ [x]搜索0的时候加反馈
-+ []搜索的2级页
-+ [x]压缩md file
-+ []terminal matrix
-+ []loading 时页面变小的问题（chrome）
-+ [x]缩小svelte 编译时间
-+ []gRPC
-+ [x]comment server(rust/c#)
-+ []image do not download server
-+ []add test/jest etc
-+ [x]pagination
-+ [x]background switcher button 
-+ [x]background switcher feature
-+ []upgrade to svelte kit
-+ []use svelte kit router
-+ [x]encrypt with https://github.com/ricmoo/aes-js
-+ [] 2k screen support
++ [x] gulp -> postcss (cssnano, purecss)  -> result [x] ->[][x] ->
++ [x] gulp -> typescript [x]->[x]
++ [x] gulp -> prettier [x]->[x]
++ [x] gulp -> javascript-obfuscator []->[]
++ [x] fix fetch 2 times issue[x]
++ [x] tags
++ [x] 搜索0的时候加反馈
++ [x] 压缩md file
++ [x] 缩小svelte 编译时间
++ [x] comment server(rust/c#)
++ [x] image do not download server
++ [x] pagination
++ [x] background switcher button 
++ [x] background switcher feature
++ [x] encrypt with https://github.com/ricmoo/aes-js
++ [x] 2k screen support
++ [*] pagination
++ [*] search
++ [*] rss
++ [ ] highlight js
++ [ ] 搜索的2级页
++ [ ] terminal matrix
++ [ ] loading 时页面变小的问题（chrome）
++ [ ] gRPC
++ [ ] use svelte kit router
++ [ ] add test/jest etc
++ [ ] split scss
++ [ ] email trigger for blog
++ [ ] protobuf for something
++ [ ] search this article
+
+## will not do
++ [ ]upgrade to svelte kit
 
 ### ref
 https://themesberg.com/blog/design/tailwind-css-vs-bootstrap
