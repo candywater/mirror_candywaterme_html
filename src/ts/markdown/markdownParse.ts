@@ -54,7 +54,7 @@ const renderer = {
   </figure>`;
   },
   code(code: string, language: string) {
-    return `<pre><code class="language-html block whitespace-pre overflow-x-auto">${escape(code, true)}</code></pre>`;
+    return `<pre><code class="language-${language} block whitespace-pre overflow-x-auto">${escape(code, true)}</code></pre>`;
   },
   tablerow(content: string) {
     return `<tr class="bg-white text-gray-900 border-b">${content}</tr>`;
