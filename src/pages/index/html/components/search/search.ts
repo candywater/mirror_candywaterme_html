@@ -9,12 +9,14 @@ function search(key: string, content_list: IPostSummary[]) {
     if (existKey(value.title, key)) {
       addSearchItem(value.title, value.url, value.title, _res_list);
     }
-    if (value?.summaryList?.length ?? 0 > 0) {
+    if (value?.summaryList?.length > 0 && key) {
       var index = existKeyArray(value.summaryList, key);
-      if (index >= 0)
-        addSearchItem(value.summaryList[index] ?? "", value.url, value.title, _res_list);
+      while (index >= 0 && index < value.summaryList.length) {
+        addSearchItem(value.summaryList[index] ?? "", value.url, value.title, _res_list, true);
+        var index = existKeyArray(value.summaryList, key, index + 1);
+      }
     }
-    else if(existKey(value.summary, key)) {
+    else if (existKey(value.summary, key)) {
       addSearchItem(value.summary, value.url, value.title, _res_list);
     }
     if (existKey(value.tags?.toString(), key)) {
@@ -51,11 +53,11 @@ function existKey(search: string | undefined, key: string): boolean {
   return false;
 }
 
-function existKeyArray(search: string[] | undefined, key: string): number {
+function existKeyArray(search: string[] | undefined, key: string, startSearchIndex: number = 0): number {
   if (!search) {
     return -1;
   }
-  for (let i = 0; i < search.length; i++) {
+  for (let i = startSearchIndex; i < search.length; i++) {
     if (search[i].toLowerCase().includes(key.toLowerCase())) {
       return i;
     }
@@ -68,15 +70,19 @@ function addSearchItem(
   url: string | undefined,
   title: string | undefined,
   _res_list: IResultItem[],
+  searchSamePage: boolean = false
 ) {
   if (!value || !url || !title) {
     return _res_list;
   }
+
   let duplicate = false;
   _res_list.forEach((element) => {
     if (element.url == url) duplicate = true;
   });
-  if (duplicate) return;
+
+  if (duplicate && !searchSamePage) return;
+
   _res_list.push({
     result: value,
     url: url,
