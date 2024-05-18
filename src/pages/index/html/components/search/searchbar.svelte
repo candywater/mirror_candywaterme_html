@@ -19,15 +19,27 @@
    *  - https://qiita.com/darai0512/items/fac4f166c23bf2075deb
    *  - https://blog.utgw.net/entry/2021/06/29/212256
    * @param e
+   * 
+   * 
+   * console.log("===========");
+   * console.log((<InputEvent>e).inputType);
+   * console.log((<InputEvent>e).isComposing);
+   * console.log((<InputEvent>e).data);
+   * console.log("===========");
    */
   function oninput(e: Event) {
-    // console.log((<InputEvent>e).inputType);
-    // console.log((<InputEvent>e).isComposing);
-    // console.log((<InputEvent>e).data);
-    // console.log("===========");
     if ((<InputEvent>e).isComposing) return;
-    // if (_is_composing) return;
     _res_list = search((<HTMLInputElement>e.target).value, content_list);
+  }
+
+  function onfocus(e: Event) {
+    if ((<InputEvent>e).isComposing) return;
+    _res_list = search((<HTMLInputElement>e.target).value, content_list);
+  }
+
+  function onsubmit(e: Event) {
+    e.preventDefault();
+    _res_list = search(_search_key, content_list);
   }
 
   function onComposingStart() {
@@ -46,9 +58,10 @@
 
 <!-- https://tailwindcomponents.com/component/search-bar -->
 <!-- This is an example component -->
-<div
+<form
   class="pt-2 mb-2 relative mx-auto text-gray-600 searchbar"
   bind:clientWidth={_width}
+  on:submit={onsubmit}
 >
   <input
     class="border-2 border-gray-300 bg-white h-10 px-5 pr-16 rounded-lg text-sm focus:outline-none"
@@ -58,7 +71,7 @@
     on:input={oninput}
     on:compositionstart={onComposingStart}
     on:compositionend={onComposingEnd}
-    on:focus={oninput}
+    on:focus={onfocus}
     on:focusout={onfocusout}
     bind:value={_search_key}
   />
@@ -95,4 +108,4 @@
       </ul>
     {/each}
   </div>
-</div>
+</form>

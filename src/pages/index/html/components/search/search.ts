@@ -9,7 +9,12 @@ function search(key: string, content_list: IPostSummary[]) {
     if (existKey(value.title, key)) {
       addSearchItem(value.title, value.url, value.title, _res_list);
     }
-    if (existKey(value.summary, key)) {
+    if (value?.summaryList?.length ?? 0 > 0) {
+      var index = existKeyArray(value.summaryList, key);
+      if (index >= 0)
+        addSearchItem(value.summaryList[index] ?? "", value.url, value.title, _res_list);
+    }
+    else if(existKey(value.summary, key)) {
       addSearchItem(value.summary, value.url, value.title, _res_list);
     }
     if (existKey(value.tags?.toString(), key)) {
@@ -44,6 +49,18 @@ function existKey(search: string | undefined, key: string): boolean {
     return true;
   }
   return false;
+}
+
+function existKeyArray(search: string[] | undefined, key: string): number {
+  if (!search) {
+    return -1;
+  }
+  for (let i = 0; i < search.length; i++) {
+    if (search[i].toLowerCase().includes(key.toLowerCase())) {
+      return i;
+    }
+  }
+  return -1;
 }
 
 function addSearchItem(

@@ -34,7 +34,7 @@
     if (!res) return;
 
     _header = res.header;
-    _renderedContent = res.renderedContent;
+    _renderedContent = await res.renderedContent;
     _header_list = res.headerList; // sub headers list
     _content_list = res.contentList; // all posts
 
@@ -43,7 +43,6 @@
       title: "candywater" + (_header ? " - " + _header.title : ""),
     });
     console.log($SiteInfo.title);
-    // console.log(_header);
   });
 </script>
 

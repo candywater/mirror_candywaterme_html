@@ -13,14 +13,14 @@ export async function markDown(
   contentUrl: string,
 ): Promise<{
   header: IPostHeader;
-  renderedContent: string;
+  renderedContent: string | Promise<string>;
   headerList: IHeaderPair[];
   contentList: IPostSummary[];
 }> {
-  if (!docurl) return;
+  if (!docurl) return {};
   // console.log(docurl)
   let res = await fetch(docurl);
-  if (!res.ok) return;
+  if (!res.ok) return {};
   let content: string = await res.text();
 
   let [yamlContent, markdownContent] = extractYaml(content);
@@ -29,12 +29,13 @@ export async function markDown(
 
   // let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
   let renderedContent = markdownParse(markdownContent);
+  let contentList = [{summaryList: markdownContent.split('\n'), url: "#", title: header?.title}];
 
   return {
     header,
     renderedContent,
     headerList: HeaderList,
-    contentList: _content_list,
+    contentList: contentList,
   };
 }
 
