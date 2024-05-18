@@ -35,6 +35,7 @@ or
 + [x] background switcher feature
 + [x] encrypt with https://github.com/ricmoo/aes-js
 + [x] 2k screen support
++ [x] search this article
 + [*] pagination
 + [*] search
 + [*] rss
@@ -48,7 +49,6 @@ or
 + [ ] split scss
 + [ ] email trigger for blog
 + [ ] protobuf for something
-+ [ ] search this article
 
 ## will not do
 + [ ]upgrade to svelte kit
