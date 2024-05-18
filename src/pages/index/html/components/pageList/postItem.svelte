@@ -8,7 +8,7 @@
 
 <li>
   <h2>
-    <div class="flex">
+    <div class="flex items-center">
       <a class="post-link capitalize" href={post.url}>{post.title}</a>
       <span class="post-meta ml-5 ">{FormatDateSimple(post.date)}</span>
     </div>
@@ -36,8 +36,5 @@
     font-family: /*etna,*/ source-han-sans-simplified-c, sans-serif;
     font-weight: 400;
     font-style: normal;
-  }
-  .flex > span {
-    align-content: center;
   }
 </style>
