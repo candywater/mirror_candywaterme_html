@@ -6,6 +6,7 @@
   import TwitterXIcon from "../common/icons/TwitterXIcon.svelte";
   import RssIcon from "../common/icons/RssIcon.svelte";
   import { CurrentPath, ESSAY, TECH } from "@/ts/config/path";
+  import RssFillIcon from "../common/icons/RssFillIcon.svelte";
 </script>
 
 <footer class="$SiteInfo-footer">
