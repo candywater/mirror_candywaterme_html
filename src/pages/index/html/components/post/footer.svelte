@@ -7,6 +7,7 @@
   import RssIcon from "../common/icons/RssIcon.svelte";
   import { CurrentPath, ESSAY, TECH } from "@/ts/config/path";
   import RssFillIcon from "../common/icons/RssFillIcon.svelte";
+  import PersonIcon from "../common/icons/PersonIcon.svelte";
 </script>
 
 <footer class="$SiteInfo-footer">
@@ -35,7 +36,7 @@
 
         {#if $SiteInfo.author}
           <a href={"https://about.me/" + $SiteInfo.author} class="ml-2 mr-2">
-            <BookIcon />
+            <PersonIcon />
           </a>
         {/if}
 

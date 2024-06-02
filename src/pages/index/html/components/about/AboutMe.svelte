@@ -5,8 +5,9 @@
   import GithubIcon from "../common/icons/GithubIcon.svelte";
   import TwitterXIcon from "../common/icons/TwitterXIcon.svelte";
   import BookIcon from "../common/icons/BookIcon.svelte";
-    import RssIcon from "../common/icons/RssIcon.svelte";
-    import RssFillIcon from "../common/icons/RssFillIcon.svelte";
+  import RssIcon from "../common/icons/RssIcon.svelte";
+  import RssFillIcon from "../common/icons/RssFillIcon.svelte";
+  import PersonIcon from "../common/icons/PersonIcon.svelte";
 
   let show_quote = false;
   let site: ISiteInfo = $SiteInfo;
@@ -31,7 +32,7 @@
 
   {#if site.author}
     <a href={"https://about.me/" + site.author} class="ml-2 mr-2">
-      <BookIcon />
+      <PersonIcon />
     </a>
   {/if}
   
