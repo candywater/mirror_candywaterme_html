@@ -45,7 +45,7 @@
         {/if}
         {#if $CurrentPath == TECH}
           <a href="https://candywater.me/doc/_info/tech.xml" class="ml-2 mr-2"
-            ><RssIcon />
+            ><RssFillIcon />
           </a>
         {/if}
       </div>

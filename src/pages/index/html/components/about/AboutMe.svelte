@@ -5,6 +5,8 @@
   import GithubIcon from "../common/icons/GithubIcon.svelte";
   import TwitterXIcon from "../common/icons/TwitterXIcon.svelte";
   import BookIcon from "../common/icons/BookIcon.svelte";
+    import RssIcon from "../common/icons/RssIcon.svelte";
+    import RssFillIcon from "../common/icons/RssFillIcon.svelte";
 
   let show_quote = false;
   let site: ISiteInfo = $SiteInfo;
@@ -32,6 +34,13 @@
       <BookIcon />
     </a>
   {/if}
+  
+  <a href="https://candywater.me/doc/_info/essay.xml" class="ml-2 mr-2">
+    <RssIcon />
+  </a>
+  <a href="https://candywater.me/doc/_info/tech.xml" class="ml-2 mr-2"
+    ><RssFillIcon />
+  </a>
 </span>
 
 <br />
