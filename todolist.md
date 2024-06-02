@@ -49,6 +49,7 @@ or
 + [ ] split scss
 + [ ] email trigger for blog
 + [ ] protobuf for something
++ [ ] add archive list (for tech/essay, show all articles)
 
 ## will not do
 + [ ]upgrade to svelte kit
