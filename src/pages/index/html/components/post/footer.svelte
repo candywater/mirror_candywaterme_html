@@ -4,6 +4,8 @@
   import BookIcon from "../common/icons/BookIcon.svelte";
   import GithubIcon from "../common/icons/GithubIcon.svelte";
   import TwitterXIcon from "../common/icons/TwitterXIcon.svelte";
+  import RssIcon from "../common/icons/RssIcon.svelte";
+  import { CurrentPath, ESSAY, TECH } from "@/ts/config/path";
 </script>
 
 <footer class="$SiteInfo-footer">
@@ -13,13 +15,19 @@
     <div class="footer-col-wrapper flex justify-between">
       <div class="footer-col footer-col-2 inline-flex">
         {#if $SiteInfo.github_username}
-          <a href={"https://github.com/" + $SiteInfo.github_username} class="ml-2 mr-2">
+          <a
+            href={"https://github.com/" + $SiteInfo.github_username}
+            class="ml-2 mr-2"
+          >
             <GithubIcon />
           </a>
         {/if}
 
         {#if $SiteInfo.twitter_username}
-          <a href={"https://twitter.com/" + $SiteInfo.twitter_username} class="ml-2 mr-2">
+          <a
+            href={"https://twitter.com/" + $SiteInfo.twitter_username}
+            class="ml-2 mr-2"
+          >
             <TwitterXIcon />
           </a>
         {/if}
@@ -30,16 +38,16 @@
           </a>
         {/if}
 
-        <!-- {#if $CurrentPath == ESSAY}
-          <a href="https://candywater.me/doc/_info/essay.xml">
-            <div class="nes-icon rss is-a-little-small" /></a
-          >
+        {#if $CurrentPath == ESSAY}
+          <a href="https://candywater.me/doc/_info/essay.xml" class="ml-2 mr-2">
+            <RssIcon />
+          </a>
         {/if}
         {#if $CurrentPath == TECH}
-          <a href="https://candywater.me/doc/_info/tech.xml"
-            ><div class="nes-icon rss is-a-little-small" /></a
-          >
-        {/if} -->
+          <a href="https://candywater.me/doc/_info/tech.xml" class="ml-2 mr-2"
+            ><RssIcon />
+          </a>
+        {/if}
       </div>
 
       <div class="footer-col footer-col-1">
