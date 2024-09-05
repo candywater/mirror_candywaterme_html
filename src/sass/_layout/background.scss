@@ -72,14 +72,14 @@
   );
 }
 @mixin background1 {
-  @include backgroud-gradient(
-    linear-gradient(
+  // @include backgroud-gradient(
+  background:   linear-gradient(
       127deg,
       rgb(87, 44, 31),
       rgb(11, 75, 99),
       rgba(17, 100, 81, 0.534)
     )
-  );
+  // );
 }
 @mixin background2 {
   @include backgroud-gradient(
