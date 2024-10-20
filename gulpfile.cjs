@@ -6,7 +6,7 @@ const postcss = require('gulp-postcss');
 const cssnano = require('cssnano');
 const sass = require('gulp-sass')(require('sass'));
 
-const SCSS_ENTRIES = ["./src/sass/main.scss", "./src/sass/about.scss", "./src/sass/layout.scss"]
+const SCSS_ENTRIES = ["./src/sass/main.scss", "./src/sass/times.scss", "./src/sass/layout.scss"]
 const MINIMACSS_DIR_PATH = ["./src/sass/**/*.scss"]
 const MINIMACSS_OUTPUT = './public/build/sass'
 const DIST_CSS_OUTPUT = './dist/build/sass'
