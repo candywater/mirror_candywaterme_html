@@ -62,21 +62,21 @@
 
   function initialize() {
     page(PATH_DICT[INDEX], () => navigateTo(INDEX));
-    page(PATH_DICT[ABOUT], () => navigateTo(ABOUT));
-    page(PATH_DICT[PROJECT], () => navigateTo(PROJECT));
-    // page(PATH_DICT[ESSAY], () => navigateTo(ESSAY));
-    // page(PATH_DICT[TECH], () => navigateTo(TECH));
-    // page(PATH_DICT[YEAR_SUMMARY], () => navigateTo(YEAR_SUMMARY));
-    // page(PATH_DICT[BLOG], (ctx: any) => {
-    //   navigateTo(BLOG);
-    //   blogpath = ctx.path;
-    //   CurrentPageType.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
-    // });
-    // page(PATH_DICT[BLOG_OTHER], (ctx: any) => {
-    //   navigateTo(BLOG_OTHER);
-    //   blogpath = ctx.path;
-    //   CurrentPageType.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
-    // });
+    // page(PATH_DICT[ABOUT], () => navigateTo(ABOUT));
+    // page(PATH_DICT[PROJECT], () => navigateTo(PROJECT));
+    page(PATH_DICT[ESSAY], () => navigateTo(ESSAY));
+    page(PATH_DICT[TECH], () => navigateTo(TECH));
+    page(PATH_DICT[YEAR_SUMMARY], () => navigateTo(YEAR_SUMMARY));
+    page(PATH_DICT[BLOG], (ctx: any) => {
+      navigateTo(BLOG);
+      blogpath = ctx.path;
+      CurrentPageType.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
+    });
+    page(PATH_DICT[BLOG_OTHER], (ctx: any) => {
+      navigateTo(BLOG_OTHER);
+      blogpath = ctx.path;
+      CurrentPageType.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
+    });
     page(PATH_DICT[GITHUB_OAUTH_CALLBACK], () =>
       navigateTo(GITHUB_OAUTH_CALLBACK),
     );
@@ -89,11 +89,11 @@
 <div>
   {#if $path === INDEX}
     <Index />
-  {:else if $path === ABOUT}
-    <About />
-  {:else if $path === PROJECT}
-    <Project />
-  <!-- {:else if $path === TECH}
+    <!-- {:else if $path === ABOUT}
+      <About />
+    {:else if $path === PROJECT}
+      <Project /> -->
+  {:else if $path === TECH}
     <Tech />
   {:else if $path === ESSAY}
     <Essay />
@@ -110,15 +110,15 @@
       contentUrl={YEAR_SUMMARY_URL}
     />
   {:else if $path === BLOG_OTHER || $path === BLOG}
-    <Blog {blogpath} indexUrl={OTHER_INDEX_URL} contentUrl={OTHER_URL} /> -->
-  <!-- {:else if $path === GITHUB_OAUTH_CALLBACK}
+    <Blog {blogpath} indexUrl={OTHER_INDEX_URL} contentUrl={OTHER_URL} />
+    <!-- {:else if $path === GITHUB_OAUTH_CALLBACK}
     <GithubOauthRedirect /> -->
   {:else}
     <Error />
   {/if}
   <!-- <link
-    rel="stylesheet"
-    href="https://use.typekit.net/epg1wck.css"
-    lazyload="1"
-  /> -->
+      rel="stylesheet"
+      href="https://use.typekit.net/epg1wck.css"
+      lazyload="1"
+    /> -->
 </div>
