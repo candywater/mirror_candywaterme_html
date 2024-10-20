@@ -41,7 +41,7 @@
             <img
                 src="/assets/logos/candywater/signed/candywater.png"
                 alt="candywater"
-                class="candywater"
+                class="candywaterloading"
             />
         {/if}
     </div>
