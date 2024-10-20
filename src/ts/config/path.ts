@@ -16,11 +16,11 @@ const INDEX_PATH = "/";
 const ABOUT_PATH = "/about";
 const PROJECT_PATH = "/project";
 const TIMES_PATH = "/pages/times"; // navigated by nginx and folder structure
-const ESSAY_PATH = "/blog/essay";
-const TECH_PATH = "/blog/tech";
-const YEAR_SUMMARY_PATH = "/blog/year-summary";
-const BLOG_PATH = "/blog/:type/:year/:articlepath";
-const BLOG_OTHER_PATH = "/blog/:type/*";
+const ESSAY_PATH = "/pages/blog/essay";
+const TECH_PATH = "/pages/blog/tech";
+const YEAR_SUMMARY_PATH = "/pages/blog/year-summary";
+const BLOG_PATH = "/pages/blog/:type/:year/:articlepath";
+const BLOG_OTHER_PATH = "/pages/blog/:type/*";
 const RANDOM_PATH = "/random";
 
 export const ESSAY_URL = "/doc/_info/essay.json";
@@ -34,7 +34,7 @@ export const OTHER_INDEX_URL = "/doc/_info/other.txt";
 export const YEAR_SUMMARY_INDEX_URL = "/doc/_info/year-summary.txt";
 
 export const DOC_SRC_URL = "/doc";
-export const BLOG_SRC_URL = "/blog";
+export const BLOG_SRC_URL = "/pages/blog";
 
 export const GITHUB_OAUTH_CALLBACK_URL = "/github/oauth_callback";
 
