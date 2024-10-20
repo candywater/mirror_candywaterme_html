@@ -11,9 +11,9 @@
 
   import page from "page.js";
 
-  import Index from "@/pages/index/html/pages/index.svelte";
-  import About from "@/pages/index/html/pages/about.svelte";
-  import Project from "@/pages/index/html/pages/project.svelte";
+  // import Index from "@/pages/index/html/pages/index.svelte";
+  // import About from "@/pages/index/html/pages/about.svelte";
+  // import Project from "@/pages/index/html/pages/project.svelte";
   import Tech from "@/pages/index/html/pages/tech.svelte";
   import Essay from "@/pages/index/html/pages/essay.svelte";
 
@@ -22,7 +22,7 @@
   import YearSummary from "@/pages/index/html/pages/year-summary.svelte";
   import Error from "@/pages/index/html/error/error.svelte";
 
-  import GithubOauthRedirect from "@/pages/index/html/pages/oauth/githubOauthRedirect.svelte";
+  // import GithubOauthRedirect from "@/pages/index/html/pages/oauth/githubOauthRedirect.svelte";
 
   import {
     INDEX,
@@ -87,13 +87,13 @@
 </script>
 
 <div>
-  {#if $path === INDEX}
-    <Index />
+  <!-- {#if $path === INDEX} -->
+    <!-- <Index /> -->
     <!-- {:else if $path === ABOUT}
       <About />
     {:else if $path === PROJECT}
       <Project /> -->
-  {:else if $path === TECH}
+  {#if $path === TECH}
     <Tech />
   {:else if $path === ESSAY}
     <Essay />

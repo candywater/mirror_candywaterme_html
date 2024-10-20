@@ -14,15 +14,15 @@
   import Index from "@/pages/index/html/pages/index.svelte";
   import About from "@/pages/index/html/pages/about.svelte";
   import Project from "@/pages/index/html/pages/project.svelte";
-  import Tech from "@/pages/index/html/pages/tech.svelte";
-  import Essay from "@/pages/index/html/pages/essay.svelte";
+  // import Tech from "@/pages/index/html/pages/tech.svelte";
+  // import Essay from "@/pages/index/html/pages/essay.svelte";
 
-  import Blog from "@/pages/index/html/pages/blog.svelte";
-  import Pureblog from "@/pages/index/html/pages/pureblog.svelte";
-  import YearSummary from "@/pages/index/html/pages/year-summary.svelte";
+  // import Blog from "@/pages/index/html/pages/blog.svelte";
+  // import Pureblog from "@/pages/index/html/pages/pureblog.svelte";
+  // import YearSummary from "@/pages/index/html/pages/year-summary.svelte";
   import Error from "@/pages/index/html/error/error.svelte";
 
-  import GithubOauthRedirect from "@/pages/index/html/pages/oauth/githubOauthRedirect.svelte";
+  // import GithubOauthRedirect from "@/pages/index/html/pages/oauth/githubOauthRedirect.svelte";
 
   import {
     INDEX,
