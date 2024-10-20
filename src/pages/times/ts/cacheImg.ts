@@ -1,5 +1,5 @@
 import { Image as CandyImage } from "CandyUtilities";
-import type { INewspaper } from "./INewsPaper";
+import type { INewspaper } from "../../../ts/interface/times/INewsPaper";
 
 // let cacheImg = (imgUrl: string | undefined, imgCacheUrl: string | undefined) => {
 //     if (localStorage.getItem(imgCacheUrl ?? "")) {

@@ -3,7 +3,7 @@ import {
   aboutDocFailBackUrl,
 } from "@/ts/config/configReader";
 import type { Readable } from "svelte/store";
-import type { INewspaper } from "./INewsPaper";
+import type { INewspaper } from "../../../ts/interface/times/INewsPaper";
 import { loopNewPaperAndGetImgCache } from "./cacheImg";
 
 let aboutDocUrl = new URL(window.location.href);
