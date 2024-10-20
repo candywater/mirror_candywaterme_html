@@ -54,12 +54,18 @@ const renderer = {
   </figure>`;
   },
   code(code: string, language: string) {
-    return `<pre><code class="language-${language} block whitespace-pre overflow-x-auto">${escape(code, true)}</code></pre>`;
+    return `<pre><code class="language-${language} block whitespace-pre overflow-x-auto">${escape(
+      code,
+      true,
+    )}</code></pre>`;
   },
   tablerow(content: string) {
     return `<tr class="bg-white text-gray-900 border-b">${content}</tr>`;
   },
-  tablecell(content: string, flags: { header: boolean; align: "center" | "left" | "right" | null }) {
+  tablecell(
+    content: string,
+    flags: { header: boolean; align: "center" | "left" | "right" | null },
+  ) {
     const type = flags.header ? "th" : "td";
     // const attributes = flags.header ? `  scope="col" class="px-6 py-3 pd-2"` : ` class="px-6 py-4 pd-2"`;
     const tag = flags.align ? `<${type} align="${flags.align}">` : `<${type}>`;

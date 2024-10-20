@@ -29,7 +29,13 @@ export async function markDown(
 
   // let markdownContent = content.replace(yamlContent, ""); //https://github.com/markedjs/marked/issues/485
   let renderedContent = markdownParse(markdownContent);
-  let contentList = [{summaryList: markdownContent.split('\n').filter(x => x), url: "#", title: header?.title}];
+  let contentList = [
+    {
+      summaryList: markdownContent.split("\n").filter((x) => x),
+      url: "#",
+      title: header?.title,
+    },
+  ];
 
   return {
     header,

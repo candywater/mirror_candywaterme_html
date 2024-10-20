@@ -12,11 +12,16 @@ function search(key: string, content_list: IPostSummary[]) {
     if (value?.summaryList?.length > 0 && key) {
       var index = existKeyArray(value.summaryList, key);
       while (index >= 0 && index < value.summaryList.length) {
-        addSearchItem(value.summaryList[index] ?? "", value.url, value.title, _res_list, true);
+        addSearchItem(
+          value.summaryList[index] ?? "",
+          value.url,
+          value.title,
+          _res_list,
+          true,
+        );
         var index = existKeyArray(value.summaryList, key, index + 1);
       }
-    }
-    else if (existKey(value.summary, key)) {
+    } else if (existKey(value.summary, key)) {
       addSearchItem(value.summary, value.url, value.title, _res_list);
     }
     if (existKey(value.tags?.toString(), key)) {
@@ -53,7 +58,11 @@ function existKey(search: string | undefined, key: string): boolean {
   return false;
 }
 
-function existKeyArray(search: string[] | undefined, key: string, startSearchIndex: number = 0): number {
+function existKeyArray(
+  search: string[] | undefined,
+  key: string,
+  startSearchIndex: number = 0,
+): number {
   if (!search) {
     return -1;
   }
@@ -70,7 +79,7 @@ function addSearchItem(
   url: string | undefined,
   title: string | undefined,
   _res_list: IResultItem[],
-  searchSamePage: boolean = false
+  searchSamePage: boolean = false,
 ) {
   if (!value || !url || !title) {
     return _res_list;
