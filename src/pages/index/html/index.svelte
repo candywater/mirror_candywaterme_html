@@ -22,7 +22,7 @@
   import YearSummary from "./pages/year-summary.svelte";
   import Error from "./error/error.svelte";
 
-  import GithubOauthRedirect from "./pages/oauth/githubOauthRedirect.svelte"
+  import GithubOauthRedirect from "./pages/oauth/githubOauthRedirect.svelte";
 
   import {
     INDEX,
@@ -48,38 +48,42 @@
     OTHER_URL,
   } from "@/ts/config/path";
   import PATH_DICT from "@/ts/config/path";
-    import { loadBackgroundColor } from "@/ts/common/ui";
+  import { loadBackgroundColor } from "@/ts/common/ui";
 
   let blogpath: string = "";
 
-  page(PATH_DICT[INDEX], () => navigateTo(INDEX));
-  page(PATH_DICT[ABOUT], () => navigateTo(ABOUT));
-  page(PATH_DICT[PROJECT], () => navigateTo(PROJECT));
-  page(PATH_DICT[ESSAY], () => navigateTo(ESSAY));
-  page(PATH_DICT[TECH], () => navigateTo(TECH));
-  page(PATH_DICT[YEAR_SUMMARY], () => navigateTo(YEAR_SUMMARY));
-  page(PATH_DICT[BLOG], (ctx: any) => {
-    navigateTo(BLOG);
-    blogpath = ctx.path;
-    CurrentPageType.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
-  });
-  page(PATH_DICT[BLOG_OTHER], (ctx: any) => {
-    navigateTo(BLOG_OTHER);
-    blogpath = ctx.path;
-    CurrentPageType.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
-  });
-  page(PATH_DICT[GITHUB_OAUTH_CALLBACK], () => navigateTo(GITHUB_OAUTH_CALLBACK));
+  initialize();
 
-  page(404);
-  loadBackgroundColor();
-
-  function navigateTo(pagename : string) {
+  function navigateTo(pagename: string) {
     path.set(pagename);
     //window.history.pushState({}, null, PATH_DICT[pagename]);
     // console.log(PATH_DICT[pagename]);
   }
 
+  function initialize() {
+    page(PATH_DICT[INDEX], () => navigateTo(INDEX));
+    page(PATH_DICT[ABOUT], () => navigateTo(ABOUT));
+    page(PATH_DICT[PROJECT], () => navigateTo(PROJECT));
+    page(PATH_DICT[ESSAY], () => navigateTo(ESSAY));
+    page(PATH_DICT[TECH], () => navigateTo(TECH));
+    page(PATH_DICT[YEAR_SUMMARY], () => navigateTo(YEAR_SUMMARY));
+    page(PATH_DICT[BLOG], (ctx: any) => {
+      navigateTo(BLOG);
+      blogpath = ctx.path;
+      CurrentPageType.set(ctx.params.type); // only ESSAY/TECH, restricted by below html
+    });
+    page(PATH_DICT[BLOG_OTHER], (ctx: any) => {
+      navigateTo(BLOG_OTHER);
+      blogpath = ctx.path;
+      CurrentPageType.set(ctx.params.type); // YEAR_SUMMARY or any others, restricted by below html
+    });
+    page(PATH_DICT[GITHUB_OAUTH_CALLBACK], () =>
+      navigateTo(GITHUB_OAUTH_CALLBACK),
+    );
 
+    page(404);
+    loadBackgroundColor();
+  }
 </script>
 
 <div>
