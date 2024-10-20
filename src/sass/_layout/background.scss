@@ -1,5 +1,8 @@
 /*
   idea: https://codepen.io/P1N2O/pen/pyBNzX
+  // https://codepen.io/abdelrhmansaid/pen/OJRNOpQ
+  // https://codepen.io/team/jotform/pen/XWmqoMp
+  // https://codepen.io/ste-vg/pen/GqaZbo
 
   images
     https://unsplash.com/photos/DhcJG8UA3tw
@@ -13,7 +16,7 @@
     https://unsplash.com/photos/5y_i4P17zNk
 */
 
-// animation
+// animation - 35s
 @mixin backgroud-gradient($background) {
   background: $background;
   background-size: 400% 400%;
@@ -32,7 +35,7 @@
   }
 }
 
-// animation
+// animation - 3s
 @mixin backgroud-gradient-quick($background) {
   background: $background;
   background-size: 400% 400%;
@@ -50,10 +53,6 @@
     }
   }
 }
-
-// https://codepen.io/abdelrhmansaid/pen/OJRNOpQ
-// https://codepen.io/team/jotform/pen/XWmqoMp
-// https://codepen.io/ste-vg/pen/GqaZbo
 
 //with animation
 @mixin background0 {
