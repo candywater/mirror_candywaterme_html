@@ -12,7 +12,7 @@ import {
   DEFAULT_PLACE_HOLDER_MSG,
 } from "../config/comment";
 import { writable } from "svelte/store";
-import type { CommentModel } from "./commentModel";
+import type { CommentModel } from "../interface/ICommentModel";
 
 const COMMENT_API_URL = "/comments";
 const COMMENT_API_GET_SINGLE_PAGE = COMMENT_API_URL + "/getforblog?blogurl=";
