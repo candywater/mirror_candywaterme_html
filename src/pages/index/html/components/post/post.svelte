@@ -5,7 +5,7 @@
   import { FormatDate } from "@/ts/common/common";
   import { onMount } from "svelte";
 
-  import PostArrow from '@/pages/components/postArrow.svelte';
+  import PostArrow from '@/components/postArrow.svelte';
   import { markDown } from "@/ts/markdown/markdown";
   import Comment from "../comment/comment.svelte";
   import Spinner from "../common/icons/Spinner.svelte";

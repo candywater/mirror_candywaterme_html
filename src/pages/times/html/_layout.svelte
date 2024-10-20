@@ -1,5 +1,5 @@
 <script lang="ts">
-    import PostArrow from "@/pages/components/postArrow.svelte";
+    import PostArrow from "@/components/postArrow.svelte";
     import Header from "./header.svelte";
     import Footer from "./footer.svelte";
     import SideMainMenuLayout from "@/pages/index/html/template/SideMainMenuLayout.svelte";
