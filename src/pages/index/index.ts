@@ -1,4 +1,4 @@
-import Router from "./pages/index/html/index.svelte";
+import Router from "./html/index.svelte";
 
 document.body.innerHTML = "";
 const app = new Router({

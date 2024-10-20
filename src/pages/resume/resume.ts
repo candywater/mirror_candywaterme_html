@@ -1,4 +1,4 @@
-import App from "./pages/times/html/index.svelte";
+import App from "./html/index.svelte";
 
 document.body.innerHTML = "";
 const app = new App({
