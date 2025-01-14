@@ -79,3 +79,33 @@ export function xhr_post(
   xhr.onerror = onerror_cb;
   xhr.send(data);
 }
+
+export function xhr_put(
+  uri: string,
+  data: string,
+  onprogress_cb: Function,
+  onload_cb: (e: Event) => void,
+  onerror_cb: (e: Event) => void,
+  timeout = 10000,
+) {
+  let req = {
+    method: "PUT",
+    uri: uri,
+    timeout: timeout,
+  };
+
+  let xhr = new XMLHttpRequest();
+  xhr.timeout = req.timeout; //can not wait for more than 3 seconds!!
+  xhr.responseType = "text";
+  xhr.open(req.method, req.uri, true);
+  xhr.setRequestHeader("Content-Type", "application/json; charset=utf-8");
+  xhr.onprogress = function () {
+    if (onprogress_cb) onprogress_cb();
+  };
+  xhr.onload = function (res: any) {
+    if (onload_cb) onload_cb(res.target.responseText);
+    console.log("put onload success");
+  };
+  xhr.onerror = onerror_cb;
+  xhr.send(data);
+}

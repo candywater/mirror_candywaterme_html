@@ -18,6 +18,9 @@
   import type { IPostSummary } from "@/ts/interface/IPostSummary";
   // import Aes from "../encryption/_aes.svelte";
   import AesImage from "../encryption/aesImage.svelte";
+  import {
+    put_update_visitor_count
+  } from "@/ts/api/visitorCount"
 
   export let docUrl: string;
   export let indexUrl: string;
@@ -28,6 +31,7 @@
   let _renderedContent: string;
   let _header: IPostHeader;
   let _header_list: IHeaderPair[] = [];
+  let _visitor_count: string = "0";
 
   onMount(async () => {
     let res = await markDown(docUrl, indexUrl, contentUrl);
@@ -43,7 +47,14 @@
       title: "candywater" + (_header ? " - " + _header.title : ""),
     });
     console.log($SiteInfo.title);
+
+    put_update_visitor_count(set_visitor_count);
   });
+
+  function set_visitor_count(responseText: string){
+    console.log(responseText)
+    _visitor_count = responseText;
+  }
 </script>
 
 <svelte:head>
@@ -77,6 +88,8 @@
           {FormatDate(_header?.date)}
         {/if}
       </time>
+
+      <span>Visited({_visitor_count})</span>
 
       <Headerlist headerList={_header_list} />
     </p>

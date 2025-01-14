@@ -37,6 +37,7 @@
     _comment_text_revert = "";
     //console.log(_comment_text_revert);
   }
+
 </script>
 
 <div id="comment_alert" class="normal-case">
